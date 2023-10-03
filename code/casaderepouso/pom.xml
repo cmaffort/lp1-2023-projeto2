@@ -21,6 +21,7 @@
           
     <module>View-jsp</module>
     <module>DAO-MySQL</module>
+    <module>proj_web</module>
   </modules>
       
   <properties>
