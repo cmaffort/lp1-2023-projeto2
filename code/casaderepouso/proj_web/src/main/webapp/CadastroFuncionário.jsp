@@ -9,9 +9,26 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Cadastro de Funcionário</title>
+        <link rel="stylesheet" type="text/css" href="/cssFiles/cadastroFuncionario.css">
     </head>
     <body>
-        <h1>Hello World!</h1>
+        <div class="fundoAzul">
+            <h1>Cadastro de funcionário</h1>
+            <form>
+                <label>Nome completo:<br><input type="text"></label><br>
+                <label>CPF:<br><input type="text"></label><br>
+                <label>Endereço completo:<br><input type="text"></label><br>
+                <label>Número de contato:<br><input type="text"></label><br>
+                <label>PIS:<br><input type="text"></label><br>
+                <label>Função:<br><input type="text"></label><br>
+                <label>Período de trabalho:<br><input type="file"></label><br>
+                <label>Anexar Identidade:<br><input type="file"></label><br>
+                <label>Anexar Carteira de Trabalho Digital:<br><input type="file"></label><br>
+                <label>Cadastrar:<input type="submit"></label>
+            </form>
+        </div>
+        <div class="fundoBranco"></div>
+        
     </body>
 </html>
