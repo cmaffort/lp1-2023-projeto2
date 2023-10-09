@@ -1,0 +1,16 @@
+body {
+    display: flex;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+}
+
+#botoes {
+    width: 30%;
+    background-color: white;
+}
+
+#dadosFunc {
+    width: 70%;
+    background-color: #76A5DC;
+}
