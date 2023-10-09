@@ -7,11 +7,29 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
     Author     : Master
 */
 
+article {
+    background-color: white;
+    width: 10vw;
+    height: 88vh;
+
+    color: white;
+    padding: 2% 5% 5% 5%;
+    font-size: 140%;
+    color: black;
+}
+
+body {
+    background-color: #76A5DC;
+    margin: 0;
+}
 .Botao {
+  width: 20vw;
+  height: 5vh;
   border: 0;
   line-height: 2.5;
   padding: 0 20px;
   font-size: 1rem;
+  font-family: 'Gabarito', cursive;
   text-align: center;
   color: black;
   border-radius: 10px;
