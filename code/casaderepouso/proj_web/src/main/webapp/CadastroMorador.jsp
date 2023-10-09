@@ -9,12 +9,12 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Cadastro de Funcionário</title>
+        <title>Cadastro de Moradores</title>
         <link rel="stylesheet" type="text/css" href="/cssFiles/cadastroFuncionario.css">
     </head>
     <body>
         <div class="fundoAzul">
-            <h1>Cadastro de funcionário</h1>
+            <h1>Cadastro de Morador</h1>
             <form>
                 <label>Nome completo:<br><input type="text"></label><br>
                 <label>Nascimento<br><input type="date"></label><br>
