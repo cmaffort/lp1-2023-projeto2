@@ -7,23 +7,47 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
+
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Cadastro de Moradores</title>
-        <link rel="stylesheet" type="text/css" href="/cssFiles/cadastroFuncionario.css">
+      <title>Cadastro de Morador</title>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="stylesheet" type="text/css" href="cssFiles/Cadastro.css">
     </head>
+
     <body>
-        <div class="fundoAzul">
-            <h1>Cadastro de Morador</h1>
-            <form>
-                <label>Nome completo:<br><input type="text"></label><br>
-                <label>Nascimento<br><input type="date"></label><br>
-                <label>Endereço completo:<br><input type="text"></label><br>
-                <label>Nome da mãe<br><input type="text"></label><br>
-                <label>Anexar Identidade:<br><input type="file"></label><br>
-                <label>Próximo<input type="submit"></label>
-            </form>
-        </div>
-        <div class="fundoBranco"></div>
-    </body>
+      <article>
+        <h1>Cadastro de Morador</h1>
+        <form class="form-container" method="POST">
+          <div class="form-group">
+            <label>Seu nome completo:</label>
+            <input type="text" id="nomeVisitante" class="texto" placeholder="Digite aqui..." required>
+          </div>
+
+          <div class="form-group">
+            <label>Data de Nascimento:</label>
+            <input type="date" for="nascimento" class="texto" required>
+          </div>
+
+          <div calss="form-group">
+            <label>Endereço completo:</label>
+            <input type="text" id="endereco" class="texto" placeholder="Digite aqui..." required>
+          </div>
+
+          <div class="form-group">
+            <label>Nome da mãe:</label>
+            <input type="text" id="nome_mae" class="texto" placeholder="Digite aqui..." required>
+          </div>
+            
+          <div class="form-group">
+            <label>Foto frente e verso do RG, CPF e outros caso seja necessário</label>
+            <input type="file" name="fotoidentidade" id="identidade" accept="image/*" style="display:none;" required/><br>
+            <label id="label_identidade"for="identidade">Escolha uma imagem</label>
+          </div>
+            
+          <input type="submit" value="Próximo">
+
+        </form>
+      </article>
+    </body> 
 </html>
