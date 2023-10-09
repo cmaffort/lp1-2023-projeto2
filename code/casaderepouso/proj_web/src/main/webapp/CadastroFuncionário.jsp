@@ -10,7 +10,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Cadastro de Funcionário</title>
-        <link rel="stylesheet" type="text/css" href="/cssFiles/cadastroFuncionario.css">
+        <link rel="stylesheet" type="text/css" href="cssFiles/cadastroFuncionario.css">
     </head>
     <body>
         <div class="fundoAzul">
