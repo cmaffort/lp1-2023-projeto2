@@ -8,21 +8,26 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
 */
 
 article {
-    background-color: white;
-    width: 10vw;
+    background-color: #76A5DC;
+    width: 70vw;
     height: 88vh;
-
+    font-family: 'Gabarito', cursive;
     color: white;
     padding: 2% 5% 5% 5%;
     font-size: 140%;
-    color: black;
+    color: white;
+    float: right;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
 }
 
 body {
-    background-color: #76A5DC;
+    background-color: white;
     margin: 0;
 }
 .Botao {
+  font-family: 'Gabarito', cursive;
   width: 20vw;
   height: 5vh;
   border: 0;
@@ -47,4 +52,19 @@ body {
   box-shadow:
     inset -2px -2px 3px rgba(255, 255, 255, 0.6),
     inset 2px 2px 3px rgba(0, 0, 0, 0.6);
+}
+#container-opcoes{
+    border-radius: 60px 0px;
+    background-color: rgba(164, 203, 249, 0.50);
+    width: 125vh;
+    height: 80vh;
+}
+#texto{
+    width: 20vh;
+    height: 30vh;
+}
+img{
+    width: 50vh;
+    height: 30vh;
+    border-radius: 30px;
 }

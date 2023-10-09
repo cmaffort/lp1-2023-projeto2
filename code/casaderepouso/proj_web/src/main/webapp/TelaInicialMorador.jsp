@@ -12,6 +12,9 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" type="text/css" href="cssFiles/TelaInicialMorador.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Gabarito:wght@500&family=Sofia+Sans:wght@500&display=swap" rel="stylesheet">
     </head>
     <body>
         <article>
@@ -24,6 +27,15 @@
                 </div>
                 <div>
                     <button class="Botao">Agendar Saída Temporária</button>
+                </div>
+                <div id="texto">
+                    <p>“Nosso maior compromisso é com o bem estar da sua pessoa querida”</p>
+                </div>
+                <div>
+                    <img src="./imgs/imagemmorador1.png">
+                </div>
+                <div>
+                    <img src="./imgs/imagemmorador2.jpg">
                 </div>
             </div>
         </article>
