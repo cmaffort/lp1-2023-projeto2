@@ -20,9 +20,9 @@
                 <label>CPF:<br><input type="text"></label><br>
                 <label>Endereço completo:<br><input type="text"></label><br>
                 <label>Número de contato:<br><input type="text"></label><br>
-                <label>PIS:<br><input type="text"></label><br>
+                <label>PIS:<br><input type="number"></label><br>
                 <label>Função:<br><input type="text"></label><br>
-                <label>Período de trabalho:<br><input type="file"></label><br>
+                <label>Período de trabalho:<br><input type="text"></label><br>
                 <label>Anexar Identidade:<br><input type="file"></label><br>
                 <label>Anexar Carteira de Trabalho Digital:<br><input type="file"></label><br>
                 <label>Cadastrar:<input type="submit"></label>
