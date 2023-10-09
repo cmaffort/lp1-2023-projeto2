@@ -38,7 +38,7 @@ button {
     height: 5vh;
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
     background: #FFF;
-    border: 0;
+    border-radius: 0%;
     padding: 1%;
     font-size: 80%;
     margin-top: 1%;
@@ -56,4 +56,17 @@ form {
     margin-bottom: 2%;
     font-size: 80%;
     color: red;
+}
+
+/* ---------------------------- Cadastro Morador ---------------------------- */
+    
+#label_identidade{
+    width: 8vw;
+    height: 3vh;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    background: #FFF;
+    border-radius: 0%;
+    padding: 1%;
+    font-size: 80%;
+    margin-top: 1%;
 }
