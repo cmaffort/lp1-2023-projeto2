@@ -54,10 +54,18 @@ body {
     inset 2px 2px 3px rgba(0, 0, 0, 0.6);
 }
 #container-opcoes{
+    display: grid;
+    
     border-radius: 60px 0px;
     background-color: rgba(164, 203, 249, 0.50);
     width: 125vh;
     height: 80vh;
+}
+#container-botoes{
+    display: grid;
+    grid-template-columns: repeat(2, 40vh);
+    grid-auto-rows: 10vh;
+    margin: 5vh 5vh 5vh 5vh;
 }
 #texto{
     width: 20vh;

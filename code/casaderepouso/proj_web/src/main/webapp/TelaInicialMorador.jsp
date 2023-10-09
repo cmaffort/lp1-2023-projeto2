@@ -19,14 +19,16 @@
     <body>
         <article>
             <div id="container-opcoes">
-                <div>
-                    <button class="Botao">Pagamento da mensalidade</button>
-                </div>
-                <div>
-                    <button class="Botao">Cancelamento de vinculo</button>
-                </div>
-                <div>
-                    <button class="Botao">Agendar Saída Temporária</button>
+                <div id="container-botoes">
+                    <div>
+                        <button class="Botao">Pagamento da mensalidade</button>
+                    </div>
+                    <div>
+                        <button class="Botao">Cancelamento de vinculo</button>
+                    </div>
+                    <div>
+                        <button class="Botao">Agendar Saída Temporária</button>
+                    </div>
                 </div>
                 <div id="texto">
                     <p>“Nosso maior compromisso é com o bem estar da sua pessoa querida”</p>
