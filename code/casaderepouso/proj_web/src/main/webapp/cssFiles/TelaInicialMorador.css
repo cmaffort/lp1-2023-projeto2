@@ -1,0 +1,85 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : 9 de out. de 2023, 15:53:30
+    Author     : Master
+*/
+
+article {
+    background-color: #76A5DC;
+    width: 70vw;
+    height: 88vh;
+    font-family: 'Gabarito', cursive;
+    color: white;
+    padding: 2% 5% 5% 5%;
+    font-size: 140%;
+    color: white;
+    float: right;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+}
+
+body {
+    background-color: white;
+    margin: 0;
+}
+.Botao {
+  font-family: 'Gabarito', cursive;
+  width: 20vw;
+  height: 5vh;
+  border: 0;
+  line-height: 2.5;
+  padding: 0 20px;
+  font-size: 1rem;
+  font-family: 'Gabarito', cursive;
+  text-align: center;
+  color: black;
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 1);
+  box-shadow:
+    inset 2px 2px 3px rgba(255, 255, 255, 0.6),
+    inset -2px -2px 3px rgba(0, 0, 0, 0.6);
+}
+
+.Botao:hover {
+  background-color: rgba(235, 235, 240, 1);
+}
+
+.Botao:active {
+  box-shadow:
+    inset -2px -2px 3px rgba(255, 255, 255, 0.6),
+    inset 2px 2px 3px rgba(0, 0, 0, 0.6);
+}
+#container-opcoes{
+    display: grid;
+    
+    border-radius: 60px 0px;
+    background-color: rgba(164, 203, 249, 0.50);
+    width: 125vh;
+    height: 80vh;
+}
+#container-botoes{
+    display: grid;
+    grid-template-rows: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
+    margin: 5vh 5vh 5vh 5vh;
+    grid-row: span 2;
+}
+#container-imagens{
+    display:flex;
+    justify-content: center;
+    flex-direction: row;
+}
+#texto{
+    width: 20vh;
+    height: 30vh;
+}
+img{
+    width: 45vh;
+    height: 30vh;
+    border-radius: 30px;
+    margin: 10px;
+}

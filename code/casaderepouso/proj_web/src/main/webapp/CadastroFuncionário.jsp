@@ -10,12 +10,12 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Cadastro de Funcionário</title>
-        <link rel="stylesheet" type="text/css" href="cssFiles/AgendarVisita.css">
+
     </head>
     <body>
         <article>
         <div>
-            <h1>Cadastro de funcionário</h1>
+          <h1>Cadastro de funcionário</h1>
             <form class="form-container">
                 <label>Nome completo:<br><input type="text" required></label><br>
                 <label>CPF:<br><input type="text"required></label><br>
