@@ -29,6 +29,9 @@ body {
 
 .form-group {
     margin-bottom: 5%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
 }
 
 .texto,
@@ -69,4 +72,10 @@ form {
     padding: 1%;
     font-size: 80%;
     margin-top: 1%;
+}
+.oculto{
+    display:none;
+}
+.mostrar{
+   display: block;
 }

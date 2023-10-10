@@ -15,7 +15,7 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Gabarito:wght@500&family=Sofia+Sans:wght@500&display=swap" rel="stylesheet">
-    </head>
+    </head>       
     <body>
         <article>
             <div id="container-opcoes">
@@ -33,11 +33,13 @@
                 <div id="texto">
                     <p>“Nosso maior compromisso é com o bem estar da sua pessoa querida”</p>
                 </div>
-                <div>
-                    <img src="./imgs/imagemmorador1.png">
-                </div>
-                <div>
-                    <img src="./imgs/imagemmorador2.jpg">
+                <div id="container-imagens">
+                    <div>
+                        <img src="./imgs/imagemmorador1.png">
+                    </div>
+                    <div>
+                        <img src="./imgs/imagemmorador2.jpg">
+                    </div>
                 </div>
             </div>
         </article>

@@ -63,16 +63,23 @@ body {
 }
 #container-botoes{
     display: grid;
-    grid-template-columns: repeat(2, 40vh);
-    grid-auto-rows: 10vh;
+    grid-template-rows: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     margin: 5vh 5vh 5vh 5vh;
+    grid-row: span 2;
+}
+#container-imagens{
+    display:flex;
+    justify-content: center;
+    flex-direction: row;
 }
 #texto{
     width: 20vh;
     height: 30vh;
 }
 img{
-    width: 50vh;
+    width: 45vh;
     height: 30vh;
     border-radius: 30px;
+    margin: 10px;
 }
