@@ -15,11 +15,22 @@
     <body>
         <h1>Bem vindo</h1>
         <div id = "botoes">
-            <input type="button" value="Novo Funcionário" name="novoFunc" />
-            <input type="button" value="Eventos Solicitados" name="eventos" />
-            <input type="button" value="Equipamentos" name="equipamentos" />
-            <input type="button" value="Inventario" name="inventario" />    
+            <input type="button" class="btn" value="Novo Funcionário" name="novoFunc" />
+            <input type="button" class="btn" value="Eventos Solicitados" name="eventos" />
+            <input type="button" class="btn" value="Equipamentos" name="equipamentos" />
+            <input type="button" class="btn" value="Inventario" name="inventario" />    
         </div>
-        <div id="dadosFunc"></div>
+        <div id="Func">
+            <div class="dadosFunc">
+                <p class="info" onclick="mostraInfo()" > mostrar</p>
+            </div>
+            
+        </div>
+        
+        <script>
+            function mostraInfo() {
+          
+        }
+        </script>
     </body>
 </html>
