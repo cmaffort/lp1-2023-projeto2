@@ -17,6 +17,10 @@
         <link href="https://fonts.googleapis.com/css2?family=Gabarito:wght@500&family=Sofia+Sans:wght@500&display=swap" rel="stylesheet">
     </head>       
     <body>
+        <header id="perfil">
+                <img src="./imgs/pngegg.png" class="imagemDoPerfil">
+                 <strong><p id="bemvindo">Seja bem vindo, Nome.</p> </strong>
+        </header>
         <article>
             <div id="container-opcoes">
                 <div id="container-botoes">
@@ -35,10 +39,10 @@
                 </div>
                 <div id="container-imagens">
                     <div>
-                        <img src="./imgs/imagemmorador1.png">
+                        <img class="imgmoradores" src="./imgs/imagemmorador1.png">
                     </div>
                     <div>
-                        <img src="./imgs/imagemmorador2.jpg">
+                        <img class="imgmoradores" src="./imgs/imagemmorador2.jpg">
                     </div>
                 </div>
             </div>
