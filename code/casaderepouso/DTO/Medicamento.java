@@ -28,7 +28,7 @@ public class Medicamento implements IMedicamento{
     
     public Medico getMedico() {
         return medico;
-    }
+    } 
 
     public void setMedico(Medico medico) {
         this.medico = medico;
