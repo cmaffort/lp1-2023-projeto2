@@ -15,7 +15,7 @@
     <body>
     <nav>
         <ul>
-            <img src="img/perfil.png">
+            <img src="imgs/perfil.png">
             <li>Prontuário </li>
             <li>Receitas médicas</li>
             <li>Dieta</li>
