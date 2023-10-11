@@ -2,14 +2,14 @@
 <html>
 
     <head>
-      <title>Cadastro de Morador</title>
+      <title>Cadastro de Responsável</title>
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <link rel="stylesheet" type="text/css" href="cssFiles/Cadastro.css">>
     </head>
     <body>
       <article>
-        <h1>Cadastro de Morador</h1>
+        <h1>Cadastro de Responsável</h1>
         <form id="meuForm" class="form-container" method="POST">
           <div class="form-group">
             <label>Nome completo:</label>
