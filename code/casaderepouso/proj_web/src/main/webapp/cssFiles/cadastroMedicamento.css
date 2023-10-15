@@ -1,0 +1,136 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : 15 de out. de 2023, 14:29:56
+    Author     : felli
+*/
+
+body {
+    background-color: #76A5DC;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+form>h1 {
+    color: aliceblue;
+    font-size: larger;
+    font-family: 'Gabarito', sans-serif;
+    margin: 0px;
+    display: inline;
+    position: relative;
+    bottom: 40px;
+}
+
+input {
+    border: none;
+    padding: 4px;
+    height: 20px;
+    width: 200px;
+    align-items: center;
+}
+header {
+    display: inline-block;
+    flex-direction: column;
+    flex-wrap: wrap;
+    position: relative;
+    margin: 0;
+    height: 100%;
+    border-radius: 15px;
+}
+
+#formulario {
+    display: flex;
+    width: 30%;
+    margin: 0px;
+    border-radius: 20px;
+    height: 100%;
+    position: relative;
+    left: 400px;
+    bottom: 100vh;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    align-items: flex-start;
+}
+#formulario label {
+    display: block;
+    margin-top: 10px;
+    font-family: 'Gabarito', sans-serif;
+}
+
+button {
+    position: relative;
+    margin: auto;
+    border: none;
+    background-color: #2882EB;
+    border-radius: 20px;
+    height: 30px;
+    width: 90px;
+}
+
+h1 {
+    text-align: center;
+    font-size: medium;
+}
+
+
+/*css menu lateral*/
+
+.branco {
+    width: 20%;
+    background-color: white;
+    color: black;
+    text-align: center;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.profile-image {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin: 10px auto;
+    background-image: url('caminho_para_sua_imagem.jpg');
+    background-size: cover;
+}
+
+.name {
+    font-size: 24px;
+    margin: 10px 0;
+}
+
+.button {
+    display: block;
+    width: 90%;
+    padding: 10px;
+    margin: 5% 0;
+    background-color: #76A5DC;
+    color: #fff;
+    border: none;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.back-button {
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+.content {
+    width: 80%;
+    background-color: #76A5DC;
+    color: black;
+    text-align: center;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+
+.title {
+    font-size: 150%;
+}
