@@ -3,14 +3,10 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to c
 Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css to edit this template
 */
 /* 
-    Created on : 16 de out. de 2023, 14:30:26
+    Created on : 16 de out. de 2023, 18:34:21
     Author     : Master
 */
 
-:root {
-    --statuscor: #14FF00;
-    --tamanhostatus: 13vh;
-}
         body {
             margin: 0;
             padding: 0;
@@ -69,66 +65,63 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
             box-sizing: border-box;
             justify-content: center;
         }
-
-        
         .title {
-            font-size: 150%;
-        }
-        #title-container{
-            display: grid;
-            grid-template-columns: 30vh var(--tamanhostatus);
-            grid-auto-rows: 5vh;
+            display: flex;
+            font-size: 4.5vh;
+            margin-left: 5vh;
             justify-content: left;
             align-items: center; 
         }
-        #state-container{
-            width: 13vh;
-            height: 5vh;
-            margin-left: 3vh;
+        #status-container{
+            margin: 0 0 0 25%;
             display: flex;
-            align-items: center; 
-            justify-content: center;
+            align-items: center;
+            justify-content:space-evenly;
+            flex-direction: column;
             background-color: white;
+            height: 70%;
+            width: 30%;
+            border-radius: 24px;
+            border: 1px solid #C1BDBD;
         }
-        #state-cor{
-            width: 2vh;
-            height: 2vh;
-            background-color: var(--statuscor);
+        .state-cor{
+            width: 7.5vh;
+            height: 7.5vh; 
             border-radius: 50%;
             border: black 1px solid;
-            margin-right: 10px; 
+            margin-left: 10px; 
         }
-        #state-nome{
-            text-align: left;
+        .state-container{
+            width: 85%;
+            height: 10vh;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: flex-start;
+            border-radius: 24px;
+            border: 0.5px solid #000;
+            background: #FFF;
+            box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+        }
+        .state-container  p{
+            margin-left: 5%;
             font-size: 2vh;
         }
-        #nascimento{
-            text-align: left;
-            margin-left: 1.2vh;
+        .marks{
+            margin-left: auto;
+            margin-right: 2vh;
+            width: 2.5vh;
+            height: 2.5vh; 
+            background-color: #D9D9D9;
+            border-radius: 50%;
+            border: 1px solid #C1BDBD;
         }
-        #info-container{
-            display: flex;
-            justify-content: left;
-            text-align: left;
-            flex-direction: column;
-        }
-        .info-content{
-            font-family: Arial, sans-serif;
-            font-size: 25px;
-            font-weight: bold;
-            margin: 2vh 0px 1vh 1vh;
-        }
-        #info-access{
-            display: flex;
-            justify-content: left;
-            text-align: left;
-            flex-direction: column;
-        }
-        .links-acessos{
-            text-decoration: none;
-            color: white;
-            font-size: 25px;
+        #update-status{
+            padding: 10px 50px 10px 50px;
+            margin: 5% 0;
+            background-color: #14FF00;
+            color: black;
+            border-radius: 5%;
+            text-align: center;
             cursor: pointer;
-            margin: 2vh 0px 1vh 1vh;
         }
-        
