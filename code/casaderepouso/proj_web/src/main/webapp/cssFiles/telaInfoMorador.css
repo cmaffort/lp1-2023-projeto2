@@ -89,6 +89,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
             align-items: center; 
             justify-content: center;
             background-color: white;
+            border-radius: 36px;
         }
         #state-cor{
             width: 2vh;
