@@ -51,6 +51,9 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
         }
         
         .back-button {
+                    display: flex;
+                    justify-content: left;
+                    align-items: center; 
                     font-size: 20px;
                     margin-bottom: 20px;
         }
