@@ -28,7 +28,7 @@
             <input type="date" id="dataNasc" class="texto" required>
           </div>
 
-          <div calss="form-group">
+          <div class="form-group">
             <label>Endereço completo:</label>
             <input type="text" id="endereco" class="texto" placeholder="Digite aqui..." required>
           </div>
@@ -39,26 +39,13 @@
           </div>
             
           <div class="form-group">
-            <p>Foto frente e verso do RG, CPF e outros caso seja necessário</p>
+            <label>Foto frente e verso do RG, CPF e outros caso seja necessário</label>
             <input type="file" name="fotoidentidade" id="identidade" accept="image/*" required/>
-            <label class="oculto" id="label_escolheu_identidade" for="identidade" style="color:greenyellow">Imagem escolhida</label>   
           </div>
             
-            <input type="submit" value="Próximo" onclick="window.location.href='';"> <!-- atualizar com o arquivo da tela de cadastro de respónsavel -->
+            <input type="submit" value="Próximo" class="envio">
         </form>
       </article>
-      <script>
-            function verificarPreenchimento() {
-                let inputArquivo = document.getElementById('identidade');
-                let inputEscolheu = document.getElementById('label_escolheu_identidae');
-                
-                if (inputArquivo.files.length > 0){
-                    alert('O campo de arquivo de imagem foi preenchido.');
-                    inputEscolheu.classList.add('mostrar');
-                    inputEscolheu.classList.remove('oculto');
-                } else {
-                }
-            }
-       </script>
+
     </body> 
 </html>
