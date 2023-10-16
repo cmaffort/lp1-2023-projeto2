@@ -22,7 +22,7 @@
             <a class="button" href="#">Consultas Marcadas</a>
         </div>
         <div class="content">
-            <a class="back-button" href="javascript:history.back()"">←</a>
+            <a class="back-button" href="javascript:history.back()""><img src="./imgs/Voltar.png"></a>
             <div id="title-container">
                 <h1 id="name">Nome do Morador</h1>
                 <div id="state-container">
