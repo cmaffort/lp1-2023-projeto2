@@ -48,6 +48,8 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
             text-align: center;
             text-decoration: none;
             cursor: pointer;
+            border-radius: 36px;
+            box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
         }
         
         .back-button {
@@ -128,4 +130,5 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
             font-size: 25px;
             cursor: pointer;
             margin: 2vh 0px 1vh 1vh;
-        }       
+        }
+        
