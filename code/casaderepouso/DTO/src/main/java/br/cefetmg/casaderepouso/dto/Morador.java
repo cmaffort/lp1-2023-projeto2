@@ -7,7 +7,10 @@
  *
  * @author Master
  */
+package br.cefetmg.casaderepouso.dto;
 import java.util.Date;
+import br.cefetmg.casaderepouso.dto.Responsavel;
+import java.util.ArrayList;
 enum EstadoMorador{
     DISPONIVEL("Disponível"),
     SAIDA_TEMPORARIA("Saída Temporária"),
@@ -26,10 +29,15 @@ public class Morador {
     private String cpf;
     private String rg;
     private Date dataNasc;
-    // Adicionar vetor de Responsaveis
+    private ArrayList<Responsavel> vetorResponsaveis;
     private String condicaoEspecial;
     private EstadoMorador estado = EstadoMorador.DISPONIVEL;
-
+    
+    public Responsavel adicionarResponsavel(Responsavel responsavel){
+        vetorResponsaveis.add(responsavel);
+        return responsavel;
+    }
+    // adicionar um remover
     public String getNome() {
         return nome;
     }

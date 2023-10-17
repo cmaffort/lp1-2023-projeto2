@@ -1,3 +1,5 @@
+package br.cefetmg.casaderepouso.dto;
+
 
 public class Funcionario {
     
