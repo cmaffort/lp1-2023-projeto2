@@ -55,7 +55,8 @@ body {
 }
 #container-opcoes{
     display: grid;
-    
+    grid-template-columns: repeat(2,40vh);
+    grid-template-rows: repeat(3,40vh);
     border-radius: 60px 0px;
     background-color: rgba(164, 203, 249, 0.50);
     width: 125vh;
@@ -65,14 +66,54 @@ body {
     display: grid;
     grid-template-columns: repeat(2, 40vh);
     grid-auto-rows: 10vh;
-    margin: 5vh 5vh 5vh 5vh;
+    margin: 15vh 5vh 5vh 5vh;
+    grid-row: 1;
+    grid-column: 1;
+}
+#container-imagens{
+    display:flex;
+    justify-content: center;
+    flex-direction: row;
+    grid-column: 2;
+    grid-row: 2/4;
 }
 #texto{
     width: 20vh;
     height: 30vh;
+    grid-column: 4;
+    margin: 8vh;
 }
-img{
-    width: 50vh;
+.imgmoradores{
+    width: 45vh;
     height: 30vh;
     border-radius: 30px;
+    margin: 10px;
+}
+#bemvindo{
+    position: absolute;
+    font-size: 24px;
+    top: 33%;
+    left: 3.5%;
+}
+#perfil img {
+  position: absolute;
+  float: right;
+  width: 20vh;
+  height: 20vh;
+  background-color: rgba(255, 255, 255, 0.863);
+  border-radius: 100%;
+  margin: 8vh;
+  border-style: solid;
+  border-width: 2px;
+}
+.imagemDoPerfil {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  margin: 10px auto;
+  background-image: url('caminho_para_sua_imagem.jpg');
+  background-size: cover;
+}
+body{
+    overflow-y: hidden;
 }

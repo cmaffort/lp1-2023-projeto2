@@ -1,25 +1,26 @@
-<%-- 
-    Document   : telaGerente
-    Created on : 9 de out. de 2023, 14:31:44
-    Author     : rigor
---%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
         <link rel="stylesheet" type="text/css" href="cssFiles/telaGerente.css">
+
+        <title>Home-Gerente</title>
     </head>
     <body>
-        <h1>Bem vindo</h1>
-        <div id = "botoes">
-            <input type="button" value="Novo Funcionário" name="novoFunc" />
-            <input type="button" value="Eventos Solicitados" name="eventos" />
-            <input type="button" value="Equipamentos" name="equipamentos" />
-            <input type="button" value="Inventario" name="inventario" />    
-        </div>
-        <div id="dadosFunc"></div>
+        <div class="branco">    
+        <div class="name">Bem vindo</div>
+        <a class="button" href="CadastroFuncionario.jsp">Novo funcionário</a>
+        <a class="button" href="#">Eventos solicitados</a>
+        <a class="button" href="#">Inventário</a>
+        <a class="button" href="#">Equipamentos</a>
+        
+    </div>
+    <div class="content">
+        <a class="back-button" href="javascript:history.back()""><img src="./imgs/Voltar.png"></a>
+        <div class="title">Dados dos funcionários</div>
+        
+    </div>
     </body>
 </html>
