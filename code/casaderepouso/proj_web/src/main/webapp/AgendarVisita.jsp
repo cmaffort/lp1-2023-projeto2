@@ -14,7 +14,8 @@
     <body>
       <article>
         <h1>Cadastro de visita</h1>
-        <form class="form-container" method="POST">
+        <form class="form-container" name="agendamento" action="controller" method="POST">
+           <input type='hidden' name='acao' value='Adiciona'>
           <div class="form-group">
             <label>Seu nome completo:</label>
             <input type="text" id="nomeVisitante" class="texto" placeholder="Digite aqui..." required>
@@ -60,7 +61,7 @@
               </div>
           </div>
 
-          <input type="submit" value="Agendar" class="envio">
+          <input type="submit" value="Adiciona">
 
         </form>
       </article>
@@ -77,5 +78,4 @@
         }
       </script>
     </body>
-
     </html>

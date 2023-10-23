@@ -2,10 +2,8 @@ package br.cefetmg.casaderepouso.dto;
 
 
 import java.util.Calendar;
-import br.cefetmg.casaderepouso.idao.IMedicamento;
-// import br.cefetmg.casaderepouso.dto.Medico;
 
-public class Medicamento implements IMedicamento{
+public class Medicamento {
 
     public Medicamento(Medico medico, String nome, Double valor, String tarja, Calendar validade, Morador morador, String dose, Calendar dataHora) {
         this.nome = nome;
