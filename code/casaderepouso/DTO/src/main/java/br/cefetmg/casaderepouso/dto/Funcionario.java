@@ -1,13 +1,15 @@
 package br.cefetmg.casaderepouso.dto;
-
+import java.util.Date;
 
 public class Funcionario {
     
     private String nome;
     private String cpf;
+    private String rg;
+    private Date dataNasc;
     private String endereco;
     private String fone;
-    private int pis;
+    private String pis;
     private String funcao;
     private String periodoTrabalho;
 
@@ -19,6 +21,22 @@ public class Funcionario {
         this.nome = nome;
     }
 
+    public String getRg() {
+        return rg;
+    }
+
+    public void setRg(String rg) {
+        this.rg = rg;
+    }
+    
+     public Date getDataNasc() {
+        return dataNasc;
+    }
+     
+     public void setDataNasc(Date dataNasc) {
+        this.dataNasc = dataNasc;
+    }
+    
     public String getCpf() {
         return cpf;
     }
@@ -44,11 +62,11 @@ public class Funcionario {
         this.fone = fone;
     }
     
-    public int getPis() {
+    public String getPis() {
         return pis;
     }
 
-    public void setPis(int pis) {
+    public void setPis(String pis) {
         this.pis = pis;
     }
 
@@ -56,7 +74,7 @@ public class Funcionario {
         return funcao;
     }
 
-    public void setfuncao(String funcao) {
+    public void setFuncao(String funcao) {
         this.funcao = funcao;
     }
 
