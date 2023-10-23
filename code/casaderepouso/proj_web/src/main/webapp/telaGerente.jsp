@@ -6,7 +6,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" type="text/css" href="cssFiles/telaGerente.css">
 
-        <title>Visitas</title>
+        <title>Home-Gerente</title>
     </head>
     <body>
         <div class="branco">    
