@@ -29,8 +29,10 @@ public class Morador {
     private String cpf;
     private String rg;
     private Date dataNasc;
+    private String endereco;
     private ArrayList<Responsavel> vetorResponsaveis;
     private String condicaoEspecial;
+    private String nomeMae;
     private EstadoMorador estado = EstadoMorador.DISPONIVEL;
     
     public Responsavel adicionarResponsavel(Responsavel responsavel){
@@ -61,11 +63,18 @@ public class Morador {
     public EstadoMorador getEstado() {
         return estado;
     }
+    public String getNomeMae(){
+        return nomeMae;
+    }
 
+    public String getEndereco() {
+        return endereco;
+    }
+    
     public void setNome(String nome) {
         this.nome = nome;
     }
-
+    
     public void setCpf(String cpf) {
         this.cpf = cpf;
     }
@@ -85,4 +94,12 @@ public class Morador {
     public void setEstado(EstadoMorador estado) {
         this.estado = estado;
     }
+    public void setNomeMae(String nomeMae){
+        this.nomeMae = nomeMae;
+    }
+
+    public void setEndereco(String endereco) {
+        this.endereco = endereco;
+    }
+    
 }
