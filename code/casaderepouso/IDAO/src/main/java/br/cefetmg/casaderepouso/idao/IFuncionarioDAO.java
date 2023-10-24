@@ -14,7 +14,7 @@ public interface IFuncionarioDAO {
 
     public Long inserir(Funcionario funcionario);
 
-    public boolean atualizar(Funcionario funcionario);
+    public String atualizar(Funcionario funcionario);
 
     public boolean deletar(Funcionario funcionario);
 

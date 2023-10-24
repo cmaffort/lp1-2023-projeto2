@@ -10,7 +10,6 @@ import java.util.ArrayList;
 import br.cefetmg.casaderepouso.service.ICadastrarMorador;
 import br.cefetmg.casaderepouso.dto.Morador;
 import br.cefetmg.casaderepouso.dto.exception.*;
-import br.cefetmg.casaderepouso.service.util.Util;
 import br.cefetmg.casaderepouso.DAO.MoradorDAO;
 import br.cefetmg.casaderepouso.idao.IMoradorDAO;
 /**
@@ -46,9 +45,9 @@ public class CadastrarMorador implements ICadastrarMorador {
     @Override
     public List<Morador> pesquisar(Morador morador) throws Exception {
         List<Morador> moradores = new ArrayList<Morador>();
-        if(morador.getNome() == null || morador.getNome().equals("")) {
+        /*if(morador.getNome() == null || morador.getNome().equals("")) {
             moradores.addAll(moradorDAO.pesquisar(morador.getNome()));
-        }
+        }*/
         if(morador.getCpf() == null || morador.getCpf().equals("")) {
         }
         if(morador.getDataNasc() == null || morador.getDataNasc().toString().equals("")) {
