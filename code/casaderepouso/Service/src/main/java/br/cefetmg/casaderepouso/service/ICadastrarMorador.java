@@ -15,9 +15,9 @@ import java.util.List;
 
 public interface ICadastrarMorador {
     
-    public String cadastrar(Morador paciente) throws CadastroException;
-    public String atualizar(Morador paciente) throws Exception;
-    public String excluir(Morador paciente) throws Exception;
+    public String cadastrar(Morador morador) throws CadastroException;
+    public String atualizar(Morador morador) throws Exception;
+    public String excluir(Morador morador) throws Exception;
     
     public List<Morador> pesquisar(Morador morador) throws Exception;
     
