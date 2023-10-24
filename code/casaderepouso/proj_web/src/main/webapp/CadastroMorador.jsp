@@ -20,28 +20,32 @@
         <form id="meuForm" class="form-container" method="POST">
           <div class="form-group">
             <label>Seu nome completo:</label>
-            <input type="text" id="nomeVisitante" class="texto" placeholder="Digite aqui..." required>
+            <input type="text" name="nomeMorador" class="texto" placeholder="Digite aqui..." required>
           </div>
 
           <div class="form-group">
             <label>Data de Nascimento:</label>
-            <input type="date" id="dataNasc" class="texto" required>
+            <input type="date" name="dataNasc" class="texto" required>
           </div>
 
           <div class="form-group">
             <label>Endereço completo:</label>
-            <input type="text" id="endereco" class="texto" placeholder="Digite aqui..." required>
+            <input type="text" name="endereco" class="texto" placeholder="Digite aqui..." required>
           </div>
 
           <div class="form-group">
             <label>Nome da mãe:</label>
-            <input type="text" id="nome_mae" class="texto" placeholder="Digite aqui..." required>
+            <input type="text" name="nome_mae" class="texto" placeholder="Digite aqui..." required>
           </div>
-            
           <div class="form-group">
-            <label>Foto frente e verso do RG, CPF e outros caso seja necessário</label>
-            <input type="file" name="fotoidentidade" id="identidade" accept="image/*" required/>
+            <label>CPF:</label>
+            <input type="text" name="cpf" class="texto" placeholder="Digite aqui..." required>
           </div>
+          <div class="form-group">
+            <label>Condições especiais:</label>
+            <input type="text" name="condicoes_especiais" class="texto" placeholder="Digite aqui..." required>
+          </div>
+          
             
             <input type="submit" value="Próximo" class="envio">
         </form>
