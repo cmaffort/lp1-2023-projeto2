@@ -8,13 +8,14 @@
       <title>Agendar visita</title>
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <link rel="stylesheet" type="text/css" href="cssFiles/AgendarVisita.css">
+      <link rel="stylesheet" type="text/css" href="cssFiles/Cadastro.css">
     </head>
 
     <body>
       <article>
         <h1>Cadastro de visita</h1>
-        <form class="form-container" method="POST">
+        <form class="form-container" name="agendamento" action="controller" method="POST">
+           <input type='hidden' name='acao' value='Adiciona'>
           <div class="form-group">
             <label>Seu nome completo:</label>
             <input type="text" id="nomeVisitante" class="texto" placeholder="Digite aqui..." required>
@@ -40,7 +41,7 @@
 
           <div class="form-group">
             <label>Vínculo com o morador</label>
-            <select id="parentesco">
+            <select class="escolha">
               <option value="pais">Pai/mãe</option>
               <option value="irmao">Irmão/Irmã</option>
               <option value="filho">Filho/filha</option>
@@ -50,13 +51,17 @@
 
           <p>Quando será a visita?</p>
           <div class="form-group" id="marcar">
-            <label id="calendario" required>Data:</label>
-            <input type="date" for="data">
-            <label id="Hora" required>Hora:</label>
-            <input type="time" for="hora">
+              <div>
+                <label id="calendario" required>Data:</label>
+                <input type="date" for="data">
+              </div>
+              <div>
+                <label id="Hora" required>Hora:</label>
+                <input type="time" for="hora">
+              </div>
           </div>
 
-          <input type="submit" value="Agendar">
+          <input type="submit" value="Adiciona">
 
         </form>
       </article>
@@ -73,5 +78,4 @@
         }
       </script>
     </body>
-
     </html>
