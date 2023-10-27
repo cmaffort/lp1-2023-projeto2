@@ -16,7 +16,8 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import br.cefetmg.casaderepouso.dto.Funcionario;
-
+import br.cefetmg.casaderepouso.service.implement.ManterFuncionario;
+import br.cefetmg.casaderepouso.service.IManterFuncionario;
 
 @WebServlet(urlPatterns = {"/CadastrarFuncionario"})
 public class CadastrarFuncionario extends HttpServlet {
@@ -64,7 +65,10 @@ public class CadastrarFuncionario extends HttpServlet {
             func.setFuncao(funcao);
             func.setPeriodoTrabalho(periodo);
             
+            IManterFuncionario iFuncionario = new ManterFuncionario();
+            iFuncionario.cadastrar(func);
             
+            jsp = "/CadastroFuncionario.jsp";
         } catch (Exception e) {
             System.out.println(e);
             jsp = "";
