@@ -10,12 +10,13 @@ package br.cefetmg.casaderepouso.idao;
  * @author Aluno
  */
 import br.cefetmg.casaderepouso.dto.Morador;
+import java.sql.SQLException;
 import java.util.ArrayList;
 public interface IMoradorDAO {
     
     public Long inserir(Morador morador);
 
-    public boolean atualizar(Morador morador);
+    public boolean atualizar(Morador morador) throws ClassNotFoundException,SQLException;
 
     public boolean deletar(Morador morador);
 
