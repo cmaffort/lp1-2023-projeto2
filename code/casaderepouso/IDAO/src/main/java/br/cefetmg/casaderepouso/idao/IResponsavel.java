@@ -13,6 +13,6 @@ public interface IResponsavel {
 
     public ArrayList<Responsavel> listarTodos();
 
-    public Responsavel pesquisar(String cpf);
+    public Responsavel pesquisar(String nome, String cpf);
 
 }
