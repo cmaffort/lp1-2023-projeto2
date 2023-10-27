@@ -8,17 +8,17 @@ package br.cefetmg.casaderepouso.service;
  *
  * @author Aluno
  */
-import br.cefetmg.casaderepouso.dto.Morador;
+import br.cefetmg.casaderepouso.dto.Visitante;
 import br.cefetmg.casaderepouso.dto.exception.*;
 import java.util.Date;
 import java.util.List;
 
-public interface ICadastrarMorador {
+public interface ICadastrarVisitante {
     
-    public String cadastrar(Morador morador) throws CadastroException;
-    public String atualizar(Morador morador) throws Exception;
-    public String excluir(Morador morador) throws Exception;
+    public String cadastrar(Visitante visitante) throws CadastroException;
+    public String atualizar(Visitante visitante) throws Exception;
+    public String excluir(Visitante visitante) throws Exception;
     
-    public List<Morador> pesquisar(Morador morador) throws Exception;
+    public List<Visitante> pesquisar(Visitante visitante) throws Exception;
     
 }
