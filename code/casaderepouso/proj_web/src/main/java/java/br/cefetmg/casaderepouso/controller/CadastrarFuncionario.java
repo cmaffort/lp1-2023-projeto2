@@ -65,6 +65,8 @@ public class CadastrarFuncionario extends HttpServlet {
             func.setFuncao(funcao);
             func.setPeriodoTrabalho(periodo);
             
+            String id = func.getCpf() + func.getNome().charAt(0);
+            func.setId(id);
             IManterFuncionario iFuncionario = new ManterFuncionario();
             iFuncionario.cadastrar(func);
             

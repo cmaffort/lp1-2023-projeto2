@@ -38,14 +38,16 @@ CREATE TABLE responsavel (
     FOREIGN KEY (morador_responsavel) REFERENCES morador(id)
 );
 CREATE TABLE funcionario (
-    id INT AUTO_INCREMENT PRIMARY KEY,
+    id VARCHAR(255) NOT NULL,
     nome VARCHAR(255) NOT NULL,
     cpf VARCHAR(14) NOT NULL,
     rg VARCHAR(12) NOT NULL,
     telefone VARCHAR(20),
     nascimento DATE,
     endereco TEXT,
-    pis VARCHAR(20) NOT NULL
+    pis VARCHAR(20) NOT NULL,
+    funcao VARCHAR(255) NOT NULL,
+    periodoTrabalho VARCHAR(255) NOT NULL
 );
 CREATE TABLE gerente (
     id INT AUTO_INCREMENT PRIMARY KEY,
