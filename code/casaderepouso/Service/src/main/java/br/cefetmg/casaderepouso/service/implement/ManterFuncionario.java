@@ -12,6 +12,7 @@ import br.cefetmg.casaderepouso.dto.Funcionario;
 import br.cefetmg.casaderepouso.dto.exception.*;
 import br.cefetmg.casaderepouso.DAO.FuncionarioDAO;
 import br.cefetmg.casaderepouso.idao.IFuncionarioDAO;
+import java.sql.SQLException;
 
 /**
  *
@@ -25,7 +26,7 @@ public class ManterFuncionario implements IManterFuncionario {
     }
     
     @Override
-    public String cadastrar(Funcionario func) throws CadastroException {        
+    public String cadastrar(Funcionario func) throws CadastroException, SQLException, ClassNotFoundException{        
         funcionarioDAO.inserir(func);
         return func.getCpf();
     }
