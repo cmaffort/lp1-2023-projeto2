@@ -16,8 +16,9 @@ CREATE TABLE visitantes (
     data_e_hora_de_visita DATETIME NOT NULL
 );
 CREATE TABLE morador (
-    id INT AUTO_INCREMENT PRIMARY KEY,
     nome VARCHAR(255) NOT NULL,
+    nome_mae VARCHAR(255) NOT NULL
+    condicao_especial VARCHAR(255) NOT NULL
     cpf VARCHAR(14) NOT NULL,
     rg VARCHAR(12) NOT NULL,
     datanascimento DATE NOT NULL,
