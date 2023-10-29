@@ -1,40 +1,61 @@
 package br.cefetmg.casaderepouso.dto;
 
-
-import java.util.Calendar;
+import java.util.Date;
 
 public class Medicamento {
+    
+    public enum Tarja {
+        SEM_TARJA, VERMELHA, AMARELA, PRETA;
+    }
 
-    public Medicamento(Medico medico, String nome, Double valor, String tarja, Calendar validade, Morador morador, String dose, Calendar dataHora) {
+    public Medicamento( String nome, Double valor, Tarja tarja, Date validade, String morador, String dose, Date ultimaAplicacao, Integer intervalo) {
         this.nome = nome;
         this.valor = valor;
         this.tarja = tarja;
         this.validade = validade;
-        this.morador = morador;
+        this.moradorCPF = morador;
         this.dose = dose;
-        this.dataHora = dataHora;
-        this.medico = medico;
+        this.ultimaAplicacao = ultimaAplicacao;
+        this.intervalo = intervalo;
     }
-    
-    private Medico medico;
+    public Medicamento(){}
+
     private String nome;
     private Double valor;
-    private String tarja;
-    private Calendar validade;
-    private Morador morador;
+    private Tarja tarja;
+    private Date validade;
+    private String moradorCPF;
     private String dose;
-    private Calendar dataHora;
-
+    private Date ultimaAplicacao;
+    private Integer intervalo;
     
     
-    public Medico getMedico() {
-        return medico;
+    
+    public Date getUltimaAplicacao() {
+        return ultimaAplicacao;
     }
 
-    public void setMedico(Medico medico) {
-        this.medico = medico;
+    //dataHora vai ser usada para poder calcular a hora da proxima aplicação do medicamento, usando como base a variavel intervalomed
+    public void setUltimaAplicacao(Date ultimaAplicacao) {
+        this.ultimaAplicacao = ultimaAplicacao;
     }
     
+    public String getMoradorCPF() {
+        return moradorCPF;
+    }
+
+    public void setMoradorCPF(String moradorCPF) {
+        this.moradorCPF = moradorCPF;
+    }
+
+    public Integer getIntervalo() {
+        return intervalo;
+    }
+
+    public void setIntervalo(Integer intervalo) {
+        this.intervalo = intervalo;
+    }
+
     public String getNome() {
         return nome;
     }
@@ -51,28 +72,20 @@ public class Medicamento {
         this.valor = valor;
     }
 
-    public String getTarja() {
+    public Enum getTarja() {
         return tarja;
     }
 
-    public void setTarja(String tarja) {
+    public void setTarja(Tarja tarja) {
         this.tarja = tarja;
     }
 
-    public Calendar getValidade() {
+    public Date getValidade() {
         return validade;
     }
 
-    public void setValidade(Calendar validade) {
+    public void setValidade(Date validade) {
         this.validade = validade;
-    }
-
-    public Morador getMorador() {
-        return morador;
-    }
-
-    public void setMorador(Morador morador) {
-        this.morador = morador;
     }
 
     public String getDose() {
@@ -82,14 +95,5 @@ public class Medicamento {
     public void setDose(String dose) {
         this.dose = dose;
     }
-
-    public Calendar getDataHora() {
-        return dataHora;
-    }
-
-    public void setDataHora(Calendar dataHora) {
-        this.dataHora = dataHora;
-    }
-
 
 }

@@ -14,7 +14,7 @@ import br.cefetmg.casaderepouso.idao.IResponsavel;
  */
 public class CadastrarResponsavel implements ICadastrarResponsavel {
     
-    private ResponsavelDAO responsavelDAO;
+    private IResponsavel responsavelDAO;
     
     public CadastrarResponsavel() {
         responsavelDAO = new ResponsavelDAO();
