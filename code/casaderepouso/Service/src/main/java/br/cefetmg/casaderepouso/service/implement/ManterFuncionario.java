@@ -44,17 +44,9 @@ public class ManterFuncionario implements IManterFuncionario {
     
     
     @Override
-    public List<Funcionario> pesquisar(Funcionario func) throws Exception {
-        List<Funcionario> funcionarios = new ArrayList<Funcionario>();
-        /*if(func.getNome() == null || func.getNome().equals("")) {;
-            funcionarios.addAll(funcionarioDAO.pesquisar(func.getNome()));
-        }*/
-        if(func.getCpf() == null || func.getCpf().equals("")) {
-        }
-        if(func.getDataNasc() == null || func.getDataNasc().toString().equals("")) {
-        }
-        if(func.getEndereco() == null || func.getEndereco().equals("")) {
-        }
-        return null;
+    public List<Funcionario> pesquisarTodos() throws Exception {
+        List<Funcionario> lista = funcionarioDAO.listarTodos();
+        
+        return lista;
     }
 }

@@ -13,6 +13,24 @@ public class Funcionario {
     private String funcao;
     private String periodoTrabalho;
     private String id;
+    public Funcionario(){
+    
+    }
+    public Funcionario(String nome, String cpf, String rg, Date dataNasc, String endereco,
+            String fone, String pis, String funcao, String periodoTrabalho, String id){
+        
+        this.nome = nome;
+        this.cpf = cpf;
+        this.rg = rg;
+        this.dataNasc = dataNasc;
+        this.endereco = endereco;
+        this.fone = fone;
+        this.pis = pis;
+        this.funcao = funcao;
+        this.periodoTrabalho = periodoTrabalho;
+        this.id = id;
+        
+    }
     public String getNome() {
         return nome;
     }
