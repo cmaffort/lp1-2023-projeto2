@@ -30,7 +30,7 @@
     
     <form action="post" id="formulario">
         <h1>SOLICITAR NOVO MEDICAMENTO</h1>
-        <label>Nome do medicamento<br><input type="text" id="nome"></label><br>
+        <label>Nome do medicamento<br><input type="text" id="nome" name="nome"></label><br>
         <label class="tarja">Tarjeta<br><select name="tarja">
                 <option value="livre">sem tarja</option>
                 <option value="vermelha" selected>vermelha</option>
@@ -39,16 +39,12 @@
             </select>
         </label>
         <br>
-        <label>Medico Responsavel<br>
-            <select>
-                <option value="livre">Ronaldo Nazario</option>
-                <option value="vermelha" selected>Cristiano Madeira Ronaldo</option>
-                <option value="amarela">Lionel Messi</option>
-                <option value="preta">Neymar dos Santos Junior</option></label><br>
-        </select>
-        <label>dosagem<br><input type="text" id="dose"></label><br>
-        <label>horario de aplicação<br><input type="time" id="hora"></label>
-        <label>intervalo de aplicação<br><input type="time"></input></label>
+        <label>dosagem<br><input type="text" id="dose" name="dose"></label><br>
+        <label>horario da primeira aplicação<br><input type="time" id="hora" name="hora"></label>
+        <label>intervalo de aplicação<br><input type="time" id="intervalo" name="intervalo"></input></label>
+        <label>validade<br><input type="date" id="validade" name="validade"></input></label>
+        <label>valor<br><input type="number" id="valor" name="valor"></label>
+        <label>morador<br><input type="text" id="morador" name="morador"></label>
         <button type="submit" name="submit">cadastrar</button>
     </form>
 </body>

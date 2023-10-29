@@ -8,6 +8,6 @@ package br.cefetmg.casaderepouso.dto;
  *
  * @author Aluno
  */
-class Medico {
+public class Medico {
     
 }

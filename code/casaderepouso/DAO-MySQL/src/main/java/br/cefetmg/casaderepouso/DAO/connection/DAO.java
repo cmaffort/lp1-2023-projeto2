@@ -8,12 +8,13 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 
 public class DAO {
-    private String driver="com.mysql.cj.jdbc.Driver";
-    String url = "jdbc:mysql://127.0.0.1:3306/bdlardeidosos";
-    String user = "root";
-    String password = "admin";
+    //metodos precisam ser estaticos para podermos usar em outras classes de forma eficiente :)//
+    private static String driver="com.mysql.cj.jdbc.Driver";
+    private static String url = "jdbc:mysql://127.0.0.1:3306/bdlardeidosos";
+    private static String user = "root";
+    private static String password = "admin";
     //conexão
-    private Connection conectar(){
+    public static Connection conectar(){
         Connection con = null;
         try {
             Class.forName(driver);
