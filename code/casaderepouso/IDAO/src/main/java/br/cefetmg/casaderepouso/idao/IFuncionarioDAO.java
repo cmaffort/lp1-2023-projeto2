@@ -4,6 +4,7 @@
  */
 package br.cefetmg.casaderepouso.idao;
 import br.cefetmg.casaderepouso.dto.Funcionario;
+import java.sql.SQLException;
 import java.util.ArrayList;
 /**
  *
@@ -12,9 +13,9 @@ import java.util.ArrayList;
 public interface IFuncionarioDAO {
     
 
-    public Long inserir(Funcionario funcionario);
+    public void inserir(Funcionario funcionario) throws SQLException, ClassNotFoundException;
 
-    public String atualizar(Funcionario funcionario);
+    public boolean atualizar(Funcionario funcionario);
 
     public boolean deletar(Funcionario funcionario);
 

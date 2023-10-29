@@ -20,8 +20,8 @@ public class Visitante {
 
     private String nome;
     private String rg;
-    private int telefone;
-    private Morador morador;
+    private String telefone;
+    private String morador;
     private String vinculo;
     private Date dataVisita;
     private LocalTime horaVisita;
@@ -42,19 +42,19 @@ public class Visitante {
         this.rg = rg;
     }
 
-    public int getTelefone() {
+    public String getTelefone() {
         return telefone;
     }
 
-    public void setTelefone(int telefone) {
+    public void setTelefone(String telefone) {
         this.telefone = telefone;
     }
 
-    public Morador getMorador() {
+    public String getMorador() {
         return morador;
     }
 
-    public void setMorador(Morador morador) {
+    public void setMorador(String morador) {
         this.morador = morador;
     }
 

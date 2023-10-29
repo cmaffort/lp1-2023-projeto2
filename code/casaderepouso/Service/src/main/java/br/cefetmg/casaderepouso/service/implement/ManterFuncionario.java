@@ -7,25 +7,26 @@ package br.cefetmg.casaderepouso.service.implement;
 import java.util.Date;
 import java.util.List;
 import java.util.ArrayList;
-import br.cefetmg.casaderepouso.service.ICadastrarFuncionario;
+import br.cefetmg.casaderepouso.service.IManterFuncionario;
 import br.cefetmg.casaderepouso.dto.Funcionario;
 import br.cefetmg.casaderepouso.dto.exception.*;
 import br.cefetmg.casaderepouso.DAO.FuncionarioDAO;
 import br.cefetmg.casaderepouso.idao.IFuncionarioDAO;
+import java.sql.SQLException;
 
 /**
  *
  * @author rafael-igor-vilaca
  */
-public class CadastrarFuncionario implements ICadastrarFuncionario {
+public class ManterFuncionario implements IManterFuncionario {
     private IFuncionarioDAO funcionarioDAO;
     
-    public CadastrarFuncionario() {
+    public ManterFuncionario() {
         funcionarioDAO = new FuncionarioDAO();
     }
     
     @Override
-    public String cadastrar(Funcionario func) throws CadastroException {        
+    public String cadastrar(Funcionario func) throws CadastroException, SQLException, ClassNotFoundException{        
         funcionarioDAO.inserir(func);
         return func.getCpf();
     }

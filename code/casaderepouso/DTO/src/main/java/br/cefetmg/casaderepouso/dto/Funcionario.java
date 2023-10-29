@@ -12,7 +12,7 @@ public class Funcionario {
     private String pis;
     private String funcao;
     private String periodoTrabalho;
-
+    private String id;
     public String getNome() {
         return nome;
     }
@@ -78,11 +78,18 @@ public class Funcionario {
         this.funcao = funcao;
     }
 
-    public String getPeridoTrabalho() {
+    public String getPeriodoTrabalho() {
         return periodoTrabalho;
     }
 
     public void setPeriodoTrabalho(String periodoTrabalho) {
         this.periodoTrabalho = periodoTrabalho;
+    }
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 }
