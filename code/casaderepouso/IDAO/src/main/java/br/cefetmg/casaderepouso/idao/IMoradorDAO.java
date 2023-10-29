@@ -20,7 +20,7 @@ public interface IMoradorDAO {
 
     public boolean deletar(Morador morador);
 
-    public ArrayList<Morador> listarTodos();
+    public ArrayList<Morador> listarTodos() throws SQLException, ClassNotFoundException;
 
     public Morador pesquisar(String nome);
     

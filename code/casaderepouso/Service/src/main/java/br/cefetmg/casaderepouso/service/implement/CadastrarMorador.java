@@ -12,6 +12,7 @@ import br.cefetmg.casaderepouso.dto.Morador;
 import br.cefetmg.casaderepouso.dto.exception.*;
 import br.cefetmg.casaderepouso.DAO.MoradorDAO;
 import br.cefetmg.casaderepouso.idao.IMoradorDAO;
+import java.sql.SQLException;
 /**
  *
  * @author Aluno
@@ -41,6 +42,11 @@ public class CadastrarMorador implements ICadastrarMorador {
     }
     
     
+    public List<Morador> pesquisarTodos() throws Exception {
+        List<Morador> lista = moradorDAO.listarTodos();
+        
+        return lista;
+    }
     
     @Override
     public List<Morador> pesquisar(Morador morador) throws Exception {
