@@ -17,14 +17,13 @@ CREATE TABLE visitantes (
 );
 CREATE TABLE morador (
     nome VARCHAR(255) NOT NULL,
-    nome_mae VARCHAR(255) NOT NULL
-    condicao_especial VARCHAR(255) NOT NULL
+    condicoes TEXT,
     cpf VARCHAR(14) NOT NULL,
     rg VARCHAR(12) NOT NULL,
     datanascimento DATE NOT NULL,
     responsavel VARCHAR(255),
-    condicoes TEXT,
-    estado ENUM('Disponivel', 'Consulta', 'Saida Temporária', 'Falecido', 'Outro') NOT NULL
+    nome_mae VARCHAR(255) NOT NULL
+    estado VARCHAR(255) NOT NULL
 );
 CREATE TABLE responsavel (
     id INT AUTO_INCREMENT PRIMARY KEY,

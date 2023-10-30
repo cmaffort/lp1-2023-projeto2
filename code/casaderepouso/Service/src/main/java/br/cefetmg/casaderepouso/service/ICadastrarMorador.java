@@ -19,6 +19,7 @@ public interface ICadastrarMorador {
     public String atualizar(Morador morador) throws Exception;
     public String excluir(Morador morador) throws Exception;
     
+    public List<Morador> pesquisarTodos() throws Exception;
     public List<Morador> pesquisar(Morador morador) throws Exception;
     
 }

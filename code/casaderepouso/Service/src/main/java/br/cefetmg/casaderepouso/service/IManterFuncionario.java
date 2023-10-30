@@ -20,5 +20,5 @@ public interface IManterFuncionario {
     public String atualizar(Funcionario func) throws Exception;
     public String excluir(Funcionario func) throws Exception;
     
-    public List<Funcionario> pesquisar(Funcionario func) throws Exception;
+    public List<Funcionario> pesquisarTodos() throws Exception;
 }

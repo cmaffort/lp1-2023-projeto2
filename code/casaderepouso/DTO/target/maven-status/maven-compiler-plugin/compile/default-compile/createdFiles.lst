@@ -1,0 +1,10 @@
+br\cefetmg\casaderepouso\dto\Medicamento$Tarja.class
+br\cefetmg\casaderepouso\dto\exception\CadastroException.class
+br\cefetmg\casaderepouso\dto\Medicamento.class
+br\cefetmg\casaderepouso\dto\EstadoMorador.class
+br\cefetmg\casaderepouso\dto\Visitante.class
+br\cefetmg\casaderepouso\dto\exception\PersistenciaException.class
+br\cefetmg\casaderepouso\dto\Medico.class
+br\cefetmg\casaderepouso\dto\Morador.class
+br\cefetmg\casaderepouso\dto\Funcionario.class
+br\cefetmg\casaderepouso\dto\Responsavel.class
