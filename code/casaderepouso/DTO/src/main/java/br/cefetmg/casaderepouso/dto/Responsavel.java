@@ -9,6 +9,7 @@ public class Responsavel {
     private Date dataNascimento;
     private String endereco;
     private String responsavelPor;
+    private String id;
     
     public String getNome(){
         return nome;
@@ -57,5 +58,12 @@ public class Responsavel {
     }
     public void setResponsavelPor(String responsavelPor){
         this.responsavelPor = responsavelPor;
+    }
+    
+    public String getId(){
+        return id;
+    }
+    public void setId(String id){
+        this.id = id;
     }
 }
