@@ -34,7 +34,9 @@ public class Morador {
     private String condicaoEspecial;
     private String nomeMae;
     private EstadoMorador estado = EstadoMorador.DISPONIVEL;
-
+    public Morador(){
+    
+    }
     public Morador(String nome, String cpf, String rg, Date dataNasc, String endereco, String responsaveis, String condicaoEspecial, String nomeMae, String estado) {
         this.nome = nome;
         this.cpf = cpf;
