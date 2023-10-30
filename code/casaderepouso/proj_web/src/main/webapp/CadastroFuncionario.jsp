@@ -19,7 +19,8 @@
         <article>
         <div>
           <h1>Cadastro de funcionário</h1>
-          <form class="form-container" action="facade" method="POST">
+          <form class="form-container" action="Facade" method="POST">
+         
             <div class="form-group">
                 <label>Nome completo:</label>
                 <input type="text" name="nomeFuncionario" class="texto" placeholder="Digite aqui..." required>                
@@ -57,8 +58,8 @@
                 <input type="text" name="periodo" class="texto" placeholder="Digite aqui..." required>                
             </div>
             
-            <label>Cadastrar:</label>
-            <input type="submit" class="envio" name="act" value="cadastrarFuncionario">
+            
+            <button type="submit" class="envio" name="act" value="cadastrarFuncionario">Cadastrar</button>
             </form>
         </div>
         </article>

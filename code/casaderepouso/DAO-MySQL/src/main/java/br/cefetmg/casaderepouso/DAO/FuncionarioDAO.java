@@ -28,8 +28,9 @@ public class FuncionarioDAO implements IFuncionarioDAO{
     public void inserir(Funcionario func) throws SQLException, ClassNotFoundException{
         
         try{
+            Class.forName("com.mysql.cj.jdbc.Driver");
             Connection con = DAO.conectar();
-            String sql = "INSERT INTO funcionario (id, nome, cpf, rg, telefone, nascimento, endereco, pis, funcao, periodoTrabalho) VALUES(?,?,?,?,?,?,?,?,?,?)";
+            String sql = "INSERT INTO funcionario (id, nome, cpf, rg, telefone, nascimento, endereco, pis, funcao, periodoTrabalho) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
             PreparedStatement pstmt = con.prepareStatement(sql);
             pstmt.setString(1, func.getId());
@@ -88,6 +89,7 @@ public class FuncionarioDAO implements IFuncionarioDAO{
         
 	String sql = "SELECT * FROM funcionario ORDER BY nome";
         try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
             Connection con = DAO.conectar();
             PreparedStatement pst = con.prepareStatement(sql);
             ResultSet rs = pst.executeQuery();
