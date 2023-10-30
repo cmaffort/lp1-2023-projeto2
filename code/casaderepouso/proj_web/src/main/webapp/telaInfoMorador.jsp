@@ -49,5 +49,6 @@
                 <button id="botao-deletar">Deletar</button>
             </div>
         </div>
+    <script src="scripts/enviarInfoMorador.js"></script>
     </body>
 </html>

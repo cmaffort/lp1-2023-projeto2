@@ -42,11 +42,12 @@
                         if(listaMoradores != null){
                         for (Morador mor: listaMoradores) {
                     %>
-			<tr>
+                        <a href="telaInfoMorador.jsp"><tr class="morador-container">
 				<td><%=mor.getNome()%></td>
                                 <td><%=mor.getCpf()%></td>
 				<td><%=mor.getEstado()%></td>         
 			</tr>
+                        </a>
 			<%
 				}
                         }
@@ -54,6 +55,7 @@
 		</tbody>
 	</table>
     </div>
+    <script src="scripts/enviarInfoMorador.js"></script>
     </body>
 </html>
 
