@@ -1,4 +1,4 @@
-package java.br.cefetmg.casaderepouso.controller;
+package br.cefetmg.casaderepouso.controller;
 
 
 import java.io.IOException;
@@ -17,8 +17,8 @@ import br.cefetmg.casaderepouso.service.IManterFuncionario;
 import java.util.ArrayList;
 import java.util.List;
 
-@WebServlet(urlPatterns = {"/ExcluirFuncionario"})
-public class ExcluirFuncionario extends HttpServlet {
+@WebServlet(urlPatterns = {"/ListarFuncionario"})
+public class ListarFuncionario extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -34,12 +34,10 @@ public class ExcluirFuncionario extends HttpServlet {
         String jsp = "";
      
         try {
-            String id = request.getParameter("id");
             IManterFuncionario iFuncionario =  new ManterFuncionario();
-            Funcionario func = new Funcionario();
-            func.setId(id);
-            String str = iFuncionario.excluir(func);
-            if (str.equals("true")) {
+            List<Funcionario> lista = iFuncionario.pesquisarTodos();
+            if (lista != null) {
+                request.setAttribute("listFunc", lista);
                 jsp = "/telaGerente.jsp";
             }
         } catch (Exception e) {

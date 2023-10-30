@@ -1,8 +1,5 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-package java.br.cefetmg.casaderepouso.controller;
+package br.cefetmg.casaderepouso.controller;
+
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -14,17 +11,14 @@ import jakarta.servlet.http.HttpServletResponse;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import br.cefetmg.casaderepouso.dto.Morador;
-import br.cefetmg.casaderepouso.service.implement.CadastrarMorador;
-import br.cefetmg.casaderepouso.service.ICadastrarMorador;
+import br.cefetmg.casaderepouso.dto.Funcionario;
+import br.cefetmg.casaderepouso.service.implement.ManterFuncionario;
+import br.cefetmg.casaderepouso.service.IManterFuncionario;
 import java.util.ArrayList;
 import java.util.List;
-/**
- *
- * @author Master
- */
-@WebServlet(urlPatterns = {"/ListarMorador"})
-public class ListarMorador extends HttpServlet {
+
+@WebServlet(urlPatterns = {"/ExcluirFuncionario"})
+public class ExcluirFuncionario extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -40,11 +34,13 @@ public class ListarMorador extends HttpServlet {
         String jsp = "";
      
         try {
-            ICadastrarMorador iMorador =  new CadastrarMorador();
-            List<Morador> lista = iMorador.pesquisarTodos();
-            if (lista != null) {
-                request.setAttribute("listMor", lista);
-                jsp = "/telaFuncionario.jsp";
+            String id = request.getParameter("id");
+            IManterFuncionario iFuncionario =  new ManterFuncionario();
+            Funcionario func = new Funcionario();
+            func.setId(id);
+            String str = iFuncionario.excluir(func);
+            if (str.equals("true")) {
+                jsp = "/telaGerente.jsp";
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -58,5 +54,6 @@ public class ListarMorador extends HttpServlet {
     @Override
     public String getServletInfo() {
         return "Short description";
-    }
+    }// </editor-fold>
+
 }

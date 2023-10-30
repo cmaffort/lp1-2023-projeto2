@@ -1,4 +1,4 @@
-package java.br.cefetmg.casaderepouso.controller;
+package br.cefetmg.casaderepouso.controller;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license

@@ -1,5 +1,8 @@
-package java.br.cefetmg.casaderepouso.controller;
-
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package br.cefetmg.casaderepouso.controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -11,14 +14,17 @@ import jakarta.servlet.http.HttpServletResponse;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import br.cefetmg.casaderepouso.dto.Funcionario;
-import br.cefetmg.casaderepouso.service.implement.ManterFuncionario;
-import br.cefetmg.casaderepouso.service.IManterFuncionario;
+import br.cefetmg.casaderepouso.dto.Morador;
+import br.cefetmg.casaderepouso.service.implement.CadastrarMorador;
+import br.cefetmg.casaderepouso.service.ICadastrarMorador;
 import java.util.ArrayList;
 import java.util.List;
-
-@WebServlet(urlPatterns = {"/ListarFuncionario"})
-public class ListarFuncionario extends HttpServlet {
+/**
+ *
+ * @author Master
+ */
+@WebServlet(urlPatterns = {"/ListarMorador"})
+public class ListarMorador extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -34,11 +40,11 @@ public class ListarFuncionario extends HttpServlet {
         String jsp = "";
      
         try {
-            IManterFuncionario iFuncionario =  new ManterFuncionario();
-            List<Funcionario> lista = iFuncionario.pesquisarTodos();
+            ICadastrarMorador iMorador =  new CadastrarMorador();
+            List<Morador> lista = iMorador.pesquisarTodos();
             if (lista != null) {
-                request.setAttribute("listFunc", lista);
-                jsp = "/telaGerente.jsp";
+                request.setAttribute("listMor", lista);
+                jsp = "/telaFuncionario.jsp";
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -52,6 +58,5 @@ public class ListarFuncionario extends HttpServlet {
     @Override
     public String getServletInfo() {
         return "Short description";
-    }// </editor-fold>
-
+    }
 }
