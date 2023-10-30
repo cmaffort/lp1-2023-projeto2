@@ -68,6 +68,7 @@ CREATE TABLE medicamento (
     dose VARCHAR(255),
     ultimaAplicacao DATETIME NOT NULL,
     intervalo INT NOT NULL,
+    condicao ENUM('COMPRADO','SOLICITADO','ESGOTADO'),
     FOREIGN KEY (morador) REFERENCES morador(id)
 );
 CREATE TABLE profissional_de_saude (
