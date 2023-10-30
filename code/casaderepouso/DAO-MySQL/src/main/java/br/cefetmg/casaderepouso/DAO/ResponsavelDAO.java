@@ -106,9 +106,9 @@ public class ResponsavelDAO implements IResponsavel {
 
     
     @Override
-    public ArrayList<Responsavel> listarTodos() throws SQLException, ClassNotFoundException{
+    public List<Responsavel> listar() throws SQLException, ClassNotFoundException{
         String sql = "SELECT * FROM responsavel";
-        ArrayList<Responsavel> reponsaveis = new ArrayList<Responsavel>();
+        List<Responsavel> reponsaveis = new ArrayList<Responsavel>();
 
         Connection conn = null;
         PreparedStatement pstm = null;
