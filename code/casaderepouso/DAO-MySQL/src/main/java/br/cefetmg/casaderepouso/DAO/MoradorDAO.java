@@ -52,10 +52,10 @@ public class MoradorDAO implements IMoradorDAO {
          try {
             Connection con = DAO.conectar();
 
-            String sql = "DELETE FROM morador WHERE nome = ?";
+            String sql = "DELETE FROM morador WHERE cpf = ?";
 
             PreparedStatement pstmt = con.prepareStatement(sql);
-            pstmt.setString(1, mor.getNome());
+            pstmt.setString(1, mor.getCpf());
             pstmt.executeUpdate();
 
             pstmt.close();

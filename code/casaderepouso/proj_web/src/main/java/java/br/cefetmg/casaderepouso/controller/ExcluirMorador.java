@@ -4,6 +4,10 @@
  */
 package java.br.cefetmg.casaderepouso.controller;
 
+/**
+ *
+ * @author Aluno
+ */
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
@@ -19,12 +23,9 @@ import br.cefetmg.casaderepouso.service.implement.CadastrarMorador;
 import br.cefetmg.casaderepouso.service.ICadastrarMorador;
 import java.util.ArrayList;
 import java.util.List;
-/**
- *
- * @author Master
- */
-@WebServlet(urlPatterns = {"/ListarMorador"})
-public class ListarMorador extends HttpServlet {
+
+@WebServlet(urlPatterns = {"/ExcluirFuncionario"})
+public class ExcluirMorador extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -40,10 +41,12 @@ public class ListarMorador extends HttpServlet {
         String jsp = "";
      
         try {
+            String cpf = request.getParameter("cpf");
             ICadastrarMorador iMorador =  new CadastrarMorador();
-            List<Morador> lista = iMorador.pesquisarTodos();
-            if (lista != null) {
-                request.setAttribute("listMor", lista);
+            Morador mor = new Morador();
+            mor.setCpf(cpf);
+            String str = iMorador.excluir(mor);
+            if (str.equals("true")) {
                 jsp = "/telaFuncionario.jsp";
             }
         } catch (Exception e) {
@@ -58,5 +61,7 @@ public class ListarMorador extends HttpServlet {
     @Override
     public String getServletInfo() {
         return "Short description";
-    }
+    }// </editor-fold>
+
 }
+
