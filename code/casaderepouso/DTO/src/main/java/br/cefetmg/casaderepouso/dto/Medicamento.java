@@ -7,8 +7,12 @@ public class Medicamento {
     public enum Tarja {
         SEM_TARJA, VERMELHA, AMARELA, PRETA;
     }
+    public enum Condicao{
+        COMPRADO,SOLICITADO,ESGOTADO;
+    }
+    
 
-    public Medicamento( String nome, Double valor, Tarja tarja, Date validade, String morador, String dose, Date ultimaAplicacao, Integer intervalo) {
+    public Medicamento( String nome, Double valor, Tarja tarja, Date validade, String morador, String dose, Date ultimaAplicacao, Integer intervalo, Condicao condicao) {
         this.nome = nome;
         this.valor = valor;
         this.tarja = tarja;
@@ -17,6 +21,7 @@ public class Medicamento {
         this.dose = dose;
         this.ultimaAplicacao = ultimaAplicacao;
         this.intervalo = intervalo;
+        this.condicao = condicao;
     }
     public Medicamento(){}
 
@@ -28,9 +33,16 @@ public class Medicamento {
     private String dose;
     private Date ultimaAplicacao;
     private Integer intervalo;
+    private Condicao condicao;
     
     
-    
+    public Condicao getCondicao() {
+        return condicao;
+    }
+
+    public void setCondicao(Condicao condicao) {
+        this.condicao = condicao;
+    }
     public Date getUltimaAplicacao() {
         return ultimaAplicacao;
     }
