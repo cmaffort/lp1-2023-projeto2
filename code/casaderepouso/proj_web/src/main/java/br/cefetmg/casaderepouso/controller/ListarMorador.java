@@ -15,10 +15,10 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import br.cefetmg.casaderepouso.dto.Morador;
-import br.cefetmg.casaderepouso.service.implement.CadastrarMorador;
-import br.cefetmg.casaderepouso.service.ICadastrarMorador;
+import br.cefetmg.casaderepouso.service.implement.ManterMorador;
 import java.util.ArrayList;
 import java.util.List;
+import br.cefetmg.casaderepouso.service.IManterMorador;
 /**
  *
  * @author Master
@@ -40,7 +40,7 @@ public class ListarMorador extends HttpServlet {
         String jsp = "";
      
         try {
-            ICadastrarMorador iMorador =  new CadastrarMorador();
+            IManterMorador iMorador =  new ManterMorador();
             List<Morador> lista = iMorador.pesquisarTodos();
             if (lista != null) {
                 request.setAttribute("listMor", lista);

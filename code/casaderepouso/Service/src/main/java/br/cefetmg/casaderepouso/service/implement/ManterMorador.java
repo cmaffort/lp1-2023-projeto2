@@ -7,21 +7,21 @@ package br.cefetmg.casaderepouso.service.implement;
 import java.util.Date;
 import java.util.List;
 import java.util.ArrayList;
-import br.cefetmg.casaderepouso.service.ICadastrarMorador;
 import br.cefetmg.casaderepouso.dto.Morador;
 import br.cefetmg.casaderepouso.dto.exception.*;
 import br.cefetmg.casaderepouso.DAO.MoradorDAO;
 import br.cefetmg.casaderepouso.idao.IMoradorDAO;
 import java.sql.SQLException;
+import br.cefetmg.casaderepouso.service.IManterMorador;
 /**
  *
  * @author Aluno
  */
-public class CadastrarMorador implements ICadastrarMorador {
+public class ManterMorador implements IManterMorador {
     
     private IMoradorDAO moradorDAO;
     
-    public CadastrarMorador() {
+    public ManterMorador() {
         moradorDAO = new MoradorDAO();
     }
     

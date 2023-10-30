@@ -14,7 +14,7 @@ import java.sql.SQLException;
 import java.util.Date;
 import java.util.List;
 
-public interface ICadastrarMorador {
+public interface IManterMorador {
     
     public String cadastrar(Morador morador) throws CadastroException, SQLException, ClassNotFoundException;
     public String atualizar(Morador morador) throws Exception;
