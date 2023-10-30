@@ -42,5 +42,13 @@
                 <a id="update-status">Atualizar status</a>
             </div>
         </div>
+        <script>
+            let marcadores = document.querySelectorAll(".marks");
+            for(marc : marcadores){
+                marc.addEventListener(click, function(e){
+                    marc.style.backgroundcolor = "black;";
+            );
+            }
+        </script>
     </body>
 </html>
