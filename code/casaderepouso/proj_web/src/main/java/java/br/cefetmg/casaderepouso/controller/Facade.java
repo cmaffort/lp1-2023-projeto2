@@ -18,7 +18,7 @@ import jakarta.servlet.http.HttpServletResponse;
  *
  * @author Aluno
  */
-@WebServlet(urlPatterns = {"/Facade"})
+@WebServlet(urlPatterns = {"/Facade","/delete"})
 public class Facade extends HttpServlet {
     private String jsp;
 
@@ -35,14 +35,20 @@ public class Facade extends HttpServlet {
     @Override
     protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");
+        
+        String encaminha = request.getServletPath();
+        
         String act = request.getParameter("act");
         
         if(act.equals("cadastrarMorador")) {
             jsp = CadastrarMorador.execute(request);
         }
         else if(act.equals("cadastrarFuncionario"))
-             jsp = CadastrarFuncionario.execute(request);
-        
+            jsp = CadastrarFuncionario.execute(request);
+        else if(act.equals("listarFuncionario"))
+            jsp = ListarFuncionario.execute(request);
+        else if(encaminha.equals("/delete"))
+            jsp = ExcluirFuncionario.execute(request);
         RequestDispatcher rd = request.getRequestDispatcher(jsp);
         rd.forward(request, response);
     }

@@ -16,7 +16,11 @@ import br.cefetmg.casaderepouso.service.ICadastrarMedicamento;
  */
 public class CadastrarMedicamento implements ICadastrarMedicamento {
 
-    private IMedicamentoDAO DAO = new MedicamentoDAO();
+    private IMedicamentoDAO DAO;
+    
+    public CadastrarMedicamento() {
+        DAO = new MedicamentoDAO();
+    }
 
     @Override
     public Boolean cadastrar(Medicamento med) {

@@ -17,9 +17,9 @@ public interface IFuncionarioDAO {
 
     public boolean atualizar(Funcionario funcionario);
 
-    public boolean deletar(Funcionario funcionario);
+    public boolean deletar(Funcionario funcionario) throws SQLException, ClassNotFoundException;
 
-    public ArrayList<Funcionario> listarTodos();
+    public ArrayList<Funcionario> listarTodos() throws SQLException, ClassNotFoundException;
 
     public Funcionario pesquisar(String cpf);
 

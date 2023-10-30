@@ -292,10 +292,10 @@ public class MedicamentoDAO implements IMedicamentoDAO {
                 med.setIntervalo(rset.getInt("intervalo"));
 
                 switch (rset.getString("tarja")) {
-                    case "VERMELHA" -> med.setTarja(Tarja.VERMELHA);
-                    case "SEM_TARJA" -> med.setTarja(Tarja.SEM_TARJA);
-                    case "AMARELA" -> med.setTarja(Tarja.AMARELA);
-                    case "PRETA" -> med.setTarja(Tarja.PRETA);
+                    case "VERMELHA": med.setTarja(Tarja.VERMELHA); break;
+                    case "SEM_TARJA": med.setTarja(Tarja.SEM_TARJA); break;
+                    case "AMARELA": med.setTarja(Tarja.AMARELA); break;
+                    case "PRETA": med.setTarja(Tarja.PRETA); break;
                 }
 
                 medicamentos.add(med);

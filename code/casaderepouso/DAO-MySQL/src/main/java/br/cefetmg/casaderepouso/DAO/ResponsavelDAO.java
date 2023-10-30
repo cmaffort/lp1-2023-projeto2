@@ -73,18 +73,132 @@ public class ResponsavelDAO implements IResponsavel {
     }
  
     @Override
-    public boolean deletar(Responsavel responsavel) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public boolean deletar(Responsavel responsavel) throws SQLException, ClassNotFoundException{
+        String sql = "DELETE FROM responsavel WHERE nome = ?";
+
+        Connection conn = null;
+        PreparedStatement pstm = null;
+
+        ResultSet rset = null;
+
+        try {
+            conn = DAO.conectar();
+            pstm = conn.prepareStatement(sql);
+            pstm.setString(1, responsavel.getNome());
+            pstm.execute();
+            
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }finally{
+            try{
+                if(pstm != null)
+                    pstm.close();
+                if(conn != null)
+                    conn.close();
+            }catch(Exception e){
+            e.printStackTrace();
+            }
+            return true;
+        }
     }
 
     
     @Override
-    public ArrayList<Responsavel> listarTodos() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public ArrayList<Responsavel> listarTodos() throws SQLException, ClassNotFoundException{
+        String sql = "SELECT * FROM responsavel";
+        ArrayList<Responsavel> reponsaveis = new ArrayList<Responsavel>();
+
+        Connection conn = null;
+        PreparedStatement pstm = null;
+
+        ResultSet rset = null;
+
+        try {
+            conn = DAO.conectar();
+            pstm = conn.prepareStatement(sql);
+            rset = pstm.executeQuery();
+
+            while (rset.next()) {
+                Responsavel responsavel = new Responsavel();
+
+                responsavel.setNome(rset.getString("nome"));
+                responsavel.setCpf(rset.getString("cpf"));
+                responsavel.setRg(rset.getString("rg"));
+                responsavel.setTelefone(rset.getString("telefone"));
+                responsavel.setDataNascimento(rset.getDate("datanascimento"));
+                responsavel.setEndereco(rset.getString("endereco"));
+                responsavel.setResponsavelPor(rset.getString("morador_responsavel"));
+
+                
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+
+        } finally {
+            try {
+                if (rset != null) {
+                    rset.close();
+                }
+                if (pstm != null) {
+                    pstm.close();
+                }
+                if (conn != null) {
+                    conn.close();
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+
+        return reponsaveis;
     }
 
     @Override
-    public Responsavel pesquisar(String nome, String cpf) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public Responsavel pesquisar(String nome) throws SQLException, ClassNotFoundException{
+        String sql = "SELECT * FROM responsavel WHERE nome = ?";
+        Responsavel responsavel = new Responsavel();
+                
+        Connection conn = null;
+        PreparedStatement pstm = null;
+
+        ResultSet rset = null;
+
+        try {
+            conn = DAO.conectar();
+            pstm = conn.prepareStatement(sql);
+                
+            pstm.setString(1, nome);
+            
+            rset = pstm.executeQuery();
+          
+                responsavel.setNome(rset.getString("nome"));
+                responsavel.setCpf(rset.getString("cpf"));
+                responsavel.setRg(rset.getString("rg"));
+                responsavel.setTelefone(rset.getString("telefone"));
+                responsavel.setDataNascimento(rset.getDate("datanascimento"));
+                responsavel.setEndereco(rset.getString("endereco"));
+                responsavel.setResponsavelPor(rset.getString("morador_responsavel"));      
+                
+        }
+        catch(Exception e){
+        e.printStackTrace();
+        }finally {
+            try {
+                if (rset != null) {
+                    rset.close();
+                }
+                if (pstm != null) {
+                    pstm.close();
+                }
+                if (conn != null) {
+                    conn.close();
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+            return responsavel;
     }
 }

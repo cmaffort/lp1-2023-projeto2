@@ -58,3 +58,20 @@ body {
 .title {
     font-size: 150%;
 }
+#tabela {
+	margin-top: 30px;
+	border-collapse: collapse;
+}
+
+#tabela th {
+	border: 1px solid #ddd;
+	padding: 10px;
+	text-align: left;
+	background-color: #76A5DC;
+	color: #fff;
+}
+
+#tabela td {
+	border: 1px solid #ddd;
+	padding: 10px;
+}
