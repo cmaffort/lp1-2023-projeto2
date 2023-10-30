@@ -18,7 +18,7 @@ import jakarta.servlet.http.HttpServletResponse;
  *
  * @author Aluno
  */
-@WebServlet(urlPatterns = {"/Facade","/delete"})
+@WebServlet(urlPatterns = {"/Facade","/deleteFunc"})
 public class Facade extends HttpServlet {
     private String jsp;
 
@@ -47,8 +47,11 @@ public class Facade extends HttpServlet {
             jsp = CadastrarFuncionario.execute(request);
         else if(act.equals("listarFuncionario"))
             jsp = ListarFuncionario.execute(request);
-        else if(encaminha.equals("/delete"))
+        
+        else if(encaminha.equals("/deleteFunc")){
             jsp = ExcluirFuncionario.execute(request);
+            jsp = ListarFuncionario.execute(request);
+        }
         RequestDispatcher rd = request.getRequestDispatcher(jsp);
         rd.forward(request, response);
     }
