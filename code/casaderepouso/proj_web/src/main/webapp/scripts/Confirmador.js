@@ -7,7 +7,7 @@
 function confirma(id){
                 let resp = confirm("Deseja excluir este funcionário?");
                 if(resp === true){
-                    window.location.href = "delete?idcon=" + id;
+                    window.location.href = "deleteFunc?id=" + id;
                 }
                 
                 
