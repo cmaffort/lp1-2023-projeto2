@@ -1,3 +1,5 @@
+package java.br.cefetmg.casaderepouso.controller;
+
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
@@ -11,7 +13,7 @@ import java.util.Date;
 import br.cefetmg.casaderepouso.dto.Responsavel;
 
 
-@WebServlet(urlPatterns = {"/CadastrarMorador"})
+@WebServlet(name = "CadastrarResponsavel", urlPatterns = {"/CadastrarResponsavel"})
 public class CadastrarResponsavel extends HttpServlet {
 
     

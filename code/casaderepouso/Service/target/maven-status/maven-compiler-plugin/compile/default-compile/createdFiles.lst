@@ -1,0 +1,9 @@
+br\cefetmg\casaderepouso\service\implement\CadastrarMedicamento.class
+br\cefetmg\casaderepouso\service\ICadastrarMorador.class
+br\cefetmg\casaderepouso\service\implement\CadastrarResponsavel.class
+br\cefetmg\casaderepouso\service\ICadastrarVisitante.class
+br\cefetmg\casaderepouso\service\ICadastrarResponsavel.class
+br\cefetmg\casaderepouso\service\IManterFuncionario.class
+br\cefetmg\casaderepouso\service\ICadastrarMedicamento.class
+br\cefetmg\casaderepouso\service\implement\ManterFuncionario.class
+br\cefetmg\casaderepouso\service\implement\CadastrarMorador.class

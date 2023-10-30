@@ -17,7 +17,7 @@ import br.cefetmg.casaderepouso.service.IManterFuncionario;
 import java.util.ArrayList;
 import java.util.List;
 
-@WebServlet(urlPatterns = {"/ListarFuncionario"})
+@WebServlet(urlPatterns = {"/ExcluirFuncionario"})
 public class ExcluirFuncionario extends HttpServlet {
 
     /**

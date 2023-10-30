@@ -18,7 +18,7 @@ import java.util.Date;
 import br.cefetmg.casaderepouso.dto.Morador;
 
 
-@WebServlet(urlPatterns = {"/CadastrarMorador"})
+@WebServlet(name = "CadastrarMorador", urlPatterns = {"/CadastrarMorador"})
 public class CadastrarMorador extends HttpServlet {
 
     /**
