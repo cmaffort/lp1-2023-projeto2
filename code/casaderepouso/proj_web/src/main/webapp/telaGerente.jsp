@@ -32,7 +32,7 @@
                         <th>Nome</th>
                         <th>CPF</th>
                         <th>RG</th>
-                         <th>Telefone</th>
+                        <th>Telefone</th>
                         <th>Nascimento</th>
                         <th>Endereço</th>
                         <th>PIS</th>

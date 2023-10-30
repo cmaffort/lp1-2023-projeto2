@@ -26,18 +26,22 @@ public class CadastrarMorador implements ICadastrarMorador {
     }
     
     @Override
-    public String cadastrar(Morador morador) throws CadastroException {        
+    public String cadastrar(Morador morador) throws CadastroException, SQLException, ClassNotFoundException{        
         moradorDAO.inserir(morador);
         return morador.getCpf();
     }
 
     @Override
-    public String excluir(Morador paciente) throws Exception {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public String excluir(Morador morador) throws Exception {
+        boolean verifica = moradorDAO.deletar(morador);
+        if(verifica)
+            return "true";
+        else
+            return "false";
     }
 
     @Override
-    public String atualizar(Morador paciente) throws Exception {
+    public String atualizar(Morador morador) throws Exception {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
     
