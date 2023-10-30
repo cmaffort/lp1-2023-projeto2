@@ -65,9 +65,9 @@ public class MedicamentoDAO implements IMedicamentoDAO {
     }
 
     @Override
-    public void atualizar(Medicamento med) {
+    public void atualizar(Medicamento med, String morador) {
         
-        String sql="UPDATE medicamento SET dose = ?, ultimaAplicacao = ?, intervalo = ?" + "WHERE id = ?";
+        String sql="UPDATE medicamento SET dose = ?, ultimaAplicacao = ?, intervalo = ?" + "WHERE morador = ? AND nome = ?";
         
         Connection conn = null;
         PreparedStatement pstm = null;
@@ -78,6 +78,8 @@ public class MedicamentoDAO implements IMedicamentoDAO {
             pstm.setString(1, med.getDose());
             pstm.setDate(2, (Date) med.getUltimaAplicacao());
             pstm.setInt(3, med.getIntervalo());
+            pstm.setString(4, med.getMoradorCPF());
+            pstm.setString(5, med.getNome());
             
             pstm.execute();
             
@@ -292,10 +294,10 @@ public class MedicamentoDAO implements IMedicamentoDAO {
                 med.setIntervalo(rset.getInt("intervalo"));
 
                 switch (rset.getString("tarja")) {
-                    case "VERMELHA" -> med.setTarja(Tarja.VERMELHA);
-                    case "SEM_TARJA" -> med.setTarja(Tarja.SEM_TARJA);
-                    case "AMARELA" -> med.setTarja(Tarja.AMARELA);
-                    case "PRETA" -> med.setTarja(Tarja.PRETA);
+                    case "VERMELHA": med.setTarja(Tarja.VERMELHA); break;
+                    case "SEM_TARJA": med.setTarja(Tarja.SEM_TARJA); break;
+                    case "AMARELA": med.setTarja(Tarja.AMARELA); break;
+                    case "PRETA": med.setTarja(Tarja.PRETA); break;
                 }
 
                 medicamentos.add(med);
