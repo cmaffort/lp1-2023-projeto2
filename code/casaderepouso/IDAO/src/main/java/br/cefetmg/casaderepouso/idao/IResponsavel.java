@@ -1,7 +1,7 @@
 package br.cefetmg.casaderepouso.idao;
 import br.cefetmg.casaderepouso.dto.Responsavel;
 import java.sql.SQLException;
-import java.util.ArrayList;
+import java.util.List;
 
 public interface IResponsavel {
     
@@ -12,7 +12,7 @@ public interface IResponsavel {
 
     public boolean deletar(Responsavel responsavel) throws SQLException, ClassNotFoundException;
 
-    public ArrayList<Responsavel> listarTodos() throws SQLException, ClassNotFoundException;
+    public List<Responsavel> listar() throws SQLException, ClassNotFoundException;
 
     public Responsavel pesquisar(String nome) throws SQLException, ClassNotFoundException;
 
