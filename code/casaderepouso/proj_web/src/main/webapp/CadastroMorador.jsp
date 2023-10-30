@@ -41,6 +41,10 @@
             <label>CPF:</label>
             <input type="text" name="cpf" class="texto" placeholder="Digite aqui..." required>
           </div>
+            <div class="form-group">
+            <label>Plano médico:</label>
+            <input type="text" name="plano_medico" class="texto" placeholder="Digite aqui..." required>
+          </div>
           <div class="form-group">
             <label>Condições especiais:</label>
             <input type="text" name="condicoes_especiais" class="texto" placeholder="Digite aqui..." required>

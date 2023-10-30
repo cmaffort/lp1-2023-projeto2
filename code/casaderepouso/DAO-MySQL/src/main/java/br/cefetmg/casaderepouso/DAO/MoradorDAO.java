@@ -27,7 +27,7 @@ public class MoradorDAO implements IMoradorDAO {
     @Override
     public boolean atualizar(Morador morador) throws ClassNotFoundException, SQLException{
          String sqlMorador = "INSERT INTO morador VALUES('" + morador.getNome() + "', '" + morador.getNomeMae() + "', '" + morador.getCondicaoEspecial() + "', '" + morador.getCpf() + "', '"
-                + morador.getDataNasc()+ "', '" + morador.getVetorResponsaveis()+ "', '" + morador.getEstado() + "')";
+                + morador.getDataNasc()+ "', '" + morador.getPlanoMedico() + "', '" + morador.getVetorResponsaveis()+ "', '" + morador.getEstado() + "')";
          Connection conexao = null;
 
         Statement comando = null;

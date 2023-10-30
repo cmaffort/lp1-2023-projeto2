@@ -43,7 +43,7 @@ public class CadastrarMorador extends HttpServlet {
             DateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
             Date dataNasc = formatter.parse(dataStr);
             
-            
+            String planoMedico = request.getParameter("plano_medico");
             String nomeMae = request.getParameter("nome_mae");
             String endereco = request.getParameter("endereco");
             String condicoes = request.getParameter("condicoes_especiais");
@@ -53,6 +53,7 @@ public class CadastrarMorador extends HttpServlet {
             morador.setNome(nome);
             morador.setNomeMae(nomeMae);
             morador.setCpf(cpf);
+            morador.setPlanoMedico(planoMedico);
             morador.setDataNasc(dataNasc);
             morador.setEndereco(endereco);
             morador.setCondicaoEspecial(condicoes);
