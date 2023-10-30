@@ -1,4 +1,4 @@
-package java.br.cefetmg.casaderepouso.controller;
+package br.cefetmg.casaderepouso.controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -40,7 +40,7 @@ public class ListarResponsavel extends HttpServlet {
             List<Responsavel> responsaveis =  iResponsavel.listar();
             Responsavel responsavel = new Responsavel();
             if (responsaveis != null) {
-                request.setAttribute("listFunc", responsaveis);
+                request.setAttribute("listResp", responsaveis);
                 jsp = "/telaFuncionario.jsp";
             }
         } catch (Exception e) {
