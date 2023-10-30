@@ -8,6 +8,7 @@ import br.cefetmg.casaderepouso.dto.Responsavel;
 import br.cefetmg.casaderepouso.dto.exception.*;
 import br.cefetmg.casaderepouso.DAO.ResponsavelDAO;
 import br.cefetmg.casaderepouso.idao.IResponsavel;
+import java.sql.SQLException;
 /**
  *
  * @author Aluno
@@ -21,18 +22,18 @@ public class CadastrarResponsavel implements ICadastrarResponsavel {
     }
     
     @Override
-    public String cadastrar(Responsavel responsavel) throws CadastroException {        
+    public String cadastrar(Responsavel responsavel) throws SQLException, ClassNotFoundException{        
         responsavelDAO.inserir(responsavel);
         return responsavel.getCpf();
     }
 
     @Override
-    public String excluir(Responsavel responsavel) throws Exception {
+    public String excluir(Responsavel responsavel) throws SQLException, ClassNotFoundException{
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     @Override
-    public String atualizar(Responsavel responsavel) throws Exception {
+    public String atualizar(Responsavel responsavel) throws SQLException, ClassNotFoundException{
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
     
