@@ -1,10 +1,13 @@
-package java.br.cefetmg.casaderepouso.controller;
-
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
+package java.br.cefetmg.casaderepouso.controller;
 
+/**
+ *
+ * @author Aluno
+ */
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
@@ -16,10 +19,13 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import br.cefetmg.casaderepouso.dto.Morador;
+import br.cefetmg.casaderepouso.service.implement.CadastrarMorador;
+import br.cefetmg.casaderepouso.service.ICadastrarMorador;
+import java.util.ArrayList;
+import java.util.List;
 
-
-@WebServlet(name = "CadastrarMorador", urlPatterns = {"/CadastrarMorador"})
-public class CadastrarMorador extends HttpServlet {
+@WebServlet(urlPatterns = {"/ExcluirMorador"})
+public class ExcluirMorador extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -35,34 +41,19 @@ public class CadastrarMorador extends HttpServlet {
         String jsp = "";
      
         try {
-
-            String nome = request.getParameter("nomeMorador");
             String cpf = request.getParameter("cpf");
-
-            String dataStr = request.getParameter("dataNasc");
-            DateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
-            Date dataNasc = formatter.parse(dataStr);
-            
-            
-            String nomeMae = request.getParameter("nome_mae");
-            String endereco = request.getParameter("endereco");
-            String condicoes = request.getParameter("condicoes_especiais");
-            
-            Morador morador = new Morador();
-            
-            morador.setNome(nome);
-            morador.setNomeMae(nomeMae);
-            morador.setCpf(cpf);
-            morador.setDataNasc(dataNasc);
-            morador.setEndereco(endereco);
-            morador.setCondicaoEspecial(condicoes);
-            
-            
-            
+            ICadastrarMorador iMorador =  new CadastrarMorador();
+            Morador mor = new Morador();
+            mor.setCpf(cpf);
+            String str = iMorador.excluir(mor);
+            if (str.equals("true")) {
+                jsp = "/telaFuncionario.jsp";
+            }
         } catch (Exception e) {
-            System.out.println(e);
+            e.printStackTrace();
             jsp = "";
         }
+        
         
         return jsp;
     }
@@ -73,3 +64,4 @@ public class CadastrarMorador extends HttpServlet {
     }// </editor-fold>
 
 }
+

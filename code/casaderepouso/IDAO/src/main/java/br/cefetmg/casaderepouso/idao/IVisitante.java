@@ -16,10 +16,5 @@ public interface IVisitante {
 
     public String atualizar(Visitante visitante);
 
-    public boolean deletar(Visitante visitante);
-
-    public ArrayList<Visitante> listarTodos();
-
-    public Visitante pesquisar(String cpf);
 
 }

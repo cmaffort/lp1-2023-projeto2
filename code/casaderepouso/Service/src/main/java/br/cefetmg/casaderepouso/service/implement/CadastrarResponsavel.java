@@ -40,17 +40,10 @@ public class CadastrarResponsavel implements ICadastrarResponsavel {
     
     
     @Override
-    public List<Responsavel> pesquisar(Responsavel responsavel) throws Exception {
-        List<Responsavel> responsaveis = new ArrayList<Responsavel>();
-        /*if(morador.getNome() == null || morador.getNome().equals("")) {
-            moradores.addAll(moradorDAO.pesquisar(morador.getNome()));
-        }*/
-        if(responsavel.getCpf() == null || responsavel.getCpf().equals("")) {
-        }
-        if(responsavel.getDataNascimento() == null || responsavel.getDataNascimento().toString().equals("")) {
-        }
-        if(responsavel.getEndereco() == null || responsavel.getEndereco().equals("")) {
-        }
-        return null;
+    public List<Responsavel> listar() throws Exception {
+        List<Responsavel> lista = responsavelDAO.listar();
+        
+        return lista;
     }
 }
+
