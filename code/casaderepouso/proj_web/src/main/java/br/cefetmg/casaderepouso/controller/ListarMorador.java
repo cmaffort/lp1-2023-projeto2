@@ -1,4 +1,8 @@
-package java.br.cefetmg.casaderepouso.controller;
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package br.cefetmg.casaderepouso.controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -10,18 +14,17 @@ import jakarta.servlet.http.HttpServletResponse;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import br.cefetmg.casaderepouso.dto.Responsavel;
-import br.cefetmg.casaderepouso.service.implement.CadastrarResponsavel;
-import br.cefetmg.casaderepouso.service.ICadastrarResponsavel;
+import br.cefetmg.casaderepouso.dto.Morador;
+import br.cefetmg.casaderepouso.service.implement.CadastrarMorador;
+import br.cefetmg.casaderepouso.service.ICadastrarMorador;
 import java.util.ArrayList;
-import java.util.List;;
-
+import java.util.List;
 /**
  *
- * @author Aluno
+ * @author Master
  */
-@WebServlet(name = "ExcluirResponsavel", urlPatterns = {"/ExcluirResponsavel"})
-public class ExcluirResponsavel extends HttpServlet {
+@WebServlet(urlPatterns = {"/ListarMorador"})
+public class ListarMorador extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -32,17 +35,16 @@ public class ExcluirResponsavel extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-   public static String execute(HttpServletRequest request) {
+    
+    public static String execute(HttpServletRequest request) {
         String jsp = "";
      
         try {
-            String id = request.getParameter("id");
-            CadastrarResponsavel iResponsavel =  new CadastrarResponsavel();
-            Responsavel responsavel = new Responsavel();
-            responsavel.setId(id);
-            String str = iResponsavel.excluir(responsavel);
-            if (str.equals("true")) {
-                jsp = "/telaGerente.jsp";
+            ICadastrarMorador iMorador =  new CadastrarMorador();
+            List<Morador> lista = iMorador.pesquisarTodos();
+            if (lista != null) {
+                request.setAttribute("listFunc", lista);
+                jsp = "/telaFuncionario.jsp";
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -52,10 +54,9 @@ public class ExcluirResponsavel extends HttpServlet {
         
         return jsp;
     }
-   
+    
     @Override
     public String getServletInfo() {
         return "Short description";
-    }// </editor-fold>
-
+    }
 }

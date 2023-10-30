@@ -1,4 +1,4 @@
-package java.br.cefetmg.casaderepouso.controller;
+package br.cefetmg.casaderepouso.controller;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -47,6 +47,9 @@ public class Facade extends HttpServlet {
             jsp = CadastrarFuncionario.execute(request);
         else if(act.equals("listarFuncionario"))
             jsp = ListarFuncionario.execute(request);
+        else if(act.equals("CadastrarVisitante")){
+            jsp = CadastrarVisitante.execute(request);
+        }
         else if(encaminha.equals("/delete"))
             jsp = ExcluirFuncionario.execute(request);
         RequestDispatcher rd = request.getRequestDispatcher(jsp);

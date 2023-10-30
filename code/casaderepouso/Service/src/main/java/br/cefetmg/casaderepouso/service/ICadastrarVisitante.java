@@ -17,7 +17,6 @@ public interface ICadastrarVisitante {
     
     public String cadastrar(Visitante visitante) throws CadastroException;
     public String atualizar(Visitante visitante) throws Exception;
-    public String excluir(Visitante visitante) throws Exception;
     
     public List<Visitante> pesquisar(Visitante visitante) throws Exception;
     
