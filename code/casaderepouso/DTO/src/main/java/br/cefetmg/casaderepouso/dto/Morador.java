@@ -30,16 +30,23 @@ public class Morador {
     private String rg;
     private Date dataNasc;
     private String endereco;
-    private ArrayList<Responsavel> vetorResponsaveis;
+    private String responsaveis;
     private String condicaoEspecial;
     private String nomeMae;
     private EstadoMorador estado = EstadoMorador.DISPONIVEL;
-    
-    public Responsavel adicionarResponsavel(Responsavel responsavel){
-        vetorResponsaveis.add(responsavel);
-        return responsavel;
+
+    public Morador(String nome, String cpf, String rg, Date dataNasc, String endereco, String responsaveis, String condicaoEspecial, String nomeMae, String estado) {
+        this.nome = nome;
+        this.cpf = cpf;
+        this.rg = rg;
+        this.dataNasc = dataNasc;
+        this.endereco = endereco;
+        this.responsaveis = responsaveis;
+        this.condicaoEspecial = condicaoEspecial;
+        this.nomeMae = nomeMae;
+        this.estado = this.estado.valueOf(estado);
     }
-    // adicionar um remover
+    
     public String getNome() {
         return nome;
     }
@@ -102,7 +109,7 @@ public class Morador {
         this.endereco = endereco;
     }
 
-    public ArrayList<Responsavel> getVetorResponsaveis() {
-        return vetorResponsaveis;
-    } 
+    public String getVetorResponsaveis() {
+        return responsaveis;
+    }
 }
