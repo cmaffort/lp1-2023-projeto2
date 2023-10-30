@@ -20,8 +20,8 @@ import java.util.List;;
  *
  * @author Aluno
  */
-@WebServlet(name = "ExcluirResponsavel", urlPatterns = {"/ExcluirResponsavel"})
-public class ExcluirResponsavel extends HttpServlet {
+@WebServlet(name = "AtualizarResponsavel", urlPatterns = {"/AtualizarResponsavel"})
+public class AtualizarResponsavel extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -40,7 +40,7 @@ public class ExcluirResponsavel extends HttpServlet {
             CadastrarResponsavel iResponsavel =  new CadastrarResponsavel();
             Responsavel responsavel = new Responsavel();
             responsavel.setId(id);
-            String str = iResponsavel.excluir(responsavel);
+            String str = iResponsavel.atualizar(responsavel);
             if (str.equals("true")) {
                 jsp = "/telaGerente.jsp";
             }

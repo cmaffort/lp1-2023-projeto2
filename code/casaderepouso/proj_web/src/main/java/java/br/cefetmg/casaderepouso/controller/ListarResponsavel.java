@@ -20,8 +20,8 @@ import java.util.List;;
  *
  * @author Aluno
  */
-@WebServlet(name = "ExcluirResponsavel", urlPatterns = {"/ExcluirResponsavel"})
-public class ExcluirResponsavel extends HttpServlet {
+@WebServlet(name = "ListarResponsavel", urlPatterns = {"/ListarResponsavel"})
+public class ListarResponsavel extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -36,13 +36,12 @@ public class ExcluirResponsavel extends HttpServlet {
         String jsp = "";
      
         try {
-            String id = request.getParameter("id");
             CadastrarResponsavel iResponsavel =  new CadastrarResponsavel();
+            List<Responsavel> responsaveis =  iResponsavel.listar();
             Responsavel responsavel = new Responsavel();
-            responsavel.setId(id);
-            String str = iResponsavel.excluir(responsavel);
-            if (str.equals("true")) {
-                jsp = "/telaGerente.jsp";
+            if (responsaveis != null) {
+                request.setAttribute("listFunc", responsaveis);
+                jsp = "/telaFuncionario.jsp";
             }
         } catch (Exception e) {
             e.printStackTrace();
