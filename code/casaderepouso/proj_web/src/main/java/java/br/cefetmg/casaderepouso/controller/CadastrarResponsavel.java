@@ -13,7 +13,7 @@ import java.util.Date;
 import br.cefetmg.casaderepouso.dto.Responsavel;
 
 
-@WebServlet(urlPatterns = {"/CadastrarMorador"})
+@WebServlet(name = "CadastrarResponsavel", urlPatterns = {"/CadastrarResponsavel"})
 public class CadastrarResponsavel extends HttpServlet {
 
     
