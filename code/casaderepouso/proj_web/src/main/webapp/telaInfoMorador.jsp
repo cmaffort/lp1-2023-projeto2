@@ -45,6 +45,9 @@
                 <a class="links-acessos">Acessar resultados de exames</a>
                 <a class="links-acessos">Acessar histórico médico</a>
             </div>
+            <div>
+                <button id="botao-deletar">Deletar</button>
+            </div>
         </div>
     </body>
 </html>

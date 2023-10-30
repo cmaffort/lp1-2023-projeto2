@@ -4,7 +4,8 @@
     Author     : rigor
 --%>
 
-
+<%@page import="br.cefetmg.casaderepouso.dto.Morador" %>
+<%@page import="java.util.List" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -27,7 +28,31 @@
     <div class="content">
         <a class="back-button" href="javascript:history.back()""><img src="./imgs/Voltar.png"></a>
         <div class="title">Dados dos moradores</div>
-        
+        <table id="tabela">
+		<thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>CPF</th>
+                        <th>Estado</th>
+                    </tr>
+		</thead>
+		<tbody>
+                     <%
+                        List<Morador> listaMoradores = (List<Morador>) request.getAttribute("listMor");
+                        if(listaMoradores != null){
+                        for (Morador mor: listaMoradores) {
+                    %>
+			<tr>
+				<td><%=mor.getNome()%></td>
+                                <td><%=mor.getCpf()%></td>
+				<td><%=mor.getEstado()%></td>         
+			</tr>
+			<%
+				}
+                        }
+			%>
+		</tbody>
+	</table>
     </div>
     </body>
 </html>

@@ -24,7 +24,7 @@ import br.cefetmg.casaderepouso.service.ICadastrarMorador;
 import java.util.ArrayList;
 import java.util.List;
 
-@WebServlet(urlPatterns = {"/ExcluirFuncionario"})
+@WebServlet(urlPatterns = {"/ExcluirMorador"})
 public class ExcluirMorador extends HttpServlet {
 
     /**
