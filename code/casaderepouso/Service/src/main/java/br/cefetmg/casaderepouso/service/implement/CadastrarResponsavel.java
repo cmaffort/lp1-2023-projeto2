@@ -46,3 +46,4 @@ public class CadastrarResponsavel implements ICadastrarResponsavel {
         return lista;
     }
 }
+

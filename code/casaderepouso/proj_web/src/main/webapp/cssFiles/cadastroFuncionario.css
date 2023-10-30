@@ -1,0 +1,19 @@
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+}
+
+.fundoAzul {
+    background-color: #add8e6; 
+    width: 50%;
+    height: 100%;
+}
+
+.fundoBranco {
+    background-color: #ffffff;
+    width: 50%;
+    height: 100%;
+}

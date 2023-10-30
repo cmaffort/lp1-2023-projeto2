@@ -1,0 +1,65 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : 9 de out. de 2023, 19:21:48
+    Author     : Aluno
+*/
+
+body{
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #76A5DC;
+    display: flex;
+    height: 100vh;
+}
+#branco{
+        display: flex;
+        justify-content: flex-end;
+        width: 60%;
+        background-color: #ffffff;
+        box-sizing: border-box;
+}
+input{
+    width: 35vw;
+    height: 5vh;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    background: #FFF;
+    border: 0;
+    padding: 1%;
+    font-size: 80%;
+}
+
+.form-container{
+    margin:7% 5% 5% 5%;
+    font-size: 120%;
+}
+h1{
+    margin-bottom: 10%;
+}
+.form-group{
+    margin-bottom: 5%;
+}
+.form-group>input{
+    margin-top: 3%;
+}
+button{
+    width: 5vw;
+    height: 5vh;
+    border:0;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    background: #FFF;
+    font-size: 80%;
+}
+#botao{
+    display:flex;
+    justify-content: end;
+}
+a{
+    display: block;
+    color: black;
+    text-decoration: none;
+    margin-bottom: 1%;
+}

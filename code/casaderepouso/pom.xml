@@ -2,25 +2,17 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
       
   <modelVersion>4.0.0</modelVersion>
-      
   <groupId>br.cefetmg.casaderepouso</groupId>
-      
   <artifactId>casaderepouso</artifactId>
-      
   <version>1.0-SNAPSHOT</version>
-      
   <packaging>pom</packaging>
       
   <modules>
-            
+    <module>DTO</module>            
     <module>IDAO</module>
-            
-    <module>DTO</module>
-            
-    <module>Service</module>
-          
-    <module>View-jsp</module>
     <module>DAO-MySQL</module>
+    <module>Service</module>
+    <module>proj_web</module>
   </modules>
       
   <properties>
