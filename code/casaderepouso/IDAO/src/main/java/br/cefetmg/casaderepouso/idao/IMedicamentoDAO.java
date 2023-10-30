@@ -16,7 +16,7 @@ public interface IMedicamentoDAO {
     
     public Boolean inserir(Medicamento medicamento);
 
-    public void atualizar(Medicamento medicamento);
+    public void atualizar(Medicamento medicamento, String morador);
 
     public Boolean deletar(Medicamento med);
 
