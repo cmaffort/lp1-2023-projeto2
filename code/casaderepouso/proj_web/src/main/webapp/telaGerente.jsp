@@ -2,7 +2,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="br.cefetmg.casaderepouso.dto.Funcionario" %>
 <%@page import="java.util.List" %>
-<%@page import="br.cefetmg.inf.util.FormatadorData" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -60,7 +59,7 @@
 				<td>
                                 <a href="select?id=<%=func.getId()%>"
                                 class="Botao1">Editar</a>
-                                <a href="javascript: confirmar(<%=func.getId()%>)"
+                                <a href="javascript: confirma(<%=func.getId()%>)"
                                 class="Botao2">Excluir</a>
 				</td>
 			</tr>
@@ -72,5 +71,6 @@
         
         
     </div>
+    <script src="scripts/confirmador.js"></script>
     </body>
 </html>
