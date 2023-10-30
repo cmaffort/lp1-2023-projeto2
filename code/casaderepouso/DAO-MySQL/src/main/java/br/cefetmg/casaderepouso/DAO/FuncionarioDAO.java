@@ -65,7 +65,7 @@ public class FuncionarioDAO implements IFuncionarioDAO{
          try {
             Connection con = DAO.conectar();
 
-            String sql = "DELETE FROM cliente WHERE id = ?";
+            String sql = "DELETE FROM funcionario WHERE id = ?";
 
             PreparedStatement pstmt = con.prepareStatement(sql);
             pstmt.setString(1, func.getId());

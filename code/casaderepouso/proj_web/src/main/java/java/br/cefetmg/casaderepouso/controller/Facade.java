@@ -18,7 +18,7 @@ import jakarta.servlet.http.HttpServletResponse;
  *
  * @author Aluno
  */
-@WebServlet(urlPatterns = {"/Facade","/delete"})
+@WebServlet(urlPatterns = {"/Facade","/deleteFunc"})
 public class Facade extends HttpServlet {
     private String jsp;
 
@@ -43,23 +43,16 @@ public class Facade extends HttpServlet {
         if(act.equals("cadastrarMorador")) {
             jsp = CadastrarMorador.execute(request);
         }
-        else if(act.equals("cadastrarFuncionario")){
-             jsp = CadastrarFuncionario.execute(request);
-        }
-        else if(act.equals("CadastraMedicamento")){
-             jsp = CadastraMedicamento.execute(request);
-        }
-        
-        
-        
-        
         else if(act.equals("cadastrarFuncionario"))
             jsp = CadastrarFuncionario.execute(request);
         else if(act.equals("listarFuncionario"))
             jsp = ListarFuncionario.execute(request);
-        else if(encaminha.equals("/delete"))
-            jsp = ExcluirFuncionario.execute(request);
+        
         RequestDispatcher rd = request.getRequestDispatcher(jsp);
         rd.forward(request, response);
     }
 }
+        else if(encaminha.equals("/deleteFunc")){
+            jsp = ExcluirFuncionario.execute(request);
+            jsp = ListarFuncionario.execute(request);
+        }
