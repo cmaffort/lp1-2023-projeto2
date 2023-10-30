@@ -61,8 +61,26 @@ public class FuncionarioDAO implements IFuncionarioDAO{
     }
 
     @Override
-    public boolean deletar(Funcionario func) {
-        return true;
+    public boolean deletar(Funcionario func) throws SQLException, ClassNotFoundException {
+         try {
+            Connection con = DAO.conectar();
+
+            String sql = "DELETE FROM cliente WHERE id = ?";
+
+            PreparedStatement pstmt = con.prepareStatement(sql);
+            pstmt.setString(1, func.getId());
+            pstmt.executeUpdate();
+
+            pstmt.close();
+            con.close();
+            return true;
+        } 
+         catch(SQLException e){
+            throw new SQLException(e.getMessage(), e);       
+        }
+        catch(ClassNotFoundException e){
+            throw new ClassNotFoundException(e.getMessage(), e);       
+        }
     }
 
     @Override
