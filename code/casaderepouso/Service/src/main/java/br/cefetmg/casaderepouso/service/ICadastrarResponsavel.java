@@ -12,5 +12,5 @@ public interface ICadastrarResponsavel {
     public String atualizar(Responsavel responsavel) throws SQLException, ClassNotFoundException;
     public String excluir(Responsavel responsavel) throws SQLException, ClassNotFoundException;
     
-    public List<Responsavel> pesquisar(Responsavel responsavel) throws Exception;
+    public List<Responsavel> listar() throws Exception;
 }
