@@ -14,9 +14,9 @@ function enviarInfo(nome,cpf, estado, nomeMae, condicaoEspecial){
     
     
     docNome.value = nome;
-    docCpf.value = cpf;
-    docNomeMae.value = nomeMae;
-    docCondicao.value = condicaoEspecial;
+    docCpf.value = "CPF: " + cpf;
+    docNomeMae.value = "Nome da Mãe: " + nomeMae;
+    docCondicao.value = "Condições especiais: " + condicaoEspecial;
     switch(estado){
         case "Disponível":
             docEstadoNome.value = "Disponível";

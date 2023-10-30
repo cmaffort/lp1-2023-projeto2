@@ -133,5 +133,8 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
             margin: 2vh 0px 1vh 1vh;
         }
         #botao-deletar{
-            justify-content: left;
+             width: 13vh;
+            height: 5vh;
+            background-color: white;
+            border-radius: 36px;
         }
