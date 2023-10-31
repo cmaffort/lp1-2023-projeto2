@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package java.br.cefetmg.casaderepouso.controller;
+package br.cefetmg.casaderepouso.controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -15,10 +15,10 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import br.cefetmg.casaderepouso.dto.Morador;
-import br.cefetmg.casaderepouso.service.implement.CadastrarMorador;
-import br.cefetmg.casaderepouso.service.ICadastrarMorador;
+import br.cefetmg.casaderepouso.service.implement.ManterMorador;
 import java.util.ArrayList;
 import java.util.List;
+import br.cefetmg.casaderepouso.service.IManterMorador;
 /**
  *
  * @author Master
@@ -40,10 +40,10 @@ public class ListarMorador extends HttpServlet {
         String jsp = "";
      
         try {
-            ICadastrarMorador iMorador =  new CadastrarMorador();
+            IManterMorador iMorador =  new ManterMorador();
             List<Morador> lista = iMorador.pesquisarTodos();
             if (lista != null) {
-                request.setAttribute("listFunc", lista);
+                request.setAttribute("listMor", lista);
                 jsp = "/telaFuncionario.jsp";
             }
         } catch (Exception e) {

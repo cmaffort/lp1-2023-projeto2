@@ -14,15 +14,15 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 public interface IMoradorDAO {
     
-    public Long inserir(Morador morador);
+    public void inserir(Morador morador) throws SQLException, ClassNotFoundException;
 
     public boolean atualizar(Morador morador) throws ClassNotFoundException,SQLException;
 
-    public boolean deletar(Morador morador);
+    public boolean deletar(Morador morador) throws SQLException, ClassNotFoundException;
 
     public ArrayList<Morador> listarTodos() throws SQLException, ClassNotFoundException;
 
-    public Morador pesquisar(String nome);
+    public Morador pesquisar(String nome) throws SQLException, ClassNotFoundException;
     
-    public Morador pesquisar(String nome, String cpf);
+    public Morador pesquisar(String nome, String cpf) throws SQLException, ClassNotFoundException;
 }

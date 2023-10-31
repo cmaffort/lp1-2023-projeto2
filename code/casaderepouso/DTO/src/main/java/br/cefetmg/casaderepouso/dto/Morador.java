@@ -33,15 +33,17 @@ public class Morador {
     private String responsaveis;
     private String condicaoEspecial;
     private String nomeMae;
+    private String planoMedico;
     private EstadoMorador estado = EstadoMorador.DISPONIVEL;
     public Morador(){
     
     }
-    public Morador(String nome, String cpf, String rg, Date dataNasc, String endereco, String responsaveis, String condicaoEspecial, String nomeMae, String estado) {
+    public Morador(String nome, String cpf, String rg, Date dataNasc,String planoMedico, String responsaveis, String nomeMae, String endereco, String condicaoEspecial, String estado) {
         this.nome = nome;
         this.cpf = cpf;
         this.rg = rg;
         this.dataNasc = dataNasc;
+        this.planoMedico = planoMedico;
         this.endereco = endereco;
         this.responsaveis = responsaveis;
         this.condicaoEspecial = condicaoEspecial;
@@ -69,8 +71,8 @@ public class Morador {
         return condicaoEspecial;
     }
 
-    public EstadoMorador getEstado() {
-        return estado;
+    public String getEstado() {
+        return estado.getDescricao();
     }
     public String getNomeMae(){
         return nomeMae;
@@ -114,4 +116,12 @@ public class Morador {
     public String getVetorResponsaveis() {
         return responsaveis;
     }
+
+    public String getPlanoMedico() {
+        return planoMedico;
+    }
+
+    public void setPlanoMedico(String planoMedico) {
+        this.planoMedico = planoMedico;
+    }  
 }

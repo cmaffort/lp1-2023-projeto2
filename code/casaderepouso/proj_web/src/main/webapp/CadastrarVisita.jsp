@@ -14,8 +14,8 @@
     <body>
       <article>
         <h1>Cadastro de visita</h1>
-        <form class="form-container" name="agendamento" action="controller" method="POST">
-           <input type='hidden' name='acao' value='Adiciona'>
+        <form class="form-container" name="agendamento" action="Facade" method="POST">
+           <input type='hidden' name='act' value='CadastrarVisitante'>
           <div class="form-group">
             <label>Seu nome completo:</label>
             <input type="text" id="nomeVisitante" class="texto" placeholder="Digite aqui..." required>

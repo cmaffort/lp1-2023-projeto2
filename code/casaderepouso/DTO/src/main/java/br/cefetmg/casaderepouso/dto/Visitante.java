@@ -9,10 +9,7 @@ package br.cefetmg.casaderepouso.dto;
  *
  * @author Aluno
  */
-
-import br.cefetmg.casaderepouso.dto.Morador;
 import java.util.Date;
-import java.time.LocalTime;
 import java.lang.String;
 
 
@@ -24,7 +21,7 @@ public class Visitante {
     private String morador;
     private String vinculo;
     private Date dataVisita;
-    private LocalTime horaVisita;
+    private String horaVisita;
 
     public String getNome() {
         return nome;
@@ -74,11 +71,11 @@ public class Visitante {
         this.dataVisita = dataVisita;
     }
 
-    public LocalTime getHoraVisita() {
+    public String getHoraVisita() {
         return horaVisita;
     }
 
-    public void setHoraVisita(LocalTime horaVisita) {
+    public void setHoraVisita(String horaVisita) {
         this.horaVisita = horaVisita;
     }
 }

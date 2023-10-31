@@ -56,9 +56,11 @@ body {
 
 
 .title {
+    margin-top: 5vh;
     font-size: 150%;
 }
 #tabela {
+        align-items: center;
 	margin-top: 30px;
 	border-collapse: collapse;
 }

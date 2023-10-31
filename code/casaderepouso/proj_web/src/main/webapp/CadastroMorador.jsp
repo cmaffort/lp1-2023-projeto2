@@ -17,7 +17,8 @@
     <body>
       <article>
         <h1>Cadastro de Morador</h1>
-        <form id="meuForm" class="form-container" method="POST">
+        <form id="meuForm" class="form-container" action="Facade" method="POST">
+            <input type='hidden' name='act' value='CadastrarMorador'>
           <div class="form-group">
             <label>Seu nome completo:</label>
             <input type="text" name="nomeMorador" class="texto" placeholder="Digite aqui..." required>
@@ -40,6 +41,10 @@
           <div class="form-group">
             <label>CPF:</label>
             <input type="text" name="cpf" class="texto" placeholder="Digite aqui..." required>
+          </div>
+            <div class="form-group">
+            <label>Plano médico:</label>
+            <input type="text" name="plano_medico" class="texto" placeholder="Digite aqui..." required>
           </div>
           <div class="form-group">
             <label>Condições especiais:</label>

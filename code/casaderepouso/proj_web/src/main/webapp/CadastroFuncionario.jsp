@@ -19,7 +19,8 @@
         <article>
         <div>
           <h1>Cadastro de funcionário</h1>
-          <form class="form-container" action="facade" method="POST">
+          <form class="form-container" action="Facade" method="POST">
+         
             <div class="form-group">
                 <label>Nome completo:</label>
                 <input type="text" name="nomeFuncionario" class="texto" placeholder="Digite aqui..." required>                
@@ -34,8 +35,8 @@
             </div>
              <div class="form-group">
                 <label>Data de Nascimento:</label>
-                <input type="date" name="dataNasc" class="texto" placeholder="Digite aqui..." required>                
-            </div> 
+                <input type="text" name="dataNasc" class="texto" placeholder="Digite aqui..." required>                
+             </div>
             <div class="form-group">
                 <label>Endereço completo:</label>
                 <input type="text" name="endereco" class="texto" placeholder="Digite aqui..." required>                
@@ -57,8 +58,8 @@
                 <input type="text" name="periodo" class="texto" placeholder="Digite aqui..." required>                
             </div>
             
-            <label>Cadastrar:</label>
-            <input type="submit" class="envio" name="act" value="cadastrarFuncionario">
+            
+            <button type="submit" class="envio" name="act" value="cadastrarFuncionario">Cadastrar</button>
             </form>
         </div>
         </article>

@@ -1,23 +1,14 @@
-package java.br.cefetmg.casaderepouso.controller;
-
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
- */
+package br.cefetmg.casaderepouso.controller;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import br.cefetmg.casaderepouso.dto.Funcionario;
 import br.cefetmg.casaderepouso.service.implement.ManterFuncionario;
 import br.cefetmg.casaderepouso.service.IManterFuncionario;
+
 
 @WebServlet(urlPatterns = {"/CadastrarFuncionario"})
 public class CadastrarFuncionario extends HttpServlet {
@@ -41,10 +32,9 @@ public class CadastrarFuncionario extends HttpServlet {
             String rg = request.getParameter("rg");
             String cpf = request.getParameter("cpf");
             
+            String nasc = request.getParameter("dataNasc");
             
-            String dataStr = request.getParameter("dataNasc");
-            DateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
-            Date dataNasc = formatter.parse(dataStr);
+           
             
             
             String pis = request.getParameter("pis");
@@ -58,7 +48,7 @@ public class CadastrarFuncionario extends HttpServlet {
             func.setNome(nome);
             func.setRg(rg);
             func.setCpf(cpf);
-            func.setDataNasc(dataNasc);
+            func.setDataNasc(nasc);
             func.setPis(pis);
             func.setEndereco(endereco);
             func.setFone(fone);
@@ -70,7 +60,7 @@ public class CadastrarFuncionario extends HttpServlet {
             IManterFuncionario iFuncionario = new ManterFuncionario();
             iFuncionario.cadastrar(func);
             
-            jsp = "/CadastroFuncionario.jsp";
+            jsp = "/telaGerente.jsp";
         } catch (Exception e) {
             System.out.println(e);
             jsp = "";

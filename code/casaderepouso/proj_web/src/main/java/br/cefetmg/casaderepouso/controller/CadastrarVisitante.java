@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
  */
-package java.br.cefetmg.casaderepouso.controller;
+package br.cefetmg.casaderepouso.controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -46,6 +46,7 @@ public class CadastrarVisitante extends HttpServlet {
             visitante.setVinculo(vinculo);
             visitante.setMorador(morador);
             visitante.setDataVisita(dataVisita);
+            
               
             
         } catch (Exception e) {
