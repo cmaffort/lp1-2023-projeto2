@@ -44,9 +44,9 @@ CREATE TABLE IF NOT EXISTS funcionario (
     cpf VARCHAR(14) NOT NULL,
     rg VARCHAR(12) NOT NULL,
     telefone VARCHAR(20),
-    nascimento DATE,
+    nascimento VARCHAR(20),
     endereco TEXT,
-    pis VARCHAR(20) NOT NULL,
+    pis VARCHAR(255) NOT NULL,
     funcao VARCHAR(255) NOT NULL,
     periodoTrabalho VARCHAR(255) NOT NULL
 );
