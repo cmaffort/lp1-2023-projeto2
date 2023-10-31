@@ -27,9 +27,9 @@
             <a class="back-button" href="telaFuncionario.jsp""><img src="./imgs/Voltar.png"></a>
             <div id="title-container">
                 <h1 id="name">Nome do Morador</h1>
-                <div id="state-container">
+                <a href='telaMudancaStatus.jsp' style='text-decoration: none; color: black;'><div id="state-container">
                     <span id="state-cor"></span><p id="state-nome">Status</p>
-                </div>
+                </div></a>
                 <h2 id="nascimento">XX/XX/XXXX</h2>       
             </div>
             <div id="info-container">

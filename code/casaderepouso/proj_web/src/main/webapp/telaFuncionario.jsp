@@ -27,6 +27,9 @@
     </div>
     <div class="content">
         <div class="title">Dados dos moradores</div>
+        <form action="Facade" method="POST">
+            <input type="submit" name="act" value="listarMorador">   
+        </form>
         <table id="tabela">
 		<thead>
                     <tr>

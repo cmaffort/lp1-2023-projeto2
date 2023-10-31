@@ -39,7 +39,7 @@
                 <div class="state-container">
                     <span class="state-cor" style="background-color: #1E1E1E;"></span><p>Falecido</p><span class="marks"id="mark-falecido"></span>
                 </div>
-                <a id="update-status">Atualizar status</a>
+                <a id="update-status" href=''>Atualizar status</a>
             </div>
         </div>
         <script>
