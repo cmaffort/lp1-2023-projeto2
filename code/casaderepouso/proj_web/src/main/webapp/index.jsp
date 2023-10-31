@@ -36,7 +36,7 @@
               <option value="médico">Profissional de saúde</option>
             </select>
           </div>
-    <a href="AgendarVisita.jsp">Sou visitante</a>
+    <a href="CadastrarVisita.jsp">Sou visitante</a>
     <a>Agendar atividade</a>
     <div id="botao">
       <button>Entrar</button>

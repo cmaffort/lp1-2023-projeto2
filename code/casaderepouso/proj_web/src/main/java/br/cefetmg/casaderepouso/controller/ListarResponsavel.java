@@ -37,10 +37,9 @@ public class ListarResponsavel extends HttpServlet {
      
         try {
             CadastrarResponsavel iResponsavel =  new CadastrarResponsavel();
-            List<Responsavel> responsaveis =  iResponsavel.listar();
             Responsavel responsavel = new Responsavel();
-            if (responsaveis != null) {
-                request.setAttribute("listFunc", responsaveis);
+            if (responsavel != null) {
+                request.setAttribute("listFunc", responsavel);
                 jsp = "/telaFuncionario.jsp";
             }
         } catch (Exception e) {
@@ -56,5 +55,4 @@ public class ListarResponsavel extends HttpServlet {
     public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
-
 }

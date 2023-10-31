@@ -4,17 +4,15 @@
  */
 package br.cefetmg.casaderepouso.controller;
 
-import java.io.IOException;
-import java.io.PrintWriter;
-import jakarta.servlet.ServletException;
+
+import br.cefetmg.casaderepouso.DAO.VisitanteDAO;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.util.Date;
 import br.cefetmg.casaderepouso.dto.Visitante;
+import java.util.Date;
 
 /**
  *
