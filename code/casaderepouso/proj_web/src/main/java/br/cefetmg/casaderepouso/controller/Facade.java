@@ -42,6 +42,23 @@ public class Facade extends HttpServlet {
             jsp = ExcluirFuncionario.execute(request);
             jsp = ListarFuncionario.execute(request);
         }
+        else if(act.equals("cadastrarResponsavel"))
+            jsp = CadastrarResponsavel.execute(request);
+        else if(act.equals("listarResponsavel"))
+            jsp = ListarResponsavel.execute(request);        
+        else if(act.equals("deleteResp")){
+            jsp = ExcluirResponsavel.execute(request);
+            jsp = ListarResponsavel.execute(request);
+        }
+        else if(act.equals("Login")){
+            String funcao = request.getParameter("cargo");
+            if(funcao.equals("funcionario"))
+                jsp = "/telaFuncionario.jsp";
+            if(funcao.equals("responsavel"))
+                jsp = "/TelaInicialResponsavel.jsp";
+            if(funcao.equals("gerente"))
+                jsp = "/telaGerente.jsp";
+        }
         else if(act.equals("CadastrarVisitante")){
             jsp = CadastrarVisitante.execute(request);
         }
@@ -107,3 +124,4 @@ public class Facade extends HttpServlet {
     }// </editor-fold>
 
 }
+

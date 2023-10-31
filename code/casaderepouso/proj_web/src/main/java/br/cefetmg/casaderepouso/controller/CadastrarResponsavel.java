@@ -1,4 +1,4 @@
-package java.br.cefetmg.casaderepouso.controller;
+package br.cefetmg.casaderepouso.controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -58,4 +58,3 @@ public class CadastrarResponsavel extends HttpServlet {
     }// </editor-fold>
 
 }
-
