@@ -20,7 +20,6 @@
         
     </div>
     <div class="content">
-        <a class="back-button" href="javascript:history.back()""><img src="./imgs/Voltar.png"></a>
         <div class="title">Dados dos funcionários</div>
         <form action="Facade" method="POST">
             <input type="submit" name="act" value="listarFuncionario">   
