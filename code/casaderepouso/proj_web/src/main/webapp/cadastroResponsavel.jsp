@@ -17,7 +17,7 @@
     <body>
       <article>
         <h1>Cadastro de Responsável</h1>
-        <form id="meuForm" class="form-container" method="POST">
+        <form id="meuForm" action="Facade" class="form-container" method="POST">
           <div class="form-group">
             <label>Nome completo:</label>
             <input type="text" id="nomeResponsavel" class="texto" placeholder="Digite aqui..." required>
@@ -39,14 +39,8 @@
               onblur="verificarTelefone()">
           </div>
           <p id="resultado"></p>
-            
-            
-          <div class="form-group">
-            <label>Foto frente e verso do RG, CPF e outros caso seja necessário</label>
-            <input type="file" name="fotoidentidade" id="identidade" accept="image/*" required/>
-          </div>
-            
-            <input type="submit" value="Próximo" class="envio">
+      
+            <input type="submit" name="act" value="cadastrarResponsavel" class="envio">
         </form>
       </article>
 
