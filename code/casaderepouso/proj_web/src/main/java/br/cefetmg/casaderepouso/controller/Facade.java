@@ -1,6 +1,7 @@
 package br.cefetmg.casaderepouso.controller;
 
 
+import br.cefetmg.casaderepouso.dto.exception.CadastroException;
 import jakarta.servlet.RequestDispatcher;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -9,6 +10,8 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -25,42 +28,22 @@ public class Facade extends HttpServlet {
         String encaminha = request.getServletPath();
         
         String act = request.getParameter("act");
-        if(act == null){    
-            jsp = "/index.jsp";
-        }
-        else if(act.equals("cadastrarMorador")) {
+        
+        if(act.equals("cadastrarMorador")) {
             jsp = CadastrarMorador.execute(request);
-        }
-        else if(act.equals("listarMorador")){
-            jsp = ListarMorador.execute(request);
         }
         else if(act.equals("cadastrarFuncionario"))
             jsp = CadastrarFuncionario.execute(request);
         else if(act.equals("listarFuncionario"))
             jsp = ListarFuncionario.execute(request);        
-        else if(act.equals("deleteFunc")){
+        else if(act.equals("/deleteFunc")){
             jsp = ExcluirFuncionario.execute(request);
             jsp = ListarFuncionario.execute(request);
         }
-        else if(act.equals("cadastrarResponsavel"))
-            jsp = CadastrarResponsavel.execute(request);
-        else if(act.equals("listarResponsavel"))
-            jsp = ListarResponsavel.execute(request);        
-        else if(act.equals("deleteResp")){
-            jsp = ExcluirResponsavel.execute(request);
-            jsp = ListarResponsavel.execute(request);
-        }
-        else if(act.equals("Login")){
-            String funcao = request.getParameter("cargo");
-            if(funcao.equals("funcionario"))
-                jsp = "/telaFuncionario.jsp";
-            if(funcao.equals("responsavel"))
-                jsp = "/TelaInicialResponsavel.jsp";
-            if(funcao.equals("gerente"))
-                jsp = "/telaGerente.jsp";
-        }
         else if(act.equals("CadastrarVisitante")){
-            jsp = CadastrarVisitante.execute(request);
+            System.out.println("Facade");
+                jsp = CadastrarVisitante.execute(request);
+            
         }
         RequestDispatcher rd = request.getRequestDispatcher(jsp);
         rd.forward(request, response);
@@ -124,4 +107,3 @@ public class Facade extends HttpServlet {
     }// </editor-fold>
 
 }
-

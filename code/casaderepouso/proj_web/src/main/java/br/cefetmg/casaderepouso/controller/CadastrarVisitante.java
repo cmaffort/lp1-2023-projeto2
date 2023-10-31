@@ -4,17 +4,21 @@
  */
 package br.cefetmg.casaderepouso.controller;
 
-import java.io.IOException;
-import java.io.PrintWriter;
-import jakarta.servlet.ServletException;
+
+import br.cefetmg.casaderepouso.DAO.VisitanteDAO;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.util.Date;
 import br.cefetmg.casaderepouso.dto.Visitante;
+import br.cefetmg.casaderepouso.dto.exception.CadastroException;
+import br.cefetmg.casaderepouso.service.ICadastrarVisitante;
+import br.cefetmg.casaderepouso.service.implement.CadastrarVisitanteService;
+import java.text.ParseException;
+import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -26,33 +30,30 @@ public class CadastrarVisitante extends HttpServlet {
     public static String execute(HttpServletRequest request) {
         String jsp = "";
      
+        String nome = request.getParameter("nomeVisitante");
+        String rg = request.getParameter("identidade");
+        String telefone = request.getParameter("telefone");
+        String vinculo = request.getParameter("vinculo");
+        String morador = request.getParameter("morador");
+        String dataStr = request.getParameter("dataVisita");
+        DateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+        Visitante visitante = new Visitante();
+        visitante.setNome(nome);
+        visitante.setRg (rg);
+        visitante.setTelefone(telefone);
+        visitante.setVinculo(vinculo);
+        visitante.setMorador(morador);
+        
+        System.out.println("Controller");
+        
+        ICadastrarVisitante service = new CadastrarVisitanteService();
         try {
-
-            String nome = request.getParameter("nomeVisitante");
-            String rg = request.getParameter("identidade");
-            String telefone = request.getParameter("telefone");
-            String vinculo = request.getParameter("vinculo");
-            String morador = request.getParameter("morador");
-            
-            String dataStr = request.getParameter("dataVisita");
-            DateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
-            Date dataVisita = formatter.parse(dataStr);
-            
-            Visitante visitante = new Visitante();
-            
-            visitante.setNome(nome);
-            visitante.setRg (rg);
-            visitante.setTelefone(telefone);
-            visitante.setVinculo(vinculo);
-            visitante.setMorador(morador);
-            visitante.setDataVisita(dataVisita);
-            
-              
-            
-        } catch (Exception e) {
-            System.out.println(e);
-            jsp = "";
+            service.cadastrar(visitante);
+        } catch (CadastroException ex) {
+            System.out.println("Erro" + ex);
         }
+        
+        
         
         return jsp;
     }
