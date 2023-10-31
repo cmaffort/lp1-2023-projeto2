@@ -42,9 +42,6 @@ public class CadastrarMorador extends HttpServlet {
             String cpf = request.getParameter("cpf");
 
             String dataStr = request.getParameter("dataNasc");
-            DateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
-            Date dataNasc = formatter.parse(dataStr);
-            
             String planoMedico = request.getParameter("plano_medico");
             String nomeMae = request.getParameter("nome_mae");
             String endereco = request.getParameter("endereco");
@@ -56,7 +53,7 @@ public class CadastrarMorador extends HttpServlet {
             morador.setNomeMae(nomeMae);
             morador.setCpf(cpf);
             /*fazer plano medico depois*/
-            morador.setDataNasc(dataNasc);
+            morador.setDataNasc(dataStr);
             morador.setEndereco(endereco);
             morador.setCondicaoEspecial(condicoes);
             

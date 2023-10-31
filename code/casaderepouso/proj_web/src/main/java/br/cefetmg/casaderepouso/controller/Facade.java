@@ -29,7 +29,8 @@ public class Facade extends HttpServlet {
         
         String act = request.getParameter("act");
         
-        if(act.equals("cadastrarMorador")) {
+
+        if(act.equals("CadastrarMorador")) {
             jsp = CadastrarMorador.execute(request);
         }
         else if(act.equals("cadastrarFuncionario"))
@@ -44,6 +45,9 @@ public class Facade extends HttpServlet {
             System.out.println("Facade");
                 jsp = CadastrarVisitante.execute(request);
             
+        }
+        else if(act.equals("CadastraMedicamentos")){
+            jsp = CadastraMedicamento.execute(request);
         }
         RequestDispatcher rd = request.getRequestDispatcher(jsp);
         rd.forward(request, response);

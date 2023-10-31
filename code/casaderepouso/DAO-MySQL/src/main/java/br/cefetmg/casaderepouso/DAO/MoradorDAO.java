@@ -80,7 +80,7 @@ public class MoradorDAO implements IMoradorDAO {
             pstmt.setString(1, morador.getNome());
             pstmt.setString(2, morador.getCpf());
             pstmt.setString(3, morador.getRg());
-            pstmt.setDate(4, new java.sql.Date(morador.getDataNasc().getTime()));
+            pstmt.setString(4, morador.getDataNasc());
             pstmt.setString(5, morador.getPlanoMedico());
             pstmt.setString(6, morador.getVetorResponsaveis());
             pstmt.setString(7, morador.getNomeMae());
@@ -93,9 +93,11 @@ public class MoradorDAO implements IMoradorDAO {
       
         }
         catch(SQLException e){
+            System.out.println(e);
             throw new SQLException(e.getMessage(), e);       
         }
         catch(ClassNotFoundException e){
+            System.out.println(e);
             throw new ClassNotFoundException(e.getMessage(), e);       
         }
     }
@@ -114,7 +116,7 @@ public class MoradorDAO implements IMoradorDAO {
                 String nome = rs.getString(1);
                 String cpf = rs.getString(2);
                 String rg = rs.getString(3);
-                Date dataNasc = rs.getDate(4);
+                String dataNasc = rs.getString(4);
                 String planoMedico = rs.getString(5);
                 String responsaveis = rs.getString(6);
                 String nomeMae = rs.getString(7);

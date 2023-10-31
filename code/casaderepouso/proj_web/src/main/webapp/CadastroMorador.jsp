@@ -26,7 +26,7 @@
 
           <div class="form-group">
             <label>Data de Nascimento:</label>
-            <input type="date" name="dataNasc" class="texto" required>
+            <input type="text" name="dataNasc" class="texto" placeholder="Digite aqui uma data dd/mm/aa ..." required>
           </div>
 
           <div class="form-group">
