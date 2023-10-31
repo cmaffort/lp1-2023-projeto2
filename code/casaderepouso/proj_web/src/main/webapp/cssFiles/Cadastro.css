@@ -9,6 +9,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
 article {
     background-color: #76A5DC;
     width: 40vw;
+    height:100vw;
     color: white;
     padding: 2% 5% 5% 5%;
     font-size: 140%;

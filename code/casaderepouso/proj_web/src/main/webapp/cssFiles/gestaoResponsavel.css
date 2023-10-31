@@ -49,3 +49,7 @@
             width: 100px;
             height: 110px;
         }
+        a{
+            text-decoration: none;
+            color:white;
+        }
