@@ -33,6 +33,7 @@ public class Morador {
     private String responsaveis;
     private String condicaoEspecial;
     private String nomeMae;
+    private String planoMedico;
     private EstadoMorador estado = EstadoMorador.DISPONIVEL;
     public Morador(){
     
@@ -69,8 +70,8 @@ public class Morador {
         return condicaoEspecial;
     }
 
-    public EstadoMorador getEstado() {
-        return estado;
+    public String getEstado() {
+        return estado.getDescricao();
     }
     public String getNomeMae(){
         return nomeMae;
@@ -114,4 +115,12 @@ public class Morador {
     public String getVetorResponsaveis() {
         return responsaveis;
     }
+
+    public String getPlanoMedico() {
+        return planoMedico;
+    }
+
+    public void setPlanoMedico(String planoMedico) {
+        this.planoMedico = planoMedico;
+    }  
 }

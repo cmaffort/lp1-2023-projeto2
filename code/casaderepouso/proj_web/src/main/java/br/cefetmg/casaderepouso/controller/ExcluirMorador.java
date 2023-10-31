@@ -19,10 +19,10 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import br.cefetmg.casaderepouso.dto.Morador;
-import br.cefetmg.casaderepouso.service.implement.CadastrarMorador;
-import br.cefetmg.casaderepouso.service.ICadastrarMorador;
+import br.cefetmg.casaderepouso.service.implement.ManterMorador;
 import java.util.ArrayList;
 import java.util.List;
+import br.cefetmg.casaderepouso.service.IManterMorador;
 
 @WebServlet(urlPatterns = {"/ExcluirMorador"})
 public class ExcluirMorador extends HttpServlet {
@@ -42,7 +42,7 @@ public class ExcluirMorador extends HttpServlet {
      
         try {
             String cpf = request.getParameter("cpf");
-            ICadastrarMorador iMorador =  new CadastrarMorador();
+            IManterMorador iMorador =  new ManterMorador();
             Morador mor = new Morador();
             mor.setCpf(cpf);
             String str = iMorador.excluir(mor);

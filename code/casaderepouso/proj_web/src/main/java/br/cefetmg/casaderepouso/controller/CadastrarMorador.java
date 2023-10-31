@@ -16,6 +16,8 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import br.cefetmg.casaderepouso.dto.Morador;
+import br.cefetmg.casaderepouso.service.implement.ManterMorador;
+import br.cefetmg.casaderepouso.service.IManterMorador;
 
 
 @WebServlet(name = "CadastrarMorador", urlPatterns = {"/CadastrarMorador"})
@@ -43,7 +45,7 @@ public class CadastrarMorador extends HttpServlet {
             DateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
             Date dataNasc = formatter.parse(dataStr);
             
-            
+            String planoMedico = request.getParameter("plano_medico");
             String nomeMae = request.getParameter("nome_mae");
             String endereco = request.getParameter("endereco");
             String condicoes = request.getParameter("condicoes_especiais");
@@ -53,12 +55,14 @@ public class CadastrarMorador extends HttpServlet {
             morador.setNome(nome);
             morador.setNomeMae(nomeMae);
             morador.setCpf(cpf);
+            /*fazer plano medico depois*/
             morador.setDataNasc(dataNasc);
             morador.setEndereco(endereco);
             morador.setCondicaoEspecial(condicoes);
             
-            
-            
+            IManterMorador iMorador = new ManterMorador();
+            iMorador.cadastrar(morador);
+        jsp = "/CadastroMorador.jsp";    
         } catch (Exception e) {
             System.out.println(e);
             jsp = "";

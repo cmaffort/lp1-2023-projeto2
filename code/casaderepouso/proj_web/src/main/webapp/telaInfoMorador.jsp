@@ -33,11 +33,12 @@
                 <h2 id="nascimento">XX/XX/XXXX</h2>       
             </div>
             <div id="info-container">
+                <p class="info-content" id="cpf">CPF:</p>
                 <p class="info-content" id="mae-nome">Nome da Mãe:</p>
                 <p class="info-content" id="estado-civil">Estado civil:</p>
-                <p class="info-content" id="naturalidade">Naturalidade:</p>
                 <p class="info-content" id="endereco">Endereço:</p>
                 <p class="info-content" id="plano-medico">Plano médico:</p>
+                <p class="info-content" id="condicoes">Condições especiais:</p>
             </div>
             <div id="info-access">  
                 <a class="links-acessos">Acessar documentos</a>

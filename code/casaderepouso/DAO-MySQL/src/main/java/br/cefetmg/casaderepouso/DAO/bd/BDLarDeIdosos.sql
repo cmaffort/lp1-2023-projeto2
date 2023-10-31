@@ -21,6 +21,7 @@ CREATE TABLE morador (
     cpf VARCHAR(14) NOT NULL,
     rg VARCHAR(12) NOT NULL,
     datanascimento DATE NOT NULL,
+    planomedico: VARCHAR(255)
     responsavel VARCHAR(255),
     nome_mae VARCHAR(255) NOT NULL
     estado VARCHAR(255) NOT NULL
