@@ -38,11 +38,12 @@ public class Morador {
     public Morador(){
     
     }
-    public Morador(String nome, String cpf, String rg, Date dataNasc, String endereco, String responsaveis, String condicaoEspecial, String nomeMae, String estado) {
+    public Morador(String nome, String cpf, String rg, Date dataNasc,String planoMedico, String responsaveis, String nomeMae, String endereco, String condicaoEspecial, String estado) {
         this.nome = nome;
         this.cpf = cpf;
         this.rg = rg;
         this.dataNasc = dataNasc;
+        this.planoMedico = planoMedico;
         this.endereco = endereco;
         this.responsaveis = responsaveis;
         this.condicaoEspecial = condicaoEspecial;

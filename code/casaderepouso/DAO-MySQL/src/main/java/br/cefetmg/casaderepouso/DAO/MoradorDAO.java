@@ -25,7 +25,7 @@ import java.util.ArrayList;
 
 public class MoradorDAO implements IMoradorDAO {
     @Override
-    public boolean atualizar(Morador morador) throws ClassNotFoundException, SQLException{
+    public boolean atualizar(Morador morador) throws ClassNotFoundException, SQLException{ /* incompleta */
          String sqlMorador = "INSERT INTO morador VALUES('" + morador.getNome() + "', '" + morador.getNomeMae() + "', '" + morador.getCondicaoEspecial() + "', '" + morador.getCpf() + "', '"
                 + morador.getDataNasc()+ "', '" + morador.getPlanoMedico() + "', '" + morador.getVetorResponsaveis()+ "', '" + morador.getEstado() + "')";
          Connection conexao = null;
@@ -71,8 +71,33 @@ public class MoradorDAO implements IMoradorDAO {
     }
     
     @Override
-    public Long inserir(Morador morador) throws SQLException, ClassNotFoundException{
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public void inserir(Morador morador) throws ClassNotFoundException ,SQLException {    
+        try{
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection con = DAO.conectar();
+            String sql = "INSERT INTO morador (nome, cpf,rg, nascimento, planoMedico, responsavel, nome_mae, endereco, condicoes, estado) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            PreparedStatement pstmt = con.prepareStatement(sql);
+            pstmt.setString(1, morador.getNome());
+            pstmt.setString(2, morador.getCpf());
+            pstmt.setString(3, morador.getRg());
+            pstmt.setDate(4, new java.sql.Date(morador.getDataNasc().getTime()));
+            pstmt.setString(5, morador.getPlanoMedico());
+            pstmt.setString(6, morador.getVetorResponsaveis());
+            pstmt.setString(7, morador.getNomeMae());
+            pstmt.setString(8, morador.getEndereco());
+            pstmt.setString(9, morador.getCondicaoEspecial());
+            pstmt.setString(10, morador.getEstado());
+            pstmt.executeUpdate();
+            pstmt.close();
+            con.close();
+      
+        }
+        catch(SQLException e){
+            throw new SQLException(e.getMessage(), e);       
+        }
+        catch(ClassNotFoundException e){
+            throw new ClassNotFoundException(e.getMessage(), e);       
+        }
     }
   
     @Override
@@ -89,18 +114,15 @@ public class MoradorDAO implements IMoradorDAO {
                 String nome = rs.getString(1);
                 String cpf = rs.getString(2);
                 String rg = rs.getString(3);
-                String responsaveis = rs.getString(4);
+                Date dataNasc = rs.getDate(4);
+                String planoMedico = rs.getString(5);
+                String responsaveis = rs.getString(6);
+                String nomeMae = rs.getString(7);
+                String endereco = rs.getString(8);
+                String condicao = rs.getString(9);
+                String estado = rs.getString(10);
 
-                Date dataNasc = rs.getDate(5);
-
-
-                String endereco = rs.getString(6);
-                String condicao = rs.getString(7);
-                String nomeMae = rs.getString(8);
-                String estado = rs.getString(9);
-
-                Morador mor = new Morador(nome, cpf, rg, dataNasc, endereco,
-                     responsaveis,  condicao, nomeMae, estado);
+                Morador mor = new Morador(nome, cpf,rg, dataNasc, planoMedico, responsaveis, nomeMae, endereco, condicao, estado);
 
                 listAll.add(mor);
             }

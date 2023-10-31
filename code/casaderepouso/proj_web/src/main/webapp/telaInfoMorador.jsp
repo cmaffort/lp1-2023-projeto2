@@ -24,12 +24,12 @@
             <a class="button" href="cadastroResponsavel.jsp">Novo Responsável</a>
         </div>
         <div class="content">
-            <a class="back-button" href="javascript:history.back()""><img src="./imgs/Voltar.png"></a>
+            <a class="back-button" href="telaFuncionario.jsp""><img src="./imgs/Voltar.png"></a>
             <div id="title-container">
                 <h1 id="name">Nome do Morador</h1>
-                <div id="state-container">
+                <a href='telaMudancaStatus.jsp' style='text-decoration: none; color: black;'><div id="state-container">
                     <span id="state-cor"></span><p id="state-nome">Status</p>
-                </div>
+                </div></a>
                 <h2 id="nascimento">XX/XX/XXXX</h2>       
             </div>
             <div id="info-container">
@@ -41,7 +41,7 @@
                 <p class="info-content" id="condicoes">Condições especiais:</p>
             </div>
             <div id="info-access">  
-                <a class="links-acessos">Acessar documentos</a>
+                <!-- comment <a class="links-acessos">Acessar documentos</a> -->
                 <a class="links-acessos">Acessar receitas médicas</a>
                 <a class="links-acessos">Acessar resultados de exames</a>
                 <a class="links-acessos">Acessar histórico médico</a>

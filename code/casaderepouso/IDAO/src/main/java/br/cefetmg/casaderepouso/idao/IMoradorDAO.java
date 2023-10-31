@@ -14,7 +14,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 public interface IMoradorDAO {
     
-    public Long inserir(Morador morador) throws SQLException, ClassNotFoundException;
+    public void inserir(Morador morador) throws SQLException, ClassNotFoundException;
 
     public boolean atualizar(Morador morador) throws ClassNotFoundException,SQLException;
 

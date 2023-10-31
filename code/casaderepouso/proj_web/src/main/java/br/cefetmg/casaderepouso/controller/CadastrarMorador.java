@@ -34,7 +34,7 @@ public class CadastrarMorador extends HttpServlet {
      */
     
     public static String execute(HttpServletRequest request) {
-        String jsp = "";
+        String jsp = "/CadastroMorador.jsp"; 
      
         try {
 
@@ -61,8 +61,7 @@ public class CadastrarMorador extends HttpServlet {
             morador.setCondicaoEspecial(condicoes);
             
             IManterMorador iMorador = new ManterMorador();
-            iMorador.cadastrar(morador);
-        jsp = "/CadastroMorador.jsp";    
+            iMorador.cadastrar(morador);    
         } catch (Exception e) {
             System.out.println(e);
             jsp = "";

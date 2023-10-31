@@ -17,7 +17,8 @@
     <body>
       <article>
         <h1>Cadastro de Morador</h1>
-        <form id="meuForm" class="form-container" action="facade" method="POST">
+        <form id="meuForm" class="form-container" action="Facade" method="POST">
+            <input type='hidden' name='act' value='CadastrarMorador'>
           <div class="form-group">
             <label>Seu nome completo:</label>
             <input type="text" name="nomeMorador" class="texto" placeholder="Digite aqui..." required>

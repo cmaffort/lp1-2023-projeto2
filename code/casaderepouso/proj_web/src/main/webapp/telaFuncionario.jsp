@@ -26,8 +26,10 @@
         
     </div>
     <div class="content">
-        <a class="back-button" href="javascript:history.back()""><img src="./imgs/Voltar.png"></a>
         <div class="title">Dados dos moradores</div>
+        <form action="Facade" method="POST">
+            <input type="submit" name="act" value="listarMorador">   
+        </form>
         <table id="tabela">
 		<thead>
                     <tr>
