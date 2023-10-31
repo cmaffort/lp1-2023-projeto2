@@ -14,21 +14,21 @@
     <body>
       <article>
         <h1>Cadastro de visita</h1>
-        <form class="form-container" name="agendamento" action="Facade" method="POST">
+        <form class="form-container" action="Facade" method="POST">
            <input type='hidden' name='act' value='CadastrarVisitante'>
           <div class="form-group">
             <label>Seu nome completo:</label>
-            <input type="text" id="nomeVisitante" class="texto" placeholder="Digite aqui..." required>
+            <input type="text" name="nomeVisitante" class="texto" placeholder="Digite aqui..." required>
           </div>
 
           <div class="form-group">
             <label>Sua identidade:</label>
-            <input type="text" for="identidade" class="texto" placeholder="Digite aqui..." required>
+            <input type="text" name="identidade" class="texto" placeholder="Digite aqui..." required>
           </div>
 
           <div>
             <label>Telefone de contato:</label>
-            <input type="tel" id="numero" class="texto" placeholder="Digite aqui..." required required
+            <input type="tel" name="numero" class="texto" placeholder="Digite aqui..." required required
               onblur="verificarTelefone()">
           </div>
           <p id="resultado"></p>
@@ -36,12 +36,12 @@
 
           <div class="form-group">
             <label>Nome do morador:</label>
-            <input type="text" id="morador" class="texto" placeholder="Digite aqui..." required>
+            <input type="text" name="morador" class="texto" placeholder="Digite aqui..." required>
           </div>
 
           <div class="form-group">
             <label>Vínculo com o morador</label>
-            <select class="escolha">
+            <select class="escolha" name="vinculo">
               <option value="pais">Pai/mãe</option>
               <option value="irmao">Irmão/Irmã</option>
               <option value="filho">Filho/filha</option>
@@ -53,15 +53,15 @@
           <div class="form-group" id="marcar">
               <div>
                 <label id="calendario" required>Data:</label>
-                <input type="date" for="data">
+                <input type="date" name="data">
               </div>
               <div>
                 <label id="Hora" required>Hora:</label>
-                <input type="time" for="hora">
+                <input type="time" name="hora">
               </div>
           </div>
 
-          <input type="submit" value="Adiciona">
+          <input type="submit" value="AdicionarVisitante">
 
         </form>
       </article>

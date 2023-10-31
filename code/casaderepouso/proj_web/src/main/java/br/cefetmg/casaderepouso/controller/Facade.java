@@ -1,6 +1,7 @@
 package br.cefetmg.casaderepouso.controller;
 
 
+import br.cefetmg.casaderepouso.dto.exception.CadastroException;
 import jakarta.servlet.RequestDispatcher;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -9,6 +10,8 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -26,6 +29,7 @@ public class Facade extends HttpServlet {
         
         String act = request.getParameter("act");
         
+
         if(act.equals("CadastrarMorador")) {
             jsp = CadastrarMorador.execute(request);
         }
@@ -38,7 +42,9 @@ public class Facade extends HttpServlet {
             jsp = ListarFuncionario.execute(request);
         }
         else if(act.equals("CadastrarVisitante")){
-            jsp = CadastrarVisitante.execute(request);
+            System.out.println("Facade");
+                jsp = CadastrarVisitante.execute(request);
+            
         }
         else if(act.equals("CadastraMedicamentos")){
             jsp = CadastraMedicamento.execute(request);

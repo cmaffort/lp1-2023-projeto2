@@ -9,11 +9,11 @@ CREATE TABLE IF NOT EXISTS casa_de_repouso (
 );
 CREATE TABLE IF NOT EXISTS visitantes (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    nome VARCHAR(255) NOT NULL,
-    rg VARCHAR(20) NOT NULL,
-    telefone VARCHAR(15) NOT NULL,
-    vinculo_com_morador VARCHAR(100) NOT NULL,
-    data_e_hora_de_visita DATETIME NOT NULL
+    nome VARCHAR(255),
+    rg VARCHAR(20),
+    telefone VARCHAR(15),
+    vinculo_com_morador VARCHAR(100),
+    data_e_hora_de_visita DATETIME
 );
 CREATE TABLE IF NOT EXISTS morador (
     nome VARCHAR(255) NOT NULL,
@@ -44,9 +44,9 @@ CREATE TABLE IF NOT EXISTS funcionario (
     cpf VARCHAR(14) NOT NULL,
     rg VARCHAR(12) NOT NULL,
     telefone VARCHAR(20),
-    nascimento DATE,
+    nascimento VARCHAR(20),
     endereco TEXT,
-    pis VARCHAR(20) NOT NULL,
+    pis VARCHAR(255) NOT NULL,
     funcao VARCHAR(255) NOT NULL,
     periodoTrabalho VARCHAR(255) NOT NULL
 );

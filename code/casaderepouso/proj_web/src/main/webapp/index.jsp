@@ -17,7 +17,7 @@
 
 <body>
   <div id="branco"></div>
-  <form class="form-container" method="POST">
+  <form action="Facade" class="form-container" method="POST">
     <h1>Faça login</h1>
     <div class="form-group">
         <label>Usuário:</label>
@@ -25,21 +25,21 @@
     </div>
     <div class="form-group">
         <label>Senha:</label>
-        <input type="text" for="identidade" class="texto" placeholder="Digite aqui..." required>
+        <input type="password" for="identidade" class="texto" placeholder="Digite aqui..." required>
     </div>
     <div class="form-group">
             <label>Qual sua função?</label>
-            <select id="funcao">
+            <select name="cargo" id="funcao">
               <option value="funcionario">Funcionário</option>
               <option value="responsavel">Responsável</option>
               <option value="gerente">Gerente</option>
               <option value="médico">Profissional de saúde</option>
             </select>
           </div>
-    <a href="AgendarVisita.jsp">Sou visitante</a>
+    <a href="CadastrarVisita.jsp">Sou visitante</a>
     <a>Agendar atividade</a>
     <div id="botao">
-      <button>Entrar</button>
+      <button value="Login" name="act">Entrar</button>
     </div>
     </form>
 </body>

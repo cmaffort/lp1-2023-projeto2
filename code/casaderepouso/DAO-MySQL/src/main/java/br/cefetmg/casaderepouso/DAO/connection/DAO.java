@@ -16,6 +16,8 @@ public class DAO {
     private static String user = "root";
     private static String password = "admin";
     //conexão
+
+    
     public static Connection conectar() throws ClassNotFoundException, SQLException{
         Connection con = null;
         try {

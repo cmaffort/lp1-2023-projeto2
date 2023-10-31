@@ -35,8 +35,8 @@
             </div>
              <div class="form-group">
                 <label>Data de Nascimento:</label>
-                <input type="date" name="dataNasc" class="texto" placeholder="Digite aqui..." required>                
-            </div> 
+                <input type="text" name="dataNasc" class="texto" placeholder="Digite aqui..." required>                
+             </div>
             <div class="form-group">
                 <label>Endereço completo:</label>
                 <input type="text" name="endereco" class="texto" placeholder="Digite aqui..." required>                

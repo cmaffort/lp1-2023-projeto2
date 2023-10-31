@@ -20,8 +20,8 @@
             <li>Receitas médicas</li>
             <li>Dieta</li>
             <li>Solicitar consulta</li>
-            <li>Responsáveis</li>
-            <li>Novo Responsável</li>
+            <li><a href="gestaoResponsavel.jsp">Responsáveis</a></li>
+            <li><a href="cadastroResponsavel.jsp">Novo Responsável</a></li>
         </ul>
     </nav>
     <div class="lista"> 
