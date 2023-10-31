@@ -25,25 +25,23 @@ public class Facade extends HttpServlet {
         String encaminha = request.getServletPath();
         
         String act = request.getParameter("act");
-        if(act == null){    
-            jsp = "/index.jsp";
-        }
-        else if(act.equals("cadastrarMorador")) {
+        
+        if(act.equals("CadastrarMorador")) {
             jsp = CadastrarMorador.execute(request);
-        }
-        else if(act.equals("listarMorador")){
-            jsp = ListarMorador.execute(request);
         }
         else if(act.equals("cadastrarFuncionario"))
             jsp = CadastrarFuncionario.execute(request);
         else if(act.equals("listarFuncionario"))
             jsp = ListarFuncionario.execute(request);        
-        else if(act.equals("deleteFunc")){
+        else if(act.equals("/deleteFunc")){
             jsp = ExcluirFuncionario.execute(request);
             jsp = ListarFuncionario.execute(request);
         }
         else if(act.equals("CadastrarVisitante")){
             jsp = CadastrarVisitante.execute(request);
+        }
+        else if(act.equals("CadastraMedicamentos")){
+            jsp = CadastraMedicamento.execute(request);
         }
         RequestDispatcher rd = request.getRequestDispatcher(jsp);
         rd.forward(request, response);

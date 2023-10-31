@@ -28,7 +28,7 @@ public class Morador {
     private String nome;
     private String cpf;
     private String rg;
-    private Date dataNasc;
+    private String dataNasc;
     private String endereco;
     private String responsaveis;
     private String condicaoEspecial;
@@ -38,7 +38,7 @@ public class Morador {
     public Morador(){
     
     }
-    public Morador(String nome, String cpf, String rg, Date dataNasc,String planoMedico, String responsaveis, String nomeMae, String endereco, String condicaoEspecial, String estado) {
+    public Morador(String nome, String cpf, String rg, String dataNasc,String planoMedico, String responsaveis, String nomeMae, String endereco, String condicaoEspecial, String estado) {
         this.nome = nome;
         this.cpf = cpf;
         this.rg = rg;
@@ -63,7 +63,7 @@ public class Morador {
         return rg;
     }
 
-    public Date getDataNasc() {
+    public String getDataNasc() {
         return dataNasc;
     }
 
@@ -94,7 +94,7 @@ public class Morador {
         this.rg = rg;
     }
 
-    public void setDataNasc(Date dataNasc) {
+    public void setDataNasc(String dataNasc) {
         this.dataNasc = dataNasc;
     }
 
