@@ -19,7 +19,7 @@ CREATE TABLE IF NOT EXISTS morador (
     nome VARCHAR(255) NOT NULL,
     cpf VARCHAR(14) NOT NULL,
     rg VARCHAR(12) NOT NULL,
-    datanascimento DATE NOT NULL,
+    datanascimento VARCHAR(20),
     planomedico: VARCHAR(255)
     responsavel VARCHAR(255),
     nome_mae VARCHAR(255) NOT NULL

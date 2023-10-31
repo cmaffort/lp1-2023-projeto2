@@ -50,9 +50,11 @@ public class FuncionarioDAO implements IFuncionarioDAO{
       
         }
         catch(SQLException e){
+            System.out.println(e);
             throw new SQLException(e.getMessage(), e);       
         }
         catch(ClassNotFoundException e){
+            System.out.println(e);
             throw new ClassNotFoundException(e.getMessage(), e);       
         }
     }
