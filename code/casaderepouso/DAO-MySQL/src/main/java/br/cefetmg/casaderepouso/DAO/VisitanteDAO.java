@@ -2,8 +2,10 @@ package br.cefetmg.casaderepouso.DAO;
 
 import br.cefetmg.casaderepouso.DAO.connection.DAO;
 import br.cefetmg.casaderepouso.dto.Visitante;
+import br.cefetmg.casaderepouso.idao.IVisitanteDAO;
 import java.sql.Connection;
 import java.sql.Date;
+import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -16,14 +18,15 @@ import java.util.logging.Logger;
  * @author Aluno
  */
 
-public class VisitanteDAO{
+public class VisitanteDAO implements IVisitanteDAO{
 
-    public static Boolean cadastrar(Visitante visitante) {
-        String sqlVisitante = "INSERT INTO visitante(nome, rg, telefone, vinculo_com_morador,data_e_hora_de_visita, morador) VALUES(?,?,?,?,?,?)";
-        System.out.println("Chegou no Conector, sla o nome disso      ");
+    public boolean cadastrar(Visitante visitante) {
+        String sqlVisitante = "INSERT INTO visitantes(nome, rg, telefone, vinculo_com_morador,data_e_hora_de_visita, morador) VALUES(?,?,?,?,?,?)";
+        System.out.println("Chegou no Conector, sla o nome disso");
 
-        try {                
-                Connection con = DAO.conectar();
+        try {   
+                Class.forName("com.mysql.cj.jdbc.Driver");
+                Connection con = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/bdlardeidosos", "root", "admin");
                 PreparedStatement pstm = con.prepareStatement(sqlVisitante);
                 
                 //Transforma os ? nas variaveis
@@ -32,7 +35,7 @@ public class VisitanteDAO{
                 pstm.setString(3, visitante.getTelefone());
                 pstm.setString(4, visitante.getVinculo());
                 pstm.setDate(5, (java.sql.Date) visitante.getDataVisita());
-                pstm.setString(7, visitante.getMorador());
+                pstm.setString(6, visitante.getMorador());
                 
                 //Executar
                 pstm.executeUpdate();

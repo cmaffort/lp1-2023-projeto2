@@ -14,12 +14,12 @@ public class CadastrarVisitanteService implements ICadastrarVisitante{
     private IVisitanteDAO VisitanteDAO;
     
     public CadastrarVisitanteService() {
-        VisitanteDAO = (IVisitanteDAO) new VisitanteDAO();
+        VisitanteDAO =  new VisitanteDAO();
     }
     @Override
     public String cadastrar(Visitante visitante) throws CadastroException {
         VisitanteDAO.cadastrar(visitante);
-        System.out.println("chegoiu aqui no serviço");
+        System.out.println("chegoiu aqui no serviço" + visitante.getNome());
         return visitante.getNome();
     }   
 }
