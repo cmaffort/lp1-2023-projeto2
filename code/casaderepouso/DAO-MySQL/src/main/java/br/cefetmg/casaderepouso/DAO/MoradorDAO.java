@@ -73,7 +73,7 @@ public class MoradorDAO implements IMoradorDAO {
     } 
     
     @Override
-    public boolean inserir(Morador morador) throws ClassNotFoundException ,SQLException {
+    public boolean inserir(Morador morador){
         String sql = "INSERT INTO morador (nome, cpf,rg, nascimento, planoMedico, responsavel, nome_mae, endereco, condicoes, estado) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         try{
             Class.forName("com.mysql.cj.jdbc.Driver");

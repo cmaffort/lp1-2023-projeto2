@@ -27,7 +27,7 @@ public class Facade extends HttpServlet {
         
         String encaminha = request.getServletPath();
         
-        String act = request.getParameter("act");
+        String act = request.getParameter("act"); 
         
 
         if(act.equals("CadastrarMorador")) {

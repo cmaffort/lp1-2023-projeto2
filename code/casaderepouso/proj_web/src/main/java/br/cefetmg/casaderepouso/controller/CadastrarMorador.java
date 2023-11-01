@@ -55,7 +55,7 @@ public class CadastrarMorador extends HttpServlet {
 
             IManterMorador iMorador = new ManterMorador();
             try {
-                iMorador.cadastrar(morador);
+                iMorador.cadastrar(morador); 
             } catch (CadastroException ex) {
                 System.out.println("Erro" + ex);
             }

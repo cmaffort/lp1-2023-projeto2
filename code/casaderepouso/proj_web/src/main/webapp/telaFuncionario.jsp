@@ -11,12 +11,14 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel="stylesheet" type="text/css" href="cssFiles/telaGerente.css">
+        <link rel="stylesheet" type="text/css" href="cssFiles/telaFuncionario.css">
 
         <title>Home-Funcionário</title>
     </head>
     <body>
-        <div class="branco">    
+        
+        <div class="branco">
+        <img class="profile-image" src="imgs/perfil.png">
         <div class="name">Bem vindo</div>
         <a class="button" href="CadastroMorador.jsp">Novo morador</a>
         <a class="button" href="#">Inventário</a>
@@ -30,33 +32,33 @@
         <form action="Facade" method="POST">
             <input type="submit" name="act" value="listarMorador">   
         </form>
-        <table id="tabela">
-		<thead>
-                    <tr>
-                        <th>Nome</th>
-                        <th>CPF</th>
-                        <th>Estado</th>
-                    </tr>
-		</thead>
-		<tbody>
+        <div id="container-lista-moradores">
+                    <div class="morador-container">
+			<p class="nome-cpf">Nome</p>
+                        <p class="nome-cpf">cpf</p>
+                        <a href='telaMudancaStatus.jsp' style='text-decoration: none; color: black;'>
+                            <div id="state-container">
+                                <span id="state-cor"></span><p id="state-nome">Status</p>
+                            </div>
+                        </a>
+                    </div>
                      <%
                         List<Morador> listaMoradores = (List<Morador>) request.getAttribute("listMor");
                         if(listaMoradores != null){
                         for (Morador mor: listaMoradores) {
                     %>
-                        <a id="botao-morador" href="javascript: enviarInfo(<%=mor.getNome()%>,<%=mor.getCpf()%>,<%=mor.getEstado()%>,<%=mor.getNomeMae()%>, <%=mor.getCondicaoEspecial()%>)" href="telaInfoMorador.jsp"><tr class="morador-container">
-				<td><%=mor.getNome()%></td>
-                                <td><%=mor.getCpf()%></td>
-				<td><%=mor.getEstado()%></td>         
-                        <a id="botao-morador" href="javascript: enviarInfo(<%=mor.getNome()%>,<%=mor.getCpf()%>,<%=mor.getEstado()%>,<%=mor.getNomeMa
-			</tr>
-                        </a>
+                    <a class="botao-morador" href="javascript: enviarInfo(<%=mor.getNome()%>,<%=mor.getCpf()%>,<%=mor.getEstado()%>,<%=mor.getNomeMae()%>, <%=mor.getCondicaoEspecial()%>)" href="telaInfoMorador.jsp">
+                    <div class="morador-container">
+			<p><%=mor.getNome()%></p>
+                        <p><%=mor.getCpf()%></p>
+                        <p><%=mor.getEstado()%></p>
+                    </div>
+                    </a>
 			<%
 				}
                         }
 			%>
-		</tbody>
-	</table>
+        </div>
     </div>
     <script src="scripts/enviarInfoMorador.js"></script>
     </body>
