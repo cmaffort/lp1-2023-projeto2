@@ -18,26 +18,18 @@ import java.util.Date;
 import br.cefetmg.casaderepouso.dto.Morador;
 import br.cefetmg.casaderepouso.service.implement.ManterMorador;
 import br.cefetmg.casaderepouso.service.IManterMorador;
+import java.text.ParseException;
+import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 
 @WebServlet(name = "CadastrarMorador", urlPatterns = {"/CadastrarMorador"})
 public class CadastrarMorador extends HttpServlet {
-
-    /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
     
     public static String execute(HttpServletRequest request) {
         String jsp = "/CadastroMorador.jsp"; 
-     
-        try {
-
+    
             String nome = request.getParameter("nomeMorador");
             String cpf = request.getParameter("cpf");
 
@@ -52,24 +44,23 @@ public class CadastrarMorador extends HttpServlet {
             morador.setNome(nome);
             morador.setNomeMae(nomeMae);
             morador.setCpf(cpf);
-            /*fazer plano medico depois*/
+            morador.setPlanoMedico(planoMedico);
             morador.setDataNasc(dataStr);
             morador.setEndereco(endereco);
             morador.setCondicaoEspecial(condicoes);
             
+            System.out.println("Controller");
+
             IManterMorador iMorador = new ManterMorador();
-            iMorador.cadastrar(morador);    
-        } catch (Exception e) {
-            System.out.println(e);
-            jsp = "";
-        }
-        
+            try {
+                iMorador.cadastrar(morador);
+            } catch (CadastroException ex) {
+                System.out.println("Erro" + ex);
+            }
         return jsp;
     }
-    
     @Override
-    public String getServletInfo() {
+    public String getServletInfo(){
         return "Short description";
     }// </editor-fold>
-
 }

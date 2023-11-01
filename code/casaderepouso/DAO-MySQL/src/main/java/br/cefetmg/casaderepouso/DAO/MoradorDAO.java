@@ -21,6 +21,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 
 public class MoradorDAO implements IMoradorDAO {
@@ -71,11 +73,12 @@ public class MoradorDAO implements IMoradorDAO {
     }
     
     @Override
-    public void inserir(Morador morador) throws ClassNotFoundException ,SQLException {    
+    public boolean inserir(Morador morador) throws ClassNotFoundException ,SQLException {
+        String sql = "INSERT INTO morador (nome, cpf,rg, nascimento, planoMedico, responsavel, nome_mae, endereco, condicoes, estado) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         try{
             Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection con = DAO.conectar();
-            String sql = "INSERT INTO morador (nome, cpf,rg, nascimento, planoMedico, responsavel, nome_mae, endereco, condicoes, estado) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            Connection con = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/bdlardeidosos", "root", "admin");
+            
             PreparedStatement pstmt = con.prepareStatement(sql);
             pstmt.setString(1, morador.getNome());
             pstmt.setString(2, morador.getCpf());
@@ -88,18 +91,15 @@ public class MoradorDAO implements IMoradorDAO {
             pstmt.setString(9, morador.getCondicaoEspecial());
             pstmt.setString(10, morador.getEstado());
             pstmt.executeUpdate();
-            pstmt.close();
             con.close();
       
-        }
-        catch(SQLException e){
+        }catch (SQLException e) {
             System.out.println(e);
-            throw new SQLException(e.getMessage(), e);       
+            return false;
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(MoradorDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
-        catch(ClassNotFoundException e){
-            System.out.println(e);
-            throw new ClassNotFoundException(e.getMessage(), e);       
-        }
+        return true;
     }
   
     @Override
