@@ -70,7 +70,7 @@ public class MoradorDAO implements IMoradorDAO {
         catch(ClassNotFoundException e){
             throw new ClassNotFoundException(e.getMessage(), e);       
         }
-    }
+    } 
     
     @Override
     public boolean inserir(Morador morador) throws ClassNotFoundException ,SQLException {

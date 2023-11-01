@@ -48,6 +48,7 @@
 				<td><%=mor.getNome()%></td>
                                 <td><%=mor.getCpf()%></td>
 				<td><%=mor.getEstado()%></td>         
+                        <a id="botao-morador" href="javascript: enviarInfo(<%=mor.getNome()%>,<%=mor.getCpf()%>,<%=mor.getEstado()%>,<%=mor.getNomeMa
 			</tr>
                         </a>
 			<%

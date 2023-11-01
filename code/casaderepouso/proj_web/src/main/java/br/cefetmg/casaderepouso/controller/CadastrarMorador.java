@@ -18,6 +18,8 @@ import java.util.Date;
 import br.cefetmg.casaderepouso.dto.Morador;
 import br.cefetmg.casaderepouso.service.implement.ManterMorador;
 import br.cefetmg.casaderepouso.service.IManterMorador;
+import br.cefetmg.casaderepouso.dto.exception.*;
+import java.sql.SQLException;
 import java.text.ParseException;
 import java.util.Date;
 import java.util.logging.Level;
@@ -27,7 +29,7 @@ import java.util.logging.Logger;
 @WebServlet(name = "CadastrarMorador", urlPatterns = {"/CadastrarMorador"})
 public class CadastrarMorador extends HttpServlet {
     
-    public static String execute(HttpServletRequest request) {
+    public static String execute(HttpServletRequest request){
         String jsp = "/CadastroMorador.jsp"; 
     
             String nome = request.getParameter("nomeMorador");
