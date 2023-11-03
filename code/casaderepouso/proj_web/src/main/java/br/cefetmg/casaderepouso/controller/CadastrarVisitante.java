@@ -36,7 +36,6 @@ public class CadastrarVisitante extends HttpServlet {
         String vinculo = request.getParameter("vinculo");
         String morador = request.getParameter("morador");
         String dataStr = request.getParameter("dataVisita");
-        DateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
         Visitante visitante = new Visitante();
         visitante.setNome(nome);
         visitante.setRg (rg);
@@ -44,7 +43,7 @@ public class CadastrarVisitante extends HttpServlet {
         visitante.setVinculo(vinculo);
         visitante.setMorador(morador);
         
-        System.out.println("Controller");
+        //System.out.println("Controller");
         
         ICadastrarVisitante service = new CadastrarVisitanteService();
         try {

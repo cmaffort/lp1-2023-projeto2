@@ -1,53 +1,8 @@
-/*
-Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
-Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css to edit this template
-*/
 /* 
     Created on : 16 de out. de 2023, 18:34:21
     Author     : Master
 */
 
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: Arial, sans-serif;
-            display: flex;
-            height: 100vh;
-        }
-
-        .branco {
-            width: 20%;
-            background-color: white;
-            color: black;
-            text-align: center;
-            padding: 20px;
-            box-sizing: border-box;
-        }
-
-        .profile-image {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            margin: 10px auto;
-            background-image: url('caminho_para_sua_imagem.jpg');
-            background-size: cover;
-        }
-
-        .button {
-            display: block;
-            width: 90%;
-            padding: 10px;
-            margin: 5% 0;
-            background-color: #76A5DC;
-            color: #fff;
-            border: none;
-            text-align: center;
-            text-decoration: none;
-            cursor: pointer;
-            border-radius: 36px;
-            box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-        }
-        
         .back-button {
                     display: flex;
                     justify-content: left;

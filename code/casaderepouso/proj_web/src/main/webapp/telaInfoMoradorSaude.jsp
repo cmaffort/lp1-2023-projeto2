@@ -14,13 +14,8 @@
         <title>Morador</title>
     </head>
     <body>
-        <div class="branco">    
-            <img class="profile-image" src="imgs/perfil.png">
-            <a class="button" href="#">Adicionar Prontuário</a>
-            <a class="button" href="#">Adicionar Receita</a>
-            <a class="button" href="#">Adicionar Dieta</a>
-            <a class="button" href="#">Consultas Marcadas</a>
-        </div>
+        <%@include file="Padrão/navMorador.jsp" %>
+
         <div class="content">
             <a class="back-button" href="javascript:history.back()""><img src="./imgs/Voltar.png"></a>
             <div id="title-container">

@@ -20,8 +20,15 @@ public class Visitante {
     private String telefone;
     private String morador;
     private String vinculo;
-    private Date dataVisita;
+    private String dataVisita;
     private String horaVisita;
+
+    public Visitante(String nome, String rg, String telefone, String morador, String vinculo, String dataVisita) {
+    }
+
+    public Visitante() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 
     public String getNome() {
         return nome;
@@ -63,11 +70,11 @@ public class Visitante {
         this.vinculo = vinculo;
     }
 
-    public Date getDataVisita() {
+    public String getDataVisita() {
         return dataVisita;
     }
 
-    public void setDataVisita(Date dataVisita) {
+    public void setDataVisita(String dataVisita) {
         this.dataVisita = dataVisita;
     }
 

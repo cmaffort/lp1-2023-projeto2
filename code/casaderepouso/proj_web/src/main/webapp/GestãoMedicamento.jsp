@@ -16,15 +16,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
-    <div class="branco">    
-        <img class="profile-image" src="imgs/perfil.png">
-        <div class="name">Nome Sobrenome</div>
-        <a class="button" href="CadastroMorador.jsp">Novo Morador</a>
-        <a class="button" href="#">Inventário</a>
-        <a class="button" href="#">Cardápios</a>
-        <a class="button" href="#">Equipamentos</a>
-        <a class="button" href="GestaoVisitantes.jsp">Visitas</a>
-    </div>
+        <%@include file="Padrão/navFuncionario.jsp" %>
 
     <div id="main">
     <div id="solicitados">

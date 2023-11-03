@@ -11,14 +11,8 @@
         <title>Home-Gerente</title>
     </head>
     <body>
-        <div class="branco">    
-        <div class="name">Bem vindo</div>
-        <a class="button" href="CadastroFuncionario.jsp">Novo funcionário</a>
-        <a class="button" href="#">Eventos solicitados</a>
-        <a class="button" href="#">Inventário</a>
-        <a class="button" href="#">Equipamentos</a>
-        
-    </div>
+        <%@include file="Padrão/navGerente.jsp" %>
+
     <div class="content">
         <div class="title">Dados dos funcionários</div>
         <form action="Facade" method="POST">
