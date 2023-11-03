@@ -13,17 +13,8 @@
         <title>Responsáveis</title>
     </head>
     <body>
-    <nav>
-        <ul>
-            <img src="imgs/perfil.png">
-            <li>Prontuário </li>
-            <li>Receitas médicas</li>
-            <li>Dieta</li>
-            <li>Solicitar consulta</li>
-            <li><a href="gestaoResponsavel.jsp">Responsáveis</a></li>
-            <li><a href="cadastroResponsavel.jsp">Novo Responsável</a></li>
-        </ul>
-    </nav>
+        <%@include file="Padrão/navMorador.jsp" %>
+
     <div class="lista"> 
         <div class="dados">
             <h1>Nome do responsável</h1>

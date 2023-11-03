@@ -14,15 +14,7 @@
         <title>Visitas</title>
     </head>
     <body>
-        <div class="branco">    
-        <img class="profile-image" src="imgs/perfil.png">
-        <div class="name">Nome Sobrenome</div>
-        <a class="button" href="CadastroMorador.jsp">Novo Morador</a>
-        <a class="button" href="#">Inventário</a>
-        <a class="button" href="#">Cardápios</a>
-        <a class="button" href="#">Equipamentos</a>
-        <a class="button" href="GestaoVisitantes.jsp">Visitas</a>
-    </div>
+    <%@include file="Padrão/navFuncionario.jsp" %>
     <div class="content">
         <a class="back-button" href="javascript:history.back()""><img src="./imgs/Voltar.png"></a>
         <div class="title">Visitas Agendadas</div>

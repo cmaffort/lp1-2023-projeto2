@@ -15,16 +15,8 @@
 
         <title>Home-Funcionário</title>
     </head>
-    <body>
-        <div class="branco">    
-        <div class="name">Bem vindo</div>
-        <a class="button" href="CadastroMorador.jsp">Novo morador</a>
-        <a class="button" href="#">Inventário</a>
-        <a class="button" href="#">Cardápio</a>
-        <a class="button" href="#">Equipamentos</a>
-        <a class="button" href="GestaoVisitantes.jsp">Visitas</a>
-        
-    </div>
+        <%@include file="Padrão/navFuncionario.jsp" %>
+
     <div class="content">
         <div class="title">Dados dos moradores</div>
         <form action="Facade" method="POST">
