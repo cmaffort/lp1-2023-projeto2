@@ -27,10 +27,11 @@ public class Facade extends HttpServlet {
         
         String encaminha = request.getServletPath();
         
-        String act = request.getParameter("act");
+        String act = request.getParameter("act"); 
         
 
         if(act.equals("CadastrarMorador")) {
+            System.out.println("Facade");
             jsp = CadastrarMorador.execute(request);
         }
         else if(act.equals("cadastrarFuncionario"))
