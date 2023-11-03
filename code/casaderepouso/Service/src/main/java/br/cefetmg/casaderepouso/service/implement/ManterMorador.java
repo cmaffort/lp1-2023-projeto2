@@ -26,7 +26,7 @@ public class ManterMorador implements IManterMorador {
     }
     
     @Override
-    public String cadastrar(Morador morador) throws CadastroException, SQLException, ClassNotFoundException{        
+    public String cadastrar(Morador morador) throws CadastroException{        
         moradorDAO.inserir(morador);
         return morador.getCpf();
     }

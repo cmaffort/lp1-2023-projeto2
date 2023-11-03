@@ -16,7 +16,7 @@ import java.util.List;
 
 public interface IManterMorador {
     
-    public String cadastrar(Morador morador) throws CadastroException, SQLException, ClassNotFoundException;
+    public String cadastrar(Morador morador) throws CadastroException;
     public String atualizar(Morador morador) throws Exception;
     public String excluir(Morador morador) throws Exception;
     
