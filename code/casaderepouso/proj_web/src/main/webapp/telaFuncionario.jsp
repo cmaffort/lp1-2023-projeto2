@@ -54,7 +54,7 @@
             <div id="container-lista-moradores">
                     <div class="morador-container">
                         <img class="seta" src="imgs/Voltar.png">
-                        <p class="nome-cpf">Fulano da Silva Silveiro - CPF: 12345678910</p>
+                        <p class="nome-cpf">Fulano da Silva Silveiro - CPF: <span class="cpf">12345678910</span></p>
                             <div class="state-container">
                                 <span class="state-cor"></span><p class="state-nome">Status</p>
                             </div>
@@ -84,6 +84,7 @@
                     </div>
                 <%
                    List<Morador> listaMoradores = (List<Morador>) request.getAttribute("listMor");
+                   
                    if(listaMoradores != null){
                    for (Morador mor: listaMoradores) {
                 %>

@@ -11,6 +11,9 @@ infoMoradores.forEach(info =>{
     window.console.log("clicado");
     window.console.log(info);
     window.console.log(containerInfo);
+    let cpf = info.children;
+    cpf = cpf[1].firstElementChild;
+    window.console.log(cpf.innerHTML);
     if (containerInfo.style.display === "block" && estaNosStatus === 0) {
         containerInfo.style.display = "none";
         info.style.borderRadius = "50px";
@@ -19,6 +22,7 @@ infoMoradores.forEach(info =>{
         containerInfo.style.display = "block";
         seta.style.transform = "rotate(270deg)";
         info.style.borderRadius = "0px";
+        localStorage.setItem("cpf", cpf.innerHTML);
     }
 });
 });

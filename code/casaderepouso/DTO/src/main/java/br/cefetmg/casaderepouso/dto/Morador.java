@@ -50,7 +50,6 @@ public class Morador {
         this.nomeMae = nomeMae;
         this.estado = this.estado.valueOf(estado);
     }
-    
     public String getNome() {
         return nome;
     }
