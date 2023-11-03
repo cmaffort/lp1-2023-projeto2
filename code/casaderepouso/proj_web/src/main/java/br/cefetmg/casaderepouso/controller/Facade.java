@@ -42,12 +42,14 @@ public class Facade extends HttpServlet {
             jsp = ListarFuncionario.execute(request);
         }
         else if(act.equals("CadastrarVisitante")){
-            System.out.println("Facade");
-                jsp = CadastrarVisitante.execute(request);
-            
+            jsp = CadastrarVisitante.execute(request);
         }
         else if(act.equals("CadastraMedicamentos")){
             jsp = CadastraMedicamento.execute(request);
+        }
+        else if(act.equals("ListarVisitante")){
+            System.out.println("facade");
+            jsp = ListarVisitantes.execute(request);
         }
         RequestDispatcher rd = request.getRequestDispatcher(jsp);
         rd.forward(request, response);

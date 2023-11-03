@@ -5,6 +5,7 @@ import br.cefetmg.casaderepouso.dto.exception.CadastroException;
 import br.cefetmg.casaderepouso.service.ICadastrarVisitante;
 import br.cefetmg.casaderepouso.idao.IVisitanteDAO;
 import br.cefetmg.casaderepouso.DAO.VisitanteDAO;
+import java.util.List;
 /**
  *
  * @author jujua
@@ -19,7 +20,13 @@ public class CadastrarVisitanteService implements ICadastrarVisitante{
     @Override
     public String cadastrar(Visitante visitante) throws CadastroException {
         VisitanteDAO.cadastrar(visitante);
-        System.out.println("chegoiu aqui no serviço" + visitante.getNome());
+        //System.out.println("chegoiu aqui no serviço" + visitante.getNome());
         return visitante.getNome();
     }   
+
+    @Override
+    public List<Visitante> listarTodos() {
+        List<Visitante> lista= VisitanteDAO.listarTodos();
+        return lista;
+    }
 }
