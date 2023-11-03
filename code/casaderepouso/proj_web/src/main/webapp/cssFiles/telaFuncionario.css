@@ -18,12 +18,12 @@ body {
     height: 100vh;
 }
 .profile-image {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            margin: 10px auto;
-            background-image: url('caminho_para_sua_imagem.jpg');
-            background-size: cover;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin: 10px auto;
+    background-image: url('caminho_para_sua_imagem.jpg');
+    background-size: cover;
 }
 .branco {
     width: 20%;
@@ -58,7 +58,7 @@ body {
 .back-button {
     display: flex;
     justify-content: left;
-    align-items: center; 
+    align-items: center;
     font-size: 20px;
     margin-bottom: 20px;
 }
@@ -88,39 +88,130 @@ body {
     height: 90%;
 }
 .morador-container{
-    display: flex;
-    flex-direction: row;
-    justify-content:space-evenly;
+    display: grid;
+    grid-template-columns: 10% 75% 15%;
+    grid-template-rows: 10vh auto;
     align-items: center;
+    justify-items: start;
     background-color: white;
-    margin: 1vh;
-    width: 100%;
+    width: 95%;
+    margin: 1vh auto 0 auto;
     height: 10vh;
     border-radius: 50px;
+    border: rgba(164, 203, 249, 0.50) 5px solid;
+
+    transition: all 0.2s linear;
 }
 .nome-cpf{
+    width: auto;
+    height: auto;
     font-size: 24px;
+    grid-column: 2;
+    margin-right: auto;
+    white-space: nowrap;
 }
-#state-container{
-            width: 13vh;
-            height: 5vh;
-            margin-left: 3vh;
-            display: flex;
-            align-items: center; 
-            justify-content: center;
-            background-color: white;
-            border-radius: 36px;
-            border:#000 solid 1px;
-        }
-#state-cor{
-            width: 2vh;
-            height: 2vh;
-            background-color: var(--statuscor);
-            border-radius: 50%;
-            border: black 1px solid;
-            margin-right: 10px; 
-        }
-        #state-nome{
-            text-align: left;
-            font-size: 2vh;
-        }
+.seta{
+    margin: auto;
+    width: 3vh;
+    height: 3vh;
+    transform: rotate(180deg);
+
+    transition: all 0.2s linear;
+}
+.state-container{
+    width: 13vh;
+    height: 5vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    border-radius: 36px;
+    border:#000 solid 1px;
+    cursor: pointer;
+}
+.state-cor{
+    width: 2vh;
+    height: 2vh;
+    background-color: var(--statuscor);
+    border-radius: 50%;
+    border: black 1px solid;
+    margin-right: 10px;
+}
+.state-nome{
+    text-align: left;
+    font-size: 2vh;
+}
+
+.container-info{
+    display: none;
+    width: 100%;
+    margin-right: 5px;
+    grid-column: 1 / -1;
+    background-color: white;
+    border-top: 0px !important;
+    border: rgba(164, 203, 249, 0.50) 5px solid;
+}
+
+
+
+
+
+
+#status-container{
+    margin: auto;
+    display: none;
+    align-items: center;
+    justify-content:space-evenly;
+    flex-direction: column;
+    background-color: white;
+    height: 70%;
+    width: 30%;
+    border-radius: 24px;
+    border: 1px solid #C1BDBD;
+    position: fixed;
+    z-index: 999;
+    left: 45%;
+    top: 15%;
+}
+.state1-cor{
+    width: 7.5vh;
+    height: 7.5vh;
+    border-radius: 50%;
+    border: black 1px solid;
+    margin-left: 10px;
+}
+.state1-container{
+    width: 85%;
+    height: 10vh;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    border-radius: 24px;
+    border: 0.5px solid #000;
+    background: #FFF;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+.state1-container  p{
+    margin-left: 5%;
+    font-size: 2vh;
+}
+.marks{
+    margin-left: auto;
+    margin-right: 2vh;
+    width: 2.5vh;
+    height: 2.5vh;
+    background-color: #D9D9D9;
+    border-radius: 50%;
+    border: 1px solid #C1BDBD;
+    cursor: pointer;
+}
+.update-status{
+    padding: 10px 50px 10px 50px;
+    width: 10vh;
+    margin: 5% 0;
+    color: black;
+    border-radius: 5%;
+    text-align: center;
+    cursor: pointer;
+}
