@@ -59,6 +59,17 @@ CREATE TABLE IF NOT EXISTS gerente (
     telefone VARCHAR(20),
     endereco TEXT
 );
+CREATE TABLE IF NOT EXISTS evento (
+    id VARCHAR(255) NOT NULL,
+    nome VARCHAR(255) NOT NULL,
+    rg VARCHAR(12) NOT NULL,
+    descricao VARCHAR(255),
+    lugar VARCHAR(255),
+    dia VARCHAR(20),
+    horario VARCHAR(255) NOT NULL,
+    telefone VARCHAR(255) NOT NULL,
+    email VARCHAR(255) NOT NULL
+);
 CREATE TABLE IF NOT EXISTS medicamento (
     id INT AUTO_INCREMENT PRIMARY KEY,
     nome VARCHAR(255) NOT NULL,

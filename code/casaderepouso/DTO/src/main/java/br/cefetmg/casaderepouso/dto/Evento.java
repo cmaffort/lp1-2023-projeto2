@@ -17,11 +17,12 @@ public class Evento {
     private String horario;
     private String fone;
     private String email;
+    private String id;
     
     public Evento(){
     }
     public Evento(String nome, String rg, String desc, String local, String data, String hora,
-            String telefone, String email){
+            String telefone, String email, String id){
             
             this.nome = nome;
             this.rg = rg;
@@ -31,6 +32,7 @@ public class Evento {
             this.horario = hora;
             this.fone = telefone;
             this.email = email;
+            this.id = id;
     
     }
     
@@ -97,4 +99,12 @@ public class Evento {
     public String getEmail(){
         return email;
     }
+    public void setId(String id){
+        this.id = id;
+    }
+    
+    public String getId(){
+        return id;
+    }
+    
 }
