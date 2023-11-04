@@ -14,15 +14,8 @@
         <title>Morador</title>
     </head>
     <body>
-        <div class="branco">    
-            <img class="profile-image" src="imgs/perfil.png">
-            <a class="button" href="CadastroMorador.jsp">Prontuário</a>
-            <a class="button" href="#">Receitas Médicas</a>
-            <a class="button" href="#">Dieta</a>
-            <a class="button" href="#">Solicitar Consulta</a>
-            <a class="button" href="GestaoVisitantes.jsp">Responsáveis</a>
-            <a class="button" href="cadastroResponsavel.jsp">Novo Responsável</a>
-        </div>
+        <%@include file="Padrão/navMorador.jsp" %>
+
         <div class="content">
             <a class="back-button" href="telaInfoMorador.jsp""><img src="./imgs/Voltar.png"></a>
             <h1 class="title">Mudança de Status</h1>
