@@ -74,7 +74,7 @@ CREATE TABLE IF NOT EXISTS medicamento (
     id INT AUTO_INCREMENT PRIMARY KEY,
     nome VARCHAR(255) NOT NULL,
     valor DECIMAL(10, 2) NOT NULL,
-    tarja ENUM('SEM_TARJA', 'VERMELHA', 'AMARELA', 'PRETA';) NOT NULL,
+    tarja ENUM('SEM_TARJA', 'VERMELHA', 'AMARELA', 'PRETA') NOT NULL,
     validade DATE NOT NULL,
     morador VARCHAR(14) NOT NULL,
     dose VARCHAR(255),
@@ -83,7 +83,7 @@ CREATE TABLE IF NOT EXISTS medicamento (
     FOREIGN KEY (morador) REFERENCES morador(id)
 );
 CREATE TABLE IF NOT EXISTS profissional_de_saude (
-    id INT AUTO_INCREMENTta PRIMARY KEY,
+    id INT AUTO_INCREMENT PRIMARY KEY,
     registro_medico VARCHAR(20) NOT NULL,
     especializacao VARCHAR(255) NOT NULL
 );
