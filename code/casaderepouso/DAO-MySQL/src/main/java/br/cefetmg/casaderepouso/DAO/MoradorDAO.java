@@ -74,7 +74,7 @@ public class MoradorDAO implements IMoradorDAO {
     
     @Override
     public boolean inserir(Morador morador){
-        String sql = "INSERT INTO morador (nome, cpf,rg, nascimento, planoMedico, responsavel, nome_mae, endereco, condicoes, estado) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO morador (nome, cpf, datanascimento, planomedico, responsavel, nome_mae, endereco, condicoes, estado) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)";
         try{
             Class.forName("com.mysql.cj.jdbc.Driver");
             Connection con = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/bdlardeidosos", "root", "admin");
@@ -82,14 +82,13 @@ public class MoradorDAO implements IMoradorDAO {
             PreparedStatement pstmt = con.prepareStatement(sql);
             pstmt.setString(1, morador.getNome());
             pstmt.setString(2, morador.getCpf());
-            pstmt.setString(3, morador.getRg());
-            pstmt.setString(4, morador.getDataNasc());
-            pstmt.setString(5, morador.getPlanoMedico());
-            pstmt.setString(6, morador.getVetorResponsaveis());
-            pstmt.setString(7, morador.getNomeMae());
-            pstmt.setString(8, morador.getEndereco());
-            pstmt.setString(9, morador.getCondicaoEspecial());
-            pstmt.setString(10, morador.getEstado());
+            pstmt.setString(3, morador.getDataNasc());
+            pstmt.setString(4, morador.getPlanoMedico());
+            pstmt.setString(5, "teste");
+            pstmt.setString(6, morador.getNomeMae());
+            pstmt.setString(7, morador.getEndereco());
+            pstmt.setString(8, morador.getCondicaoEspecial());
+            pstmt.setString(9, morador.getEstado());
             pstmt.executeUpdate();
             con.close();
       
@@ -110,21 +109,20 @@ public class MoradorDAO implements IMoradorDAO {
             Connection con = DAO.conectar();
             PreparedStatement pst = con.prepareStatement(sql);
             ResultSet rs = pst.executeQuery();
-            ArrayList<Morador> listAll = null;
+            ArrayList<Morador> listAll = new ArrayList<>();
             while (rs.next()) {
 
                 String nome = rs.getString(1);
                 String cpf = rs.getString(2);
-                String rg = rs.getString(3);
-                String dataNasc = rs.getString(4);
-                String planoMedico = rs.getString(5);
-                String responsaveis = rs.getString(6);
-                String nomeMae = rs.getString(7);
-                String endereco = rs.getString(8);
-                String condicao = rs.getString(9);
-                String estado = rs.getString(10);
+                String dataNasc = rs.getString(3);
+                String planoMedico = rs.getString(4);
+                String responsaveis = rs.getString(5);
+                String nomeMae = rs.getString(6);
+                String endereco = rs.getString(7);
+                String condicao = rs.getString(8);
+                String estado = rs.getString(9);
 
-                Morador mor = new Morador(nome, cpf,rg, dataNasc, planoMedico, responsaveis, nomeMae, endereco, condicao, estado);
+                Morador mor = new Morador(nome, cpf, dataNasc, planoMedico, responsaveis, nomeMae, endereco, condicao, estado);
 
                 listAll.add(mor);
             }

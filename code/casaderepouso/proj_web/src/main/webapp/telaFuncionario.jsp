@@ -50,7 +50,7 @@
             
             <div class="title">Dados dos moradores</div>
             <form action="Facade" method="POST">
-                <input type="submit" name="act" value="listarMorador">   
+                <input type="submit" name="act" value="ListarMorador">   
             </form>
             <div id="container-lista-moradores">
                 <%
@@ -96,7 +96,6 @@
                 %>
             </div>
         </div>
-        <script src="scripts/enviarInfoMorador.js"></script>
         <script src="scripts/containerMoradores.js"></script>
     </body>
 </html>

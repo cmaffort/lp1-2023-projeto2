@@ -80,12 +80,13 @@ body {
 
 #container-lista-moradores{
     overflow-y: scroll;
-    display:flex;
+    display: flex;
     background-color: rgba(164, 203, 249, 0.50);
     border-radius: 20px;
-    justify-content: center;
+    justify-content: flex-start;
     margin: auto;
     width: 100%;
+    flex-direction: column;
     height: 90%;
 }
 .morador-container{
@@ -145,6 +146,7 @@ body {
 
 
 .container-info{
+    z-index: 998;
     box-sizing: border-box;
     display: grid;
     grid-template-columns: repeat(2,1fr);
