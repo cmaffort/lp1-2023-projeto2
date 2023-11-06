@@ -68,7 +68,7 @@ public class EventoDAO implements IEventoDAO {
             Connection con = DAO.conectar();
             PreparedStatement pst = con.prepareStatement(sql);
             ResultSet rs = pst.executeQuery();
-            ArrayList<Evento> listAll = null;
+            ArrayList<Evento> listAll = new ArrayList<Evento>();
             while (rs.next()) {
 
                 String id = rs.getString(1);
