@@ -54,7 +54,7 @@ public class CadastrarEvento extends HttpServlet {
             IManterEvento iEvento = new ManterEvento();
             iEvento.cadastrar(event);
             
-            jsp = "/telaEventos.jsp";
+            jsp = "/telaEvento.jsp";
         } catch (Exception e) {
             System.out.println(e);
             jsp = "";
