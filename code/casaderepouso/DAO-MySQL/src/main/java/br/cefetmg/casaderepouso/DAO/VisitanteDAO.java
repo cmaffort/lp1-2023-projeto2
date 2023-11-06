@@ -62,12 +62,22 @@ public class VisitanteDAO implements IVisitanteDAO{
             Connection connection = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/bdlardeidosos", "root", "admin");
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             
-            ResultSet resultset = preparedStatement.executeQuery();
-            while(resultset.next()){
-                Visitante visitante = new Visitante(resultset.getString("nome"),resultset.getString("rg"),resultset.getString("telefone"),resultset.getString("vinculo_com_morador"),resultset.getString("morador"),resultset.getString("data_e_hora_de_visita"));
+            ResultSet rs = preparedStatement.executeQuery();
+            while(rs.next()){
+                String nome = rs.getString(1);
+                String rg = rs.getString(2);
+                String telefone = rs.getString(3);
+                String vinculo = rs.getString(4);
+                String dataHora = rs.getString(5);
+                String morador = rs.getString(6);
+                
+                Visitante visitante = new Visitante(nome, rg, telefone, morador, vinculo, dataHora);
+                
                 visitanteList.add(visitante);
+
             }
             connection.close();
+            rs.close();
             
     }catch (ClassNotFoundException ex) {
             System.out.println(ex);
