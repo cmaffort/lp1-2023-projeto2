@@ -42,10 +42,12 @@
           <div class="form-group">
             <label>Vínculo com o morador</label>
             <select class="escolha" name="vinculo">
-              <option value="pais">Pai/mãe</option>
+              <option value="Neto">Neto/neta</option>
               <option value="irmao">Irmão/Irmã</option>
               <option value="filho">Filho/filha</option>
               <option value="amigo">Amigo/amiga</option>
+              <option value="Sobrinho">Sobrinho/Sobrinha</option>
+
             </select>
           </div>
 
