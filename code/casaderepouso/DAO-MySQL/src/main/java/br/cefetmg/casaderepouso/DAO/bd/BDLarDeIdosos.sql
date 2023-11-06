@@ -123,20 +123,12 @@ CREATE TABLE IF NOT EXISTS receita_medica (
     FOREIGN KEY (profissional_de_saude) REFERENCES profissional_de_saude(id),
     FOREIGN KEY (morador) REFERENCES morador(id)
 );
-CREATE TABLE IF NOT EXISTS dieta_comum (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    profissional_de_saude INT NOT NULL,
-    refeicao TEXT NOT NULL,
-    FOREIGN KEY (profissional_de_saude) REFERENCES profissional_de_saude(id)
-);
-CREATE TABLE IF NOT EXISTS dieta_especifica (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    profissional_de_saude INT NOT NULL,
-    morador INT NOT NULL,
-    refeicao TEXT NOT NULL,
-    restricoes TEXT,
-    horas_das_refeicoes TEXT,
-    FOREIGN KEY (profissional_de_saude) REFERENCES profissional_de_saude(id),
-    FOREIGN KEY (morador) REFERENCES morador(id)
+
+CREATE TABLE IF NOT EXISTS refeicao (
+   cpf VARCHAR(14) PRIMARY KEY,
+   hora VARCHAR(4);
+   cardapio VARCHAR(255);
+   tipo VARCHAR(255);
+   dia VARCHAR(7);
 );
 

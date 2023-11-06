@@ -79,6 +79,7 @@ body {
 }
 
 #container-lista-moradores{
+    overflow-y: scroll;
     display:flex;
     background-color: rgba(164, 203, 249, 0.50);
     border-radius: 20px;
@@ -99,7 +100,7 @@ body {
     height: 10vh;
     border-radius: 50px;
     border: rgba(164, 203, 249, 0.50) 5px solid;
-
+    
     transition: all 0.2s linear;
 }
 .nome-cpf{
@@ -142,8 +143,12 @@ body {
     font-size: 2vh;
 }
 
+
 .container-info{
-    display: none;
+    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    grid-template-rows: repeat(2,25%);
     width: 100%;
     margin-right: 5px;
     grid-column: 1 / -1;
@@ -151,12 +156,27 @@ body {
     border-top: 0px !important;
     border: rgba(164, 203, 249, 0.50) 5px solid;
 }
-
-
-
-
-
-
+.title-container{
+    display: flex;
+    grid-column: 1/-1;
+    justify-content: left;
+    text-align: left;
+    flex-direction: column;
+    margin-left: 7.5%;
+}
+.info-container{
+    display: flex;
+    justify-content: left;
+    text-align: left;
+    flex-direction: column;
+    margin-left: 15%;
+}
+.info-access{
+    display: flex;
+    justify-content: center;
+    text-align: left;
+    flex-direction: column;
+}
 #status-container{
     margin: auto;
     display: none;
@@ -214,4 +234,23 @@ body {
     border-radius: 5%;
     text-align: center;
     cursor: pointer;
+}
+.info-content{
+    font-family: Arial, sans-serif;
+    font-size: 18px;
+    font-weight: bold;      
+}
+.botao-deletar{
+    margin-top: 1vh;
+    width: 13vh;
+    height: 5vh;
+    background-color: white;
+    border-radius: 36px;
+}
+.links-acessos{
+    text-decoration: none;
+    color: black;
+    font-size: 18px;
+    cursor: pointer;
+    margin-top: 1vh;
 }

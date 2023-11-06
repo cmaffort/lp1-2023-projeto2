@@ -22,7 +22,5 @@ public interface IMoradorDAO {
 
     public ArrayList<Morador> listarTodos() throws SQLException, ClassNotFoundException;
 
-    public Morador pesquisar(String nome) throws SQLException, ClassNotFoundException;
-    
-    public Morador pesquisar(String nome, String cpf) throws SQLException, ClassNotFoundException;
+    public Morador pesquisar(String cpf) throws SQLException, ClassNotFoundException;
 }

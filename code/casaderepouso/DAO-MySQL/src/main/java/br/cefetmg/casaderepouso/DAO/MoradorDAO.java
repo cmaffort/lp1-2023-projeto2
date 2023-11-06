@@ -143,12 +143,7 @@ public class MoradorDAO implements IMoradorDAO {
 }
 
     @Override
-    public Morador pesquisar(String nome) throws SQLException, ClassNotFoundException{
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    @Override
-    public Morador pesquisar(String nome, String cpf) throws SQLException, ClassNotFoundException{
+    public Morador pesquisar(String cpf) throws SQLException, ClassNotFoundException{
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
     
