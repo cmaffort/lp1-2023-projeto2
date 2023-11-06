@@ -52,8 +52,6 @@
                                     <td><%=func.getFuncao()%></td>
                                     <td><%=func.getPeriodoTrabalho()%></td>
                                     <td>
-                                    <a href="select?id=<%=func.getId()%>"
-                                    class="Botao1">Editar</a>
                                     <a href="javascript: confirma(<%=func.getId()%>)"
                                     class="Botao2">Excluir</a>
                                     </td>

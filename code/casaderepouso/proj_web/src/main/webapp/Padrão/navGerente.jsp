@@ -52,7 +52,7 @@
     <body>
         <div class="nav">    
             <a class="button" href="CadastroFuncionario.jsp">Novo funcionário</a>
-            <a class="button" href="#">Eventos Solicitados</a>
+            <a class="button" href="telaEvento.jsp">Eventos Solicitados</a>
             <a class="button" href="#">Relatórios</a>
             <a class="button" href="#">Equipamentos</a>
             <a class="button" href="#">Inventário</a>

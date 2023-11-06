@@ -68,7 +68,7 @@ public class EventoDAO implements IEventoDAO {
             Connection con = DAO.conectar();
             PreparedStatement pst = con.prepareStatement(sql);
             ResultSet rs = pst.executeQuery();
-            ArrayList<Evento> listAll = null;
+            ArrayList<Evento> listAll = new ArrayList<Evento>();
             while (rs.next()) {
 
                 String id = rs.getString(1);
@@ -97,9 +97,11 @@ public class EventoDAO implements IEventoDAO {
 
         } 
         catch(SQLException e){
+            System.out.println(e);
             throw new SQLException(e.getMessage(), e);       
         }
         catch(ClassNotFoundException e){
+             System.out.println(e);
             throw new ClassNotFoundException(e.getMessage(), e);       
         }
 }
