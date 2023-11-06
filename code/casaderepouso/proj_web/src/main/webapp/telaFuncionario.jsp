@@ -52,49 +52,43 @@
                 <input type="submit" name="act" value="listarMorador">   
             </form>
             <div id="container-lista-moradores">
-                    <div class="morador-container">
-                        <img class="seta" src="imgs/Voltar.png">
-                        <p class="nome-cpf">Fulano da Silva Silveiro - CPF: <span class="cpf">12345678910</span></p>
-                            <div class="state-container">
-                                <span class="state-cor"></span><p class="state-nome">Status</p>
-                            </div>
-                        <div style="display: none;" class="container-info">
-                        <div class="title-container">
-                            <h1 class="name">Nome do Morador</h1>
-                            <h2 class="nascimento">XX/XX/XXXX</h2>       
-                        </div>
-                        <div class="info-container">
-                            <p class="info-content" class="cpf">CPF:</p>
-                            <p class="info-content" class="mae-nome">Nome da Mãe:</p>
-                            <p class="info-content" class="estado-civil">Estado civil:</p>
-                            <p class="info-content" class="endereco">Endereço:</p>
-                            <p class="info-content" class="plano-medico">Plano médico:</p>
-                            <p class="info-content" class="condicoes">Condições especiais:</p>
-                        </div>
-                        <div class="info-access">  
-                            <!-- comment <a class="links-acessos">Acessar documentos</a> -->
-                            <a class="links-acessos">Acessar receitas médicas</a>
-                            <a class="links-acessos">Acessar resultados de exames</a>
-                            <a class="links-acessos">Acessar histórico médico</a>
-                        </div>
-                        <div>
-                            <button class="botao-deletar">Deletar</button>
-                        </div>
-                    </div>
-                    </div>
                 <%
                    List<Morador> listaMoradores = (List<Morador>) request.getAttribute("listMor");
                    
                    if(listaMoradores != null){
                    for (Morador mor: listaMoradores) {
                 %>
-                <a class="botao-morador" href="javascript: enviarInfo(<%=mor.getNome()%>,<%=mor.getCpf()%>,<%=mor.getEstado()%>,<%=mor.getNomeMae()%>, <%=mor.getCondicaoEspecial()%>)" href="telaInfoMorador.jsp">
                     <div class="morador-container">
-                        <p><%=mor.getNome()%></p>
-                        <p><%=mor.getCpf()%></p>
-                        <p><%=mor.getEstado()%></p>
+                        <img class="seta" src="imgs/Voltar.png">    
+                        <p class="nome-cpf"><%=mor.getNome()%> - CPF: <span class="cpf"><%=mor.getCpf()%></span></p>
+                            <div class="state-container">
+                                <span class="state-cor"></span><p class="state-nome"><%=mor.getEstado()%></p>
+                            </div>
+                        <div style="display: none;" class="container-info"> 
+                        <div class="title-container">
+                            <h1 class="name"><%=mor.getNome()%></h1>
+                            <h2 class="nascimento"><%=mor.getDataNasc()%></h2>       
+                        </div>
+                        <div class="info-container">
+                            <p class="info-content" class="cpf1">CPF: <%=mor.getCpf()%></p>
+                            <p class="info-content" class="mae-nome">Nome da Mãe: <%=mor.getNomeMae()%></p>
+                            <p class="info-content" class="endereco">Endereço: <%=mor.getEndereco()%></p>
+                            <p class="info-content" class="plano-medico">Plano médico: <%=mor.getPlanoMedico()%></p>
+                            <p class="info-content" class="condicoes">Condições especiais: <%=mor.getCondicaoEspecial()%></p>
+                        </div>
+                        <div class="info-access">     
+                            <!-- comment <a class="links-acessos">Acessar documentos</a> -->
+                            <a class="links-acessos">Acessar receitas médicas</a>
+                            <a class="links-acessos">Acessar resultados de exames</a>
+                            <a class="links-acessos">Acessar histórico médico</a>
+                            <a class="links-acessos">Acessar prontuário</a>
+                            <a class="links-acessos">Acessar responsáveis</a>
+                            <a class="links-acessos">Solicitar consulta</a>
+                            <a class="links-acessos">Novo responsável</a>
+                            <button class="botao-deletar">Deletar</button>
+                        </div>
                     </div>
-                </a>
+                    </div>   
                 <%
                         }
                 }

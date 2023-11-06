@@ -14,12 +14,12 @@ infoMoradores.forEach(info =>{
     let cpf = info.children;
     cpf = cpf[1].firstElementChild;
     window.console.log(cpf.innerHTML);
-    if (containerInfo.style.display === "block" && estaNosStatus === 0) {
+    if (containerInfo.style.display === "grid" && estaNosStatus === 0) {
         containerInfo.style.display = "none";
         info.style.borderRadius = "50px";
-        seta.style.transform = "rotate(180deg)";
+        seta.style.transform = "rotate(180deg)";    
     } else if (containerInfo.style.display === "none" && estaNosStatus === 0) {
-        containerInfo.style.display = "block";
+        containerInfo.style.display = "grid";
         seta.style.transform = "rotate(270deg)";
         info.style.borderRadius = "0px";
         localStorage.setItem("cpf", cpf.innerHTML);
@@ -45,7 +45,7 @@ let marcadores = document.querySelectorAll(".marks");
 let elementoSelecionado = null;
 marcadores.forEach(marc => {
     marc.addEventListener("click", () => {
-        if (elementoSelecionado) {
+        if (elementoSelecionado) { 
             elementoSelecionado.style.backgroundColor = "#D9D9D9";
         }
         marc.style.backgroundColor = "black";
