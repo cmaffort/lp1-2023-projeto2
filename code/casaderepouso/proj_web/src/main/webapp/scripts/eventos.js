@@ -1,10 +1,6 @@
-/* 
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/JavaScript.js to edit this template
- */
 
-let infoMoradores = document.querySelectorAll(".morador-container");
-infoMoradores.forEach(info =>{
+let infoEventos = document.querySelectorAll(".evento-container");
+infoEventos.forEach(info =>{
     info.addEventListener("click", function onClick() {
     let containerInfo = info.lastElementChild;
     let seta = info.firstElementChild;
@@ -52,3 +48,4 @@ marcadores.forEach(marc => {
         elementoSelecionado = marc;
     });
 });
+

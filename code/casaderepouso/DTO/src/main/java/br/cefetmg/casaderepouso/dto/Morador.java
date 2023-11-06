@@ -27,28 +27,26 @@ enum EstadoMorador{
 public class Morador {
     private String nome;
     private String cpf;
-    private String rg;
     private String dataNasc;
     private String endereco;
     private String responsaveis;
     private String condicaoEspecial;
     private String nomeMae;
     private String planoMedico;
-    private EstadoMorador estado = EstadoMorador.DISPONIVEL;
+    private String estado = "Disponível";
     public Morador(){
     
     }
-    public Morador(String nome, String cpf, String rg, String dataNasc,String planoMedico, String responsaveis, String nomeMae, String endereco, String condicaoEspecial, String estado) {
+    public Morador(String nome, String cpf, String dataNasc,String planoMedico, String responsaveis, String nomeMae, String endereco, String condicaoEspecial, String estado) {
         this.nome = nome;
         this.cpf = cpf;
-        this.rg = rg;
         this.dataNasc = dataNasc;
         this.planoMedico = planoMedico;
         this.endereco = endereco;
         this.responsaveis = responsaveis;
         this.condicaoEspecial = condicaoEspecial;
         this.nomeMae = nomeMae;
-        this.estado = this.estado.valueOf(estado);
+        this.estado = estado;
     }
     public String getNome() {
         return nome;
@@ -58,9 +56,7 @@ public class Morador {
         return cpf;
     }
 
-    public String getRg() {
-        return rg;
-    }
+
 
     public String getDataNasc() {
         return dataNasc;
@@ -71,7 +67,7 @@ public class Morador {
     }
 
     public String getEstado() {
-        return estado.getDescricao();
+        return estado;
     }
     public String getNomeMae(){
         return nomeMae;
@@ -89,9 +85,6 @@ public class Morador {
         this.cpf = cpf;
     }
 
-    public void setRg(String rg) {
-        this.rg = rg;
-    }
 
     public void setDataNasc(String dataNasc) {
         this.dataNasc = dataNasc;
@@ -101,7 +94,7 @@ public class Morador {
         this.condicaoEspecial = condicaoEspecial;
     }
 
-    public void setEstado(EstadoMorador estado) {
+    public void setEstado(String estado) {
         this.estado = estado;
     }
     public void setNomeMae(String nomeMae){

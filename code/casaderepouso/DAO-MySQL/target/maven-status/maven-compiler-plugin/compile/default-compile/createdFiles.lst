@@ -1,6 +1,7 @@
 br\cefetmg\casaderepouso\DAO\MoradorDAO.class
 br\cefetmg\casaderepouso\DAO\connection\DAO.class
 br\cefetmg\casaderepouso\DAO\FuncionarioDAO.class
-br\cefetmg\casaderepouso\DAO\VisitanteDAO.class
 br\cefetmg\casaderepouso\DAO\ResponsavelDAO.class
 br\cefetmg\casaderepouso\DAO\MedicamentoDAO.class
+br\cefetmg\casaderepouso\DAO\EventoDAO.class
+br\cefetmg\casaderepouso\DAO\VisitanteDAO.class

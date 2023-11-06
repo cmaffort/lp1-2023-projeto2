@@ -10,6 +10,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -34,7 +35,7 @@ public class VisitanteDAO implements IVisitanteDAO{
                 pstm.setString(2, visitante.getRg());
                 pstm.setString(3, visitante.getTelefone());
                 pstm.setString(4, visitante.getVinculo());
-                pstm.setDate(5, (java.sql.Date) visitante.getDataVisita());
+                pstm.setString(5,  visitante.getDataVisita());
                 pstm.setString(6, visitante.getMorador());
                 
                 //Executar
@@ -51,39 +52,39 @@ public class VisitanteDAO implements IVisitanteDAO{
         }
         return true;
     }
-    
-    public ArrayList<Visitante> listarTodos()throws SQLException, ClassNotFoundException{
 
-	String sql = "SELECT * FROM morador ORDER BY nome";
+    @Override
+    public List<Visitante> listarTodos() {
+        String query = "SELECT * FROM visitantes";
+        List<Visitante> visitanteList = new ArrayList<>();
         try {
-            Connection con = DAO.conectar();
-            PreparedStatement pst = con.prepareStatement(sql);
-            ResultSet rs = pst.executeQuery();
-            ArrayList<Visitante> listAll = null;
-            while (rs.next()) {
-
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection connection = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/bdlardeidosos", "root", "admin");
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            
+            ResultSet rs = preparedStatement.executeQuery();
+            while(rs.next()){
                 String nome = rs.getString(1);
                 String rg = rs.getString(2);
                 String telefone = rs.getString(3);
-                String vinculo_com_morador= rs.getString(4);
-                Date data_e_hora_de_visita = rs.getDate(5);
+                String vinculo = rs.getString(4);
+                String dataHora = rs.getString(5);
                 String morador = rs.getString(6);
-                Visitante visi = null;                
+                
+                Visitante visitante = new Visitante(nome, rg, telefone, morador, vinculo, dataHora);
+                
+                visitanteList.add(visitante);
 
-                listAll.add(visi);
             }
+            connection.close();
             rs.close();
-            pst.close();
-            con.close();
-            return listAll;
-
-        } 
-        catch(SQLException e){
-            throw new SQLException(e.getMessage(), e);       
-        }
-        catch(ClassNotFoundException e){
-            throw new ClassNotFoundException(e.getMessage(), e);       
-        }
-}
+            
+    }catch (ClassNotFoundException ex) {
+            System.out.println(ex);
+    } catch (SQLException ex) {
+        System.out.println(ex);
+    }
+        return visitanteList;
+    }
 
     }

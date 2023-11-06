@@ -1,16 +1,10 @@
 package br.cefetmg.casaderepouso.dto;
 
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-
 /**
  *
- * @author Aluno
+ * @author Júlia
  */
-import java.util.Date;
-import java.lang.String;
+
 
 
 public class Visitante {
@@ -20,8 +14,11 @@ public class Visitante {
     private String telefone;
     private String morador;
     private String vinculo;
-    private Date dataVisita;
+    private String dataVisita;
     private String horaVisita;
+
+    public Visitante(String nome, String rg, String telefone, String morador, String vinculo, String dataVisita) {
+    }
 
     public String getNome() {
         return nome;
@@ -63,11 +60,11 @@ public class Visitante {
         this.vinculo = vinculo;
     }
 
-    public Date getDataVisita() {
+    public String getDataVisita() {
         return dataVisita;
     }
 
-    public void setDataVisita(Date dataVisita) {
+    public void setDataVisita(String dataVisita) {
         this.dataVisita = dataVisita;
     }
 
