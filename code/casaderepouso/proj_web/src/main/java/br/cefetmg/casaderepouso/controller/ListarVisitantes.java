@@ -9,24 +9,21 @@ import jakarta.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
 import java.util.List;
 
-@WebServlet(urlPatterns = {"/ListarVisitanteas"})
+@WebServlet(urlPatterns = {"/ListarVisitantes"})
 public class ListarVisitantes extends HttpServlet {
     public static String execute(HttpServletRequest request) {
-        String jsp = "GestaoVisitante.jsp";
+        String jsp = "GestaoVisitantes.jsp";
      
         try {
             ICadastrarVisitante IVisitante =  new CadastrarVisitanteService();
             List<Visitante> lista = IVisitante.listarTodos();
             if (lista != null) {
                 request.setAttribute("listVis", lista);
-                jsp = "/telaGerente.jsp";
+                System.out.println("Controller");
             }
         } catch (Exception e) {
-            e.printStackTrace();
-            jsp = "";
+            System.out.println(e);
         }
-        
-        
         return jsp;
     }
     

@@ -8,7 +8,7 @@ import br.cefetmg.casaderepouso.DAO.VisitanteDAO;
 import java.util.List;
 /**
  *
- * @author jujua
+ * @author Júlia
  */
 public class CadastrarVisitanteService implements ICadastrarVisitante{
 
@@ -20,13 +20,13 @@ public class CadastrarVisitanteService implements ICadastrarVisitante{
     @Override
     public String cadastrar(Visitante visitante) throws CadastroException {
         VisitanteDAO.cadastrar(visitante);
-        //System.out.println("chegoiu aqui no serviço" + visitante.getNome());
         return visitante.getNome();
     }   
 
     @Override
     public List<Visitante> listarTodos() {
         List<Visitante> lista= VisitanteDAO.listarTodos();
+        System.out.println("chegoiu aqui no service");
         return lista;
     }
 }

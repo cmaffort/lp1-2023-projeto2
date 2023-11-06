@@ -88,8 +88,8 @@
             cursor: pointer;
             margin: 2vh 0px 1vh 1vh;
         }
-        #botao-deletar{
-             width: 13vh;
+        .botao-deletar{
+            width: 13vh;
             height: 5vh;
             background-color: white;
             border-radius: 36px;
