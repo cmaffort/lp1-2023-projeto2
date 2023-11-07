@@ -53,17 +53,8 @@ public class ManterMorador implements IManterMorador {
     }
     
     @Override
-    public List<Morador> pesquisar(Morador morador) throws Exception {
-        List<Morador> moradores = new ArrayList<Morador>();
-        /*if(morador.getNome() == null || morador.getNome().equals("")) {
-            moradores.addAll(moradorDAO.pesquisar(morador.getNome()));
-        }*/
-        if(morador.getCpf() == null || morador.getCpf().equals("")) {
-        }
-        if(morador.getDataNasc() == null || morador.getDataNasc().toString().equals("")) {
-        }
-        if(morador.getEndereco() == null || morador.getEndereco().equals("")) {
-        }
-        return null;
+    public Morador pesquisar(String cpf) throws Exception {
+        Morador mor = moradorDAO.pesquisar(cpf);
+        return mor;
     }
 }

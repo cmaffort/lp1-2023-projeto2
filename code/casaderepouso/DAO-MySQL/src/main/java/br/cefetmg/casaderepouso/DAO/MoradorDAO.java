@@ -142,7 +142,41 @@ public class MoradorDAO implements IMoradorDAO {
 
     @Override
     public Morador pesquisar(String cpf) throws SQLException, ClassNotFoundException{
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        String sql = "SELECT * FROM morador ORDER BY nome";
+        try {
+            Connection con = DAO.conectar();
+            PreparedStatement pst = con.prepareStatement(sql);
+            ResultSet rs = pst.executeQuery();
+            Morador pesquisado = null;
+            while (rs.next()) {
+                if(rs.getString(2).equals(cpf)){
+                    String nome = rs.getString(1);
+                    String cpfN = rs.getString(2);
+                    String dataNasc = rs.getString(3);
+                    String planoMedico = rs.getString(4);
+                    String responsaveis = rs.getString(5);
+                    String nomeMae = rs.getString(6);
+                    String endereco = rs.getString(7);
+                    String condicao = rs.getString(8);
+                    String estado = rs.getString(9);
+                    pesquisado = new Morador(nome, cpfN, dataNasc, planoMedico, responsaveis, nomeMae, endereco, condicao, estado);
+                    rs.close();
+                    pst.close();
+                    con.close();
+                    return pesquisado;
+                }
+       }
+            rs.close();
+            pst.close();
+            con.close();
+            return null;
+        } 
+        catch(SQLException e){
+            throw new SQLException(e.getMessage(), e);       
+        }
+        catch(ClassNotFoundException e){
+            throw new ClassNotFoundException(e.getMessage(), e);       
+        }
     }
     
 }
