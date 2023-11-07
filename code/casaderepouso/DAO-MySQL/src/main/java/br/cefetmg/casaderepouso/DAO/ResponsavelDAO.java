@@ -15,6 +15,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class ResponsavelDAO implements IResponsavel {
     
@@ -23,34 +25,35 @@ public class ResponsavelDAO implements IResponsavel {
         
         try{
             Connection con = DAO.conectar();
-            String sql = "INSERT INTO responsavel(id, nome, cpf, rg, telefone, datanascimento, endereco, morador_responsavel) VALUES(?,?,?,?,?,?,?,?,?,?)";
+            String sql = "INSERT INTO responsavel (nome, cpf, rg, telefone, endereco, morador_responsavel) VALUES(?,?,?,?,?,?)";
 
             PreparedStatement pstmt = con.prepareStatement(sql);
-            pstmt.setString(2, responsavel.getNome());
-            pstmt.setString(3, responsavel.getCpf());
-            pstmt.setString(4, responsavel.getRg());
-            pstmt.setString(5, responsavel.getTelefone());
-            pstmt.setDate(6, new java.sql.Date(responsavel.getDataNascimento().getTime()));
-            pstmt.setString(7, responsavel.getEndereco());
-            pstmt.setString(10, responsavel.getResponsavelPor());
+            pstmt.setString(1, responsavel.getNome());
+            pstmt.setString(2, responsavel.getCpf());
+            pstmt.setString(3, responsavel.getRg());
+            pstmt.setString(4, responsavel.getTelefone());
+            pstmt.setString(5, responsavel.getEndereco());
+            pstmt.setString(6, responsavel.getResponsavelPor());
 
             pstmt.executeUpdate();
             pstmt.close();
             con.close();
       
         }
-        catch(SQLException e){
-            throw new SQLException(e.getMessage(), e);       
+        catch (SQLException e) {
+            System.out.println(e);
+            throw new SQLException(e.getMessage(), e);
         }
-        catch(ClassNotFoundException e){
-            throw new ClassNotFoundException(e.getMessage(), e);       
+        catch (ClassNotFoundException ex) {
+            System.out.println(ex);
+            throw new ClassNotFoundException(ex.getMessage(), ex);  
         }
     }
 
     @Override
     public boolean atualizar(Responsavel responsavel) throws SQLException, ClassNotFoundException{
          String sqlResponsavel = "INSERT INTO produtos VALUES('" + responsavel.getNome() + "', '" + responsavel.getRg() + "', '"
-                + responsavel.getTelefone() + "', '" + responsavel.getDataNascimento() + "', '" + responsavel.getEndereco() + "')";
+                + responsavel.getTelefone() + "', '" + responsavel.getEndereco() + "')";
          Connection conexao = null;
         
         Statement comando = null;
@@ -127,7 +130,6 @@ public class ResponsavelDAO implements IResponsavel {
                 responsavel.setCpf(rset.getString("cpf"));
                 responsavel.setRg(rset.getString("rg"));
                 responsavel.setTelefone(rset.getString("telefone"));
-                responsavel.setDataNascimento(rset.getDate("datanascimento"));
                 responsavel.setEndereco(rset.getString("endereco"));
                 responsavel.setResponsavelPor(rset.getString("morador_responsavel"));
 
@@ -177,7 +179,6 @@ public class ResponsavelDAO implements IResponsavel {
                 responsavel.setCpf(rset.getString("cpf"));
                 responsavel.setRg(rset.getString("rg"));
                 responsavel.setTelefone(rset.getString("telefone"));
-                responsavel.setDataNascimento(rset.getDate("datanascimento"));
                 responsavel.setEndereco(rset.getString("endereco"));
                 responsavel.setResponsavelPor(rset.getString("morador_responsavel"));      
                 

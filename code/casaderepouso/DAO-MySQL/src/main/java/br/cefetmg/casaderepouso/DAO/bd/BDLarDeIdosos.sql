@@ -16,8 +16,9 @@ CREATE TABLE IF NOT EXISTS visitantes (
     data_e_hora_de_visita DATETIME
 );
 CREATE TABLE IF NOT EXISTS morador (
+    id INT AUTO_INCREMENT PRIMARY KEY,
     nome VARCHAR(255),
-    cpf VARCHAR(14) PRIMARY KEY,
+    cpf VARCHAR(14),
     rg VARCHAR(12),
     datanascimento VARCHAR(20),
     planomedico VARCHAR(255),
@@ -35,8 +36,7 @@ CREATE TABLE IF NOT EXISTS responsavel (
     telefone VARCHAR(20),
     datanascimento DATE,
     endereco TEXT,
-    morador_responsavel INT,
-    FOREIGN KEY (morador_responsavel) REFERENCES morador(id)
+    morador_responsavel VARCHAR(14) NOT NULL
 );
 CREATE TABLE IF NOT EXISTS funcionario (
     id VARCHAR(255) PRIMARY KEY,
@@ -122,12 +122,19 @@ CREATE TABLE IF NOT EXISTS receita_medica (
     FOREIGN KEY (profissional_de_saude) REFERENCES profissional_de_saude(id),
     FOREIGN KEY (morador) REFERENCES morador(id)
 );
-
-CREATE TABLE IF NOT EXISTS refeicao (
-   cpf VARCHAR(14) PRIMARY KEY,
-   hora VARCHAR(4);
-   cardapio VARCHAR(255);
-   tipo VARCHAR(255);
-   dia VARCHAR(7);
+CREATE TABLE IF NOT EXISTS dieta_comum (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    profissional_de_saude INT NOT NULL,
+    refeicao TEXT NOT NULL,
+    FOREIGN KEY (profissional_de_saude) REFERENCES profissional_de_saude(id)
 );
-
+CREATE TABLE IF NOT EXISTS dieta_especifica (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    profissional_de_saude INT NOT NULL,
+    morador INT NOT NULL,
+    refeicao TEXT NOT NULL,
+    restricoes TEXT,
+    horas_das_refeicoes TEXT,
+    FOREIGN KEY (profissional_de_saude) REFERENCES profissional_de_saude(id),
+    FOREIGN KEY (morador) REFERENCES morador(id)
+);

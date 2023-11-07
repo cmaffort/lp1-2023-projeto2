@@ -1,6 +1,7 @@
 package br.cefetmg.casaderepouso.idao;
 import br.cefetmg.casaderepouso.dto.Responsavel;
 import java.sql.SQLException;
+import br.cefetmg.casaderepouso.dto.exception.*;
 import java.util.List;
 
 public interface IResponsavel {
@@ -15,5 +16,4 @@ public interface IResponsavel {
     public List<Responsavel> listar() throws SQLException, ClassNotFoundException;
 
     public Responsavel pesquisar(String nome) throws SQLException, ClassNotFoundException;
-
 }
