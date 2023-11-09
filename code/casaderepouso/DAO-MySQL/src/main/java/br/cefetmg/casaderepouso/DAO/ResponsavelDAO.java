@@ -3,11 +3,9 @@ package br.cefetmg.casaderepouso.DAO;
 
 import br.cefetmg.casaderepouso.DAO.connection.DAO;
 import br.cefetmg.casaderepouso.dto.Responsavel;
-import br.cefetmg.casaderepouso.dto.Responsavel;
 import br.cefetmg.casaderepouso.idao.IResponsavel;
 import br.cefetmg.casaderepouso.dto.exception.*;
 import java.util.Date;
-import java.util.List;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -109,52 +107,46 @@ public class ResponsavelDAO implements IResponsavel {
 
     
     @Override
-    public List<Responsavel> listar() throws SQLException, ClassNotFoundException{
-        String sql = "SELECT * FROM responsavel";
-        List<Responsavel> reponsaveis = new ArrayList<Responsavel>();
-
-        Connection conn = null;
-        PreparedStatement pstm = null;
-
-        ResultSet rset = null;
-
+    public ArrayList<Responsavel> listar() throws SQLException, ClassNotFoundException{
+        String sql = "SELECT * FROM responsavel ORDER BY nome";
         try {
-            conn = DAO.conectar();
-            pstm = conn.prepareStatement(sql);
-            rset = pstm.executeQuery();
+            
+            Connection con = DAO.conectar();
+            PreparedStatement pst = con.prepareStatement(sql);
+            ResultSet rs = pst.executeQuery();
+            ArrayList<Responsavel> lista = new ArrayList<Responsavel>();
+            while (rs.next()) {
 
-            while (rset.next()) {
+                String nome = rs.getString(1);
+                String cpf = rs.getString(2);
+                String rg = rs.getString(3);
+                String telefone = rs.getString(4);
+                String endereco = rs.getString(5);
+                String responsavelPor = rs.getString(6);
+
                 Responsavel responsavel = new Responsavel();
-
-                responsavel.setNome(rset.getString("nome"));
-                responsavel.setCpf(rset.getString("cpf"));
-                responsavel.setRg(rset.getString("rg"));
-                responsavel.setTelefone(rset.getString("telefone"));
-                responsavel.setEndereco(rset.getString("endereco"));
-                responsavel.setResponsavelPor(rset.getString("morador_responsavel"));
-
                 
+                responsavel.setNome(nome);
+                responsavel.setCpf(cpf);
+                responsavel.setRg(rg);
+                responsavel.setTelefone(telefone);
+                responsavel.setEndereco(endereco);
+                responsavel.setResponsavelPor(responsavelPor);
+                
+                lista.add(responsavel);
             }
-        } catch (Exception e) {
-            e.printStackTrace();
+            rs.close();
+            pst.close();
+            con.close();
+            return lista;
 
-        } finally {
-            try {
-                if (rset != null) {
-                    rset.close();
-                }
-                if (pstm != null) {
-                    pstm.close();
-                }
-                if (conn != null) {
-                    conn.close();
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
+        } 
+        catch(SQLException e){
+            throw new SQLException(e.getMessage(), e);       
         }
-
-        return reponsaveis;
+        catch(ClassNotFoundException e){
+            throw new ClassNotFoundException(e.getMessage(), e);       
+        }
     }
 
     @Override

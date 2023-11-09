@@ -29,12 +29,10 @@ CREATE TABLE IF NOT EXISTS morador (
     estado VARCHAR(255)
 );
 CREATE TABLE IF NOT EXISTS responsavel (
-    id INT AUTO_INCREMENT PRIMARY KEY,
     nome VARCHAR(255) NOT NULL,
     cpf VARCHAR(14) NOT NULL,
     rg VARCHAR(12) NOT NULL,
     telefone VARCHAR(20),
-    datanascimento DATE,
     endereco TEXT,
     morador_responsavel VARCHAR(14) NOT NULL
 );

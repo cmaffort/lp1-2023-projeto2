@@ -38,10 +38,9 @@ public class ListarResponsavel extends HttpServlet {
         try {
             CadastrarResponsavel iResponsavel =  new CadastrarResponsavel();
             List<Responsavel> responsaveis =  iResponsavel.listar();
-            Responsavel responsavel = new Responsavel();
             if (responsaveis != null) {
-                request.setAttribute("listFunc", responsaveis);
-                jsp = "/telaFuncionario.jsp";
+                request.setAttribute("listResp", responsaveis);
+                jsp = "/gestaoResponsavel.jsp";
             }
         } catch (Exception e) {
             e.printStackTrace();
