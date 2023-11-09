@@ -42,7 +42,9 @@ public class ManterMorador implements IManterMorador {
 
     @Override
     public String atualizar(Morador morador) throws Exception {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        moradorDAO.atualizar(morador);
+        System.out.println(morador.getEstado());
+        return morador.getCpf();
     }
     
     

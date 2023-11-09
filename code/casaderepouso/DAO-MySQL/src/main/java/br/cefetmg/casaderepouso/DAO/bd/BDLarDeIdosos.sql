@@ -16,16 +16,14 @@ CREATE TABLE IF NOT EXISTS visitantes (
     data_e_hora_de_visita DATETIME
 );
 CREATE TABLE IF NOT EXISTS morador (
-    id INT AUTO_INCREMENT PRIMARY KEY,
     nome VARCHAR(255),
-    cpf VARCHAR(14),
-    rg VARCHAR(12),
+    cpf VARCHAR(14) PRIMARY KEY,
     datanascimento VARCHAR(20),
     planomedico VARCHAR(255),
     responsavel VARCHAR(255),
     nome_mae VARCHAR(255),
-    endereco TEXT,
-    condicoes TEXT,
+    endereco VARCHAR(255),
+    condicoes VARCHAR(255),
     estado VARCHAR(255)
 );
 CREATE TABLE IF NOT EXISTS responsavel (

@@ -26,29 +26,36 @@ import java.util.logging.Logger;
 
 
 public class MoradorDAO implements IMoradorDAO {
+
     @Override
-    public boolean atualizar(Morador morador) throws ClassNotFoundException, SQLException{ /* incompleta */
-         String sqlMorador = "INSERT INTO morador VALUES('" + morador.getNome() + "', '" + morador.getNomeMae() + "', '" + morador.getCondicaoEspecial() + "', '" + morador.getCpf() + "', '"
-                + morador.getDataNasc()+ "', '" + morador.getPlanoMedico() + "', '" + morador.getVetorResponsaveis()+ "', '" + morador.getEstado() + "')";
-         Connection conexao = null;
-
-        Statement comando = null;
-
-        int resultado = 0;
-
+    public boolean atualizar(Morador morador) throws ClassNotFoundException, SQLException {
+        String sql = "UPDATE morador SET nome = ?,datanascimento = ?, planomedico = ?, responsavel = ?, nome_mae = ?, endereco = ?, condicoes = ?, estado = ? WHERE cpf = ?";
         try {
-            conexao = DAO.conectar();
-
-            comando = conexao.createStatement();
-
-            resultado = comando.executeUpdate(sqlMorador);
-
-        } finally {
-            DAO.fecharConexao(conexao, comando);
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection con = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/bdlardeidosos", "root", "admin");
+            
+            PreparedStatement pstmt = con.prepareStatement(sql);
+            pstmt.setString(1, morador.getNome());
+            pstmt.setString(9, morador.getCpf());
+            pstmt.setString(2, morador.getDataNasc());
+            pstmt.setString(3, morador.getPlanoMedico());
+            pstmt.setString(4, "teste");
+            pstmt.setString(5, morador.getNomeMae());
+            pstmt.setString(6, morador.getEndereco());
+            pstmt.setString(7, morador.getCondicaoEspecial());
+            pstmt.setString(8, morador.getEstado());
+            pstmt.executeUpdate();
+            con.close();
+            
+        } catch(SQLException e){
+            throw new SQLException(e.getMessage(), e);       
         }
-
-        return resultado > 0;
+        catch(ClassNotFoundException e){
+            throw new ClassNotFoundException(e.getMessage(), e);       
+        }
+        return true;
     }
+    
     @Override
     public boolean deletar(Morador mor) throws SQLException, ClassNotFoundException {
          try {
