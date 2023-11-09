@@ -1,0 +1,44 @@
+/* 
+    Created on : 7 de nov. de 2023, 15:10:00
+    Author     : Júlia
+*/
+.back-button {
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+.content {
+    width: 80%;
+    background-color: #76A5DC;
+    color: black;
+    text-align: center;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+
+.title {
+    font-size: 150%;
+    margin-left: 50%;
+}
+button{
+    margin-left: 50%;
+}
+
+#data{
+    background-color: #DEEDFF;
+    padding-top: 5%;
+    padding-bottom: 2%;
+    border-radius: 22px 22px 0 0;
+    font-size: 150%;
+}
+
+#visita-info{
+    background-color: white;
+    border-radius: 22px;
+    display: inline-block;
+    width: 250px;
+    margin: 10px;
+    text-align: center;
+
+}

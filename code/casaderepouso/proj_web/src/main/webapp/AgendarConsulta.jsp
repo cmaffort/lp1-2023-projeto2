@@ -24,11 +24,11 @@
           <div class="form-group">
             <label>Selecione o especialista</label>
             <select class="escolha" name="especialista">
-              <option value="geral">Geral</option>
-              <option value="nutri">Nutricionista</option>
-              <option value="cardio">Cardiologista</option>
-              <option value="desma">Dermatologista</option>
-              <option value="gine">Ginecologista</option>
+              <option value="Geral">Geral</option>
+              <option value="Nutricionista">Nutricionista</option>
+              <option value="Cardiologista">Cardiologista</option>
+              <option value="Dermatologista">Dermatologista</option>
+              <option value="Ginecologista">Ginecologista</option>
             </select>
           </div>
 
@@ -40,9 +40,9 @@
           <div class="form-group">
             <label>Qual tipo de consulta</label>
             <select class="escolha" name="especialista">
-              <option value="rotina">Rotina</option>
-              <option value="exame">Entrega de exames</option>
-              <option value="Rexame">Realização de exames</option>
+              <option value="Rotina">Rotina</option>
+              <option value="Entregar exames">Entrega de exames</option>
+              <option value="Realizar exames">Realização de exames</option>
             </select>
           </div>
 
@@ -50,11 +50,11 @@
           <div class="form-group" id="marcar">
               <div>
                 <label id="calendario" required>Data:</label>
-                <input type="date" name="data">
+                <input type="date" name="dataConsulta">
               </div>
               <div>
                 <label id="Hora" required>Hora:</label>
-                <input type="time" name="hora">
+                <input type="time" name="horaConsulta">
               </div>
           </div>
 
