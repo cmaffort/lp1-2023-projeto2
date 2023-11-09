@@ -100,7 +100,7 @@ public class FuncionarioDAO implements IFuncionarioDAO{
             Connection con = DAO.conectar();
             PreparedStatement pst = con.prepareStatement(sql);
             ResultSet rs = pst.executeQuery();
-            ArrayList<Funcionario> listAll = null;
+            ArrayList<Funcionario> listAll = new ArrayList<Funcionario>();
             while (rs.next()) {
 
                 String id = rs.getString(1);
