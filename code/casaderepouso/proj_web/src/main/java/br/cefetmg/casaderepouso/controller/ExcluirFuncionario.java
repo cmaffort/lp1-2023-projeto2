@@ -34,7 +34,7 @@ public class ExcluirFuncionario extends HttpServlet {
         String jsp = "";
      
         try {
-            String id = request.getParameter("id");
+            String id = request.getParameter("idDelete");
             IManterFuncionario iFuncionario =  new ManterFuncionario();
             Funcionario func = new Funcionario();
             func.setId(id);
@@ -43,7 +43,7 @@ public class ExcluirFuncionario extends HttpServlet {
                 jsp = "/telaGerente.jsp";
             }
         } catch (Exception e) {
-            e.printStackTrace();
+            System.out.println(e);
             jsp = "";
         }
         

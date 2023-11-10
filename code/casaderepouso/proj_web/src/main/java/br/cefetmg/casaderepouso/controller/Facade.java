@@ -17,7 +17,7 @@ import java.util.logging.Logger;
  *
  * @author Aluno
  */
-@WebServlet(urlPatterns = {"/Facade","/deleteFunc"})
+@WebServlet(urlPatterns = {"/Facade"})
 public class Facade extends HttpServlet {
     private String jsp;
 
@@ -25,7 +25,6 @@ public class Facade extends HttpServlet {
     protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");
         
-        String encaminha = request.getServletPath();
         
         String act = request.getParameter("act"); 
         
@@ -47,7 +46,7 @@ public class Facade extends HttpServlet {
             jsp = CadastrarFuncionario.execute(request);
         else if(act.equals("listarFuncionario"))
             jsp = ListarFuncionario.execute(request);        
-        else if(act.equals("/deleteFunc")){
+        else if(act.equals("deleteFunc")){
             jsp = ExcluirFuncionario.execute(request);
             jsp = ListarFuncionario.execute(request);
         }
