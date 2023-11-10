@@ -24,6 +24,13 @@ body {
     margin: 10px 0;
 }
 
+.excluir{
+    cursor: pointer; 
+    color: #990000; 
+    font-weight: bold; 
+    font-size: 20px; 
+    text-decoration: underline; 
+}
 .button {
     display: block;
     width: 90%;

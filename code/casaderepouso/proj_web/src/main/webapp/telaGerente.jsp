@@ -60,7 +60,7 @@
                             <p class="info-content">Telefone: <%=func.getFone()%></p>
                         </div>
                         <div class="info-access">     
-                            <button class="botao-deletar">Deletar</button>
+                            <a class="excluir" onclick="window.location='/proj_web/Facade?act=deleteFunc&idDelete=<%=func.getId()%>'">Deletar</a>
                         </div>
                     </div>
                 </div>   
