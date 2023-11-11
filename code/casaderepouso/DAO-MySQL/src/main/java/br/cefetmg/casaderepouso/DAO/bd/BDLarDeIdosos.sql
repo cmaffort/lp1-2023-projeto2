@@ -19,13 +19,12 @@ CREATE TABLE IF NOT EXISTS visitantes (
 CREATE TABLE IF NOT EXISTS morador (
     nome VARCHAR(255),
     cpf VARCHAR(14) PRIMARY KEY,
-    rg VARCHAR(12),
     datanascimento VARCHAR(20),
     planomedico VARCHAR(255),
     responsavel VARCHAR(255),
     nome_mae VARCHAR(255),
-    endereco TEXT,
-    condicoes TEXT,
+    endereco VARCHAR(255),
+    condicoes VARCHAR(255),
     estado VARCHAR(255)
 );
 CREATE TABLE IF NOT EXISTS responsavel (
@@ -55,15 +54,15 @@ CREATE TABLE IF NOT EXISTS gerente (
     id INT AUTO_INCREMENT PRIMARY KEY,
     nome VARCHAR(255) NOT NULL,
     cpf VARCHAR(14) NOT NULL,
-    rg VARCHAR(12) NOT NULL,
+    rg VARCHAR(20) NOT NULL,
     nascimento DATE NOT NULL,
     telefone VARCHAR(20),
     endereco TEXT
 );
 CREATE TABLE IF NOT EXISTS evento (
-    id VARCHAR(255) NOT NULL,
+    id VARCHAR(255) PRIMARY KEY,
     nome VARCHAR(255) NOT NULL,
-    rg VARCHAR(12) NOT NULL,
+    rg VARCHAR(20) NOT NULL,
     descricao VARCHAR(255),
     lugar VARCHAR(255),
     dia VARCHAR(20),

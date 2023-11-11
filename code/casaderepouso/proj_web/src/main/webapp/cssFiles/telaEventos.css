@@ -23,7 +23,6 @@ body {
     font-size: 24px;
     margin: 10px 0;
 }
-
 .excluir{
     cursor: pointer; 
     color: #990000; 
@@ -31,6 +30,7 @@ body {
     font-size: 20px; 
     text-decoration: underline; 
 }
+
 .button {
     display: block;
     width: 90%;
@@ -70,7 +70,7 @@ body {
     font-size: 150%;
 }
 
-#container-lista-funcionarios{
+#container-lista-eventos{
     overflow-y: scroll;
     display: flex;
     background-color: rgba(164, 203, 249, 0.50);
@@ -81,7 +81,7 @@ body {
     flex-direction: column;
     height: 90%;
 }
-.funcionario-container{
+.evento-container{
     display: grid;
     grid-template-columns: 10% 75% 15%;
     grid-template-rows: 10vh auto;
@@ -96,7 +96,7 @@ body {
     
     transition: all 0.2s linear;
 }
-.nome-cpf{
+.nome-rg{
     width: auto;
     height: auto;
     font-size: 24px;

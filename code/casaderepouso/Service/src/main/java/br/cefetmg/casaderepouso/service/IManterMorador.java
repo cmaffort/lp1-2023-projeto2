@@ -21,6 +21,6 @@ public interface IManterMorador {
     public String excluir(Morador morador) throws Exception;
     
     public List<Morador> pesquisarTodos() throws Exception;
-    public List<Morador> pesquisar(Morador morador) throws Exception;
+    public Morador pesquisar(String cpf) throws Exception;
     
 }

@@ -8,17 +8,15 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import br.cefetmg.casaderepouso.dto.Funcionario;
-import br.cefetmg.casaderepouso.service.implement.ManterFuncionario;
-import br.cefetmg.casaderepouso.service.IManterFuncionario;
+
+import br.cefetmg.casaderepouso.dto.Evento;
+import br.cefetmg.casaderepouso.service.implement.ManterEvento;
+import br.cefetmg.casaderepouso.service.IManterEvento;
 import java.util.ArrayList;
 import java.util.List;
 
-@WebServlet(urlPatterns = {"/ExcluirFuncionario"})
-public class ExcluirFuncionario extends HttpServlet {
+@WebServlet(urlPatterns = {"/ListarEvento"})
+public class ListarEvento extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -34,13 +32,11 @@ public class ExcluirFuncionario extends HttpServlet {
         String jsp = "";
      
         try {
-            String id = request.getParameter("idDelete");
-            IManterFuncionario iFuncionario =  new ManterFuncionario();
-            Funcionario func = new Funcionario();
-            func.setId(id);
-            String str = iFuncionario.excluir(func);
-            if (str.equals("true")) {
-                jsp = "/telaGerente.jsp";
+            IManterEvento iEvent =  new ManterEvento();
+            List<Evento> lista = iEvent.pesquisarTodos();
+            if (lista != null) {
+                request.setAttribute("listEvent", lista);
+                jsp = "/telaEvento.jsp";
             }
         } catch (Exception e) {
             System.out.println(e);

@@ -84,9 +84,11 @@ public class FuncionarioDAO implements IFuncionarioDAO{
             return true;
         } 
          catch(SQLException e){
+             System.out.println(e);
             throw new SQLException(e.getMessage(), e);       
         }
         catch(ClassNotFoundException e){
+            System.out.println(e);
             throw new ClassNotFoundException(e.getMessage(), e);       
         }
     }
@@ -100,7 +102,7 @@ public class FuncionarioDAO implements IFuncionarioDAO{
             Connection con = DAO.conectar();
             PreparedStatement pst = con.prepareStatement(sql);
             ResultSet rs = pst.executeQuery();
-            ArrayList<Funcionario> listAll = null;
+            ArrayList<Funcionario> listAll = new ArrayList<Funcionario>();
             while (rs.next()) {
 
                 String id = rs.getString(1);
