@@ -5,7 +5,6 @@ import br.cefetmg.casaderepouso.DAO.connection.DAO;
 import br.cefetmg.casaderepouso.dto.Responsavel;
 import br.cefetmg.casaderepouso.idao.IResponsavel;
 import br.cefetmg.casaderepouso.dto.exception.*;
-import java.util.Date;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -13,8 +12,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.sql.Statement;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 public class ResponsavelDAO implements IResponsavel {
     

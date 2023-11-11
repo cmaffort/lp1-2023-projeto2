@@ -42,8 +42,6 @@ public class CadastraResponsavel extends HttpServlet {
             responsavel.setTelefone(telefone);
             responsavel.setResponsavelPor(responsavelPor);
             
-            String id = responsavel.getCpf() + responsavel.getNome().charAt(0);
-            responsavel.setId(id);
             ICadastrarResponsavel iResponsavel = new CadastrarResponsavel();
             iResponsavel.cadastrar(responsavel);
             

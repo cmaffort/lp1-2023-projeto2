@@ -110,15 +110,13 @@ CREATE TABLE IF NOT EXISTS consulta (
 );
 CREATE TABLE IF NOT EXISTS receita_medica (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    profissional_de_saude INT NOT NULL,
-    morador INT NOT NULL,
+    profissional_de_saude TEXT NOT NULL,
+    morador TEXT NOT NULL,
     medicamentos TEXT,
     data DATE NOT NULL,
     hora TIME NOT NULL,
     quantidade INT NOT NULL,
-    validade DATE NOT NULL,
-    FOREIGN KEY (profissional_de_saude) REFERENCES profissional_de_saude(id),
-    FOREIGN KEY (morador) REFERENCES morador(id)
+    validade DATE NOT NULL
 );
 CREATE TABLE IF NOT EXISTS dieta_comum (
     id INT AUTO_INCREMENT PRIMARY KEY,
