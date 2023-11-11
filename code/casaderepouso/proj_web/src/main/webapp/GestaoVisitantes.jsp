@@ -13,9 +13,10 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel="stylesheet" type="text/css" href="cssFiles/gestaoVisitante.css">
+        <link rel="stylesheet" href="cssFiles/gestaoVisitante.css">
 
         <title>Visitas</title>
+        
     </head>
     <body>
     <%@include file="Padrão/navFuncionario.jsp" %>
@@ -24,7 +25,7 @@
         <div class="title">Visitas Agendadas</div>
         
         <form action="Facade" method="POST">
-            <button name="act" value="listarVisitante">Visitante</button>
+            <button name="act" value="listarVisitante">Todos os visitantes</button>
         </form>
 		
                     <%
@@ -32,13 +33,17 @@
                         if(listaVisitantes != null){
                             for (Visitante vis: listaVisitantes){
                     %>
-                    <div>
-                                <p><%=vis.getDataVisita()%></p>
-                                <p><%=vis.getNome()%></p>
-                                <p><%=vis.getRg()%></p>
-				<p><%=vis.getVinculo()%></p>
-                                <p><%=vis.getMorador()%></p>
-                    
+                    <div id="visita-info">
+                        <div id="data">
+                            <p><%=vis.getDataVisita()%></p>
+                            <p><%=vis.getHoraVisita()%></p>
+                        </div>
+                        <div id="info">
+                            <p>Visitante: <%=vis.getNome()%></p>
+                            <p>Rg: <%=vis.getRg()%></p>
+                            <p>Morador: <%=vis.getMorador()%> - <%=vis.getVinculo()%></p>
+                            <a>Entrar em contato</a>
+                        </div>
                      </div>
 			<%
 				}
@@ -46,5 +51,5 @@
 			%>
     </article>
 
-    </body>
+    </body>
 </html>

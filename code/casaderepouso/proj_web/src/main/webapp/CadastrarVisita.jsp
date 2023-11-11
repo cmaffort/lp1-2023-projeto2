@@ -28,8 +28,7 @@
 
           <div>
             <label>Telefone de contato:</label>
-            <input type="tel" name="numero" class="texto" placeholder="Digite aqui..." required required
-              onblur="verificarTelefone()">
+            <input type="text" name="numero" class="texto" placeholder="Digite aqui..." required>
           </div>
           <p id="resultado"></p>
 
@@ -55,29 +54,17 @@
           <div class="form-group" id="marcar">
               <div>
                 <label id="calendario" required>Data:</label>
-                <input type="date" name="data">
+                <input type="date" name="dataVisita">
               </div>
               <div>
                 <label id="Hora" required>Hora:</label>
-                <input type="time" name="hora">
+                <input type="time" name="horaVisita">
               </div>
           </div>
 
-          <input type="submit" value="AdicionarVisitante">
+          <button type="submit">Agendar</button>
 
         </form>
       </article>
-
-      <script>
-        function verificarTelefone() {
-          let numero = document.querySelector("#numero").value;
-          numero = numero.replace(/[^a-zA-Z0-9]/g, "");
-
-          if (numero.length !== 11) {
-            document.getElementById("resultado").innerHTML = "O telefone não está no formato correto: (DDD + 9 dígitos)";
-          }
-          else document.getElementById("resultado").innerHTML = "";
-        }
-      </script>
     </body>
     </html>
