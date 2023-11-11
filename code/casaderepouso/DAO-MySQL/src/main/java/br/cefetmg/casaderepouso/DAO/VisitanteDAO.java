@@ -23,7 +23,7 @@ public class VisitanteDAO implements IVisitanteDAO{
 
     public boolean cadastrar(Visitante visitante) {
         String sqlVisitante = "INSERT INTO visitantes(nome, rg, telefone, vinculo_com_morador,data_visita, morador, hora_visita) VALUES(?,?,?,?,?,?,?)";
-        System.out.println("Chegou no Conector, sla o nome disso");
+        //System.out.println("Chegou no Conector");
 
         try {   
                 Class.forName("com.mysql.cj.jdbc.Driver");

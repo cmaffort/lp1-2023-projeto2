@@ -39,7 +39,7 @@
 
           <div class="form-group">
             <label>Qual tipo de consulta</label>
-            <select class="escolha" name="especialista">
+            <select class="escolha" name="tipoConsulta">
               <option value="Rotina">Rotina</option>
               <option value="Entregar exames">Entrega de exames</option>
               <option value="Realizar exames">Realização de exames</option>

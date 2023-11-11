@@ -5,3 +5,4 @@ br\cefetmg\casaderepouso\DAO\ResponsavelDAO.class
 br\cefetmg\casaderepouso\DAO\MedicamentoDAO.class
 br\cefetmg\casaderepouso\DAO\EventoDAO.class
 br\cefetmg\casaderepouso\DAO\VisitanteDAO.class
+br\cefetmg\casaderepouso\DAO\ConsultaDAO.class

@@ -12,7 +12,7 @@ import java.lang.String;
 
 /**
  *
- * @author Aluno
+ * @author Júlia
  */
 @WebServlet(name = "CadastrarVisitante", urlPatterns = {"/CadastrarVisitante"})
 public class CadastrarVisitante extends HttpServlet {
