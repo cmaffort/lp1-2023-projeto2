@@ -64,6 +64,10 @@ public class Facade extends HttpServlet {
             jsp = ListarEvento.execute(request);
         else if(act.equals("cadastrarEvento"))
             jsp = CadastrarEvento.execute(request);
+        else if(act.equals("deleteEvento")){
+            jsp = ExcluirEvento.execute(request);
+            jsp = ListarEvento.execute(request);
+        }
         RequestDispatcher rd = request.getRequestDispatcher(jsp);
         rd.forward(request, response);
     }

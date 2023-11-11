@@ -57,7 +57,27 @@ public class EventoDAO implements IEventoDAO {
 
     @Override
     public boolean deletar(Evento event) throws SQLException, ClassNotFoundException {
-         return true;
+         try {
+            Connection con = DAO.conectar();
+
+            String sql = "DELETE FROM evento WHERE id = ?";
+
+            PreparedStatement pstmt = con.prepareStatement(sql);
+            pstmt.setString(1, event.getId());
+            pstmt.executeUpdate();
+
+            pstmt.close();
+            con.close();
+            return true;
+        } 
+         catch(SQLException e){
+             System.out.println(e);
+            throw new SQLException(e.getMessage(), e);       
+        }
+        catch(ClassNotFoundException e){
+            System.out.println(e);
+            throw new ClassNotFoundException(e.getMessage(), e);       
+        }
     }
 
     @Override

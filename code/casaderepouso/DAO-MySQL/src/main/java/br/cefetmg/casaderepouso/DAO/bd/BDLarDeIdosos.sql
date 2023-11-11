@@ -53,15 +53,15 @@ CREATE TABLE IF NOT EXISTS gerente (
     id INT AUTO_INCREMENT PRIMARY KEY,
     nome VARCHAR(255) NOT NULL,
     cpf VARCHAR(14) NOT NULL,
-    rg VARCHAR(12) NOT NULL,
+    rg VARCHAR(20) NOT NULL,
     nascimento DATE NOT NULL,
     telefone VARCHAR(20),
     endereco TEXT
 );
 CREATE TABLE IF NOT EXISTS evento (
-    id VARCHAR(255) NOT NULL,
+    id VARCHAR(255) PRIMARY KEY,
     nome VARCHAR(255) NOT NULL,
-    rg VARCHAR(12) NOT NULL,
+    rg VARCHAR(20) NOT NULL,
     descricao VARCHAR(255),
     lugar VARCHAR(255),
     dia VARCHAR(20),

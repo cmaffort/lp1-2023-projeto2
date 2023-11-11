@@ -58,7 +58,16 @@
                 else
                     mensagemErro.textContent = "Formato de e-mail inválido.";
             }
+            function validarRg(input) {
+                var rgRegex = /^\d{8}$/;
+                var mensagemErro = document.getElementById("rgErro");
 
+                if (rgRegex.test(input.value))
+                    mensagemErro.textContent = ""; 
+                else 
+                    mensagemErro.textContent = "Formato de RG inválido. Deve ter 8 números.";
+                
+            }
         </script>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Cadastro de Evento</title>
@@ -79,7 +88,8 @@
                     </div>
                     <div class="form-group">
                         <label>RG:</label>
-                        <input type="text" name="rg" class="texto" placeholder="Digite aqui..." required>                
+                        <input type="text" onkeyup="validarRg(this)" name="rg" class="texto" placeholder="Digite aqui o RG(somente números)..." required>
+                        <p id="rgErro" style="color: #990000; font-weight: bold;"></p>
                     </div>
                     <div class="form-group">
                         <label>O que será o evento?</label>
