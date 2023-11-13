@@ -26,6 +26,7 @@
             <a class="button" href="#">Cardápio</a>
             <a class="button" href="#">Equipamentos</a>
             <a class="button" href="GestaoVisitantes.jsp">Visitas</a>
+            <a class="button" href="CadastroReceita.jsp">Nova Receita</a>
 
         </div>
         <div class="content">
@@ -90,7 +91,7 @@
                         </div>
                         <div class="info-access">     
                             <!-- comment <a class="links-acessos">Acessar documentos</a> -->
-                            <a class="links-acessos">Acessar receitas médicas</a>
+                            <a class="links-acessos" href="ListarReceitas.jsp">Acessar receitas médicas</a>
                             <a class="links-acessos">Acessar resultados de exames</a>
                             <a class="links-acessos">Acessar histórico médico</a>
                             <a style="z-index: 998"class="links-acessos" href="prontuario.jsp">Acessar prontuário</a>

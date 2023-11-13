@@ -20,22 +20,32 @@
         <form id="meuForm" action="Facade" class="form-container" method="POST">
           <div class="form-group">
             <label>Nome completo:</label>
-            <input type="text" id="nomeResponsavel" class="texto" placeholder="Digite aqui..." required>
+            <input type="text" name="nomeResponsavel" class="texto" placeholder="Digite aqui..." required>
           </div>
 
           <div class="form-group">
             <label>CPF:</label>
-            <input type="text" id="cpf" class="texto" placeholder="Digite aqui..." required>
+            <input type="text" name="cpf" class="texto" placeholder="Digite aqui..." required>
+          </div>
+          
+          <div class="form-group">
+            <label>RG:</label>
+            <input type="text" name="rg" class="texto" placeholder="Digite aqui..." required>
           </div>
             
           <div class="form-group">
             <label>Endereço completo:</label>
-            <input type="text" id="endereco" class="texto" placeholder="Digite aqui..." required>
+            <input type="text" name="endereco" class="texto" placeholder="Digite aqui..." required>
           </div>
-            
+           
+          <div class="form-group">
+            <label>Responsável por:</label>
+            <input type="text" name="responsavelPor" class="texto" placeholder="Digite aqui..." required>
+          </div>
+          
           <div>
             <label>Telefone de contato:</label>
-            <input type="tel" id="numero" class="texto" placeholder="Digite aqui..." required required
+            <input type="text" name="telefone" class="texto" placeholder="Digite aqui..." required required
               onblur="verificarTelefone()">
           </div>
           <p id="resultado"></p>
@@ -46,7 +56,7 @@
 
         <script>
         function verificarTelefone() {
-          let numero = document.querySelector("#numero").value;
+          let numero = document.querySelector("#telefone").value;
           numero = numero.replace(/[^a-zA-Z0-9]/g, "");
 
           if (numero.length !== 11) {

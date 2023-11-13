@@ -1,12 +1,10 @@
 package br.cefetmg.casaderepouso.dto;
-import java.util.Date;
 
 public class Responsavel {
     private String nome;
     private String cpf;
     private String rg;
     private String telefone;
-    private Date dataNascimento;
     private String endereco;
     private String responsavelPor;
     private String id;
@@ -37,13 +35,6 @@ public class Responsavel {
     }
     public void setTelefone(String telefone){
         this.telefone = telefone;
-    }
-    
-    public Date getDataNascimento(){
-        return dataNascimento;
-    }
-    public void setDataNascimento(Date dataNascimento){
-        this.dataNascimento = dataNascimento;
     }
     
     public String getEndereco(){
