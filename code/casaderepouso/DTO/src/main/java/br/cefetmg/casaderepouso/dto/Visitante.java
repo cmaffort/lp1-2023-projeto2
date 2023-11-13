@@ -16,8 +16,16 @@ public class Visitante {
     private String vinculo;
     private String dataVisita;
     private String horaVisita;
+    private int id;
 
-    public Visitante(String nome, String rg, String telefone, String morador, String vinculo, String dataVisita) {
+    public Visitante(String nome, String rg, String telefone, String morador, String vinculo, String dataVisita, String horaVisita) {
+        this.nome = nome;
+        this.rg = rg;
+        this.telefone = telefone;
+        this.morador = morador;
+        this.vinculo = vinculo;
+        this.dataVisita = dataVisita;
+        this.horaVisita = horaVisita;
     }
 
     public String getNome() {
@@ -26,6 +34,14 @@ public class Visitante {
 
     public void setNome(String nome) {
         this.nome = nome;
+    }
+    
+        public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getRg() {
@@ -72,7 +88,4 @@ public class Visitante {
         return horaVisita;
     }
 
-    public void setHoraVisita(String horaVisita) {
-        this.horaVisita = horaVisita;
-    }
 }
