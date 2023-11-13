@@ -52,13 +52,49 @@
                         <input style="display: none;" name="nome_mae" id="enviarMae"value="">
                         <input style="display: none;" name="endereco" id="enviarEndereco"value="">
                         <input style="display: none;" name="condicoes_especiais" id="enviarCondic"value="">
-                        
+
                         <button name="act" value="AtualizarEstado"style="background-color: #14FF00;" class="update-status">Atualizar status</button>
                     </form>
                     <a id="cancelar"style="background-color: #FF0000;" class="update-status">Cancelar</a>                 
                 </div>
             </div>
+            <div id="atualizar-container">
+                <form id="atualizarForm" class="form-container" action="Facade" method="POST">
+                    <input type='hidden' name='act' value='CadastrarMorador'>
+                    <div class="form-group">
+                        <label>Seu nome completo:</label>
+                        <input type="text" name="nomeMorador" class="texto" placeholder="Digite aqui..." required>
+                    </div>
 
+                    <div class="form-group">
+                        <label>Data de Nascimento:</label>
+                        <input type="text" name="dataNasc" class="texto" placeholder="Digite aqui uma data dd/mm/aa ..." required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Endereço completo:</label>
+                        <input type="text" name="endereco" class="texto" placeholder="Digite aqui..." required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Nome da mãe:</label>
+                        <input type="text" name="nome_mae" class="texto" placeholder="Digite aqui..." required>
+                    </div>
+                    <div class="form-group">
+                        <label>CPF:</label>
+                        <input type="text" name="cpf" class="texto" placeholder="Digite aqui..." required>
+                    </div>
+                    <div class="form-group">
+                        <label>Plano médico:</label>
+                        <input type="text" name="plano_medico" class="texto" placeholder="Digite aqui..." required>
+                    </div>
+                    <div class="form-group">
+                        <label>Condições especiais:</label>
+                        <input type="text" name="condicoes_especiais" class="texto" placeholder="Digite aqui..." required>
+                    </div>
+                    <button name="act" value="AtualizarEstado"style="background-color: #14FF00;" class="update-status">Atualizar status</button>
+                    <a id="cancelarUpdate"style="background-color: #FF0000;" class="update-status">Cancelar</a>  
+            </div>
             <div class="title">Dados dos moradores</div>
             <form action="Facade" method="POST">
                 <input id="listarMoradores"type="submit" name="act" value="ListarMorador">   
@@ -93,11 +129,11 @@
                             <a class="links-acessos">Acessar receitas médicas</a>
                             <a class="links-acessos">Acessar resultados de exames</a>
                             <a class="links-acessos">Acessar histórico médico</a>
-                            <a style="z-index: 998"class="links-acessos" href="prontuario.jsp">Acessar prontuário</a>
+                            <a style="z-index: 998"class="links-acessos" href="dieta.jsp">Acessar dieta</a>
                             <a class="links-acessos">Acessar responsáveis</a>
                             <a class="links-acessos">Solicitar consulta</a>
                             <a class="links-acessos">Novo responsável</a>
-                            <button class="botao-deletar">Deletar</button>
+                            <button class="botao-atualizar">Atualizar</button>
                         </div>
                     </div>
                 </div>   
