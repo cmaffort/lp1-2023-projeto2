@@ -63,10 +63,58 @@ public class FuncionarioDAO implements IFuncionarioDAO{
             throw new ClassNotFoundException(e.getMessage(), e);       
         }
     }
+    
     @Override
-    public boolean atualizar(Funcionario func) {
-        throw new UnsupportedOperationException("Not supported yet."); 
+    public boolean atualizar(Funcionario func) throws SQLException, ClassNotFoundException {
+        
+        try {
+             Connection con = DAO.conectar();
+
+            String sql = "UPDATE funcionario "
+                    + "   SET nome = ?, "
+                    + "       cpf = ?, "
+                    + "       rg = ?, "
+                    + "       telefone = ?, "
+                    + "       nascimento = ?, "
+                    + "       endereco = ?, "
+                    + "       pis = ?, "
+                    + "       funcao = ? "
+                    + "       periodoTrabalho = ? "
+                    + " WHERE id = ?;";
+
+            PreparedStatement pstmt = con.prepareStatement(sql);
+            pstmt.setString(1, func.getNome());
+            pstmt.setString(2, func.getCpf());
+            pstmt.setString(3, func.getRg());
+            pstmt.setString(4, func.getFone());
+            pstmt.setString(5, func.getDataNasc());
+            pstmt.setString(6, func.getEndereco());
+            pstmt.setString(7, func.getPis());
+            pstmt.setString(8, func.getFuncao());
+            pstmt.setString(9, func.getPeriodoTrabalho());
+            pstmt.setString(10, func.getId());
+            
+            
+            pstmt.executeUpdate();
+
+            pstmt.close();
+            con.close();
+
+            return true;
+        }
+        catch(SQLException e){
+            System.out.println(e);
+            throw new SQLException(e.getMessage(), e);       
+        }
+        catch(ClassNotFoundException e){
+            System.out.println(e);
+            throw new ClassNotFoundException(e.getMessage(), e);       
+        }
     }
+
+    
+    
+    
 
     @Override
     public boolean deletar(Funcionario func) throws SQLException, ClassNotFoundException {
@@ -84,9 +132,11 @@ public class FuncionarioDAO implements IFuncionarioDAO{
             return true;
         } 
          catch(SQLException e){
+             System.out.println(e);
             throw new SQLException(e.getMessage(), e);       
         }
         catch(ClassNotFoundException e){
+            System.out.println(e);
             throw new ClassNotFoundException(e.getMessage(), e);       
         }
     }

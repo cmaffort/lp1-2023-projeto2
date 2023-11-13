@@ -1,6 +1,7 @@
 br\cefetmg\casaderepouso\idao\IMoradorDAO.class
 br\cefetmg\casaderepouso\idao\IProfissionalSaude.class
 br\cefetmg\casaderepouso\idao\IProntuario.class
+br\cefetmg\casaderepouso\idao\IConsultaDAO.class
 br\cefetmg\casaderepouso\idao\IMedico.class
 br\cefetmg\casaderepouso\idao\IEventoDAO.class
 br\cefetmg\casaderepouso\idao\IResponsavel.class

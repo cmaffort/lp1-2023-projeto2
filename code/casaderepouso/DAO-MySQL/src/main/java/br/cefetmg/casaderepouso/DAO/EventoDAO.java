@@ -53,11 +53,74 @@ public class EventoDAO implements IEventoDAO {
             throw new ClassNotFoundException(e.getMessage(), e);       
         }
     }
+public boolean atualizar(Evento event) throws SQLException, ClassNotFoundException {
+        
+        try {
+             Connection con = DAO.conectar();
 
+            String sql = "UPDATE evento "
+                    + "   SET nome = ?, "
+                    + "       rg = ?, "
+                    + "       descricao = ?, "
+                    + "       lugar = ?, "
+                    + "       dia = ?, "
+                    + "       horario = ?, "
+                    + "       telefone = ?, "
+                    + "       email = ? "
+                    + " WHERE id = ?;";
+
+            PreparedStatement pstmt = con.prepareStatement(sql);
+            pstmt.setString(1, event.getNome());
+            pstmt.setString(2, event.getRg());
+            pstmt.setString(3, event.getDescricao());
+            pstmt.setString(4, event.getLocal());
+            pstmt.setString(5, event.getData());
+            pstmt.setString(6, event.getHorario());
+            pstmt.setString(7, event.getFone());
+            pstmt.setString(8, event.getEmail());
+            pstmt.setString(9, event.getId());
+            
+            
+            pstmt.executeUpdate();
+
+            pstmt.close();
+            con.close();
+
+            return true;
+        }
+        catch(SQLException e){
+            System.out.println(e);
+            throw new SQLException(e.getMessage(), e);       
+        }
+        catch(ClassNotFoundException e){
+            System.out.println(e);
+            throw new ClassNotFoundException(e.getMessage(), e);       
+        }
+    }
 
     @Override
     public boolean deletar(Evento event) throws SQLException, ClassNotFoundException {
-         return true;
+         try {
+            Connection con = DAO.conectar();
+
+            String sql = "DELETE FROM evento WHERE id = ?";
+
+            PreparedStatement pstmt = con.prepareStatement(sql);
+            pstmt.setString(1, event.getId());
+            pstmt.executeUpdate();
+
+            pstmt.close();
+            con.close();
+            return true;
+        } 
+         catch(SQLException e){
+             System.out.println(e);
+            throw new SQLException(e.getMessage(), e);       
+        }
+        catch(ClassNotFoundException e){
+            System.out.println(e);
+            throw new ClassNotFoundException(e.getMessage(), e);       
+        }
     }
 
     @Override

@@ -22,8 +22,8 @@ import java.util.logging.Logger;
 public class VisitanteDAO implements IVisitanteDAO{
 
     public boolean cadastrar(Visitante visitante) {
-        String sqlVisitante = "INSERT INTO visitantes(nome, rg, telefone, vinculo_com_morador,data_e_hora_de_visita, morador) VALUES(?,?,?,?,?,?)";
-        System.out.println("Chegou no Conector, sla o nome disso");
+        String sqlVisitante = "INSERT INTO visitantes(nome, rg, telefone, vinculo_com_morador,data_visita, morador, hora_visita) VALUES(?,?,?,?,?,?,?)";
+        //System.out.println("Chegou no Conector");
 
         try {   
                 Class.forName("com.mysql.cj.jdbc.Driver");
@@ -37,6 +37,7 @@ public class VisitanteDAO implements IVisitanteDAO{
                 pstm.setString(4, visitante.getVinculo());
                 pstm.setString(5,  visitante.getDataVisita());
                 pstm.setString(6, visitante.getMorador());
+                pstm.setString(7,visitante.getHoraVisita());
                 
                 //Executar
                 pstm.executeUpdate();
@@ -64,14 +65,15 @@ public class VisitanteDAO implements IVisitanteDAO{
             
             ResultSet rs = preparedStatement.executeQuery();
             while(rs.next()){
-                String nome = rs.getString(1);
-                String rg = rs.getString(2);
-                String telefone = rs.getString(3);
-                String vinculo = rs.getString(4);
-                String dataHora = rs.getString(5);
+                String nome = rs.getString(2);
+                String rg = rs.getString(3);
+                String telefone = rs.getString(4);
+                String vinculo = rs.getString(5);
+                String dataVisita = rs.getString(8);
                 String morador = rs.getString(6);
+                String horaVisita = rs.getString(7);
                 
-                Visitante visitante = new Visitante(nome, rg, telefone, morador, vinculo, dataHora);
+                Visitante visitante = new Visitante(nome, rg, telefone, morador, vinculo, dataVisita, horaVisita);
                 
                 visitanteList.add(visitante);
 
