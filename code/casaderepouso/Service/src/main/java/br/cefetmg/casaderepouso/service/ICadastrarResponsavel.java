@@ -8,7 +8,7 @@ import java.util.List;
 
 
 public interface ICadastrarResponsavel {
-    public String cadastrar(Responsavel responsavel) throws SQLException, ClassNotFoundException;
+    public String cadastrar(Responsavel responsavel) throws CadastroException, SQLException, ClassNotFoundException;
     public String atualizar(Responsavel responsavel) throws SQLException, ClassNotFoundException;
     public String excluir(Responsavel responsavel) throws SQLException, ClassNotFoundException;
     public List<Responsavel> listar() throws Exception;

@@ -3,8 +3,6 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package br.cefetmg.casaderepouso.controller;
-
-
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
@@ -17,15 +15,16 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import br.cefetmg.casaderepouso.dto.Refeicao;
 import br.cefetmg.casaderepouso.service.implement.ManterRefeicao;
+import br.cefetmg.casaderepouso.service.IManterRefeicao;
 import java.util.ArrayList;
 import java.util.List;
-import br.cefetmg.casaderepouso.service.IManterRefeicao;
+
 /**
  *
  * @author Master
  */
-@WebServlet(urlPatterns = {"/ListarRefeicao"})
-public class ListarRefeicao extends HttpServlet {
+@WebServlet(urlPatterns = {"/ExcluirRefeicao"})
+public class ExcluirRefeicao extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -41,14 +40,24 @@ public class ListarRefeicao extends HttpServlet {
         String jsp = "";
      
         try {
+            String cpf = request.getParameter("cpfDelete");
+            String hora = request.getParameter("horaDelete");
+            String cardapio = request.getParameter("cardapioDelete");
+            String tipo = request.getParameter("tipoDelete");
+            String dia = request.getParameter("diaDelete");
             IManterRefeicao iRefeicao =  new ManterRefeicao();
-            List<Refeicao> lista = iRefeicao.pesquisarTodos();
-            if (lista != null) {
-                request.setAttribute("listRef", lista);
+            Refeicao ref = new Refeicao();
+            ref.setCpfMorador(cpf);
+            ref.setHora(hora);
+            ref.setCardapio(cardapio);
+            ref.setTipo(tipo);
+            ref.setDia(dia);
+            String str = iRefeicao.excluir(ref);
+            if (str.equals("true")) {
                 jsp = "/dieta.jsp";
             }
         } catch (Exception e) {
-            e.printStackTrace();
+            System.out.println(e);
             jsp = "";
         }
         
@@ -59,5 +68,6 @@ public class ListarRefeicao extends HttpServlet {
     @Override
     public String getServletInfo() {
         return "Short description";
-    }
+    }// </editor-fold>
+
 }

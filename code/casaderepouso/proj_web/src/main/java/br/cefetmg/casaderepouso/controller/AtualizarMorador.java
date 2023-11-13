@@ -42,8 +42,6 @@ public class AtualizarMorador extends HttpServlet {
             morador.setEndereco(endereco);
             morador.setCondicaoEspecial(condicoes);
             
-            System.out.println("atualizou?");
-            System.out.println(morador.getEstado());
 
             IManterMorador iMorador = new ManterMorador();
             try {

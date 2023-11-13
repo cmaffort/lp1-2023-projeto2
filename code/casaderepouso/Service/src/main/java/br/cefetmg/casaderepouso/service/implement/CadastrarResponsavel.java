@@ -13,7 +13,7 @@ import java.sql.SQLException;
  *
  * @author Aluno
  */
-public class CadastrarResponsavel implements ICadastrarResponsavel {
+public class CadastrarResponsavel implements ICadastrarResponsavel{
     
     private IResponsavel responsavelDAO;
     
@@ -22,7 +22,7 @@ public class CadastrarResponsavel implements ICadastrarResponsavel {
     }
     
     @Override
-    public String cadastrar(Responsavel responsavel) throws SQLException, ClassNotFoundException{        
+    public String cadastrar(Responsavel responsavel) throws CadastroException, SQLException, ClassNotFoundException{        
         responsavelDAO.inserir(responsavel);
         return responsavel.getCpf();
     }
@@ -46,4 +46,3 @@ public class CadastrarResponsavel implements ICadastrarResponsavel {
         return lista;
     }
 }
-

@@ -26,6 +26,7 @@
             <a class="button" href="#">Cardápio</a>
             <a class="button" href="#">Equipamentos</a>
             <a class="button" href="GestaoVisitantes.jsp">Visitas</a>
+            <a class="button" href="CadastroReceita.jsp">Nova Receita</a>
 
         </div>
         <div class="content">
@@ -44,7 +45,7 @@
                 </div>
                 <div id="container-botoes-status">
                     <form id="form-atualizar"action="Facade" method="POST">
-                        <input style="display: none;" name="estado" id="enviarEstado"value="">
+                        <input style="display: none;" name="estado" id="updateEstado"value="">
                         <input style="display: none;" name="cpf" id="enviarCpf"value="">
                         <input style="display: none;" name="nomeMorador"id="enviarNome"value="">
                         <input style="display: none;" name="dataNasc" id="enviarNasc"value="">
@@ -52,17 +53,63 @@
                         <input style="display: none;" name="nome_mae" id="enviarMae"value="">
                         <input style="display: none;" name="endereco" id="enviarEndereco"value="">
                         <input style="display: none;" name="condicoes_especiais" id="enviarCondic"value="">
-                        
+
                         <button name="act" value="AtualizarEstado"style="background-color: #14FF00;" class="update-status">Atualizar status</button>
                     </form>
                     <a id="cancelar"style="background-color: #FF0000;" class="update-status">Cancelar</a>                 
                 </div>
             </div>
+            <div id="atualizar-container">
+                <form id="atualizarForm" class="form-container" action="Facade" method="POST">
+                    <input style="display: none;" name="estado" id="updateEstado"value="">
+                    <div class="form-group">
+                        <label>Seu nome completo:</label>
+                        <input type="text" name="nomeMorador" class="texto" placeholder="Digite aqui..." >
+                    </div>
 
-            <div class="title">Dados dos moradores</div>
-            <form action="Facade" method="POST">
-                <input id="listarMoradores"type="submit" name="act" value="ListarMorador">   
-            </form>
+                    <div class="form-group">
+                        <label>Data de Nascimento:</label>
+                        <input type="text" name="dataNasc" class="texto" placeholder="Digite aqui uma data dd/mm/aa ..." >
+                    </div>
+
+                    <div class="form-group">
+                        <label>Endereço completo:</label>
+                        <input type="text" name="endereco" class="texto" placeholder="Digite aqui..." >
+                    </div>
+
+                    <div class="form-group">
+                        <label>Nome da mãe:</label>
+                        <input type="text" name="nome_mae" class="texto" placeholder="Digite aqui..." >
+                    </div>
+                    <div class="form-group">
+                        <label>CPF:</label>
+                        <input type="text" name="cpf" class="texto" placeholder="Digite aqui..." >
+                    </div>
+                    <div class="form-group">
+                        <label>Plano médico:</label>
+                        <input type="text" name="plano_medico" class="texto" placeholder="Digite aqui..." >
+                    </div>
+                    <div class="form-group">
+                        <label>Condições especiais:</label>
+                        <input type="text" name="condicoes_especiais" class="texto" placeholder="Digite aqui..." >
+                    </div>
+                    <button name="act" value="AtualizarEstado"style="background-color: #14FF00;" class="update-status">Atualizar Morador</button>
+                    <a id="cancelarUpdate"style="background-color: #FF0000;" class="update-status">Cancelar</a>
+                </form>
+            </div>
+            <div class="title"><h2>Dados dos Moradores</h2>
+                <input type="text" id="pesquisa" placeholder="Pesquise o nome aqui..."><input type="submit" id="btnPesquisar" value="🔎">
+            </div>
+            <div id="containerheader">
+                <form action="Facade" method="POST">
+                    <input id="listarMoradores"type="submit" name="act" value="ListarMorador">   
+                </form>
+                <label id="label_falecidos">Mostrar Falecidos</label>
+                <div class="switch__container">
+                    <input id="switch-shadow" class="switch switch--shadow" type="checkbox" />
+                    <label for="switch-shadow"></label>
+                </div>
+            </div>
             <div id="container-lista-moradores">
                 <%
                    List<Morador> listaMoradores = (List<Morador>) request.getAttribute("listMor");
@@ -90,14 +137,14 @@
                         </div>
                         <div class="info-access">     
                             <!-- comment <a class="links-acessos">Acessar documentos</a> -->
-                            <a class="links-acessos">Acessar receitas médicas</a>
+                            <a class="links-acessos" href="ListarReceitas.jsp">Acessar receitas médicas</a>
                             <a class="links-acessos">Acessar resultados de exames</a>
                             <a class="links-acessos">Acessar histórico médico</a>
-                            <a style="z-index: 998"class="links-acessos" href="prontuario.jsp">Acessar prontuário</a>
+                            <a style="z-index: 998"class="links-acessos" href="dieta.jsp">Acessar dieta</a>
                             <a class="links-acessos">Acessar responsáveis</a>
                             <a class="links-acessos">Solicitar consulta</a>
                             <a class="links-acessos">Novo responsável</a>
-                            <button class="botao-deletar">Deletar</button>
+                            <button class="botao-atualizar">Atualizar</button>
                         </div>
                     </div>
                 </div>   
@@ -107,6 +154,53 @@
                 %>
             </div>
         </div>
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+       
+                var campoPesquisa = document.getElementById("pesquisa");
+                var btnPesquisar = document.getElementById("btnPesquisar");
+                var moradores = document.querySelectorAll(".morador-container");
+                btnPesquisar.addEventListener("click", function () {
+                    var termoPesquisa = campoPesquisa.value.toLowerCase();
+                    moradores.forEach(function (morador) {
+                        var nomeMorador = morador.querySelector(".nome-cpf").innerText.toLowerCase();
+                        if (nomeMorador.includes(termoPesquisa)) {
+                            morador.style.display = "grid";
+                        } else {
+                            morador.style.display = "none";
+                    }
+                    });
+                });
+            });
+        </script>
+
+        <style>
+            #btnPesquisar, [name="act"] {
+                padding: 10px 20px;
+                font-size: 16px;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+                transition: background-color 0.3s ease;
+            }
+            #btnPesquisar {
+                background-color: #4682B4;
+                color: white;
+            }
+            [name="act"] {
+                background-color: #008CBA;
+                color: white;
+                margin-top: 15px;
+                margin-bottom: 15px;
+            }
+            #pesquisa {
+                padding: 10px;
+                font-size: 16px;
+                border: 1px solid #ccc;
+                border-radius: 5px;
+                transition: border-color 0.3s ease;
+            }
+        </style>
         <script src="scripts/containerMoradores.js"></script>
     </body>
 </html>
