@@ -17,7 +17,7 @@ import java.util.logging.Logger;
  *
  * @author Aluno
  */
-@WebServlet(urlPatterns = {"/Facade","/deleteFunc"})
+@WebServlet(urlPatterns = {"/Facade"})
 public class Facade extends HttpServlet {
     private String jsp;
 
@@ -31,12 +31,20 @@ public class Facade extends HttpServlet {
         
 
         if(act.equals("CadastrarMorador")) {
-            System.out.println("Facade");
             jsp = CadastrarMorador.execute(request);
         }
         else if(act.equals("ListarMorador")) {
-            System.out.println("Facade");
             jsp = ListarMorador.execute(request);
+        }
+        else if(act.equals("AtualizarEstado")){
+            jsp = AtualizarMorador.execute(request);
+            System.out.println("atualizarfacade");
+        }
+        else if(act.equals("CadastrarRefeicao")){
+            jsp = CadastrarRefeicao.execute(request);
+        }
+        else if(act.equals("ListarRefeicao")){
+            jsp = ListarRefeicao.execute(request);
         }
         else if(act.equals("cadastrarFuncionario"))
             jsp = CadastrarFuncionario.execute(request);
@@ -56,10 +64,17 @@ public class Facade extends HttpServlet {
             System.out.println("facade");
             jsp = ListarVisitantes.execute(request);
         }
+        else if(act.equals("AgendarConsulta")){
+            jsp = CadastrarConsulta.execute(request);
+        }
         else if(act.equals("listarEventos"))
             jsp = ListarEvento.execute(request);
         else if(act.equals("cadastrarEvento"))
             jsp = CadastrarEvento.execute(request);
+        else if(act.equals("deleteEvento")){
+            jsp = ExcluirEvento.execute(request);
+            jsp = ListarEvento.execute(request);
+        }
         RequestDispatcher rd = request.getRequestDispatcher(jsp);
         rd.forward(request, response);
     }

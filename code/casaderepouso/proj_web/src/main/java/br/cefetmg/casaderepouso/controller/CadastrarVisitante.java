@@ -8,10 +8,11 @@ import br.cefetmg.casaderepouso.dto.Visitante;
 import br.cefetmg.casaderepouso.dto.exception.CadastroException;
 import br.cefetmg.casaderepouso.service.ICadastrarVisitante;
 import br.cefetmg.casaderepouso.service.implement.CadastrarVisitanteService;
+import java.lang.String;
 
 /**
  *
- * @author Aluno
+ * @author Júlia
  */
 @WebServlet(name = "CadastrarVisitante", urlPatterns = {"/CadastrarVisitante"})
 public class CadastrarVisitante extends HttpServlet {
@@ -21,11 +22,13 @@ public class CadastrarVisitante extends HttpServlet {
      
         String nome = request.getParameter("nomeVisitante");
         String rg = request.getParameter("identidade");
-        String telefone = request.getParameter("telefone");
+        String telefone = request.getParameter("numero");
         String vinculo = request.getParameter("vinculo");
         String morador = request.getParameter("morador");
         String dataVisita = request.getParameter("dataVisita");
-        Visitante visitante = new Visitante(nome, rg, telefone, morador, vinculo, dataVisita);
+        String horaVisita = request.getParameter("horaVisita");
+        System.out.println("Data e hora " + dataVisita + horaVisita);
+        Visitante visitante = new Visitante(nome, rg, telefone, morador, vinculo, dataVisita, horaVisita);
 
         
         //System.out.println("Controller");
@@ -36,8 +39,6 @@ public class CadastrarVisitante extends HttpServlet {
         } catch (CadastroException ex) {
             System.out.println("Erro" + ex);
         }
-        
-        
         
         return jsp;
     }

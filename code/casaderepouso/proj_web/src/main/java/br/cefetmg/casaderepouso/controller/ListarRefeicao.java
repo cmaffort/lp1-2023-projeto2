@@ -1,3 +1,7 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
 package br.cefetmg.casaderepouso.controller;
 
 
@@ -11,14 +15,17 @@ import jakarta.servlet.http.HttpServletResponse;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import br.cefetmg.casaderepouso.dto.Funcionario;
-import br.cefetmg.casaderepouso.service.implement.ManterFuncionario;
-import br.cefetmg.casaderepouso.service.IManterFuncionario;
+import br.cefetmg.casaderepouso.dto.Refeicao;
+import br.cefetmg.casaderepouso.service.implement.ManterRefeicao;
 import java.util.ArrayList;
 import java.util.List;
-
-@WebServlet(urlPatterns = {"/ExcluirFuncionario"})
-public class ExcluirFuncionario extends HttpServlet {
+import br.cefetmg.casaderepouso.service.IManterRefeicao;
+/**
+ *
+ * @author Master
+ */
+@WebServlet(urlPatterns = {"/ListarRefeicao"})
+public class ListarRefeicao extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -34,16 +41,14 @@ public class ExcluirFuncionario extends HttpServlet {
         String jsp = "";
      
         try {
-            String id = request.getParameter("idDelete");
-            IManterFuncionario iFuncionario =  new ManterFuncionario();
-            Funcionario func = new Funcionario();
-            func.setId(id);
-            String str = iFuncionario.excluir(func);
-            if (str.equals("true")) {
-                jsp = "/telaGerente.jsp";
+            IManterRefeicao iRefeicao =  new ManterRefeicao();
+            List<Refeicao> lista = iRefeicao.pesquisarTodos();
+            if (lista != null) {
+                request.setAttribute("listRef", lista);
+                jsp = "/prontuario.jsp";
             }
         } catch (Exception e) {
-            System.out.println(e);
+            e.printStackTrace();
             jsp = "";
         }
         
@@ -54,6 +59,5 @@ public class ExcluirFuncionario extends HttpServlet {
     @Override
     public String getServletInfo() {
         return "Short description";
-    }// </editor-fold>
-
+    }
 }
