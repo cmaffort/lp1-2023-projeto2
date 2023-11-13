@@ -12,12 +12,12 @@ infoMoradores.forEach(info =>{
     window.console.log("clicado");
     let cpf = info.children[1].firstElementChild;
     let nome = info.children[3].children[0].children[0];
-    if (containerInfo.style.display === "grid" && estaNosStatus === 0 && aberto === true) {
+    if (containerInfo.style.display === "grid" && estaNosStatus === 0 && aberto === true && estaNoUpdate  === 0) {
         containerInfo.style.display = "none";
         info.style.borderRadius = "50px";
         seta.style.transform = "rotate(180deg)";
         aberto = false;
-    } else if (containerInfo.style.display === "none" && estaNosStatus === 0 && aberto === false) {
+    } else if (containerInfo.style.display === "none" && estaNosStatus === 0 && aberto === false  && estaNoUpdate  === 0) {
         containerInfo.style.display = "grid";
         seta.style.transform = "rotate(270deg)";
         info.style.borderRadius = "0px";
@@ -100,4 +100,61 @@ function corDoEstado(){
 }
 corDoEstado();
 
-// Listar ao recarregar;
+
+let containerUpdate = document.querySelector("#atualizar-container");
+let botaoUpdate = document.querySelectorAll(".botao-atualizar");
+let estaNoUpdate = 0;
+let botaoCancelarUpdate = document.querySelector("#cancelarUpdate");
+function placeholder(moradorParaAtualizar){
+    window.console.log(moradorParaAtualizar);
+    window.console.log(containerUpdate.children[0].children[0].children[1]);
+    containerUpdate.children[0].children[1].children[1].value = moradorParaAtualizar.children[0].children[0].innerHTML;
+    containerUpdate.children[0].children[5].children[1].value = moradorParaAtualizar.children[1].children[0].children[0].innerHTML;
+    containerUpdate.children[0].children[6].children[1].value = moradorParaAtualizar.children[1].children[3].children[0].innerHTML;
+    containerUpdate.children[0].children[7].children[1].value = moradorParaAtualizar.children[1].children[4].children[0].innerHTML;
+    containerUpdate.children[0].children[2].children[1].value = moradorParaAtualizar.children[0].children[1].innerHTML;
+    containerUpdate.children[0].children[4].children[1].value = moradorParaAtualizar.children[1].children[1].children[0].innerHTML;
+    containerUpdate.children[0].children[3].children[1].value = moradorParaAtualizar.children[1].children[2].children[0].innerHTML;
+    document.querySelector('#updateEstado').value = moradorParaAtualizar.parentNode.children[2].children[1].innerHTML;
+    
+    containerUpdate.children[0].children[1].children[1].placeholder = moradorParaAtualizar.children[0].children[0].innerHTML;
+    containerUpdate.children[0].children[5].children[1].placeholder = moradorParaAtualizar.children[1].children[0].children[0].innerHTML;
+    containerUpdate.children[0].children[6].children[1].placeholder = moradorParaAtualizar.children[1].children[3].children[0].innerHTML;
+    containerUpdate.children[0].children[7].children[1].placeholder = moradorParaAtualizar.children[1].children[4].children[0].innerHTML;
+    containerUpdate.children[0].children[2].children[1].placeholder = moradorParaAtualizar.children[0].children[1].innerHTML;
+    containerUpdate.children[0].children[4].children[1].placeholder = moradorParaAtualizar.children[1].children[1].children[0].innerHTML;
+    containerUpdate.children[0].children[3].children[1].placeholder = moradorParaAtualizar.children[1].children[2].children[0].innerHTML;
+}
+botaoUpdate.forEach(bot =>{
+   bot.addEventListener("click", ()=>{
+       containerUpdate.style.display = "flex";
+       estaNoUpdate = 1;
+       placeholder(bot.parentNode.parentNode);
+   }); 
+});
+botaoCancelarUpdate.addEventListener("click", () =>{
+    containerUpdate.style.display = "none";
+    estaNoUpdate = 0;
+});
+
+let checkboxFalecido = document.querySelector(".switch--shadow");
+checkboxFalecido.addEventListener("click", () =>{
+    if(checkboxFalecido.checked === false){
+    infoMoradores.forEach(mor =>{
+       if(mor.children[2].children[1].innerHTML === "Falecido"){
+           mor.style.display = "none";
+       } 
+    });
+}
+else if(checkboxFalecido.checked === true){
+    infoMoradores.forEach(mor=>{
+        mor.style.display = "grid";
+    });
+}
+});
+infoMoradores.forEach(mor =>{
+       if(mor.children[2].children[1].innerHTML === "Falecido"){
+           mor.style.display = "none";
+       } 
+    });
+    
