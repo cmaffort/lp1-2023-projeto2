@@ -20,7 +20,7 @@
 
         <div class="branco">
             <a class="button" href="CadastroEvento.jsp">Novo evento</a>
-            <a class="button" href="CadastroFuncionario.jsp">Novo Funcionário</a>
+            <a class="button" href="telaGerente.jsp">Funcionários Cadastrados</a>
             <a class="button" href="#">Relatórios</a>
             <a class="button" href="#">Equipamentos</a>
             <a class="button" href="#">Inventário</a>

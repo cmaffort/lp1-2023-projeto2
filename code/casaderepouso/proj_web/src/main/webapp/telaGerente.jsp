@@ -9,6 +9,37 @@
         <link rel="stylesheet" type="text/css" href="cssFiles/telaGerente.css">
 
         <title>Home-Gerente</title>
+       
+            <script>
+   document.addEventListener("DOMContentLoaded", function () {
+       // Aguarda o carregamento completo da página
+
+       // Obtém referências aos elementos relevantes
+       var campoPesquisa = document.getElementById("pesquisa");
+       var btnPesquisar = document.getElementById("btnPesquisar");
+       var funcionarios = document.querySelectorAll(".funcionario-container");
+
+       // Adiciona um ouvinte de evento ao botão de pesquisa
+       btnPesquisar.addEventListener("click", function () {
+           // Obtém o valor digitado no campo de pesquisa
+           var termoPesquisa = campoPesquisa.value.toLowerCase();
+
+           // Itera sobre os funcionários e exibe apenas os que correspondem ao termo de pesquisa
+           funcionarios.forEach(function (funcionario) {
+               var nomeFuncionario = funcionario.querySelector(".nome-cpf").innerText.toLowerCase();
+
+               // Verifica se o nome do funcionário contém o termo de pesquisa
+               if (nomeFuncionario.includes(termoPesquisa)) {
+                   funcionario.style.display = "grid"; // Exibe o funcionário
+               } else {
+                   funcionario.style.display = "none"; // Oculta o funcionário
+               }
+           });
+       });
+   });
+</script>
+
+
     </head>
     <body>
         <%@include file="Padrão/navGerente.jsp" %>
@@ -33,7 +64,9 @@
                 </div>
             </div>
 
-            <div class="title">Dados dos funcionários</div>
+            <div class="title">Dados dos funcionários<br><br>
+                <input type="text" id="pesquisa"><input type="submit" id="btnPesquisar">
+            </div>
             <form action="Facade" method="POST">
                 <input type="submit" name="act" value="listarFuncionario">   
             </form>
