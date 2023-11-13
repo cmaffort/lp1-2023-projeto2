@@ -13,8 +13,7 @@ CREATE TABLE IF NOT EXISTS visitantes (
     rg VARCHAR(20),
     telefone VARCHAR(15),
     vinculo_com_morador VARCHAR(100),
-    data_visita VARCHAR(255),
-    hora_visita VARCHAR(255)
+    data_e_hora_de_visita DATETIME
 );
 CREATE TABLE IF NOT EXISTS morador (
     nome VARCHAR(255),
@@ -35,8 +34,8 @@ CREATE TABLE IF NOT EXISTS responsavel (
     telefone VARCHAR(20),
     datanascimento DATE,
     endereco TEXT,
-    morador_responsavel VARCHAR(14),
-    FOREIGN KEY (morador_responsavel) REFERENCES morador(CPF)
+    morador_responsavel INT,
+    FOREIGN KEY (morador_responsavel) REFERENCES morador(id)
 );
 CREATE TABLE IF NOT EXISTS funcionario (
     id VARCHAR(255) PRIMARY KEY,
@@ -54,15 +53,15 @@ CREATE TABLE IF NOT EXISTS gerente (
     id INT AUTO_INCREMENT PRIMARY KEY,
     nome VARCHAR(255) NOT NULL,
     cpf VARCHAR(14) NOT NULL,
-    rg VARCHAR(20) NOT NULL,
+    rg VARCHAR(12) NOT NULL,
     nascimento DATE NOT NULL,
     telefone VARCHAR(20),
     endereco TEXT
 );
 CREATE TABLE IF NOT EXISTS evento (
-    id VARCHAR(255) PRIMARY KEY,
+    id VARCHAR(255) NOT NULL,
     nome VARCHAR(255) NOT NULL,
-    rg VARCHAR(20) NOT NULL,
+    rg VARCHAR(12) NOT NULL,
     descricao VARCHAR(255),
     lugar VARCHAR(255),
     dia VARCHAR(20),
@@ -76,11 +75,11 @@ CREATE TABLE IF NOT EXISTS medicamento (
     valor DECIMAL(10, 2) NOT NULL,
     tarja ENUM('SEM_TARJA', 'VERMELHA', 'AMARELA', 'PRETA') NOT NULL,
     validade DATE NOT NULL,
-    morador VARCHAR(14) NOT NULL,
+    morador INT NOT NULL,
     dose VARCHAR(255),
     ultimaAplicacao DATETIME NOT NULL,
     intervalo INT NOT NULL,
-    FOREIGN KEY (morador) REFERENCES morador(cpf)
+    FOREIGN KEY (morador) REFERENCES morador(id)
 );
 CREATE TABLE IF NOT EXISTS profissional_de_saude (
     id INT AUTO_INCREMENT PRIMARY KEY,
@@ -90,41 +89,45 @@ CREATE TABLE IF NOT EXISTS profissional_de_saude (
 
 CREATE TABLE IF NOT EXISTS prontuario (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    morador VARCHAR(14) NOT NULL,
+    morador INT NOT NULL,
     profissional_de_saude INT NOT NULL,
     relatorios TEXT,
     data DATE NOT NULL,
     hora TIME NOT NULL,
     funcionario VARCHAR(255) NOT NULL,
-    FOREIGN KEY (morador) REFERENCES morador(cpf),
+    FOREIGN KEY (morador) REFERENCES morador(id),
     FOREIGN KEY (funcionario) REFERENCES funcionario(id)
 );
 CREATE TABLE IF NOT EXISTS consulta (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    morador VARCHAR(255) NOT NULL,
+    morador INT NOT NULL,
     data DATE NOT NULL,
     hora TIME NOT NULL,
-    tipo VARCHAR (255),
-    profissional_de_saude VARCHAR(255) NOT NULL,
-    especializacao VARCHAR(255) NOT NULL
+    nivel_de_emergencia ENUM('Baixo', 'Médio', 'Alto', 'Emergência') NOT NULL,
+    profissional_de_saude INT NOT NULL,
+    especializacao VARCHAR(255) NOT NULL,
+    FOREIGN KEY (morador) REFERENCES morador(id),
+    FOREIGN KEY (profissional_de_saude) REFERENCES profissional_de_saude(id)
 );
 CREATE TABLE IF NOT EXISTS receita_medica (
     id INT AUTO_INCREMENT PRIMARY KEY,
     profissional_de_saude INT NOT NULL,
-    morador VARCHAR(14) NOT NULL,
+    morador INT NOT NULL,
     medicamentos TEXT,
     data DATE NOT NULL,
     hora TIME NOT NULL,
     quantidade INT NOT NULL,
     validade DATE NOT NULL,
     FOREIGN KEY (profissional_de_saude) REFERENCES profissional_de_saude(id),
-    FOREIGN KEY (morador) REFERENCES morador(cpf)
+    FOREIGN KEY (morador) REFERENCES morador(id)
 );
 
 CREATE TABLE IF NOT EXISTS refeicao (
-   cpf VARCHAR(14) PRIMARY KEY,
-   hora VARCHAR(4),
+   cpf VARCHAR(14),
+   hora VARCHAR(20),
    cardapio VARCHAR(255),
    tipo VARCHAR(255),
-   dia VARCHAR(7)
+   dia VARCHAR(20)
 );
+
+
