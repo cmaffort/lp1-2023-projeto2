@@ -65,7 +65,7 @@
             <p class="name">Nome Sobrenome do morador</p>
             <a class="button" href="#">Prontuário</a>
             <a class="button" href="#">Receitas Médicas</a>
-            <a class="button" href="#">Solicitar Consulta</a>
+            <a class="button" href="AgendarConsulta.jsp">>Solicitar Consulta</a>
             <a class="button" href="gestaoResponsavel.jsp">Responsáveis</a>
             <a class="button" href="cadastroResponsavel.jsp">Novo responsável</a>
         </div>    
