@@ -15,7 +15,7 @@ public interface IFuncionarioDAO {
 
     public void inserir(Funcionario funcionario) throws SQLException, ClassNotFoundException;
 
-    public boolean atualizar(Funcionario funcionario);
+    public boolean atualizar(Funcionario funcionario) throws SQLException, ClassNotFoundException;
 
     public boolean deletar(Funcionario funcionario) throws SQLException, ClassNotFoundException;
 
