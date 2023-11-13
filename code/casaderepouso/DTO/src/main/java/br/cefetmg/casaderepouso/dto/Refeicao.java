@@ -17,6 +17,9 @@ public class Refeicao {
     String tipo;
     String dia;
     String cpfMorador;
+    public Refeicao(){
+        
+    }
     public Refeicao(String cpf, String hora, String cardapio, String tipo, String dia) {
         this.hora = hora;
         this.cardapio = cardapio;

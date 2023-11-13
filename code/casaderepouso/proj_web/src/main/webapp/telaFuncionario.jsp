@@ -44,7 +44,7 @@
                 </div>
                 <div id="container-botoes-status">
                     <form id="form-atualizar"action="Facade" method="POST">
-                        <input style="display: none;" name="estado" id="enviarEstado"value="">
+                        <input style="display: none;" name="estado" id="updateEstado"value="">
                         <input style="display: none;" name="cpf" id="enviarCpf"value="">
                         <input style="display: none;" name="nomeMorador"id="enviarNome"value="">
                         <input style="display: none;" name="dataNasc" id="enviarNasc"value="">
@@ -60,45 +60,53 @@
             </div>
             <div id="atualizar-container">
                 <form id="atualizarForm" class="form-container" action="Facade" method="POST">
-                    <input type='hidden' name='act' value='CadastrarMorador'>
+                    <input style="display: none;" name="estado" id="updateEstado"value="">
                     <div class="form-group">
                         <label>Seu nome completo:</label>
-                        <input type="text" name="nomeMorador" class="texto" placeholder="Digite aqui..." required>
+                        <input type="text" name="nomeMorador" class="texto" placeholder="Digite aqui..." >
                     </div>
 
                     <div class="form-group">
                         <label>Data de Nascimento:</label>
-                        <input type="text" name="dataNasc" class="texto" placeholder="Digite aqui uma data dd/mm/aa ..." required>
+                        <input type="text" name="dataNasc" class="texto" placeholder="Digite aqui uma data dd/mm/aa ..." >
                     </div>
 
                     <div class="form-group">
                         <label>Endereço completo:</label>
-                        <input type="text" name="endereco" class="texto" placeholder="Digite aqui..." required>
+                        <input type="text" name="endereco" class="texto" placeholder="Digite aqui..." >
                     </div>
 
                     <div class="form-group">
                         <label>Nome da mãe:</label>
-                        <input type="text" name="nome_mae" class="texto" placeholder="Digite aqui..." required>
+                        <input type="text" name="nome_mae" class="texto" placeholder="Digite aqui..." >
                     </div>
                     <div class="form-group">
                         <label>CPF:</label>
-                        <input type="text" name="cpf" class="texto" placeholder="Digite aqui..." required>
+                        <input type="text" name="cpf" class="texto" placeholder="Digite aqui..." >
                     </div>
                     <div class="form-group">
                         <label>Plano médico:</label>
-                        <input type="text" name="plano_medico" class="texto" placeholder="Digite aqui..." required>
+                        <input type="text" name="plano_medico" class="texto" placeholder="Digite aqui..." >
                     </div>
                     <div class="form-group">
                         <label>Condições especiais:</label>
-                        <input type="text" name="condicoes_especiais" class="texto" placeholder="Digite aqui..." required>
+                        <input type="text" name="condicoes_especiais" class="texto" placeholder="Digite aqui..." >
                     </div>
                     <button name="act" value="AtualizarEstado"style="background-color: #14FF00;" class="update-status">Atualizar status</button>
-                    <a id="cancelarUpdate"style="background-color: #FF0000;" class="update-status">Cancelar</a>  
+                    <a id="cancelarUpdate"style="background-color: #FF0000;" class="update-status">Cancelar</a>
+                </form>
             </div>
             <div class="title">Dados dos moradores</div>
-            <form action="Facade" method="POST">
-                <input id="listarMoradores"type="submit" name="act" value="ListarMorador">   
-            </form>
+            <div id="containerheader">
+                <form action="Facade" method="POST">
+                    <input id="listarMoradores"type="submit" name="act" value="ListarMorador">   
+                </form>
+                <label id="label_falecidos">Mostrar Falecidos</label>
+                <div class="switch__container">
+                    <input id="switch-shadow" class="switch switch--shadow" type="checkbox" />
+                    <label for="switch-shadow"></label>
+                </div>
+            </div>
             <div id="container-lista-moradores">
                 <%
                    List<Morador> listaMoradores = (List<Morador>) request.getAttribute("listMor");
