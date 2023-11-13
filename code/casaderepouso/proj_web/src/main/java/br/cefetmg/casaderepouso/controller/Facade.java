@@ -17,7 +17,7 @@ import java.util.logging.Logger;
  *
  * @author Aluno
  */
-@WebServlet(urlPatterns = {"/Facade","/deleteFunc"})
+@WebServlet(urlPatterns = {"/Facade"})
 public class Facade extends HttpServlet {
     private String jsp;
 
@@ -63,6 +63,17 @@ public class Facade extends HttpServlet {
         else if(act.equals("listarVisitante")){
             System.out.println("facade");
             jsp = ListarVisitantes.execute(request);
+        }
+        else if(act.equals("AgendarConsulta")){
+            jsp = CadastrarConsulta.execute(request);
+        }
+        else if(act.equals("listarEventos"))
+            jsp = ListarEvento.execute(request);
+        else if(act.equals("cadastrarEvento"))
+            jsp = CadastrarEvento.execute(request);
+        else if(act.equals("deleteEvento")){
+            jsp = ExcluirEvento.execute(request);
+            jsp = ListarEvento.execute(request);
         }
         RequestDispatcher rd = request.getRequestDispatcher(jsp);
         rd.forward(request, response);
