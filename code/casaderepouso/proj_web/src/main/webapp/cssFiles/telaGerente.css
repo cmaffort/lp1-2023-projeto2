@@ -67,7 +67,7 @@ body {
 
 .title {
     margin-top: 5vh;
-    font-size: 150%;
+    font-size: 100%;
 }
 
 #container-lista-funcionarios{
@@ -79,7 +79,7 @@ body {
     margin: auto;
     width: 100%;
     flex-direction: column;
-    height: 90%;
+    height: 70%;
 }
 .funcionario-container{
     display: grid;

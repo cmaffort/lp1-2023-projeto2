@@ -3,11 +3,8 @@ package br.cefetmg.casaderepouso.DAO;
 
 import br.cefetmg.casaderepouso.DAO.connection.DAO;
 import br.cefetmg.casaderepouso.dto.Responsavel;
-import br.cefetmg.casaderepouso.dto.Responsavel;
 import br.cefetmg.casaderepouso.idao.IResponsavel;
 import br.cefetmg.casaderepouso.dto.exception.*;
-import java.util.Date;
-import java.util.List;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -23,34 +20,35 @@ public class ResponsavelDAO implements IResponsavel {
         
         try{
             Connection con = DAO.conectar();
-            String sql = "INSERT INTO responsavel(id, nome, cpf, rg, telefone, datanascimento, endereco, morador_responsavel) VALUES(?,?,?,?,?,?,?,?,?,?)";
+            String sql = "INSERT INTO responsavel (nome, cpf, rg, telefone, endereco, morador_responsavel) VALUES(?,?,?,?,?,?)";
 
             PreparedStatement pstmt = con.prepareStatement(sql);
-            pstmt.setString(2, responsavel.getNome());
-            pstmt.setString(3, responsavel.getCpf());
-            pstmt.setString(4, responsavel.getRg());
-            pstmt.setString(5, responsavel.getTelefone());
-            pstmt.setDate(6, new java.sql.Date(responsavel.getDataNascimento().getTime()));
-            pstmt.setString(7, responsavel.getEndereco());
-            pstmt.setString(10, responsavel.getResponsavelPor());
+            pstmt.setString(1, responsavel.getNome());
+            pstmt.setString(2, responsavel.getCpf());
+            pstmt.setString(3, responsavel.getRg());
+            pstmt.setString(4, responsavel.getTelefone());
+            pstmt.setString(5, responsavel.getEndereco());
+            pstmt.setString(6, responsavel.getResponsavelPor());
 
             pstmt.executeUpdate();
             pstmt.close();
             con.close();
       
         }
-        catch(SQLException e){
-            throw new SQLException(e.getMessage(), e);       
+        catch (SQLException e) {
+            System.out.println(e);
+            throw new SQLException(e.getMessage(), e);
         }
-        catch(ClassNotFoundException e){
-            throw new ClassNotFoundException(e.getMessage(), e);       
+        catch (ClassNotFoundException ex) {
+            System.out.println(ex);
+            throw new ClassNotFoundException(ex.getMessage(), ex);  
         }
     }
 
     @Override
     public boolean atualizar(Responsavel responsavel) throws SQLException, ClassNotFoundException{
          String sqlResponsavel = "INSERT INTO produtos VALUES('" + responsavel.getNome() + "', '" + responsavel.getRg() + "', '"
-                + responsavel.getTelefone() + "', '" + responsavel.getDataNascimento() + "', '" + responsavel.getEndereco() + "')";
+                + responsavel.getTelefone() + "', '" + responsavel.getEndereco() + "')";
          Connection conexao = null;
         
         Statement comando = null;
@@ -106,53 +104,46 @@ public class ResponsavelDAO implements IResponsavel {
 
     
     @Override
-    public List<Responsavel> listar() throws SQLException, ClassNotFoundException{
-        String sql = "SELECT * FROM responsavel";
-        List<Responsavel> reponsaveis = new ArrayList<Responsavel>();
-
-        Connection conn = null;
-        PreparedStatement pstm = null;
-
-        ResultSet rset = null;
-
+    public ArrayList<Responsavel> listar() throws SQLException, ClassNotFoundException{
+        String sql = "SELECT * FROM responsavel ORDER BY nome";
         try {
-            conn = DAO.conectar();
-            pstm = conn.prepareStatement(sql);
-            rset = pstm.executeQuery();
+            
+            Connection con = DAO.conectar();
+            PreparedStatement pst = con.prepareStatement(sql);
+            ResultSet rs = pst.executeQuery();
+            ArrayList<Responsavel> lista = new ArrayList<Responsavel>();
+            while (rs.next()) {
 
-            while (rset.next()) {
+                String nome = rs.getString(1);
+                String cpf = rs.getString(2);
+                String rg = rs.getString(3);
+                String telefone = rs.getString(4);
+                String endereco = rs.getString(5);
+                String responsavelPor = rs.getString(6);
+
                 Responsavel responsavel = new Responsavel();
-
-                responsavel.setNome(rset.getString("nome"));
-                responsavel.setCpf(rset.getString("cpf"));
-                responsavel.setRg(rset.getString("rg"));
-                responsavel.setTelefone(rset.getString("telefone"));
-                responsavel.setDataNascimento(rset.getDate("datanascimento"));
-                responsavel.setEndereco(rset.getString("endereco"));
-                responsavel.setResponsavelPor(rset.getString("morador_responsavel"));
-
                 
+                responsavel.setNome(nome);
+                responsavel.setCpf(cpf);
+                responsavel.setRg(rg);
+                responsavel.setTelefone(telefone);
+                responsavel.setEndereco(endereco);
+                responsavel.setResponsavelPor(responsavelPor);
+                
+                lista.add(responsavel);
             }
-        } catch (Exception e) {
-            e.printStackTrace();
+            rs.close();
+            pst.close();
+            con.close();
+            return lista;
 
-        } finally {
-            try {
-                if (rset != null) {
-                    rset.close();
-                }
-                if (pstm != null) {
-                    pstm.close();
-                }
-                if (conn != null) {
-                    conn.close();
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
+        } 
+        catch(SQLException e){
+            throw new SQLException(e.getMessage(), e);       
         }
-
-        return reponsaveis;
+        catch(ClassNotFoundException e){
+            throw new ClassNotFoundException(e.getMessage(), e);       
+        }
     }
 
     @Override
@@ -177,7 +168,6 @@ public class ResponsavelDAO implements IResponsavel {
                 responsavel.setCpf(rset.getString("cpf"));
                 responsavel.setRg(rset.getString("rg"));
                 responsavel.setTelefone(rset.getString("telefone"));
-                responsavel.setDataNascimento(rset.getDate("datanascimento"));
                 responsavel.setEndereco(rset.getString("endereco"));
                 responsavel.setResponsavelPor(rset.getString("morador_responsavel"));      
                 

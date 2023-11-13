@@ -10,9 +10,9 @@ import jakarta.servlet.http.HttpServletResponse;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import br.cefetmg.casaderepouso.dto.Responsavel;
-import br.cefetmg.casaderepouso.service.implement.CadastrarResponsavel;
-import br.cefetmg.casaderepouso.service.ICadastrarResponsavel;
+import br.cefetmg.casaderepouso.dto.Receita;
+import br.cefetmg.casaderepouso.service.implement.CadastrarReceita;
+import br.cefetmg.casaderepouso.service.ICadastrarReceita;
 import java.util.ArrayList;
 import java.util.List;;
 
@@ -20,8 +20,8 @@ import java.util.List;;
  *
  * @author Aluno
  */
-@WebServlet(name = "ListarResponsavel", urlPatterns = {"/ListarResponsavel"})
-public class ListarResponsavel extends HttpServlet {
+@WebServlet(name = "ListarReceita", urlPatterns = {"/ListarReceita"})
+public class ListarReceita extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -36,11 +36,11 @@ public class ListarResponsavel extends HttpServlet {
         String jsp = "";
      
         try {
-            CadastrarResponsavel iResponsavel =  new CadastrarResponsavel();
-            List<Responsavel> responsaveis =  iResponsavel.listar();
-            if (responsaveis != null) {
-                request.setAttribute("listResp", responsaveis);
-                jsp = "/gestaoResponsavel.jsp";
+            CadastrarReceita iReceita =  new CadastrarReceita();
+            List<Receita> receitas =  iReceita.listar();
+            if (receitas != null) {
+                request.setAttribute("listReceitas", receitas);
+                jsp = "/ListarReceitas.jsp";
             }
         } catch (Exception e) {
             e.printStackTrace();

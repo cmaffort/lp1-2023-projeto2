@@ -9,11 +9,74 @@
         <link rel="stylesheet" type="text/css" href="cssFiles/telaGerente.css">
 
         <title>Home-Gerente</title>
+       
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+       
+
+                var campoPesquisa = document.getElementById("pesquisa");
+                var btnPesquisar = document.getElementById("btnPesquisar");
+                var funcionarios = document.querySelectorAll(".funcionario-container");
+
+
+                btnPesquisar.addEventListener("click", function () {
+
+                    var termoPesquisa = campoPesquisa.value.toLowerCase();
+
+
+                    funcionarios.forEach(function (funcionario) {
+                        var nomeFuncionario = funcionario.querySelector(".nome-cpf").innerText.toLowerCase();
+
+
+                        if (nomeFuncionario.includes(termoPesquisa)) {
+                            funcionario.style.display = "grid";
+                        } else {
+                            funcionario.style.display = "none";
+                    }
+                    });
+                });
+            });
+        </script>
+
+        <style>
+
+            #btnPesquisar, [name="act"] {
+                padding: 10px 20px;
+                font-size: 16px;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+                transition: background-color 0.3s ease;
+            }
+
+            #btnPesquisar {
+                background-color: #4682B4;
+                color: white;
+            }
+
+            [name="act"] {
+                background-color: #008CBA;
+                color: white;
+                margin-top: 15px;
+                margin-bottom: 15px;
+            }
+
+            #pesquisa {
+                padding: 10px;
+                font-size: 16px;
+                border: 1px solid #ccc;
+                border-radius: 5px;
+                transition: border-color 0.3s ease;
+
+            }
+        </style>
+
     </head>
     <body>
         <%@include file="Padrão/navGerente.jsp" %>
 
      <div class="content">
+
             <div id="status-container">
                 <div class="state1-container">
                     <span class="state1-cor" style="background-color: #14FF00;"></span><p>Disponível</p><span class="marks"id="mark-disponivel"></span>
@@ -77,7 +140,11 @@
                     <a id="cancelarUpdate"style="background-color: #FF0000;" class="update-status">Cancelar</a>
                 </form>
             </div>
-            <div class="title">Dados dos funcionários</div>
+
+            <div class="title"><h2>Dados dos funcionários</h2>
+                <input type="text" id="pesquisa" placeholder="Pesquise o nome aqui..."><input type="submit" id="btnPesquisar" value="🔎">
+            </div>
+
             <form action="Facade" method="POST">
                 <input type="submit" name="act" value="listarFuncionario">   
             </form>
