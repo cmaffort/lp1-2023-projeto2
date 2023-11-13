@@ -26,13 +26,15 @@ CREATE TABLE IF NOT EXISTS morador (
 );
 CREATE TABLE IF NOT EXISTS funcionario (
     id VARCHAR(255) PRIMARY KEY,
-    id INT AUTO_INCREMENT PRIMARY KEY,
     nome VARCHAR(255) NOT NULL,
     cpf VARCHAR(14) NOT NULL,
     rg VARCHAR(20) NOT NULL,
-    nascimento DATE NOT NULL,
     telefone VARCHAR(20),
-    endereco TEXT
+    nascimento VARCHAR(255),
+    endereco TEXT,
+    pis VARCHAR(255),
+    funcao VARCHAR(255),
+    periodoTrabalho VARCHAR(255)
 );
 CREATE TABLE IF NOT EXISTS evento (
     id VARCHAR(255) PRIMARY KEY,
@@ -41,14 +43,9 @@ CREATE TABLE IF NOT EXISTS evento (
     descricao VARCHAR(255),
     lugar VARCHAR(255),
     dia VARCHAR(20),
-    valor DECIMAL(10, 2) NOT NULL,
-    tarja ENUM('SEM_TARJA', 'VERMELHA', 'AMARELA', 'PRETA') NOT NULL,
-    validade DATE NOT NULL,
-    morador VARCHAR(14) NOT NULL,
-    dose VARCHAR(255),
-    ultimaAplicacao DATETIME NOT NULL,
-    intervalo INT NOT NULL,
-    FOREIGN KEY (morador) REFERENCES morador(cpf)
+    horario VARCHAR(255),
+    telefone VARCHAR(255),
+    email VARCHAR(255)
 );
 CREATE TABLE IF NOT EXISTS profissional_de_saude (
     id INT AUTO_INCREMENT PRIMARY KEY,
