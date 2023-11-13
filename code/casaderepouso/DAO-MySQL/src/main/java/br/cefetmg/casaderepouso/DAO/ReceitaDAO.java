@@ -83,7 +83,7 @@ public class ReceitaDAO implements IReceita {
     
     @Override
     public ArrayList<Receita> listar() throws SQLException, ClassNotFoundException{
-        String sql = "SELECT * FROM receita_medica";
+        String sql = "SELECT * FROM receita_medica ORDER BY id";
         try {
             
             Connection con = DAO.conectar();
@@ -91,17 +91,19 @@ public class ReceitaDAO implements IReceita {
             ResultSet rs = pst.executeQuery();
             ArrayList<Receita> lista = new ArrayList<Receita>();
             while (rs.next()) {
-
-                String profissionalSaude = rs.getString(1);
-                String morador = rs.getString(2);
-                String medicamentos = rs.getString(3);
-                String data = rs.getString(4);
-                String hora = rs.getString(5);
-                String quantidade = rs.getString(6);
-                String validade = rs.getString(7);
+                
+                String id = rs.getString(1);
+                String profissionalSaude = rs.getString(2);
+                String morador = rs.getString(3);
+                String medicamentos = rs.getString(4);
+                String data = rs.getString(5);
+                String hora = rs.getString(6);
+                String quantidade = rs.getString(7);
+                String validade = rs.getString(8);
 
                 Receita receita = new Receita();
                 
+                receita.setId(id);
                 receita.setProfissionalSaude(profissionalSaude);
                 receita.setMorador(morador);
                 receita.setMedicamentos(medicamentos);
