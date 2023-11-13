@@ -42,13 +42,13 @@ CREATE TABLE IF NOT EXISTS funcionario (
     id VARCHAR(255) PRIMARY KEY,
     nome VARCHAR(255) NOT NULL,
     cpf VARCHAR(14) NOT NULL,
-    rg VARCHAR(12) NOT NULL,
+    rg VARCHAR(20) NOT NULL,
     telefone VARCHAR(20),
-    nascimento VARCHAR(20),
+    nascimento VARCHAR(255),
     endereco TEXT,
-    pis VARCHAR(255) NOT NULL,
-    funcao VARCHAR(255) NOT NULL,
-    periodoTrabalho VARCHAR(255) NOT NULL
+    pis VARCHAR(255),
+    funcao VARCHAR(255),
+    periodoTrabalho VARCHAR(255)
 );
 CREATE TABLE IF NOT EXISTS gerente (
     id INT AUTO_INCREMENT PRIMARY KEY,
@@ -121,10 +121,13 @@ CREATE TABLE IF NOT EXISTS receita_medica (
     FOREIGN KEY (morador) REFERENCES morador(cpf)
 );
 
+
 CREATE TABLE IF NOT EXISTS refeicao (
-   cpf VARCHAR(14) PRIMARY KEY,
-   hora VARCHAR(4),
+   cpf VARCHAR(14),
+   hora VARCHAR(20),
    cardapio VARCHAR(255),
    tipo VARCHAR(255),
-   dia VARCHAR(7)
+   dia VARCHAR(20)
 );
+
+

@@ -25,6 +25,7 @@ public class Facade extends HttpServlet {
     protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");
         
+        String encaminha = request.getServletPath();
         
         String act = request.getParameter("act"); 
         
@@ -39,6 +40,9 @@ public class Facade extends HttpServlet {
             jsp = AtualizarMorador.execute(request);
             System.out.println("atualizarfacade");
         }
+        else if(act.equals("CadastrarRefeicao")){
+            jsp = CadastrarRefeicao.execute(request);
+        }
         else if(act.equals("ListarRefeicao")){
             jsp = ListarRefeicao.execute(request);
         }
@@ -46,7 +50,7 @@ public class Facade extends HttpServlet {
             jsp = CadastrarFuncionario.execute(request);
         else if(act.equals("listarFuncionario"))
             jsp = ListarFuncionario.execute(request);        
-        else if(act.equals("deleteFunc")){
+        else if(act.equals("/deleteFunc")){
             jsp = ExcluirFuncionario.execute(request);
             jsp = ListarFuncionario.execute(request);
         }
@@ -57,6 +61,7 @@ public class Facade extends HttpServlet {
             jsp = CadastraMedicamento.execute(request);
         }
         else if(act.equals("listarVisitante")){
+            System.out.println("facade");
             jsp = ListarVisitantes.execute(request);
         }
         else if(act.equals("AgendarConsulta")){
@@ -70,11 +75,62 @@ public class Facade extends HttpServlet {
             jsp = ExcluirEvento.execute(request);
             jsp = ListarEvento.execute(request);
         }
-
         RequestDispatcher rd = request.getRequestDispatcher(jsp);
         rd.forward(request, response);
     }
     
+    
+    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        response.setContentType("text/html;charset=UTF-8");
+        try (PrintWriter out = response.getWriter()) {
+            /* TODO output your page here. You may use following sample code. */
+            out.println("<!DOCTYPE html>");
+            out.println("<html>");
+            out.println("<head>");
+            out.println("<title>Servlet Facade</title>");            
+            out.println("</head>");
+            out.println("<body>");
+            out.println("<h1>Servlet Facade at " + request.getContextPath() + "</h1>");
+            out.println("</body>");
+            out.println("</html>");
+        }
+    }
+
+    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
+    /**
+     * Handles the HTTP <code>GET</code> method.
+     *
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        processRequest(request, response);
+    }
+
+    /**
+     * Handles the HTTP <code>POST</code> method.
+     *
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        processRequest(request, response);
+    }
+
+    /**
+     * Returns a short description of the servlet.
+     *
+     * @return a String containing servlet description
+     */
     @Override
     public String getServletInfo() {
         return "Short description";
