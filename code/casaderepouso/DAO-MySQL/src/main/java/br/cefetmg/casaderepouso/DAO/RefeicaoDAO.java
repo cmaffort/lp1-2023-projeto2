@@ -82,10 +82,10 @@ public class RefeicaoDAO implements IRefeicaoDAO {
             
             PreparedStatement pstmt = con.prepareStatement(sql);
             pstmt.setString(1, refeicao.getCpfMorador());
-            pstmt.setString(2, refeicao.getHora());
-            pstmt.setString(3, refeicao.getCardapio());
+            pstmt.setString(2, refeicao.getDia());
+            pstmt.setString(3, refeicao.getHora());
             pstmt.setString(4, refeicao.getTipo());
-            pstmt.setString(5, refeicao.getDia());
+            pstmt.setString(5, refeicao.getCardapio());
             pstmt.executeUpdate();
             con.close();
       
@@ -110,10 +110,10 @@ public class RefeicaoDAO implements IRefeicaoDAO {
             while (rs.next()) {
 
                 String cpf = rs.getString(1);
-                String hora = rs.getString(2);
-                String cardapio = rs.getString(3);
+                String dia = rs.getString(2);
+                String hora = rs.getString(3);
                 String tipo = rs.getString(4);
-                String dia = rs.getString(5);
+                String cardapio = rs.getString(5);
 
                 Refeicao ref = new Refeicao(cpf,hora,cardapio,tipo,dia);
 
