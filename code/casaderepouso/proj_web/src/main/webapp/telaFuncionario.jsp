@@ -92,11 +92,13 @@
                         <label>Condições especiais:</label>
                         <input type="text" name="condicoes_especiais" class="texto" placeholder="Digite aqui..." >
                     </div>
-                    <button name="act" value="AtualizarEstado"style="background-color: #14FF00;" class="update-status">Atualizar status</button>
+                    <button name="act" value="AtualizarEstado"style="background-color: #14FF00;" class="update-status">Atualizar Morador</button>
                     <a id="cancelarUpdate"style="background-color: #FF0000;" class="update-status">Cancelar</a>
                 </form>
             </div>
-            <div class="title">Dados dos moradores</div>
+            <div class="title"><h2>Dados dos Moradores</h2>
+                <input type="text" id="pesquisa" placeholder="Pesquise o nome aqui..."><input type="submit" id="btnPesquisar" value="🔎">
+            </div>
             <div id="containerheader">
                 <form action="Facade" method="POST">
                     <input id="listarMoradores"type="submit" name="act" value="ListarMorador">   
@@ -151,6 +153,53 @@
                 %>
             </div>
         </div>
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+       
+                var campoPesquisa = document.getElementById("pesquisa");
+                var btnPesquisar = document.getElementById("btnPesquisar");
+                var moradores = document.querySelectorAll(".morador-container");
+                btnPesquisar.addEventListener("click", function () {
+                    var termoPesquisa = campoPesquisa.value.toLowerCase();
+                    moradores.forEach(function (morador) {
+                        var nomeMorador = morador.querySelector(".nome-cpf").innerText.toLowerCase();
+                        if (nomeMorador.includes(termoPesquisa)) {
+                            morador.style.display = "grid";
+                        } else {
+                            morador.style.display = "none";
+                    }
+                    });
+                });
+            });
+        </script>
+
+        <style>
+            #btnPesquisar, [name="act"] {
+                padding: 10px 20px;
+                font-size: 16px;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+                transition: background-color 0.3s ease;
+            }
+            #btnPesquisar {
+                background-color: #4682B4;
+                color: white;
+            }
+            [name="act"] {
+                background-color: #008CBA;
+                color: white;
+                margin-top: 15px;
+                margin-bottom: 15px;
+            }
+            #pesquisa {
+                padding: 10px;
+                font-size: 16px;
+                border: 1px solid #ccc;
+                border-radius: 5px;
+                transition: border-color 0.3s ease;
+            }
+        </style>
         <script src="scripts/containerMoradores.js"></script>
     </body>
 </html>

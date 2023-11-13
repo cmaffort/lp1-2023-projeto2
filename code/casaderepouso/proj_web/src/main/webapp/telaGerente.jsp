@@ -32,7 +32,51 @@
                     <a id="cancelar"style="background-color: #FF0000;" class="update-status">Cancelar</a>
                 </div>
             </div>
+            <div id="atualizar-container">
+                <form id="atualizarForm" class="form-container" action="Facade" method="POST">
+                    <div class="form-group">
+                        <label>Seu nome completo:</label>
+                        <input type="text" name="nomeMorador" class="texto" placeholder="Digite aqui..." >
+                    </div>
 
+                    <div class="form-group">
+                        <label>CPF:</label>
+                        <input type="text" name="dataNasc" class="texto" placeholder="Digite aqui uma data dd/mm/aa ..." >
+                    </div>
+
+                    <div class="form-group">
+                        <label>RG:</label>
+                        <input type="text" name="endereco" class="texto" placeholder="Digite aqui..." >
+                    </div>
+
+                    <div class="form-group">
+                        <label>PIS:</label>
+                        <input type="text" name="nome_mae" class="texto" placeholder="Digite aqui..." >
+                    </div>
+                    <div class="form-group">
+                        <label>Endereço:</label>
+                        <input type="text" name="cpf" class="texto" placeholder="Digite aqui..." >
+                    </div>
+                    <div class="form-group">
+                        <label>Nascimento:</label>
+                        <input type="text" name="plano_medico" class="texto" placeholder="Digite aqui..." >
+                    </div>
+                    <div class="form-group">
+                        <label>Função:</label>
+                        <input type="text" name="condicoes_especiais" class="texto" placeholder="Digite aqui..." >
+                    </div>
+                    <div class="form-group">
+                        <label>Horario de trabalho:</label>
+                        <input type="text" name="condicoes_especiais" class="texto" placeholder="Digite aqui..." >
+                    </div>
+                    <div class="form-group">
+                        <label>Telefone:</label>
+                        <input type="text" name="condicoes_especiais" class="texto" placeholder="Digite aqui..." >
+                    </div>
+                    <button name="act" value="AtualizarFuncionario"style="background-color: #14FF00;" class="update-status">Atualizar funcioanrio</button>
+                    <a id="cancelarUpdate"style="background-color: #FF0000;" class="update-status">Cancelar</a>
+                </form>
+            </div>
             <div class="title">Dados dos funcionários</div>
             <form action="Facade" method="POST">
                 <input type="submit" name="act" value="listarFuncionario">   
@@ -49,17 +93,22 @@
                     <p class="nome-cpf"><%=func.getNome()%> - CPF: <span class="cpf"><%=func.getCpf()%></span></p>
 
                     <div style="display: none;" class="container-info"> 
-
-                        <div class="info-container">
-                            <p class="info-content" >RG: <%=func.getRg()%></p>
-                            <p class="info-content" >PIS: <%=func.getPis()%></p>
-                            <p class="info-content" >Endereço: <%=func.getEndereco()%></p>
-                            <p class="info-content" >Nascimento: <%=func.getDataNasc()%></p>
-                            <p class="info-content" >Função: <%=func.getFuncao()%></p>
-                            <p class="info-content" >Horário de trabalho: <%=func.getPeriodoTrabalho()%></p>
-                            <p class="info-content">Telefone: <%=func.getFone()%></p>
+                        <div class="title-container">
+                            <h1 class="name"><%=func.getNome()%></h1>
+                            <h2 class="nascimento"><%=func.getDataNasc()%></h2>     
                         </div>
-                        <div class="info-access">     
+                        <div class="info-container">
+                            <p class="info-content" >CPF: <span><%=func.getCpf()%></span></p>
+                            <p class="info-content" >RG: <span><%=func.getRg()%></span></p>
+                            <p class="info-content" >PIS: <span><%=func.getPis()%></span></p>
+                            <p class="info-content" >Endereço: <span><%=func.getEndereco()%></span></p>
+                            <p class="info-content" >Função: <span><%=func.getFuncao()%></span></p>
+                            <p class="info-content" >Horário de trabalho: <span><%=func.getPeriodoTrabalho()%></span></p>
+                            <p class="info-content">Telefone: <span><%=func.getFone()%></span></p>
+                        </div>
+                        
+                        <div class="info-access">
+                            <button class="botao-atualizar">Atualizar</button>
                             <a class="excluir" onclick="window.location='/proj_web/Facade?act=deleteFunc&idDelete=<%=func.getId()%>'">Deletar</a>
                         </div>
                     </div>

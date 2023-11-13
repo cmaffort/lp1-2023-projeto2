@@ -81,6 +81,7 @@ body {
     margin-bottom: 20px;
 }
 table {
+    margin-top: 10px;
     height: 40vh;
     width: 60vh;
     border-collapse: collapse;
@@ -152,14 +153,15 @@ button {
 }
 
 #container-info{
+    overflow-y: scroll;
     display: flex;
     background-color: rgba(164, 203, 249, 0.50);
     border-radius: 36px;
     justify-content: flex-start;
     margin: auto;
-    width: 70%;
+    width: 80%;
     flex-direction: column;
-    height: 90%;
+    height: 80%;
 }
 #meuForm{
     display: flex;

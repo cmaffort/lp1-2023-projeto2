@@ -157,3 +157,4 @@ infoMoradores.forEach(mor =>{
            mor.style.display = "none";
        } 
     });
+    
