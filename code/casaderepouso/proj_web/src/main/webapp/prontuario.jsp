@@ -14,7 +14,11 @@
         <title>Prontuário</title>
     </head>
     <body>
-        <%@include file="Padrão/navFuncionario.jsp" %>
+        <%@include file="Padrão/navMorador.jsp" %>
+        <div id="container">
+        <form action="Facade" method="POST">
+                <input id="ListarRefeicao"type="submit" name="act" value="ListarRefeicao">   
+        </form>
         <a class="back-button" href="telaFuncionario.jsp""><img src="./imgs/Voltar.png"></a>
         <table id="tabela">
             <thead>
@@ -27,30 +31,6 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td style="display:none;">            
-                    </td>
-                    <td>segunda</td>
-                    <td>19:30</td>
-                    <td>teste</td>
-                    <td>suco</td>
-                </tr>
-                <tr>
-                    <td style="display:none;">            
-                    </td>
-                    <td>quarta</td>
-                    <td>19:30</td>
-                    <td>teste</td>
-                    <td>suco</td>
-                </tr>
-                <tr>
-                    <td style="display:none;">            
-                    </td>
-                    <td>segunda</td>
-                    <td>14:30</td>
-                    <td>teste</td>
-                    <td>suco</td>
-                </tr>
                 <%
                    List<Refeicao> listRefeicao = (List<Refeicao>) request.getAttribute("listRef");
                    if(listRefeicao != null){
@@ -106,6 +86,7 @@
             </div>
             <input type="submit" value="Adicionar" class="envio">
         </form>
+        </div>
         <script src="scripts/refeicao.js"></script>
     </body>
 </html>
