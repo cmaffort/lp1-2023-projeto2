@@ -142,7 +142,7 @@ body {
 
 
 .container-info{
-    z-index: 998;
+    z-index: 995;
     box-sizing: border-box;
     display: grid;
     grid-template-columns: repeat(2,1fr);
