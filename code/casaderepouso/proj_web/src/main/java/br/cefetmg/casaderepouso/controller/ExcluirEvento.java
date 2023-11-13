@@ -1,6 +1,7 @@
 package br.cefetmg.casaderepouso.controller;
 
 
+import br.cefetmg.casaderepouso.dto.Evento;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
@@ -8,17 +9,12 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import br.cefetmg.casaderepouso.dto.Funcionario;
-import br.cefetmg.casaderepouso.service.implement.ManterFuncionario;
-import br.cefetmg.casaderepouso.service.IManterFuncionario;
-import java.util.ArrayList;
-import java.util.List;
+import br.cefetmg.casaderepouso.service.IManterEvento;
+import br.cefetmg.casaderepouso.service.implement.ManterEvento;
 
-@WebServlet(urlPatterns = {"/ExcluirFuncionario"})
-public class ExcluirFuncionario extends HttpServlet {
+
+@WebServlet(urlPatterns = {"/ExcluirEvento"})
+public class ExcluirEvento extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -34,13 +30,13 @@ public class ExcluirFuncionario extends HttpServlet {
         String jsp = "";
      
         try {
-            String id = request.getParameter("idDelete");
-            IManterFuncionario iFuncionario =  new ManterFuncionario();
-            Funcionario func = new Funcionario();
-            func.setId(id);
-            String str = iFuncionario.excluir(func);
+            String id = request.getParameter("eventoDelete");
+            IManterEvento iEvento =  new ManterEvento();
+            Evento event = new Evento();
+            event.setId(id);
+            String str = iEvento.excluir(event);
             if (str.equals("true")) {
-                jsp = "/telaGerente.jsp";
+                jsp = "/telaEvento.jsp";
             }
         } catch (Exception e) {
             System.out.println(e);
