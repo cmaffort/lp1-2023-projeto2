@@ -93,7 +93,7 @@
                             <a class="links-acessos">Acessar receitas médicas</a>
                             <a class="links-acessos">Acessar resultados de exames</a>
                             <a class="links-acessos">Acessar histórico médico</a>
-                            <a class="links-acessos">Acessar prontuário</a>
+                            <a style="z-index: 998"class="links-acessos" href="prontuario.jsp">Acessar prontuário</a>
                             <a class="links-acessos">Acessar responsáveis</a>
                             <a class="links-acessos">Solicitar consulta</a>
                             <a class="links-acessos">Novo responsável</a>
