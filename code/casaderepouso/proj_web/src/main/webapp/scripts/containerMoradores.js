@@ -10,20 +10,19 @@ infoMoradores.forEach(info =>{
     let containerInfo = info.lastElementChild;
     let seta = info.firstElementChild;
     window.console.log("clicado");
-    let cpf = info.children;
-    cpf = cpf[1].firstElementChild;
+    let cpf = info.children[1].firstElementChild;
+    let nome = info.children[3].children[0].children[0];
     if (containerInfo.style.display === "grid" && estaNosStatus === 0 && aberto === true) {
         containerInfo.style.display = "none";
         info.style.borderRadius = "50px";
         seta.style.transform = "rotate(180deg)";
-        localStorage.setItem("cpf", "");
         aberto = false;
-
     } else if (containerInfo.style.display === "none" && estaNosStatus === 0 && aberto === false) {
         containerInfo.style.display = "grid";
         seta.style.transform = "rotate(270deg)";
         info.style.borderRadius = "0px";
         localStorage.setItem("cpf", cpf.innerHTML);
+        localStorage.setItem("nome", nome.innerHTML);
         aberto = true;
     }
 });
