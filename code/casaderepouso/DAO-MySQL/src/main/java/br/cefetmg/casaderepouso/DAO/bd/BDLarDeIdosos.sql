@@ -18,7 +18,6 @@ CREATE TABLE IF NOT EXISTS visitantes (
 );
 CREATE TABLE IF NOT EXISTS morador (
     nome VARCHAR(255),
-	@@ -35,8 +34,8 @@ CREATE TABLE IF NOT EXISTS responsavel (
     telefone VARCHAR(20),
     datanascimento DATE,
     endereco TEXT,
@@ -27,7 +26,6 @@ CREATE TABLE IF NOT EXISTS morador (
 );
 CREATE TABLE IF NOT EXISTS funcionario (
     id VARCHAR(255) PRIMARY KEY,
-	@@ -54,15 +53,15 @@ CREATE TABLE IF NOT EXISTS gerente (
     id INT AUTO_INCREMENT PRIMARY KEY,
     nome VARCHAR(255) NOT NULL,
     cpf VARCHAR(14) NOT NULL,
@@ -43,7 +41,6 @@ CREATE TABLE IF NOT EXISTS evento (
     descricao VARCHAR(255),
     lugar VARCHAR(255),
     dia VARCHAR(20),
-	@@ -76,11 +75,11 @@ CREATE TABLE IF NOT EXISTS medicamento (
     valor DECIMAL(10, 2) NOT NULL,
     tarja ENUM('SEM_TARJA', 'VERMELHA', 'AMARELA', 'PRETA') NOT NULL,
     validade DATE NOT NULL,
