@@ -37,7 +37,7 @@ public class CadastrarRefeicao extends HttpServlet {
     
             String cpf = request.getParameter("cpf");
             String hora = request.getParameter("hora");
-            String dia = request.getParameter("data");
+            String dia = request.getParameter("dia");
             String tipo = request.getParameter("tipo");
             String cardapio = request.getParameter("cardapio");
             
