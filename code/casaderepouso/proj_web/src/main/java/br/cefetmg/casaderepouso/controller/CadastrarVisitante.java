@@ -27,7 +27,6 @@ public class CadastrarVisitante extends HttpServlet {
         String morador = request.getParameter("morador");
         String dataVisita = request.getParameter("dataVisita");
         String horaVisita = request.getParameter("horaVisita");
-        System.out.println("Data e hora " + dataVisita + horaVisita);
         Visitante visitante = new Visitante(nome, rg, telefone, morador, vinculo, dataVisita, horaVisita);
 
         

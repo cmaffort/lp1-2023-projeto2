@@ -68,11 +68,11 @@ public class ConsultaDAO implements IConsultaDAO{
             
             ResultSet rs = preparedStatement.executeQuery();
             while(rs.next()){
-                String data = rs.getString(2);
-                String hora = rs.getString(3);
-                String profissional = rs.getString(4);
-                String especializacao = rs.getString(5);
-                String tipo = rs.getString(6);
+                String data = rs.getString(1);
+                String hora = rs.getString(2);
+                String profissional = rs.getString(3);
+                String especializacao = rs.getString(4);
+                String tipo = rs.getString(5);
 
                 
                 Consulta consulta = new Consulta(data, hora, profissional, especializacao, tipo);

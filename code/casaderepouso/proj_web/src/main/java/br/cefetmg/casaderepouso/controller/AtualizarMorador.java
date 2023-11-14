@@ -31,6 +31,7 @@ public class AtualizarMorador extends HttpServlet {
             String endereco = request.getParameter("endereco");
             String condicoes = request.getParameter("condicoes_especiais");
             
+            System.out.println(estado);
             Morador morador = new Morador();
             
             morador.setNome(nome);
