@@ -33,19 +33,19 @@ public class ExcluirResponsavel extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
    public static String execute(HttpServletRequest request) {
-        String jsp = "";
+       String jsp = "";
      
         try {
-            String id = request.getParameter("id");
+            String nome = request.getParameter("responsavelDelete");
             CadastrarResponsavel iResponsavel =  new CadastrarResponsavel();
             Responsavel responsavel = new Responsavel();
-            responsavel.setId(id);
+            responsavel.setNome(nome);
             String str = iResponsavel.excluir(responsavel);
             if (str.equals("true")) {
-                jsp = "/telaGerente.jsp";
+                jsp = "/gestaoResponsavel.jsp";
             }
         } catch (Exception e) {
-            e.printStackTrace();
+            System.out.println(e);
             jsp = "";
         }
         

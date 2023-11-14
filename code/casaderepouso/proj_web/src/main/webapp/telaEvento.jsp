@@ -14,13 +14,73 @@
         <link rel="stylesheet" type="text/css" href="cssFiles/telaEventos.css">
 
         <title>Gestão de Eventos</title>
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+       
+
+       
+            var campoPesquisa = document.getElementById("pesquisa");
+            var btnPesquisar = document.getElementById("btnPesquisar");
+            var eventos = document.querySelectorAll(".evento-container");
+
+
+            btnPesquisar.addEventListener("click", function () {
+
+                var termoPesquisa = campoPesquisa.value.toLowerCase();
+
+
+                eventos.forEach(function (event) {
+                    var nomeEvento = event.querySelector(".nome-rg").innerText.toLowerCase();
+
+
+                    if (nomeEvento.includes(termoPesquisa)) {
+                        event.style.display = "grid";
+                    } else {
+                        event.style.display = "none";
+                    }
+                });
+            });
+        });
+        </script>
+        <style>
+
+                #btnPesquisar, [name="act"] {
+                    padding: 10px 20px;
+                    font-size: 16px;
+                    border: none;
+                    border-radius: 5px;
+                    cursor: pointer;
+                    transition: background-color 0.3s ease;
+                }
+
+                #btnPesquisar {
+                    background-color: #4682B4;
+                    color: white;
+                }
+
+                [name="act"] {
+                    background-color: #008CBA;
+                    color: white;
+                    margin-top: 15px;
+                    margin-bottom: 15px;
+                }
+
+                #pesquisa {
+                    padding: 10px;
+                    font-size: 16px;
+                    border: 1px solid #ccc;
+                    border-radius: 5px;
+                    transition: border-color 0.3s ease;
+                }
+
+        </style>
     </head>
 
     <body>
 
         <div class="branco">
             <a class="button" href="CadastroEvento.jsp">Novo evento</a>
-            <a class="button" href="CadastroFuncionario.jsp">Novo Funcionário</a>
+            <a class="button" href="telaGerente.jsp">Funcionários Cadastrados</a>
             <a class="button" href="#">Relatórios</a>
             <a class="button" href="#">Equipamentos</a>
             <a class="button" href="#">Inventário</a>
@@ -28,26 +88,11 @@
 
         </div>
         <div class="content">
-            <div id="status-container">
-                <div class="state1-container">
-                    <span class="state1-cor" style="background-color: #14FF00;"></span><p>Disponível</p><span class="marks"id="mark-disponivel"></span>
-                </div>
-                <div class="state1-container">
-                    <span class="state1-cor" style="background-color: #2882EB;"></span><p>Saída Temporária</p><span class="marks"id="mark-saida"></span>
-                </div>
-                <div class="state1-container">
-                    <span class="state1-cor" style="background-color: #FF0000;"></span><p>Internado</p><span class="marks"id="mark-internado"></span>
-                </div>
-                <div class="state1-container">
-                    <span class="state1-cor" style="background-color: #1E1E1E;"></span><p>Falecido</p><span class="marks"id="mark-falecido"></span>
-                </div>
-                <div id="container-botoes-status">
-                    <a style="background-color: #14FF00;" class="update-status">Atualizar status</a>
-                    <a id="cancelar"style="background-color: #FF0000;" class="update-status">Cancelar</a>
-                </div>
-            </div>
+            
 
-            <div class="title">Dados dos eventos</div>
+            <div class="title"><h2>Dados dos eventos</h2>
+                <input type="text" id="pesquisa" placeholder="Pesquise o nome aqui..."><input type="submit" id="btnPesquisar" value="🔎">
+            </div>
             <form action="Facade" method="POST">
                 <input type="submit" name="act" value="listarEventos">   
             </form>

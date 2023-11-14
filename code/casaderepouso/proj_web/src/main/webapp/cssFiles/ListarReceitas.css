@@ -65,7 +65,7 @@ body {
     flex-direction: column;
     margin-left: 15%;
 }
-#containter-lista-responsaveis{
+#containter-lista-receitas{
     overflow-y: scroll;
     display: flex;
     background-color: rgba(164, 203, 249, 0.50);
@@ -120,12 +120,6 @@ body {
     text-align: left;
     flex-direction: column;
 }
-.info-access{
-    display: flex;
-    justify-content: center;
-    text-align: left;
-    flex-direction: column;
-}
 .excluir{
     cursor: pointer; 
     color: #990000; 
@@ -133,6 +127,5 @@ body {
     font-size: 20px; 
     text-decoration: underline; 
 }
-
 
 

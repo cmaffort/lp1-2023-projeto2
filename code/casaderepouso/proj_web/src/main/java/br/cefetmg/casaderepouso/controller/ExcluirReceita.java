@@ -1,13 +1,14 @@
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
  */
 package br.cefetmg.casaderepouso.controller;
-
 
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
+import java.sql.SQLException;
+import java.text.ParseException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
@@ -15,17 +16,18 @@ import jakarta.servlet.http.HttpServletResponse;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import br.cefetmg.casaderepouso.dto.Refeicao;
-import br.cefetmg.casaderepouso.service.implement.ManterRefeicao;
-import java.util.ArrayList;
-import java.util.List;
-import br.cefetmg.casaderepouso.service.IManterRefeicao;
+import br.cefetmg.casaderepouso.dto.Receita;
+import br.cefetmg.casaderepouso.dto.exception.CadastroException;
+import br.cefetmg.casaderepouso.service.ICadastrarReceita;
+import br.cefetmg.casaderepouso.service.implement.CadastrarReceita;
+
+
 /**
  *
- * @author Master
+ * @author Particular
  */
-@WebServlet(urlPatterns = {"/ListarRefeicao"})
-public class ListarRefeicao extends HttpServlet {
+@WebServlet(name = "ExcluirReceita", urlPatterns = {"/ExcluirReceita"})
+public class ExcluirReceita extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -36,19 +38,20 @@ public class ListarRefeicao extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-    
     public static String execute(HttpServletRequest request) {
         String jsp = "";
      
         try {
-            IManterRefeicao iRefeicao =  new ManterRefeicao();
-            List<Refeicao> lista = iRefeicao.pesquisarTodos();
-            if (lista != null) {
-                request.setAttribute("listRef", lista);
-                jsp = "/dieta.jsp";
+            String id = request.getParameter("receitaDelete");
+            CadastrarReceita iReceita =  new CadastrarReceita();
+            Receita receita = new Receita();
+            receita.setId(id);
+            String str = iReceita.excluir(receita);
+            if (str.equals("true")) {
+                jsp = "/ListarReceitas.jsp";
             }
         } catch (Exception e) {
-            e.printStackTrace();
+            System.out.println(e);
             jsp = "";
         }
         
@@ -60,4 +63,5 @@ public class ListarRefeicao extends HttpServlet {
     public String getServletInfo() {
         return "Short description";
     }
+
 }

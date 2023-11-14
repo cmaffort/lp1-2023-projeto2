@@ -9,7 +9,10 @@ import br.cefetmg.casaderepouso.idao.IConsultaDAO;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -53,4 +56,39 @@ public class ConsultaDAO implements IConsultaDAO{
         }
         return true;
     }
-}
+
+    @Override
+    public List<Consulta> listarTodos() {
+         String query = "SELECT * FROM consulta";
+        List<Consulta> consultaList = new ArrayList<>();
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection connection = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/bdlardeidosos", "root", "admin");
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            
+            ResultSet rs = preparedStatement.executeQuery();
+            while(rs.next()){
+                String data = rs.getString(2);
+                String hora = rs.getString(3);
+                String profissional = rs.getString(4);
+                String especializacao = rs.getString(5);
+                String tipo = rs.getString(6);
+
+                
+                Consulta consulta = new Consulta(data, hora, profissional, especializacao, tipo);
+                
+                consultaList.add(consulta);
+
+            }
+            connection.close();
+            rs.close();
+            
+    }catch (ClassNotFoundException ex) {
+            System.out.println(ex);
+    } catch (SQLException ex) {
+        System.out.println(ex);
+    }
+        return consultaList;
+    }
+
+    }

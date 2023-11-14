@@ -38,19 +38,24 @@ public class Facade extends HttpServlet {
         }
         else if(act.equals("AtualizarEstado")){
             jsp = AtualizarMorador.execute(request);
-            System.out.println("atualizarfacade");
+            jsp = ListarMorador.execute(request);
         }
         else if(act.equals("CadastrarRefeicao")){
             jsp = CadastrarRefeicao.execute(request);
+            jsp = ListarRefeicao.execute(request);
         }
         else if(act.equals("ListarRefeicao")){
+            jsp = ListarRefeicao.execute(request);
+        }
+        else if(act.equals("deleteRef")){
+            jsp = ExcluirRefeicao.execute(request);
             jsp = ListarRefeicao.execute(request);
         }
         else if(act.equals("cadastrarFuncionario"))
             jsp = CadastrarFuncionario.execute(request);
         else if(act.equals("listarFuncionario"))
             jsp = ListarFuncionario.execute(request);        
-        else if(act.equals("/deleteFunc")){
+        else if(act.equals("deleteFunc")){
             jsp = ExcluirFuncionario.execute(request);
             jsp = ListarFuncionario.execute(request);
         }
@@ -64,6 +69,10 @@ public class Facade extends HttpServlet {
             System.out.println("facade");
             jsp = ListarVisitantes.execute(request);
         }
+        else if(act.equals("cadastrarResponsavel"))
+            jsp = CadastraResponsavel.execute(request);
+        else if(act.equals("listarResponsavel"))
+            jsp = ListarResponsavel.execute(request);
         else if(act.equals("AgendarConsulta")){
             jsp = CadastrarConsulta.execute(request);
         }
@@ -71,14 +80,29 @@ public class Facade extends HttpServlet {
             jsp = ListarEvento.execute(request);
         else if(act.equals("cadastrarEvento"))
             jsp = CadastrarEvento.execute(request);
+        else if(act.equals("CadastrarReceita"))
+            jsp = CadastraReceita.execute(request);
+        else if(act.equals("ListarReceita"))
+            jsp = ListarReceita.execute(request);
         else if(act.equals("deleteEvento")){
             jsp = ExcluirEvento.execute(request);
             jsp = ListarEvento.execute(request);
         }
+        else if(act.equals("deleteReceita")){
+            jsp = ExcluirReceita.execute(request);
+            jsp = ListarReceita.execute(request);
+        }
+        else if(act.equals("deleteResponsavel")){
+            jsp = ExcluirResponsavel.execute(request);
+            jsp = ListarResponsavel.execute(request);
+        }
+        else if(act.equals("listarConsultas")){
+            jsp = ListarConsultas.execute(request);
+        }
         RequestDispatcher rd = request.getRequestDispatcher(jsp);
         rd.forward(request, response);
-    }
     
+}
     
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -137,3 +161,4 @@ public class Facade extends HttpServlet {
     }// </editor-fold>
 
 }
+

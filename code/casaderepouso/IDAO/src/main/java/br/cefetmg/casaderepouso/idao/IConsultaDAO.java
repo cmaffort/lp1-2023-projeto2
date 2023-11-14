@@ -5,6 +5,7 @@
 package br.cefetmg.casaderepouso.idao;
 
 import br.cefetmg.casaderepouso.dto.Consulta;
+import java.util.List;
 
 /**
  *
@@ -12,5 +13,6 @@ import br.cefetmg.casaderepouso.dto.Consulta;
  */
 public interface IConsultaDAO {
         public boolean cadastrar(Consulta consulta);
+        public List<Consulta> listarTodos();
 
 }

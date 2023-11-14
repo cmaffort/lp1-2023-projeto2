@@ -79,7 +79,7 @@ body {
     margin: auto;
     width: 100%;
     flex-direction: column;
-    height: 90%;
+    height: 70%;
 }
 .evento-container{
     display: grid;

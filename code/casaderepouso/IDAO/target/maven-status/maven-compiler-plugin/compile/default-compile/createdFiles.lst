@@ -8,4 +8,5 @@ br\cefetmg\casaderepouso\idao\IResponsavel.class
 br\cefetmg\casaderepouso\idao\IMedicamentoDAO.class
 br\cefetmg\casaderepouso\idao\IMedicamento.class
 br\cefetmg\casaderepouso\idao\IFuncionarioDAO.class
+br\cefetmg\casaderepouso\idao\IRefeicaoDAO.class
 br\cefetmg\casaderepouso\idao\IVisitanteDAO.class
