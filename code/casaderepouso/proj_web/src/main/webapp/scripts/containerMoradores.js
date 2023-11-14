@@ -62,7 +62,7 @@ function atualizarEstado(moradorParaAtualizar){
 function comecarMarcado(estadoBD){
     marcadores.forEach(marc =>{
         if(marc.parentNode.children[1].innerHTML === estadoBD){
-            document.querySelector('#updateEstado').value = marc.parentNode.children[1].innerHTML;;
+            document.querySelector('#updateEstado').value = marc.parentNode.children[1].innerHTML;
             window.console.log(document.querySelector('#updateEstado').value);
             marc.style.backgroundColor = "black";
             elementoSelecionado = marc;
@@ -74,7 +74,7 @@ marcadores.forEach(marc => {
         if (elementoSelecionado) { 
             elementoSelecionado.style.backgroundColor = "#D9D9D9";
         }
-        document.querySelector('#updateEstado').value = marc.parentNode.children[1].innerHTML;;
+        document.querySelector('#updateEstado').value = marc.parentNode.children[1].innerHTML;
         window.console.log(document.querySelector('#updateEstado').value);
         marc.style.backgroundColor = "black";
         elementoSelecionado = marc;
