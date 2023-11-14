@@ -164,10 +164,15 @@
                     var termoPesquisa = campoPesquisa.value.toLowerCase();
                     moradores.forEach(function (morador) {
                         var nomeMorador = morador.querySelector(".nome-cpf").innerText.toLowerCase();
+                        if(nomeMorador.includes(termoPesquisa) && morador.children[2].children[1].innerHTML === "Falecido" && localStorage.getItem("falecido") === 'nao'){
+                            morador.style.display = "none";
+                        }
+                        else{
                         if (nomeMorador.includes(termoPesquisa)) {
                             morador.style.display = "grid";
                         } else {
                             morador.style.display = "none";
+                        }
                     }
                     });
                 });

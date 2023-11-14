@@ -62,8 +62,8 @@ function atualizarEstado(moradorParaAtualizar){
 function comecarMarcado(estadoBD){
     marcadores.forEach(marc =>{
         if(marc.parentNode.children[1].innerHTML === estadoBD){
-            document.querySelector('#enviarEstado').value = marc.parentNode.children[1].innerHTML;;
-            window.console.log(document.querySelector('#enviarEstado').value);
+            document.querySelector('#updateEstado').value = marc.parentNode.children[1].innerHTML;;
+            window.console.log(document.querySelector('#updateEstado').value);
             marc.style.backgroundColor = "black";
             elementoSelecionado = marc;
         }
@@ -74,8 +74,8 @@ marcadores.forEach(marc => {
         if (elementoSelecionado) { 
             elementoSelecionado.style.backgroundColor = "#D9D9D9";
         }
-        document.querySelector('#enviarEstado').value = marc.parentNode.children[1].innerHTML;;
-        window.console.log(document.querySelector('#enviarEstado').value);
+        document.querySelector('#updateEstado').value = marc.parentNode.children[1].innerHTML;;
+        window.console.log(document.querySelector('#updateEstado').value);
         marc.style.backgroundColor = "black";
         elementoSelecionado = marc;
     });
@@ -140,6 +140,7 @@ botaoCancelarUpdate.addEventListener("click", () =>{
 let checkboxFalecido = document.querySelector(".switch--shadow");
 checkboxFalecido.addEventListener("click", () =>{
     if(checkboxFalecido.checked === false){
+    localStorage.setItem("falecido","nao");
     infoMoradores.forEach(mor =>{
        if(mor.children[2].children[1].innerHTML === "Falecido"){
            mor.style.display = "none";
@@ -147,14 +148,26 @@ checkboxFalecido.addEventListener("click", () =>{
     });
 }
 else if(checkboxFalecido.checked === true){
+    localStorage.setItem("falecido","sim");
     infoMoradores.forEach(mor=>{
         mor.style.display = "grid";
     });
 }
 });
-infoMoradores.forEach(mor =>{
+
+if(localStorage.getItem("falecido") === "sim"){
+    checkboxFalecido.checked = true;
+    infoMoradores.forEach(mor =>{
+       if(mor.children[2].children[1].innerHTML === "Falecido"){
+           mor.style.display = "grid";
+       } 
+    });
+}    
+else if(localStorage.getItem("falecido") === "nao"){
+    checkboxFalecido.checked = false;
+    infoMoradores.forEach(mor =>{
        if(mor.children[2].children[1].innerHTML === "Falecido"){
            mor.style.display = "none";
        } 
     });
-    
+}
