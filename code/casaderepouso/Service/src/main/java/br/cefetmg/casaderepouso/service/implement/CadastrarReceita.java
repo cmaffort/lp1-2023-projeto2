@@ -29,7 +29,11 @@ public class CadastrarReceita implements ICadastrarReceita{
 
     @Override
     public String excluir(Receita receita) throws SQLException, ClassNotFoundException{
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        boolean verifica = receitaDAO.deletar(receita);
+        if(verifica)
+            return "true";
+        else
+            return "false";
     } 
     @Override
     public List<Receita> listar() throws Exception {

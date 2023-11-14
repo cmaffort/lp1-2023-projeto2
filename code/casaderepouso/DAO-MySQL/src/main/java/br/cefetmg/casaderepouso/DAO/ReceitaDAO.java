@@ -50,33 +50,26 @@ public class ReceitaDAO implements IReceita {
  
     @Override
     public boolean deletar(Receita receita) throws SQLException, ClassNotFoundException{
-        String sql = "DELETE FROM receita WHERE nome = ?";
-
-        Connection conn = null;
-        PreparedStatement pstm = null;
-
-        ResultSet rset = null;
-
         try {
-            conn = DAO.conectar();
-            pstm = conn.prepareStatement(sql);
-            pstm.setString(1, receita.getMorador());
-            pstm.execute();
-            
+            Connection con = DAO.conectar();
 
-        } catch (Exception e) {
-            e.printStackTrace();
-            return false;
-        }finally{
-            try{
-                if(pstm != null)
-                    pstm.close();
-                if(conn != null)
-                    conn.close();
-            }catch(Exception e){
-            e.printStackTrace();
-            }
+            String sql = "DELETE FROM receita_medica WHERE id = ?";
+
+            PreparedStatement pstmt = con.prepareStatement(sql);
+            pstmt.setString(1, receita.getId());
+            pstmt.executeUpdate();
+
+            pstmt.close();
+            con.close();
             return true;
+        } 
+         catch(SQLException e){
+             System.out.println(e);
+            throw new SQLException(e.getMessage(), e);       
+        }
+        catch(ClassNotFoundException e){
+            System.out.println(e);
+            throw new ClassNotFoundException(e.getMessage(), e);       
         }
     }
 

@@ -25,31 +25,44 @@
             <a class="button" href="GestaoVisitantes.jsp">Visitas</a>
             <a class="button" href="CadastroReceita.jsp">Nova Receita</a>
         </div>
-
-        <form action="Facade" method="POST">
-            <input type="submit" name="act" value="ListarReceita">   
-        </form>
-        <%
-            List<Receita> listReceita = (List<Receita>) request.getAttribute("listReceitas");
-            if(listReceita != null){
-            for (Receita receita: listReceita) {
-        %>
-        <div class="lista"> 
-            <div class="dados">
-                <h1>Receita <%=receita.getId()%></h1>
-                <p>Profissional de Saúde: <%=receita.getProfissionalSaude()%></p>
-                <p>Morador: <%=receita.getMorador()%></p>
-                <p>Medicamentos: <%=receita.getMedicamentos()%></p>
-                <p>Data: <%=receita.getData()%></p>
-                <p>Hora: <%=receita.getHora()%></p>
-                <p>Quantidade: <%=receita.getQuantidade()%></p>
-                <p>Validade: <%=receita.getValidade()%></p>
+        <div class="content">
+            <div class="title"><h1>Receitas</h1>
+                <input type="text" id="pesquisa" placeholder="Pesquise o id aqui..."><input type="submit" id="btnPesquisar" value="🔎">
             </div>
-            <%
-                }
-            }
-            %>
-        </div>
+            <form action="Facade" method="POST">
+                <input type="submit" name="act" value="ListarReceita">   
+            </form>
+            <div id="containter-lista-receitas">
+                <%
+                    List<Receita> listReceita = (List<Receita>) request.getAttribute("listReceitas");
+                    if(listReceita != null){
+                    for (Receita receita: listReceita) {
+                %>
+                <div class="lista"> 
+                    <img class="seta" src="imgs/Voltar.png">
+                    <p class="receita-id"> Receita <%=receita.getId()%></p>
 
+                    <div style="display: none;" class="container-info">
+                        <div class="dados">
+                            <p class="info-content">Profissional de Saúde: <%=receita.getProfissionalSaude()%></p>
+                            <p class="info-content">Morador: <%=receita.getMorador()%></p>
+                            <p class="info-content">Medicamentos: <%=receita.getMedicamentos()%></p>
+                            <p class="info-content">Data: <%=receita.getData()%></p>
+                            <p class="info-content">Hora: <%=receita.getHora()%></p>
+                            <p class="info-content">Quantidade: <%=receita.getQuantidade()%></p>
+                            <p class="info-content">Validade: <%=receita.getValidade()%></p>
+                            <div class="info-access">     
+                                <a class="excluir" onclick="window.location = '/proj_web/Facade?act=deleteReceita&receitaDelete=<%=receita.getId()%>'">Deletar</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <%
+                    }
+                }
+                %>
+            </div>
+        </div>
+        <script src="scripts/receita.js"></script>
     </body>
 </html>

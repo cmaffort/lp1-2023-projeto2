@@ -44,14 +44,88 @@ body {
     box-sizing: border-box;
 }
 .lista{
-    width: 82%;
-    background-color: #76a5dc;
-    height: 100%;
-    position: fixed;
-    left: 20%;
-    text-align: justify;
+    display: grid;
+    grid-template-columns: 10% 75% 15%;
+    grid-template-rows: 10vh auto;
+    align-items: center;
+    justify-items: start;
+    background-color: white;
+    width: 95%;
+    margin: 1vh auto 0 auto;
+    height: 10vh;
+    border-radius: 50px;
+    border: rgba(164, 203, 249, 0.50) 5px solid;
+    
+    transition: all 0.2s linear;
 }
 .dados{
-    text-align:left;
-    margin-left: 20px;
+    display: flex;
+    justify-content: left;
+    text-align: left;
+    flex-direction: column;
+    margin-left: 15%;
 }
+#containter-lista-receitas{
+    overflow-y: scroll;
+    display: flex;
+    background-color: rgba(164, 203, 249, 0.50);
+    border-radius: 20px;
+    justify-content: flex-start;
+    margin: auto;
+    width: 100%;
+    flex-direction: column;
+    height: 70%;
+}
+.content{
+    width: 80%;
+    background-color: #76A5DC;
+    color: black;
+    text-align: center;
+    padding: 20px;
+    box-sizing: border-box;
+}
+.title{
+    margin-top: 5vh;
+    font-size: 150%;
+}
+.container-info{
+    z-index: 998;
+    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    grid-template-rows: repeat(2,25%);
+    width: 100%;
+    margin-right: 5px;
+    grid-column: 1 / -1;
+    background-color: white;
+    border-top: 0px !important;
+    border: rgba(164, 203, 249, 0.50) 5px solid;
+}
+.info-content{
+    font-family: Arial, sans-serif;
+    font-size: 18px;
+    font-weight: bold;
+}
+.seta{
+    margin: auto;
+    width: 3vh;
+    height: 3vh;
+    transform: rotate(180deg);
+
+    transition: all 0.2s linear;
+}
+.info-access{
+    display: flex;
+    justify-content: center;
+    text-align: left;
+    flex-direction: column;
+}
+.excluir{
+    cursor: pointer; 
+    color: #990000; 
+    font-weight: bold; 
+    font-size: 20px; 
+    text-decoration: underline; 
+}
+
+
