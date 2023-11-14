@@ -29,7 +29,11 @@ public class CadastrarResponsavel implements ICadastrarResponsavel{
 
     @Override
     public String excluir(Responsavel responsavel) throws SQLException, ClassNotFoundException{
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        boolean verifica = responsavelDAO.deletar(responsavel);
+        if(verifica)
+            return "true";
+        else
+            return "false";
     }
 
     @Override

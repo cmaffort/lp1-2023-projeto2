@@ -38,12 +38,17 @@ public class Facade extends HttpServlet {
         }
         else if(act.equals("AtualizarEstado")){
             jsp = AtualizarMorador.execute(request);
-            System.out.println("atualizarfacade");
+            jsp = ListarMorador.execute(request);
         }
         else if(act.equals("CadastrarRefeicao")){
             jsp = CadastrarRefeicao.execute(request);
+            jsp = ListarRefeicao.execute(request);
         }
         else if(act.equals("ListarRefeicao")){
+            jsp = ListarRefeicao.execute(request);
+        }
+        else if(act.equals("deleteRef")){
+            jsp = ExcluirRefeicao.execute(request);
             jsp = ListarRefeicao.execute(request);
         }
         else if(act.equals("cadastrarFuncionario"))
@@ -82,6 +87,14 @@ public class Facade extends HttpServlet {
         else if(act.equals("deleteEvento")){
             jsp = ExcluirEvento.execute(request);
             jsp = ListarEvento.execute(request);
+        }
+        else if(act.equals("deleteReceita")){
+            jsp = ExcluirReceita.execute(request);
+            jsp = ListarReceita.execute(request);
+        }
+        else if(act.equals("deleteResponsavel")){
+            jsp = ExcluirResponsavel.execute(request);
+            jsp = ListarResponsavel.execute(request);
         }
         RequestDispatcher rd = request.getRequestDispatcher(jsp);
         rd.forward(request, response);
@@ -145,3 +158,4 @@ public class Facade extends HttpServlet {
     }// </editor-fold>
 
 }
+
