@@ -95,6 +95,8 @@ public class Facade extends HttpServlet {
         else if(act.equals("deleteResponsavel")){
             jsp = ExcluirResponsavel.execute(request);
             jsp = ListarResponsavel.execute(request);
+        else if(act.equals("listarConsultas")){
+            jsp = ListarConsultas.execute(request);
         }
         RequestDispatcher rd = request.getRequestDispatcher(jsp);
         rd.forward(request, response);

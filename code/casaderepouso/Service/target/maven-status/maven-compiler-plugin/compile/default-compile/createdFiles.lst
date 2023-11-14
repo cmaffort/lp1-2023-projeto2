@@ -1,3 +1,4 @@
+br\cefetmg\casaderepouso\service\IManterRefeicao.class
 br\cefetmg\casaderepouso\service\implement\CadastrarResponsavel.class
 br\cefetmg\casaderepouso\service\implement\ManterEvento.class
 br\cefetmg\casaderepouso\service\implement\ManterMorador.class
@@ -7,6 +8,7 @@ br\cefetmg\casaderepouso\service\ICadastrarMedicamento.class
 br\cefetmg\casaderepouso\service\implement\ManterFuncionario.class
 br\cefetmg\casaderepouso\service\implement\CadastrarMedicamento.class
 br\cefetmg\casaderepouso\service\implement\CadastrarVisitanteService.class
+br\cefetmg\casaderepouso\service\implement\ManterRefeicao.class
 br\cefetmg\casaderepouso\service\ICadastrarResponsavel.class
 br\cefetmg\casaderepouso\service\IManterFuncionario.class
 br\cefetmg\casaderepouso\service\implement\CadastrarConsultaS.class

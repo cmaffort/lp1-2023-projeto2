@@ -33,7 +33,7 @@ import java.util.logging.Logger;
 public class CadastrarRefeicao extends HttpServlet {
     
     public static String execute(HttpServletRequest request){
-        String jsp = "/prontuario.jsp"; 
+        String jsp = "/dieta.jsp"; 
     
             String cpf = request.getParameter("cpf");
             String hora = request.getParameter("hora");

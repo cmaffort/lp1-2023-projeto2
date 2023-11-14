@@ -55,10 +55,14 @@ public class RefeicaoDAO implements IRefeicaoDAO {
          try {
             Connection con = DAO.conectar();
 
-            String sql = "DELETE FROM refeicao WHERE cpf = ?";
+            String sql = "DELETE FROM refeicao WHERE cpf = ? AND hora = ? AND cardapio = ? AND tipo = ? AND dia = ?";
 
             PreparedStatement pstmt = con.prepareStatement(sql);
             pstmt.setString(1, ref.getCpfMorador());
+            pstmt.setString(2, ref.getHora());
+            pstmt.setString(3, ref.getCardapio());
+            pstmt.setString(4, ref.getTipo());
+            pstmt.setString(5, ref.getDia());
             pstmt.executeUpdate();
 
             pstmt.close();
@@ -82,10 +86,10 @@ public class RefeicaoDAO implements IRefeicaoDAO {
             
             PreparedStatement pstmt = con.prepareStatement(sql);
             pstmt.setString(1, refeicao.getCpfMorador());
-            pstmt.setString(2, refeicao.getDia());
-            pstmt.setString(3, refeicao.getHora());
+            pstmt.setString(5, refeicao.getDia());
+            pstmt.setString(2, refeicao.getHora());
             pstmt.setString(4, refeicao.getTipo());
-            pstmt.setString(5, refeicao.getCardapio());
+            pstmt.setString(3, refeicao.getCardapio());
             pstmt.executeUpdate();
             con.close();
       
@@ -109,13 +113,13 @@ public class RefeicaoDAO implements IRefeicaoDAO {
             ArrayList<Refeicao> listAll = new ArrayList<>();
             while (rs.next()) {
 
-                String cpf = rs.getString(1);
-                String dia = rs.getString(2);
-                String hora = rs.getString(3);
+                String cpf  = rs.getString(1);
+                String dia = rs.getString(5);
+                String hora = rs.getString(2);
                 String tipo = rs.getString(4);
-                String cardapio = rs.getString(5);
+                String cardapio = rs.getString(3);
 
-                Refeicao ref = new Refeicao(cpf,hora,cardapio,tipo,dia);
+                Refeicao ref = new Refeicao(cpf,hora,cardapio,tipo,dia);    
 
                 listAll.add(ref);
             }

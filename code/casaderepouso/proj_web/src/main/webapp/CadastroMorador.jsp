@@ -16,6 +16,7 @@
     </head>
     <body>
       <article>
+        <a class="back-button" href="telaFuncionario.jsp""><img src="./imgs/Voltar.png"></a>
         <h1>Cadastro de Morador</h1>
         <form id="meuForm" class="form-container" action="Facade" method="POST">
             <input type='hidden' name='act' value='CadastrarMorador'>
