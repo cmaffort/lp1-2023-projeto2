@@ -30,7 +30,7 @@ import java.util.logging.Logger;
 public class CadastrarMorador extends HttpServlet {
     
     public static String execute(HttpServletRequest request){
-        String jsp = "/CadastroMorador.jsp"; 
+        String jsp = "/telaFuncionario.jsp"; 
     
             String nome = request.getParameter("nomeMorador");
             String cpf = request.getParameter("cpf");

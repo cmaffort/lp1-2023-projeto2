@@ -60,13 +60,13 @@ public class Facade extends HttpServlet {
             jsp = ListarFuncionario.execute(request);
         }
         else if(act.equals("CadastrarVisitante")){
+            System.out.println("cadastra");
             jsp = CadastrarVisitante.execute(request);
         }
         else if(act.equals("CadastraMedicamentos")){
             jsp = CadastraMedicamento.execute(request);
         }
         else if(act.equals("listarVisitante")){
-            System.out.println("facade");
             jsp = ListarVisitantes.execute(request);
         }
         else if(act.equals("cadastrarResponsavel"))
@@ -88,10 +88,21 @@ public class Facade extends HttpServlet {
             jsp = ExcluirEvento.execute(request);
             jsp = ListarEvento.execute(request);
         }
+        else if(act.equals("deleteReceita")){
+            jsp = ExcluirReceita.execute(request);
+            jsp = ListarReceita.execute(request);
+        }
+        else if(act.equals("deleteResponsavel")){
+            jsp = ExcluirResponsavel.execute(request);
+            jsp = ListarResponsavel.execute(request);
+        }
+        else if(act.equals("listarConsultas")){
+            jsp = ListarConsultas.execute(request);
+        }
         RequestDispatcher rd = request.getRequestDispatcher(jsp);
         rd.forward(request, response);
-    }
     
+}
     
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -150,3 +161,4 @@ public class Facade extends HttpServlet {
     }// </editor-fold>
 
 }
+

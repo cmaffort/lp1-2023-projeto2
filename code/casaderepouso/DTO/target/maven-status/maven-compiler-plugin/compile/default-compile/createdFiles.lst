@@ -5,6 +5,7 @@ br\cefetmg\casaderepouso\dto\exception\PersistenciaException.class
 br\cefetmg\casaderepouso\dto\Morador.class
 br\cefetmg\casaderepouso\dto\Consulta.class
 br\cefetmg\casaderepouso\dto\Funcionario.class
+br\cefetmg\casaderepouso\dto\Receita.class
 br\cefetmg\casaderepouso\dto\Responsavel.class
 br\cefetmg\casaderepouso\dto\Medicamento$Tarja.class
 br\cefetmg\casaderepouso\dto\exception\CadastroException.class

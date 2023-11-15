@@ -141,9 +141,10 @@
                             <a class="links-acessos">Acessar resultados de exames</a>
                             <a class="links-acessos">Acessar histórico médico</a>
                             <a style="z-index: 998"class="links-acessos" href="dieta.jsp">Acessar dieta</a>
-                            <a class="links-acessos">Acessar responsáveis</a>
-                            <a class="links-acessos">Solicitar consulta</a>
-                            <a class="links-acessos">Novo responsável</a>
+                            <a class="links-acessos" href="gestaoResponsavel.jsp">Acessar responsáveis</a>
+                            <a class="links-acessos" href="consultas.jsp">Visualizar consultas</a>
+                            <a class="links-acessos" href="AgendarConsulta.jsp">Solicitar consulta</a>
+                            <a class="links-acessos" href="cadastroResponsavel.jsp">Novo responsável</a>
                             <button class="botao-atualizar">Atualizar</button>
                         </div>
                     </div>
@@ -164,10 +165,15 @@
                     var termoPesquisa = campoPesquisa.value.toLowerCase();
                     moradores.forEach(function (morador) {
                         var nomeMorador = morador.querySelector(".nome-cpf").innerText.toLowerCase();
+                        if(nomeMorador.includes(termoPesquisa) && morador.children[2].children[1].innerHTML === "Falecido" && localStorage.getItem("falecido") === 'nao'){
+                            morador.style.display = "none";
+                        }
+                        else{
                         if (nomeMorador.includes(termoPesquisa)) {
                             morador.style.display = "grid";
                         } else {
                             morador.style.display = "none";
+                        }
                     }
                     });
                 });
