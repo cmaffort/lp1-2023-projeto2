@@ -41,6 +41,7 @@ public class AtualizarFuncionario extends HttpServlet {
             String fone = request.getParameter("telefone");
             String funcao = request.getParameter("funcao");
             String periodo = request.getParameter("periodo");
+            String id = request.getParameter("idFuncionario");
             
             Funcionario func = new Funcionario();
             
@@ -53,9 +54,9 @@ public class AtualizarFuncionario extends HttpServlet {
             func.setFone(fone);
             func.setFuncao(funcao);
             func.setPeriodoTrabalho(periodo);
-            
-            String id = func.getCpf() + func.getNome().charAt(0);
+
             func.setId(id);
+            
             IManterFuncionario iFuncionario = new ManterFuncionario();
             iFuncionario.atualizar(func);
             

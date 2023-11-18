@@ -78,7 +78,7 @@ public class FuncionarioDAO implements IFuncionarioDAO{
                     + "       nascimento = ?, "
                     + "       endereco = ?, "
                     + "       pis = ?, "
-                    + "       funcao = ? "
+                    + "       funcao = ?, "
                     + "       periodoTrabalho = ? "
                     + " WHERE id = ?;";
 
