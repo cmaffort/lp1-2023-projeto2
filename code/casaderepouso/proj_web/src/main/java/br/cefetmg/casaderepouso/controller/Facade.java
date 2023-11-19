@@ -25,7 +25,7 @@ public class Facade extends HttpServlet {
     protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");
         
-        String encaminha = request.getServletPath();
+      
         
         String act = request.getParameter("act"); 
         
@@ -58,6 +58,14 @@ public class Facade extends HttpServlet {
         else if(act.equals("deleteFunc")){
             jsp = ExcluirFuncionario.execute(request);
             jsp = ListarFuncionario.execute(request);
+        }
+        else if(act.equals("AtualizarFuncionario")){
+            jsp = AtualizarFuncionario.execute(request);
+            jsp = ListarFuncionario.execute(request);
+        }
+        else if(act.equals("AtualizarEvento")){
+            jsp = AtualizarEvento.execute(request);
+            jsp = ListarEvento.execute(request);
         }
         else if(act.equals("CadastrarVisitante")){
             System.out.println("cadastra");

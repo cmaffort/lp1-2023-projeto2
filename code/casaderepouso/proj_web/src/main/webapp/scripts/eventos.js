@@ -31,11 +31,7 @@ containerStatus.forEach(stat =>{
       estaNosStatus = 1;
    }); 
 });
-let cancela = document.querySelector("#cancelar");
-cancela.addEventListener("click", () =>{
-    mudancaStatus.style.display = "none";
-    estaNosStatus = 0;
-});
+
 
 let marcadores = document.querySelectorAll(".marks");
 let elementoSelecionado = null;
@@ -48,4 +44,42 @@ marcadores.forEach(marc => {
         elementoSelecionado = marc;
     });
 });
+
+
+
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    var botoesAtualizar = document.querySelectorAll(".botao-atualizar");
+
+    // Itera sobre cada botão e adiciona um ouvinte de evento
+    botoesAtualizar.forEach(function (botaoAtualizar) {
+        botaoAtualizar.addEventListener("click", function () {
+            console.log("teste");
+            // Obtém o contêiner de atualização correspondente
+            var atualizarContainer = botaoAtualizar.closest(".evento-container").nextElementSibling;
+
+            // Exibe a div 'atualizar-container'
+            if (atualizarContainer) {
+                atualizarContainer.style.display = "flex";
+            }
+        });
+    });
+
+
+            var cancelarAtualizacoes = document.querySelectorAll(".cancelUpdate");
+
+            // Adiciona um ouvinte de evento para cada elemento "cancelUpdate"
+            cancelarAtualizacoes.forEach(function (cancelarUpdate) {
+                cancelarUpdate.addEventListener("click", function () {
+                    // Encontra o contêiner de atualização correspondente
+                    var atualizarContainer = cancelarUpdate.closest(".atualizar-container");
+
+                    // Esconde a div 'atualizar-container'
+                    if (atualizarContainer) {
+                        atualizarContainer.style.display = "none";
+                    }
+                });
+            });
+        });
 
