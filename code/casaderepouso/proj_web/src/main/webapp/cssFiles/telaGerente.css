@@ -223,11 +223,13 @@ body {
 .update-status{
     padding: 10px 50px 10px 50px;
     width: 10vh;
+    height: 5vh;
     margin: 5% 0;
     color: black;
     border-radius: 5%;
     text-align: center;
     cursor: pointer;
+    
 }
 .info-content{
     font-family: Arial, sans-serif;
@@ -272,7 +274,10 @@ body {
     z-index: 999;
     left: 45%;
     top: 15%;
-    display: none;
+    
+    
+   overflow-y: auto;
+   
 }
 
 .form-container {
@@ -307,3 +312,7 @@ button{
 .texto{
     width: 40vh;
 }
+
+
+
+

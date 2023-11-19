@@ -36,7 +36,7 @@ public class AtualizarEvento extends HttpServlet {
             String hora = request.getParameter("horario");
             String fone = request.getParameter("telefone");
             String email = request.getParameter("email");
-           
+            String id = request.getParameter("idEvento");
             
             Evento event = new Evento();
             
@@ -48,9 +48,8 @@ public class AtualizarEvento extends HttpServlet {
             event.setHorario(hora);
             event.setFone(fone);
             event.setEmail(email);
-            
-            String id = event.getRg() + event.getNome().charAt(0);
             event.setId(id);
+            
             IManterEvento iEvento = new ManterEvento();
             iEvento.atualizar(event);
             

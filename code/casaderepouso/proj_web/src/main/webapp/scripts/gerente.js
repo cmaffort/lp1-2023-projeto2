@@ -1,36 +1,36 @@
 
 let infoFuncionarios = document.querySelectorAll(".funcionario-container");
-infoFuncionarios.forEach(info =>{
+infoFuncionarios.forEach(info => {
     info.addEventListener("click", function onClick() {
-    let containerInfo = info.lastElementChild;
-    let seta = info.firstElementChild;
-   
-    let cpf = info.children;
-    cpf = cpf[1].firstElementChild;
-    window.console.log(cpf.innerHTML);
-    if (containerInfo.style.display === "grid" && estaNosStatus === 0) {
-        containerInfo.style.display = "none";
-        info.style.borderRadius = "50px";
-        seta.style.transform = "rotate(180deg)";    
-    } else if (containerInfo.style.display === "none" && estaNosStatus === 0) {
-        containerInfo.style.display = "grid";
-        seta.style.transform = "rotate(270deg)";
-        info.style.borderRadius = "0px";
-        localStorage.setItem("cpf", cpf.innerHTML);
-    }
-});
+        let containerInfo = info.lastElementChild;
+        let seta = info.firstElementChild;
+
+        let cpf = info.children;
+        cpf = cpf[1].firstElementChild;
+        window.console.log(cpf.innerHTML);
+        if (containerInfo.style.display === "grid" && estaNosStatus === 0) {
+            containerInfo.style.display = "none";
+            info.style.borderRadius = "50px";
+            seta.style.transform = "rotate(180deg)";
+        } else if (containerInfo.style.display === "none" && estaNosStatus === 0) {
+            containerInfo.style.display = "grid";
+            seta.style.transform = "rotate(270deg)";
+            info.style.borderRadius = "0px";
+            localStorage.setItem("cpf", cpf.innerHTML);
+        }
+    });
 });
 let estaNosStatus = 0;
 let mudancaStatus = document.querySelector("#status-container");
 let containerStatus = document.querySelectorAll(".state-container");
-containerStatus.forEach(stat =>{
-   stat.addEventListener("click", () =>{
-      mudancaStatus.style.display = "flex";
-      estaNosStatus = 1;
-   }); 
+containerStatus.forEach(stat => {
+    stat.addEventListener("click", () => {
+        mudancaStatus.style.display = "flex";
+        estaNosStatus = 1;
+    });
 });
 let cancela = document.querySelector("#cancelar");
-cancela.addEventListener("click", () =>{
+cancela.addEventListener("click", () => {
     mudancaStatus.style.display = "none";
     estaNosStatus = 0;
 });
@@ -39,7 +39,7 @@ let marcadores = document.querySelectorAll(".marks");
 let elementoSelecionado = null;
 marcadores.forEach(marc => {
     marc.addEventListener("click", () => {
-        if (elementoSelecionado) { 
+        if (elementoSelecionado) {
             elementoSelecionado.style.backgroundColor = "#D9D9D9";
         }
         marc.style.backgroundColor = "black";
@@ -48,7 +48,7 @@ marcadores.forEach(marc => {
 });
 
 document.addEventListener("DOMContentLoaded", function () {
-    // Seletor dos botões de classe 'botao-atualizar'
+
     var botoesAtualizar = document.querySelectorAll(".botao-atualizar");
 
     // Itera sobre cada botão e adiciona um ouvinte de evento
@@ -63,8 +63,27 @@ document.addEventListener("DOMContentLoaded", function () {
 
             // Exibe a div 'atualizar-container'
             if (atualizarContainer) {
-                atualizarContainer.style.display = "flex"; // ou "block" dependendo do estilo desejado
+                atualizarContainer.style.display = "flex";
             }
+
+
+            var cancelarAtualizacoes = document.querySelectorAll(".cancelUpdate");
+
+            // Adiciona um ouvinte de evento para cada elemento "cancelUpdate"
+            cancelarAtualizacoes.forEach(function (cancelarUpdate) {
+                cancelarUpdate.addEventListener("click", function () {
+                    // Encontra o contêiner de atualização correspondente
+                    var atualizarContainer = cancelarUpdate.closest(".atualizar-container");
+
+                    // Esconde a div 'atualizar-container'
+                    if (atualizarContainer) {
+                        atualizarContainer.style.display = "none";
+                    }
+                });
+            });
         });
     });
 });
+
+
+

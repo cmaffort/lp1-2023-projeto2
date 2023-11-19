@@ -39,7 +39,7 @@ public class AtualizarFuncionario extends HttpServlet {
             String pis = request.getParameter("pis");
             String endereco = request.getParameter("endereco");
             String fone = request.getParameter("telefone");
-            String funcao = request.getParameter("funcao");
+           
             String periodo = request.getParameter("periodo");
             String id = request.getParameter("idFuncionario");
             
@@ -52,7 +52,7 @@ public class AtualizarFuncionario extends HttpServlet {
             func.setPis(pis);
             func.setEndereco(endereco);
             func.setFone(fone);
-            func.setFuncao(funcao);
+          
             func.setPeriodoTrabalho(periodo);
 
             func.setId(id);
