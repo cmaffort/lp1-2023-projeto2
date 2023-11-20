@@ -16,6 +16,6 @@ import java.util.List;
 public interface IManterEvento {
     public String cadastrar(Evento event) throws CadastroException, SQLException,ClassNotFoundException;
     public String excluir(Evento event) throws Exception;
-    
+    public String atualizar(Evento event) throws SQLException, ClassNotFoundException;
     public List<Evento> pesquisarTodos() throws Exception;
 }
