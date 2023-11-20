@@ -72,6 +72,15 @@ CREATE TABLE IF NOT EXISTS evento (
     telefone VARCHAR(255) NOT NULL,
     email VARCHAR(255) NOT NULL
 );
+CREATE TABLE IF NOT EXISTS saida (
+    id VARCHAR(255) PRIMARY KEY,
+    cpf VARCHAR(255) NOT NULL,
+    motivo TEXT,
+    diaSaida VARCHAR(255),
+    horarioSaida VARCHAR(255),
+    diaVolta VARCHAR(255),
+    horarioVolta VARCHAR(255) NOT NULL
+);
 CREATE TABLE IF NOT EXISTS medicamento (
     id INT AUTO_INCREMENT PRIMARY KEY,
     nome VARCHAR(255) NOT NULL,
