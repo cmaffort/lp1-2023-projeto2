@@ -74,6 +74,7 @@ CREATE TABLE IF NOT EXISTS evento (
 );
 CREATE TABLE IF NOT EXISTS saida (
     id VARCHAR(255) PRIMARY KEY,
+    nome VARCHAR(255) NOT NULL,
     cpf VARCHAR(255) NOT NULL,
     motivo TEXT,
     diaSaida VARCHAR(255),

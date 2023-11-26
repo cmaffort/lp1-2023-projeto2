@@ -7,6 +7,7 @@ package br.cefetmg.casaderepouso.dto;
  */
 public class SaidaTemporaria {
     private String id;
+    private String nome;
     private String moradorCpf; 
     private String motivo;
     private String diaSaida;
@@ -20,6 +21,14 @@ public class SaidaTemporaria {
     
     public String getId(){
         return id;
+    }
+    
+    public void setNome(String nome){
+        this.nome = nome;
+    }
+    
+    public String getNome(){
+        return nome;
     }
     
     public void setMoradorCpf(String cpf){

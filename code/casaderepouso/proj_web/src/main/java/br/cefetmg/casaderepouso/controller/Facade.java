@@ -111,6 +111,13 @@ public class Facade extends HttpServlet {
             jsp = AtualizarMorador.execute(request);
             jsp = CadastrarSaida.execute(request);
         }
+        else if(act.equals("listarSaida")){
+            jsp = ListarSaida.execute(request);
+        }
+        else if(act.equals("atualizarSaida")){
+            jsp = AtualizarSaida.execute(request);
+            jsp = ListarSaida.execute(request);
+        }
         
         RequestDispatcher rd = request.getRequestDispatcher(jsp);
         rd.forward(request, response);

@@ -21,20 +21,21 @@ public class SaidaDAO implements ISaidaDAO {
         try{
             
             Connection con = DAO.conectar();
-            String sql = "INSERT INTO saida (id, cpf, motivo, diaSaida, horarioSaida, diaVolta, horarioVolta) VALUES(?, ?, ?, ?, ?, ?, ?)";
+            String sql = "INSERT INTO saida (id, nome, cpf, motivo, diaSaida, horarioSaida, diaVolta, horarioVolta) VALUES(?, ?, ?, ?, ?, ?, ?, ?)";
             
              
             
             PreparedStatement pstmt = con.prepareStatement(sql);
             
             pstmt.setString(1, saida.getId());
-            pstmt.setString(2, saida.getMoradorCpf());
-            pstmt.setString(3, saida.getMotivo());
-            pstmt.setString(4, saida.getDataSaida());
-            pstmt.setString(5, saida.getHorarioSaida());
-            pstmt.setString(6, saida.getDataVolta());
+            pstmt.setString(2, saida.getNome());
+            pstmt.setString(3, saida.getMoradorCpf());
+            pstmt.setString(4, saida.getMotivo());
+            pstmt.setString(5, saida.getDataSaida());
+            pstmt.setString(6, saida.getHorarioSaida());
+            pstmt.setString(7, saida.getDataVolta());
             
-            pstmt.setString(7, saida.getHorarioVolta());
+            pstmt.setString(8, saida.getHorarioVolta());
             
             
             pstmt.executeUpdate();
@@ -54,8 +55,39 @@ public class SaidaDAO implements ISaidaDAO {
     
     @Override
     public boolean atualizar(SaidaTemporaria saida) throws SQLException, ClassNotFoundException {
-        //Fazer depois
-        return true;
+       try {
+             Connection con = DAO.conectar();
+
+            String sql = "UPDATE saida "
+                    + "   SET diaSaida = ?, "
+                    + "       horarioSaida = ?, "
+                    + "       diaVolta = ?, "
+                    + "       horarioVolta = ? "
+                    + " WHERE id = ?;";
+
+            PreparedStatement pstmt = con.prepareStatement(sql);
+            pstmt.setString(1, saida.getDataSaida());
+            pstmt.setString(2, saida.getHorarioSaida());
+            pstmt.setString(3, saida.getDataVolta());
+            pstmt.setString(4, saida.getHorarioVolta());
+            pstmt.setString(5, saida.getId());
+            
+            
+            pstmt.executeUpdate();
+
+            pstmt.close();
+            con.close();
+
+            return true;
+        }
+        catch(SQLException e){
+            System.out.println(e);
+            throw new SQLException(e.getMessage(), e);       
+        }
+        catch(ClassNotFoundException e){
+            System.out.println(e);
+            throw new ClassNotFoundException(e.getMessage(), e);       
+        }
     }
 
     
@@ -82,18 +114,20 @@ public class SaidaDAO implements ISaidaDAO {
 
                 //Recebendo os dados de cada saida armazenada na tabela
                 String id = rs.getString(1);
-                String cpf = rs.getString(2);
-                String motivo = rs.getString(3);
-                String diaS = rs.getString(4);
-                String horaS = rs.getString(5);
-                String diaV = rs.getString(6);
-                String horaV = rs.getString(7);
+                String nome = rs.getString(2);
+                String cpf = rs.getString(3);
+                String motivo = rs.getString(4);
+                String diaS = rs.getString(5);
+                String horaS = rs.getString(6);
+                String diaV = rs.getString(7);
+                String horaV = rs.getString(8);
 
                 //Criando o objeto
                 SaidaTemporaria saida = new SaidaTemporaria();
                 
                 //Setando cada atributo do objeto
                 saida.setId(id);
+                saida.setNome(nome);
                 saida.setMoradorCpf(cpf);
                 saida.setMotivo(motivo);
                 saida.setDataSaida(diaS);

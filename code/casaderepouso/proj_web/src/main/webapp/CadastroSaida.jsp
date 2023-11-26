@@ -90,14 +90,14 @@
                 document.getElementById("planoHidden").value = selectedOption.getAttribute("plano_medico");
                 document.getElementById("maeHidden").value = selectedOption.getAttribute("nome_mae");
                 document.getElementById("enderecoHidden").value = selectedOption.getAttribute("endereco");
-                document.getElementById("condicaoHidden").value = selectedOption.getAttribute("condicoes-especiais");
+                document.getElementById("condicaoHidden").value = selectedOption.getAttribute("condicoes_especiais");
                 console.log("teste");
 
-
-                // Outros atributos...
-
-                // Você pode adicionar mais atributos conforme necessário
             }
+
+                window.onload = function () {
+                    atualizarAtributos();
+                };
         </script>
     </body> 
 </html>
