@@ -131,3 +131,10 @@ CREATE TABLE IF NOT EXISTS refeicao (
    tipo VARCHAR(255),
    dia VARCHAR(20)
 );
+
+CREATE TABLE IF NO EXISTS cartao_credito {
+    cpf VARCHAR (14),
+    numero_cartao VARCHAR (20),
+    nome_cartao VARCHAR (255),
+    validade VARCHAR (6)
+};
