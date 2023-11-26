@@ -131,3 +131,13 @@ CREATE TABLE IF NOT EXISTS refeicao (
    tipo VARCHAR(255),
    dia VARCHAR(20)
 );
+
+CREATE TABLE IF NOT EXISTS despesas(
+	destinatario VARCHAR(255),
+    pagante VARCHAR(255),
+    telefone VARCHAR(20),
+    identidade VARCHAR(255),
+    data VARCHAR(255),
+    hora VARCHAR(255),
+    descricao VARCHAR(255)
+);

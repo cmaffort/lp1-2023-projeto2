@@ -9,9 +9,11 @@ br\cefetmg\casaderepouso\service\IManterEvento.class
 br\cefetmg\casaderepouso\service\ICadastrarMedicamento.class
 br\cefetmg\casaderepouso\service\implement\ManterFuncionario.class
 br\cefetmg\casaderepouso\service\implement\CadastrarMedicamento.class
+br\cefetmg\casaderepouso\service\ICadastrarDespesas.class
 br\cefetmg\casaderepouso\service\implement\CadastrarVisitanteService.class
 br\cefetmg\casaderepouso\service\implement\ManterRefeicao.class
 br\cefetmg\casaderepouso\service\ICadastrarResponsavel.class
+br\cefetmg\casaderepouso\service\implement\CadastrarDespesaS.class
 br\cefetmg\casaderepouso\service\IManterFuncionario.class
 br\cefetmg\casaderepouso\service\implement\CadastrarConsultaS.class
 br\cefetmg\casaderepouso\service\ICadastrarConsulta.class
