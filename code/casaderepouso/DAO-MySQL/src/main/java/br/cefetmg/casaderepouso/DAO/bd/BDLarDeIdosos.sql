@@ -13,11 +13,12 @@ CREATE TABLE IF NOT EXISTS visitantes (
     rg VARCHAR(20),
     telefone VARCHAR(15),
     vinculo_com_morador VARCHAR(100),
+    morador VARCHAR(100),
     data_visita VARCHAR(255),
     hora_visita VARCHAR(255)
 );
+
 CREATE TABLE IF NOT EXISTS morador (
-    id INT AUTO_INCREMENT PRIMARY KEY,
     nome VARCHAR(255),
     cpf VARCHAR(14) PRIMARY KEY,
     datanascimento VARCHAR(20),
@@ -29,12 +30,15 @@ CREATE TABLE IF NOT EXISTS morador (
     estado VARCHAR(255)
 );
 CREATE TABLE IF NOT EXISTS responsavel (
-   nome VARCHAR(255) NOT NULL,
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(255) NOT NULL,
     cpf VARCHAR(14) NOT NULL,
     rg VARCHAR(12) NOT NULL,
     telefone VARCHAR(20),
+    datanascimento DATE,
     endereco TEXT,
-    morador_responsavel VARCHAR(14) NOT NULL
+    morador_responsavel VARCHAR(14),
+    FOREIGN KEY (morador_responsavel) REFERENCES morador(CPF)
 );
 CREATE TABLE IF NOT EXISTS funcionario (
     id VARCHAR(255) PRIMARY KEY,
@@ -107,31 +111,19 @@ CREATE TABLE IF NOT EXISTS consulta (
     especializacao VARCHAR(255) NOT NULL
 );
 CREATE TABLE IF NOT EXISTS receita_medica (
-id INT AUTO_INCREMENT PRIMARY KEY,
-    profissional_de_saude TEXT NOT NULL,
-    morador TEXT NOT NULL,
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    profissional_de_saude INT NOT NULL,
+    morador VARCHAR(14) NOT NULL,
     medicamentos TEXT,
     data DATE NOT NULL,
     hora TIME NOT NULL,
     quantidade INT NOT NULL,
-    validade DATE NOT NULL
-);
-CREATE TABLE IF NOT EXISTS dieta_comum (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    profissional_de_saude INT NOT NULL,
-    refeicao TEXT NOT NULL,
-    FOREIGN KEY (profissional_de_saude) REFERENCES profissional_de_saude(id)
-);
-CREATE TABLE IF NOT EXISTS dieta_especifica (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    profissional_de_saude INT NOT NULL,
-    morador INT NOT NULL,
-    refeicao TEXT NOT NULL,
-    restricoes TEXT,
-    horas_das_refeicoes TEXT,
+    validade DATE NOT NULL,
     FOREIGN KEY (profissional_de_saude) REFERENCES profissional_de_saude(id),
     FOREIGN KEY (morador) REFERENCES morador(cpf)
 );
+
+
 CREATE TABLE IF NOT EXISTS refeicao (
    cpf VARCHAR(14),
    hora VARCHAR(20),

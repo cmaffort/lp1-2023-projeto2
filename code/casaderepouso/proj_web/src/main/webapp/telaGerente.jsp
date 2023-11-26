@@ -9,10 +9,10 @@
         <link rel="stylesheet" type="text/css" href="cssFiles/telaGerente.css">
 
         <title>Home-Gerente</title>
-       
+
         <script>
             document.addEventListener("DOMContentLoaded", function () {
-       
+
 
                 var campoPesquisa = document.getElementById("pesquisa");
                 var btnPesquisar = document.getElementById("btnPesquisar");
@@ -32,7 +32,7 @@
                             funcionario.style.display = "grid";
                         } else {
                             funcionario.style.display = "none";
-                    }
+                        }
                     });
                 });
             });
@@ -75,7 +75,7 @@
     <body>
         <%@include file="Padrão/navGerente.jsp" %>
 
-     <div class="content">
+        <div class="content">
 
             <div id="status-container">
                 <div class="state1-container">
@@ -95,51 +95,7 @@
                     <a id="cancelar"style="background-color: #FF0000;" class="update-status">Cancelar</a>
                 </div>
             </div>
-            <div id="atualizar-container">
-                <form id="atualizarForm" class="form-container" action="Facade" method="POST">
-                    <div class="form-group">
-                        <label>Seu nome completo:</label>
-                        <input type="text" name="nomeMorador" class="texto" placeholder="Digite aqui..." >
-                    </div>
 
-                    <div class="form-group">
-                        <label>CPF:</label>
-                        <input type="text" name="dataNasc" class="texto" placeholder="Digite aqui uma data dd/mm/aa ..." >
-                    </div>
-
-                    <div class="form-group">
-                        <label>RG:</label>
-                        <input type="text" name="endereco" class="texto" placeholder="Digite aqui..." >
-                    </div>
-
-                    <div class="form-group">
-                        <label>PIS:</label>
-                        <input type="text" name="nome_mae" class="texto" placeholder="Digite aqui..." >
-                    </div>
-                    <div class="form-group">
-                        <label>Endereço:</label>
-                        <input type="text" name="cpf" class="texto" placeholder="Digite aqui..." >
-                    </div>
-                    <div class="form-group">
-                        <label>Nascimento:</label>
-                        <input type="text" name="plano_medico" class="texto" placeholder="Digite aqui..." >
-                    </div>
-                    <div class="form-group">
-                        <label>Função:</label>
-                        <input type="text" name="condicoes_especiais" class="texto" placeholder="Digite aqui..." >
-                    </div>
-                    <div class="form-group">
-                        <label>Horario de trabalho:</label>
-                        <input type="text" name="condicoes_especiais" class="texto" placeholder="Digite aqui..." >
-                    </div>
-                    <div class="form-group">
-                        <label>Telefone:</label>
-                        <input type="text" name="condicoes_especiais" class="texto" placeholder="Digite aqui..." >
-                    </div>
-                    <button name="act" value="AtualizarFuncionario"style="background-color: #14FF00;" class="update-status">Atualizar funcioanrio</button>
-                    <a id="cancelarUpdate"style="background-color: #FF0000;" class="update-status">Cancelar</a>
-                </form>
-            </div>
 
             <div class="title"><h2>Dados dos funcionários</h2>
                 <input type="text" id="pesquisa" placeholder="Pesquise o nome aqui..."><input type="submit" id="btnPesquisar" value="🔎">
@@ -173,21 +129,70 @@
                             <p class="info-content" >Horário de trabalho: <span><%=func.getPeriodoTrabalho()%></span></p>
                             <p class="info-content">Telefone: <span><%=func.getFone()%></span></p>
                         </div>
-                        
+
                         <div class="info-access">
                             <button class="botao-atualizar">Atualizar</button>
-                            <a class="excluir" onclick="window.location='/proj_web/Facade?act=deleteFunc&idDelete=<%=func.getId()%>'">Deletar</a>
+                            <a class="excluir" onclick="window.location = '/proj_web/Facade?act=deleteFunc&idDelete=<%=func.getId()%>'">Deletar</a>
                         </div>
                     </div>
-                </div>   
+
+                </div>
+                <div class="atualizar-container">
+                    <form class="form-container"  action="Facade" method="POST">
+                        <div class="form-group">
+                            <input type="hidden" name="idFuncionario" value="<%=func.getId()%>">
+                            <label>Seu nome completo:</label>
+                            <input type="text" name="nomeFuncionario" value="<%=func.getNome()%>" class="texto" placeholder="Digite aqui..." >
+                        </div>
+
+                        <div class="form-group">
+                            <label>CPF:</label>
+                            <input type="text" name="cpf" value="<%=func.getCpf()%>" class="texto" placeholder="Digite aqui uma data dd/mm/aa ..." >
+                        </div>
+
+                        <div class="form-group">
+                            <label>RG:</label>
+                            <input type="text" name="rg" value="<%=func.getRg()%>" class="texto" placeholder="Digite aqui..." >
+                        </div>
+
+                        <div class="form-group">
+                            <label>PIS:</label>
+                            <input type="text" name="pis" value="<%=func.getPis()%>" class="texto" placeholder="Digite aqui..." >
+                        </div>
+                        <div class="form-group">
+                            <label>Endereço:</label>
+                            <input type="text" name="endereco" class="texto" value="<%=func.getEndereco()%>" placeholder="Digite aqui..." >
+                        </div>
+                        <div class="form-group">
+                            <label>Nascimento:</label>
+                            <input type="text" name="dataNasc" value="<%=func.getDataNasc()%>" class="texto" placeholder="Digite aqui..." >
+                        </div>
+
+                        <div class="form-group">
+                            <label>Horario de trabalho:</label>
+                            <input type="text" name="periodo" value="<%=func.getPeriodoTrabalho()%>" class="texto" placeholder="Digite aqui..." >
+                        </div>
+                        <div class="form-group">
+                            <label>Telefone:</label>
+                            <input type="text" name="telefone" value="<%=func.getFone()%>" class="texto" placeholder="Digite aqui..." >
+
+                        </div>
+                        <div>
+                            <button name="act" value="AtualizarFuncionario" style="width: 100%;" class="update-status">Atualizar funcionário</button>
+                            <a class="cancelUpdate" style="width: 100%; background-color: #FF0000; cursor: pointer;">Cancelar</a>
+                        </div>
+
+
+                    </form>
+                </div>
                 <%
                         }
                 }
                 %>
             </div>
         </div>
-        
+
     </div>
     <script src="scripts/gerente.js"></script>
-    </body>
+</body>
 </html>

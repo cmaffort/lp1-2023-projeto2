@@ -78,7 +78,7 @@ public class FuncionarioDAO implements IFuncionarioDAO{
                     + "       nascimento = ?, "
                     + "       endereco = ?, "
                     + "       pis = ?, "
-                    + "       funcao = ? "
+                    
                     + "       periodoTrabalho = ? "
                     + " WHERE id = ?;";
 
@@ -90,9 +90,9 @@ public class FuncionarioDAO implements IFuncionarioDAO{
             pstmt.setString(5, func.getDataNasc());
             pstmt.setString(6, func.getEndereco());
             pstmt.setString(7, func.getPis());
-            pstmt.setString(8, func.getFuncao());
-            pstmt.setString(9, func.getPeriodoTrabalho());
-            pstmt.setString(10, func.getId());
+            
+            pstmt.setString(8, func.getPeriodoTrabalho());
+            pstmt.setString(9, func.getId());
             
             
             pstmt.executeUpdate();

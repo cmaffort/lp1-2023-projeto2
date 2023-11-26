@@ -28,7 +28,12 @@ public class ManterEvento implements IManterEvento {
         eventoDAO.inserir(event);
         return event.getRg();
     }
-
+    
+    @Override
+    public String atualizar(Evento event) throws SQLException, ClassNotFoundException{        
+        eventoDAO.atualizar(event);
+        return event.getRg();
+    }
     @Override
     public String excluir(Evento event) throws Exception {
         boolean verifica = eventoDAO.deletar(event);

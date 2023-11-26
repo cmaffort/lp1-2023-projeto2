@@ -6,6 +6,7 @@ package br.cefetmg.casaderepouso.service;
 
 import br.cefetmg.casaderepouso.dto.Consulta;
 import br.cefetmg.casaderepouso.dto.exception.CadastroException;
+import java.util.List;
 
 /**
  *
@@ -13,6 +14,7 @@ import br.cefetmg.casaderepouso.dto.exception.CadastroException;
  */
 public interface ICadastrarConsulta {
         public String cadastrar(Consulta consulta) throws CadastroException;
+        public List<Consulta> listarTodos();
 
     
 }

@@ -20,7 +20,7 @@ import jakarta.servlet.http.HttpServletRequest;
 public class CadastrarConsulta extends HttpServlet {
 
     static String execute(HttpServletRequest request) {
-        String jsp = "";
+        String jsp = "AgendarConsulta.jsp";
 
         String especialista = request.getParameter("especialista");
         String medico = request.getParameter("medico");

@@ -24,11 +24,11 @@
           <div class="form-group">
             <label>Selecione o especialista</label>
             <select class="escolha" name="especialista">
-              <option value="Geral">Geral</option>
+              <option value="Geriatra">Geriatra</option>
               <option value="Nutricionista">Nutricionista</option>
               <option value="Cardiologista">Cardiologista</option>
               <option value="Dermatologista">Dermatologista</option>
-              <option value="Ginecologista">Ginecologista</option>
+              <option value="Dentista">Dentista</option>
             </select>
           </div>
 

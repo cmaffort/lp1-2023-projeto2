@@ -244,6 +244,7 @@ body {
     height: 5vh;
     background-color: white;
     border-radius: 36px;
+    cursor: pointer;
 }
 .links-acessos{
     text-decoration: none;

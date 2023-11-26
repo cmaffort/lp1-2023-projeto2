@@ -50,40 +50,33 @@ public class ReceitaDAO implements IReceita {
  
     @Override
     public boolean deletar(Receita receita) throws SQLException, ClassNotFoundException{
-        String sql = "DELETE FROM receita WHERE nome = ?";
-
-        Connection conn = null;
-        PreparedStatement pstm = null;
-
-        ResultSet rset = null;
-
         try {
-            conn = DAO.conectar();
-            pstm = conn.prepareStatement(sql);
-            pstm.setString(1, receita.getMorador());
-            pstm.execute();
-            
+            Connection con = DAO.conectar();
 
-        } catch (Exception e) {
-            e.printStackTrace();
-            return false;
-        }finally{
-            try{
-                if(pstm != null)
-                    pstm.close();
-                if(conn != null)
-                    conn.close();
-            }catch(Exception e){
-            e.printStackTrace();
-            }
+            String sql = "DELETE FROM receita_medica WHERE id = ?";
+
+            PreparedStatement pstmt = con.prepareStatement(sql);
+            pstmt.setString(1, receita.getId());
+            pstmt.executeUpdate();
+
+            pstmt.close();
+            con.close();
             return true;
+        } 
+         catch(SQLException e){
+             System.out.println(e);
+            throw new SQLException(e.getMessage(), e);       
+        }
+        catch(ClassNotFoundException e){
+            System.out.println(e);
+            throw new ClassNotFoundException(e.getMessage(), e);       
         }
     }
 
     
     @Override
     public ArrayList<Receita> listar() throws SQLException, ClassNotFoundException{
-        String sql = "SELECT * FROM receita_medica";
+        String sql = "SELECT * FROM receita_medica ORDER BY id";
         try {
             
             Connection con = DAO.conectar();
@@ -91,17 +84,19 @@ public class ReceitaDAO implements IReceita {
             ResultSet rs = pst.executeQuery();
             ArrayList<Receita> lista = new ArrayList<Receita>();
             while (rs.next()) {
-
-                String profissionalSaude = rs.getString(1);
-                String morador = rs.getString(2);
-                String medicamentos = rs.getString(3);
-                String data = rs.getString(4);
-                String hora = rs.getString(5);
-                String quantidade = rs.getString(6);
-                String validade = rs.getString(7);
+                
+                String id = rs.getString(1);
+                String profissionalSaude = rs.getString(2);
+                String morador = rs.getString(3);
+                String medicamentos = rs.getString(4);
+                String data = rs.getString(5);
+                String hora = rs.getString(6);
+                String quantidade = rs.getString(7);
+                String validade = rs.getString(8);
 
                 Receita receita = new Receita();
                 
+                receita.setId(id);
                 receita.setProfissionalSaude(profissionalSaude);
                 receita.setMorador(morador);
                 receita.setMedicamentos(medicamentos);

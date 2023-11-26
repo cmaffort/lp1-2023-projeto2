@@ -62,7 +62,7 @@ function atualizarEstado(moradorParaAtualizar){
 function comecarMarcado(estadoBD){
     marcadores.forEach(marc =>{
         if(marc.parentNode.children[1].innerHTML === estadoBD){
-            document.querySelector('#updateEstado').value = marc.parentNode.children[1].innerHTML;;
+            document.querySelector('#updateEstado').value = marc.parentNode.children[1].innerHTML;
             window.console.log(document.querySelector('#updateEstado').value);
             marc.style.backgroundColor = "black";
             elementoSelecionado = marc;
@@ -74,7 +74,7 @@ marcadores.forEach(marc => {
         if (elementoSelecionado) { 
             elementoSelecionado.style.backgroundColor = "#D9D9D9";
         }
-        document.querySelector('#updateEstado').value = marc.parentNode.children[1].innerHTML;;
+        document.querySelector('#updateEstado').value = marc.parentNode.children[1].innerHTML;
         window.console.log(document.querySelector('#updateEstado').value);
         marc.style.backgroundColor = "black";
         elementoSelecionado = marc;
@@ -115,7 +115,8 @@ function placeholder(moradorParaAtualizar){
     containerUpdate.children[0].children[2].children[1].value = moradorParaAtualizar.children[0].children[1].innerHTML;
     containerUpdate.children[0].children[4].children[1].value = moradorParaAtualizar.children[1].children[1].children[0].innerHTML;
     containerUpdate.children[0].children[3].children[1].value = moradorParaAtualizar.children[1].children[2].children[0].innerHTML;
-    document.querySelector('#updateEstado').value = moradorParaAtualizar.parentNode.children[2].children[1].innerHTML;
+    window.console.log(moradorParaAtualizar.parentNode.children[2].children[1].innerHTML);
+    document.querySelector("#updateEstado").value = moradorParaAtualizar.parentNode.children[2].children[1].innerHTML;
     
     containerUpdate.children[0].children[1].children[1].placeholder = moradorParaAtualizar.children[0].children[0].innerHTML;
     containerUpdate.children[0].children[5].children[1].placeholder = moradorParaAtualizar.children[1].children[0].children[0].innerHTML;

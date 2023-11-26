@@ -5,6 +5,7 @@ import br.cefetmg.casaderepouso.dto.Consulta;
 import br.cefetmg.casaderepouso.dto.exception.CadastroException;
 import br.cefetmg.casaderepouso.idao.IConsultaDAO;
 import br.cefetmg.casaderepouso.service.ICadastrarConsulta;
+import java.util.List;
 
 /**
  *
@@ -22,5 +23,11 @@ public class CadastrarConsultaS  implements ICadastrarConsulta{
         ConsultaDAO.cadastrar(consulta);
         return consulta.getProfissional();
     }   
+
+    @Override
+    public List<Consulta> listarTodos() {
+        List<Consulta> list = ConsultaDAO.listarTodos();
+        return list;
+    }
     
 }

@@ -53,7 +53,9 @@ public class EventoDAO implements IEventoDAO {
             throw new ClassNotFoundException(e.getMessage(), e);       
         }
     }
-public boolean atualizar(Evento event) throws SQLException, ClassNotFoundException {
+    
+     @Override
+     public boolean atualizar(Evento event) throws SQLException, ClassNotFoundException {
         
         try {
              Connection con = DAO.conectar();
