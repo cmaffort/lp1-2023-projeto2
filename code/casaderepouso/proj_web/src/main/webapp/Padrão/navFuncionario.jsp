@@ -51,6 +51,7 @@
     <body>
         <div class="nav">    
             <a class="button" href="CadastroMorador.jsp">Novo Morador</a>
+            <a class="button" href="CadastroSaida.jsp">Cadastro de Saída</a>
             <a class="button" href="#">Inventário</a>
             <a class="button" href="#">Cardápios</a>
             <a class="button" href="#">Equipamentos</a>

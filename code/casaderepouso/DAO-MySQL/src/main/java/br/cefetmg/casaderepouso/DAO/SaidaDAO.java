@@ -103,7 +103,7 @@ public class SaidaDAO implements ISaidaDAO {
     @Override
     public ArrayList<SaidaTemporaria> listarTodos()throws SQLException, ClassNotFoundException{
         
-	String sql = "SELECT * FROM saida";
+	String sql = "SELECT * FROM saida order by nome";
         try {
             
             Connection con = DAO.conectar();
