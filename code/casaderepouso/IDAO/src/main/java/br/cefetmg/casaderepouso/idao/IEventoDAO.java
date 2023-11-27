@@ -19,5 +19,6 @@ public interface IEventoDAO {
 
     public ArrayList<Evento> listarTodos() throws SQLException, ClassNotFoundException;
 
+     public boolean atualizar(Evento event) throws SQLException, ClassNotFoundException;
     public Evento pesquisar(String cpf);
 }

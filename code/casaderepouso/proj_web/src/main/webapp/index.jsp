@@ -27,15 +27,7 @@
         <label>Senha:</label>
         <input type="password" for="identidade" class="texto" placeholder="Digite aqui..." required>
     </div>
-    <div class="form-group">
-            <label>Qual sua função?</label>
-            <select name="cargo" id="funcao">
-              <option value="funcionario">Funcionário</option>
-              <option value="responsavel">Responsável</option>
-              <option value="gerente">Gerente</option>
-              <option value="médico">Profissional de saúde</option>
-            </select>
-          </div>
+    
     <a href="CadastrarVisita.jsp">Sou visitante</a>
     <a>Agendar atividade</a>
     <div id="botao">
