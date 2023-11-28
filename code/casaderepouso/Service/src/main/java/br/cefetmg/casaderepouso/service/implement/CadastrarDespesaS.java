@@ -9,6 +9,7 @@ import br.cefetmg.casaderepouso.dto.Despesas;
 import br.cefetmg.casaderepouso.dto.exception.CadastroException;
 import br.cefetmg.casaderepouso.idao.IDespesaDAO;
 import br.cefetmg.casaderepouso.service.ICadastrarDespesas;
+import java.util.List;
 
 /**
  *
@@ -27,6 +28,13 @@ public class CadastrarDespesaS implements ICadastrarDespesas {
         DespesaDAO.cadastrar(pagamento);
         System.out.println("Service teste");
         return pagamento.getDestinatario();
+    }
+
+    @Override
+    public List<Despesas> listarTodos() {
+        List<Despesas> list = DespesaDAO.listarTodos();
+        return list;
+        
     }
 
 }

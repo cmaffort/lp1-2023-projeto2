@@ -11,15 +11,17 @@ public class Despesas {
     private String telefone;
     private String identidade;
     private String descricao;
+    private String valor;
     private String data;
     private String hora;
     
-    public Despesas(String destinatario, String pagante, String telefone, String identidade, String descricao, String data, String hora) {
+    public Despesas(String destinatario, String pagante, String telefone, String identidade, String descricao, String valor, String data, String hora) {
         this.destinatario = destinatario;
         this.pagante = pagante;
         this.telefone = telefone;
         this.identidade = identidade;
         this.descricao = descricao;
+        this.valor = valor;
         this.data = data;
         this.hora = hora;
     }
@@ -42,6 +44,10 @@ public class Despesas {
 
     public String getDescricao() {
         return descricao;
+    }
+    
+    public String getValor(){
+        return valor;
     }
 
     public String getData() {
@@ -70,6 +76,10 @@ public class Despesas {
 
     public void setDescricao(String descricao) {
         this.descricao = descricao;
+    }
+    
+    public void setValor(String valor){
+        this.valor = valor;
     }
 
     public void setData(String data) {

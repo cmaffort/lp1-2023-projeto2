@@ -31,8 +31,9 @@ public class CadastrarDespesa extends HttpServlet {
         String descricao = request.getParameter("descricao");
         String data = request.getParameter("data");
         String hora = request.getParameter("hora");
+        String valor = request.getParameter("valor");
 
-        Despesas pagamento = new Despesas(destinatario, pagante, telefone, identidade, descricao, data, hora);
+        Despesas pagamento = new Despesas(destinatario, pagante, telefone, identidade, descricao, valor, data, hora);
 
         ICadastrarDespesas service = new CadastrarDespesaS();
 

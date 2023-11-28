@@ -123,7 +123,6 @@ CREATE TABLE IF NOT EXISTS receita_medica (
     FOREIGN KEY (morador) REFERENCES morador(cpf)
 );
 
-
 CREATE TABLE IF NOT EXISTS refeicao (
    cpf VARCHAR(14),
    hora VARCHAR(20),
@@ -132,6 +131,7 @@ CREATE TABLE IF NOT EXISTS refeicao (
    dia VARCHAR(20)
 );
 
+
 CREATE TABLE IF NOT EXISTS despesas(
 	destinatario VARCHAR(255),
     pagante VARCHAR(255),
@@ -139,5 +139,6 @@ CREATE TABLE IF NOT EXISTS despesas(
     identidade VARCHAR(255),
     data VARCHAR(255),
     hora VARCHAR(255),
-    descricao VARCHAR(255)
-);
+    descricao VARCHAR(255),
+    valor VARCHAR(255)
+    );

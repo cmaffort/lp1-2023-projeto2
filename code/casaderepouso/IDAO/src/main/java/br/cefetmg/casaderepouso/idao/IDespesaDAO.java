@@ -5,6 +5,7 @@
 package br.cefetmg.casaderepouso.idao;
 
 import br.cefetmg.casaderepouso.dto.Despesas;
+import java.util.List;
 
 /**
  *
@@ -12,5 +13,6 @@ import br.cefetmg.casaderepouso.dto.Despesas;
  */
 public interface IDespesaDAO {
         public boolean cadastrar(Despesas pagamento);
+        public List<Despesas> listarTodos();
 
 }

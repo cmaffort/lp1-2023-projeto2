@@ -38,6 +38,7 @@
                         <input type="text" name="identidade" class="texto" placeholder="Digite aqui..." required>
                     </div>
 
+
                     <div class="form-group" id="marcar">
                         <div>
                             <label id="calendario" required>Data:</label>
@@ -56,6 +57,7 @@
                 </div>
             </article>
             <div id="botoes">
+                <input type="text" name="valor" class="texto" placeholder="Valor pago R$..." required style="width: 20%">
                 <button style="background-color:#2882EB; color: white" type="submit">Adicionar</button>
             </div>
         </form>
