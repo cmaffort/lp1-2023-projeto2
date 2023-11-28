@@ -15,4 +15,5 @@ import java.util.List;
 public interface IManterCartao {
     public String cadastrar(Cartao cartao) throws CadastroException;
     public String excluir(Cartao cartao) throws Exception;
+    public List<Cartao> pesquisarTodos() throws Exception;
 }

@@ -4,46 +4,63 @@
  */
 
 
-// Gerar QR Code
+
 var qrcode = new QRCode("qrcode", {
-  text: "TelaInicialResponsavel.jsp", // URL para a qual o usuário será redirecionado
-  width: 200,
-  height: 200
+    text: "https://youtu.be/DCOonkQtoeQ?t=17",
+    width: 200,
+    height: 200
+});
+// aumentar meses
+let nMeses = document.querySelector("#meses");
+let botaoAddMes = document.querySelector("#addMes");
+let botaoSubMes = document.querySelector("#subMes");
+
+
+botaoAddMes.addEventListener("click", () => {
+    n = Number(nMeses.innerHTML) + 1;
+    nMeses.innerHTML = n.toString();
+});
+botaoSubMes.addEventListener("click", () => {
+    n = Number(nMeses.innerHTML);
+    if (n === 1) {
+    } else {
+        n = n - 1;
+        nMeses.innerHTML = n.toString();
+    }
+});
+// aparecer containers
+let containerImg = document.querySelector("#pagamento-formas");
+let marca = document.querySelector("#marca-cartao");
+let containerCartao = document.querySelector("#pagamentoCartao");
+let containerPix = document.querySelector("#pagamentoPIX");
+let visaTypeOn = false;
+let inputCardType = document.querySelector("#cardtype");
+if (marca.src === "./imgs/Visa.png") {
+    visaTypeOn = true;
+} else {
+    visaTypeOn = false;
+}
+containerImg.children[0].addEventListener('click', () => {
+    marca.src = "./imgs/Visa.png";
+    inputCardType.value = "visa";
+    containerPix.style.display = "none";
+    if (containerCartao.style.display === "block") {
+    } else
+        containerCartao.style.display = "block";
 });
 
-// Verificar a leitura do QR Code
-var video = document.createElement("video");
+containerImg.children[1].addEventListener('click', () => {
+    marca.src = "./imgs/MASTERCARD.png";
+    inputCardType.value = "mastercard";
+    containerPix.style.display = "none";
+    if (containerCartao.style.display === "block") {
+    } else
+        containerCartao.style.display = "block";
+});
 
-// Obter acesso à câmera
-navigator.mediaDevices.getUserMedia({ video: { facingMode: "environment" } })
-  .then(function (stream) {
-    video.srcObject = stream;
-    video.setAttribute("playsinline", true); // iOS
-    video.play();
-    requestAnimationFrame(tick);
-  });
-
-// Verificar continuamente se há QR Code na câmera
-function tick() {
-  if (video.readyState === video.HAVE_ENOUGH_DATA) {
-    qrcodeScanner(video);
-  }
-  requestAnimationFrame(tick);
-}
-
-// Verificar se há QR Code na imagem da câmera
-function qrcodeScanner(video) {
-  var canvasElement = document.createElement("canvas");
-  var canvas = canvasElement.getContext("2d");
-
-  canvasElement.width = video.videoWidth;
-  canvasElement.height = video.videoHeight;
-  canvas.drawImage(video, 0, 0, canvasElement.width, canvasElement.height);
-
-  try {
-    var result = qrcode.decode(canvas.getImageData(0, 0, canvasElement.width, canvasElement.height));
-    window.location.href = result;
-  } catch (e) {
-    // Nenhum QR Code detectado, continuar verificação
-  }
-}
+containerImg.children[2].addEventListener('click', () => {
+    if (containerCartao.style.display === "block") {
+        containerCartao.style.display = "none";
+    } else
+        containerPix.style.display = "block";
+});

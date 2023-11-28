@@ -39,5 +39,10 @@ public class ManterCartao implements IManterCartao{
         else
             return "false";
     }
-    
+    @Override
+        public List<Cartao> pesquisarTodos() throws Exception {
+        List<Cartao> lista = cartaoDAO.listarTodos();
+        
+        return lista;
+    }
 }

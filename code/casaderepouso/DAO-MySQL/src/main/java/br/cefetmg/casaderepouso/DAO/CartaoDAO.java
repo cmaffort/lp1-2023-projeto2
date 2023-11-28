@@ -32,13 +32,14 @@ public class CartaoDAO implements ICartaoDAO {
          try {
             Connection con = DAO.conectar();
 
-            String sql = "DELETE FROM cartao_credito WHERE cpf = ? AND numero_cartao = ? AND nome_cartao = ? AND validade = ?";
+            String sql = "DELETE FROM cartao_credito WHERE cpf = ? AND numero_cartao = ? AND nome_cartao = ? AND validade = ? AND cardtype = ?";
 
             PreparedStatement pstmt = con.prepareStatement(sql);
             pstmt.setString(1, cartao.getCpf());
-            pstmt.setString(5, cartao.getNumero());
-            pstmt.setString(2, cartao.getNome());
+            pstmt.setString(2, cartao.getNumero());
+            pstmt.setString(3, cartao.getNome());
             pstmt.setString(4, cartao.getValidade());
+            pstmt.setString(5, cartao.getCardtype());
             pstmt.executeUpdate();
 
             pstmt.close();
@@ -55,16 +56,17 @@ public class CartaoDAO implements ICartaoDAO {
     
     @Override
     public boolean inserir(Cartao cartao){
-        String sql = "INSERT INTO refeicao (cpf, hora, cardapio, tipo, dia) VALUES(?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO refeicao (cpf, numero_cartao,nome_cartao,validade, cardtype) VALUES(?, ?, ?, ?, ?)";
         try{
             Class.forName("com.mysql.cj.jdbc.Driver");
             Connection con = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/bdlardeidosos", "root", "admin");
             
             PreparedStatement pstmt = con.prepareStatement(sql);
             pstmt.setString(1, cartao.getCpf());
-            pstmt.setString(5, cartao.getNumero());
-            pstmt.setString(2, cartao.getNome());
+            pstmt.setString(2, cartao.getNumero());
+            pstmt.setString(3, cartao.getNome());
             pstmt.setString(4, cartao.getValidade());
+            pstmt.setString(5, cartao.getCardtype());
             pstmt.executeUpdate();
             con.close();
       
@@ -92,8 +94,9 @@ public class CartaoDAO implements ICartaoDAO {
                 String numero = rs.getString(2);
                 String nome = rs.getString(3);
                 String validade = rs.getString(4);
+                String cardtype = rs.getString(5);
 
-                Cartao car = new Cartao(cpf,numero,nome,validade);    
+                Cartao car = new Cartao(cpf,numero,nome,validade, cardtype);    
 
                 listAll.add(car);
             }

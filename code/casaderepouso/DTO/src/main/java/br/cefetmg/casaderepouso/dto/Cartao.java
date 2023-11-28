@@ -13,14 +13,16 @@ public class Cartao {
     String numero;
     String nome;
     String validade;
+    String cardtype;
     public Cartao(){
     
     }
-    public Cartao(String cpf, String numero, String nome, String validade) {
+    public Cartao(String cpf, String numero, String nome, String validade, String cardtype) {
         this.cpf = cpf;
         this.numero = numero;
         this.nome = nome;
         this.validade = validade;
+        this.cardtype = cardtype;
     }
 
     public String getCpf() {
@@ -53,6 +55,14 @@ public class Cartao {
 
     public void setValidade(String validade) {
         this.validade = validade;
+    }
+
+    public String getCardtype() {
+        return cardtype;
+    }
+
+    public void setCardtype(String cardtype) {
+        this.cardtype = cardtype;
     }
     
     

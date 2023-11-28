@@ -132,9 +132,16 @@ CREATE TABLE IF NOT EXISTS refeicao (
    dia VARCHAR(20)
 );
 
-CREATE TABLE IF NO EXISTS cartao_credito {
+CREATE TABLE IF NOT EXISTS cartao_credito (
     cpf VARCHAR (14),
     numero_cartao VARCHAR (20),
     nome_cartao VARCHAR (255),
-    validade VARCHAR (6)
-};
+    validade VARCHAR (6),
+    cardtype VARCHAR (10)
+);
+
+CREATE TABLE IF NOT EXISTS atualizacao(
+    cpf VARCHAR(14),
+    dados TEXT,
+    momento VARCHAR(20)
+);

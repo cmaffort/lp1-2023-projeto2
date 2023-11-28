@@ -8,15 +8,11 @@ package br.cefetmg.casaderepouso.idao;
  *
  * @author Master
  */
-import br.cefetmg.casaderepouso.dto.Cartao;
+import br.cefetmg.casaderepouso.dto.Atualizacao;
 import java.sql.SQLException;
 import java.util.ArrayList;
-public interface ICartaoDAO {
-    
-    public boolean inserir(Cartao cartao);
 
-    public boolean deletar(Cartao cartao) throws SQLException, ClassNotFoundException;
-
-    public ArrayList<Cartao> listarTodos() throws SQLException, ClassNotFoundException;
-
+public interface IAtualizacaoDAO {
+    public boolean inserir(Atualizacao atualizacao);
+    public ArrayList<Atualizacao> listarTodos() throws SQLException, ClassNotFoundException;
 }
