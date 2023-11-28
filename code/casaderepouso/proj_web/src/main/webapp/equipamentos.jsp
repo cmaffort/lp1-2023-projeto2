@@ -5,6 +5,8 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import="br.cefetmg.casaderepouso.dto.Equipamento"%>
+<%@page import="java.util.List"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -14,7 +16,7 @@
     </head>
     <body>
         <%@include file="Padrão/navGerente.jsp" %>
-        
+
         <div class="titles">
             <h1>Bem vindo, nome</h1>
             <h2>Inventário</h2>
@@ -41,10 +43,28 @@
                     <label>Estado:</label>
                     <input type="text" name="estado" class="texto" placeholder="Digite aqui..." >
                 </div>
-                
+
                 <div>
                     <button name="act" value="cadastrarEquipamento" style="width: 100%;" class="cadastro">Cadastrar Equipamento</button>
                     <a class="cancelarCadastro" style="width: 100%; background-color: #FF0000; cursor: pointer;">Cancelar</a>
+                </div>
+
+                <div id="containter-lista-equipamentos">
+                    <%
+                        List<Equipamento> listEquipamento = (List<Equipamento>) request.getAttribute("listEquipamentos");
+                        if(listEquipamento != null){
+                        for (Equipamento equipamento: listEquipamento) {
+                    %>
+                    <div class="lista">
+                        <article id="equipamento">
+                            <div id="cor-status"></div>
+                            <p class="info-container"><%=equipamento.getTipo()%>
+                        </article>
+                    </div>
+                    <%
+                            }
+                        }
+                    %>
                 </div>
 
                 <script src="scripts/equipamento.js"></script>

@@ -30,15 +30,12 @@ CREATE TABLE IF NOT EXISTS morador (
     estado VARCHAR(255)
 );
 CREATE TABLE IF NOT EXISTS responsavel (
-    id INT AUTO_INCREMENT PRIMARY KEY,
     nome VARCHAR(255) NOT NULL,
     cpf VARCHAR(14) NOT NULL,
     rg VARCHAR(12) NOT NULL,
     telefone VARCHAR(20),
-    datanascimento DATE,
     endereco TEXT,
-    morador_responsavel VARCHAR(14),
-    FOREIGN KEY (morador_responsavel) REFERENCES morador(CPF)
+    morador_responsavel VARCHAR(14) NOT NULL
 );
 CREATE TABLE IF NOT EXISTS funcionario (
     id VARCHAR(255) PRIMARY KEY,
@@ -112,15 +109,13 @@ CREATE TABLE IF NOT EXISTS consulta (
 );
 CREATE TABLE IF NOT EXISTS receita_medica (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    profissional_de_saude INT NOT NULL,
-    morador VARCHAR(14) NOT NULL,
+    profissional_de_saude TEXT NOT NULL,
+    morador TEXT NOT NULL,
     medicamentos TEXT,
     data DATE NOT NULL,
     hora TIME NOT NULL,
     quantidade INT NOT NULL,
-    validade DATE NOT NULL,
-    FOREIGN KEY (profissional_de_saude) REFERENCES profissional_de_saude(id),
-    FOREIGN KEY (morador) REFERENCES morador(cpf)
+    validade DATE NOT NULL
 );
 
 
@@ -130,4 +125,11 @@ CREATE TABLE IF NOT EXISTS refeicao (
    cardapio VARCHAR(255),
    tipo VARCHAR(255),
    dia VARCHAR(20)
+);
+
+CREATE TABLE IF NOT EXISTS equipamento (
+   tipo VARCHAR (255) NOT NULL,
+   preco VARCHAR (255) NOT NULL,
+   quantidade INT NOT NULL,
+   estado VARCHAR (255) NOT NULL
 );
