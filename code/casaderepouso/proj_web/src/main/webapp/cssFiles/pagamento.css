@@ -15,6 +15,9 @@ body {
     margin: 0;
 }
 .back-button {
+    position: absolute;
+    left: 45.5%;
+    top: 5vh;
     display: flex;
     justify-content: left;
     align-items: center;
@@ -80,6 +83,7 @@ body {
     align-items: center;
 }
 #botaoMes{
+    cursor: pointer;
     display: flex;
     flex-direction: row;
     justify-content:space-evenly;
@@ -119,10 +123,9 @@ body {
 /* Container pagamento cartao */
 #pagamento-container-cartao{
     display: flex;
-    width: 45vh;
+    width: 50vh;
     height: 40vh;
     align-items: center;
-    margin: 25%;
     flex-direction: column;
     border-radius: 20px;
     background: rgba(222, 237, 255, 0.60);
@@ -151,16 +154,26 @@ body {
 }
 #cartao-info{
     display: grid;
-    grid-template-columns: 40% 40%;
-    grid-template-rows: 25% 25% 25% 25%;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 20% 20% 20% 20% 20%;
 }
-#numero, #nome,efetua-pagamento{
+
+#nome,#numero,#efetua-pagamento{
     grid-column: span 2;
     grid-row: span 1;
+}
+#nomeInput,#numeroInput,#efetua-pagamento{
+    width: 45vh;
 }
 #validade, #codigo{
     grid-column: span 1;
     grid-row: span 1;
+}
+#validadeInput, #codigoInput{
+    width: 20vh;
+}
+#codigoInput{
+    align-self: end;
 }
 .form-group {
     margin-bottom: 2.5%;

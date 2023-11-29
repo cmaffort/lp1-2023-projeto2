@@ -4,8 +4,9 @@
     Author     : rigor
 --%>
 
+<%@page import="br.cefetmg.casaderepouso.DAO.MoradorDAO" %>
 <%@page import="br.cefetmg.casaderepouso.dto.Morador" %>
-<%@page import="java.util.List" %>
+<%@page import="java.util.ArrayList" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -61,7 +62,7 @@
             </div>
             <div id="atualizar-container">
                 <form id="atualizarForm" class="form-container" action="Facade" method="POST">
-                    <input style="display: none;" name="estado" id="updateEstado"value="">
+                    <input type="text" style="display: none;" name="estado" id="updateEstado2">
                     <div class="form-group">
                         <label>Seu nome completo:</label>
                         <input type="text" name="nomeMorador" class="texto" placeholder="Digite aqui..." >
@@ -100,7 +101,7 @@
             <div class="title"><h2>Dados dos Moradores</h2>
                 <input type="text" id="pesquisa" placeholder="Pesquise o nome aqui..."><input type="submit" id="btnPesquisar" value="🔎">
             </div>
-            <div id="containerheader">
+            <div id="containerheader" style="margin: 1vh;">
                 <form action="Facade" method="POST">
                     <input id="listarMoradores"type="submit" name="act" value="ListarMorador">   
                 </form>
@@ -112,7 +113,8 @@
             </div>
             <div id="container-lista-moradores">
                 <%
-                   List<Morador> listaMoradores = (List<Morador>) request.getAttribute("listMor");
+                    MoradorDAO moradorDAO = new MoradorDAO();
+                    ArrayList<Morador> listaMoradores = moradorDAO.listarTodos();
                    
                    if(listaMoradores != null){
                    for (Morador mor: listaMoradores) {
@@ -157,7 +159,7 @@
         </div>
         <script>
             document.addEventListener("DOMContentLoaded", function () {
-       
+
                 var campoPesquisa = document.getElementById("pesquisa");
                 var btnPesquisar = document.getElementById("btnPesquisar");
                 var moradores = document.querySelectorAll(".morador-container");
@@ -165,16 +167,15 @@
                     var termoPesquisa = campoPesquisa.value.toLowerCase();
                     moradores.forEach(function (morador) {
                         var nomeMorador = morador.querySelector(".nome-cpf").innerText.toLowerCase();
-                        if(nomeMorador.includes(termoPesquisa) && morador.children[2].children[1].innerHTML === "Falecido" && localStorage.getItem("falecido") === 'nao'){
+                        if (nomeMorador.includes(termoPesquisa) && morador.children[2].children[1].innerHTML === "Falecido" && localStorage.getItem("falecido") === 'nao') {
                             morador.style.display = "none";
-                        }
-                        else{
-                        if (nomeMorador.includes(termoPesquisa)) {
-                            morador.style.display = "grid";
                         } else {
-                            morador.style.display = "none";
+                            if (nomeMorador.includes(termoPesquisa)) {
+                                morador.style.display = "grid";
+                            } else {
+                                morador.style.display = "none";
+                            }
                         }
-                    }
                     });
                 });
             });

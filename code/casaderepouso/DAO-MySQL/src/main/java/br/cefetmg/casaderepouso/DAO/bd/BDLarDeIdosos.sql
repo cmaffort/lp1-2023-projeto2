@@ -145,3 +145,10 @@ CREATE TABLE IF NOT EXISTS atualizacao(
     dados TEXT,
     momento VARCHAR(20)
 );
+
+CREATE TABLE IF NOT EXISTS mensalidade(
+    cpfMorador VARCHAR(14),
+    cpfResponsavel VARCHAR(14),
+    inicio VARCHAR(20),
+    fim VARCHAR(20)
+)

@@ -3,64 +3,92 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/JavaScript.js to edit this template
  */
 
-
-
-var qrcode = new QRCode("qrcode", {
-    text: "https://youtu.be/DCOonkQtoeQ?t=17",
-    width: 200,
-    height: 200
-});
 // aumentar meses
 let nMeses = document.querySelector("#meses");
 let botaoAddMes = document.querySelector("#addMes");
 let botaoSubMes = document.querySelector("#subMes");
+let preco = document.querySelector("#valor-preco");
 
 
 botaoAddMes.addEventListener("click", () => {
-    n = Number(nMeses.innerHTML) + 1;
-    nMeses.innerHTML = n.toString();
+    n = parseInt(nMeses.innerHTML) + 1;
+    nMeses.innerHTML = n.toString() + "x";
+    preco.innerHTML = parseInt(preco.innerHTML) + 120;
 });
 botaoSubMes.addEventListener("click", () => {
-    n = Number(nMeses.innerHTML);
+    n = parseInt(nMeses.innerHTML);
     if (n === 1) {
     } else {
         n = n - 1;
-        nMeses.innerHTML = n.toString();
+        nMeses.innerHTML = n.toString() + "x";
+        preco.innerHTML = parseInt(preco.innerHTML) - 120;
     }
 });
 // aparecer containers
 let containerImg = document.querySelector("#pagamento-formas");
 let marca = document.querySelector("#marca-cartao");
 let containerCartao = document.querySelector("#pagamentoCartao");
-let containerPix = document.querySelector("#pagamentoPIX");
-let visaTypeOn = false;
+let marcaType = sessionStorage.getItem('marca');
 let inputCardType = document.querySelector("#cardtype");
-if (marca.src === "./imgs/Visa.png") {
-    visaTypeOn = true;
-} else {
-    visaTypeOn = false;
-}
+
 containerImg.children[0].addEventListener('click', () => {
-    marca.src = "./imgs/Visa.png";
+    marca.src = "./imgs/visa.png";
     inputCardType.value = "visa";
-    containerPix.style.display = "none";
-    if (containerCartao.style.display === "block") {
-    } else
-        containerCartao.style.display = "block";
+    marcaType = "visa";
+    sessionStorage.setItem("marca", marcaType);
+    containerCartao.style.display = "flex";
 });
 
 containerImg.children[1].addEventListener('click', () => {
-    marca.src = "./imgs/MASTERCARD.png";
+    marca.src = "./imgs/mastercard.png";
     inputCardType.value = "mastercard";
-    containerPix.style.display = "none";
-    if (containerCartao.style.display === "block") {
-    } else
-        containerCartao.style.display = "block";
+    marcaType = "mastercard";
+    sessionStorage.setItem("marca", marcaType);
+    containerCartao.style.display = "flex";
 });
 
 containerImg.children[2].addEventListener('click', () => {
-    if (containerCartao.style.display === "block") {
-        containerCartao.style.display = "none";
-    } else
-        containerPix.style.display = "block";
+ 
 });
+
+let botaoLista = document.querySelector("#botao-cartoes-salvos");
+let lista = document.querySelector("#lista-cartoes");
+let cartoesLista = document.querySelectorAll(".cartao-salvo");
+function ocultarCaracteres(string){
+    let ultimosQuatroCaracteres = string.substring(string.length - 4);
+    let stringOcultada = "*".repeat(string.length - 4) + ultimosQuatroCaracteres;
+
+    return stringOcultada;
+}
+function mostrarLista(){
+    if(lista.style.display === "none"){
+        lista.style.display = "flex";
+        sessionStorage.setItem('lista','display');
+        cartoesLista.forEach(car =>{
+            let numero = car.children[0];
+            car.children[1] = ocultarCaracteres(numero);
+            if(car.lastChild.innerHTML !== marcaType){
+                car.style.display = "none";
+            }
+            else{
+                car.style.display = "block";
+            }
+        });
+    }
+    else{
+        lista.style.display = "none";
+        sessionStorage.setItem('lista','none');
+    }       
+}
+botaoLista.addEventListener("click", mostrarLista);
+if(sessionStorage.getItem('marca') === "visa"){    
+        marca.src = "imgs/visa.png";
+        containerCartao.style.display = "flex";
+    }
+    else if(sessionStorage.getItem('marca') === "mastercard"){
+        marca.src = "imgs/mastercard.png";
+        containerCartao.style.display = "flex";
+    }
+if(sessionStorage.getItem('lista') === "display"){
+    mostarLista();
+}

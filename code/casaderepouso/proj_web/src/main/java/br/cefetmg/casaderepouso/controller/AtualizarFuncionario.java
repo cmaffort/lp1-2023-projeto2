@@ -4,16 +4,22 @@
  */
 package br.cefetmg.casaderepouso.controller;
 
+import br.cefetmg.casaderepouso.dto.Atualizacao;
 import br.cefetmg.casaderepouso.dto.Funcionario;
 
 import br.cefetmg.casaderepouso.dto.exception.CadastroException;
+import br.cefetmg.casaderepouso.service.IManterAtualizacao;
 import br.cefetmg.casaderepouso.service.IManterFuncionario;
+import br.cefetmg.casaderepouso.service.implement.ManterAtualizacao;
 
 import br.cefetmg.casaderepouso.service.implement.ManterFuncionario;
 
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 
 /**
  *
@@ -59,6 +65,21 @@ public class AtualizarFuncionario extends HttpServlet {
             
             IManterFuncionario iFuncionario = new ManterFuncionario();
             iFuncionario.atualizar(func);
+            
+            Atualizacao atualizacao = new Atualizacao();
+            atualizacao.setCpf(cpf);
+
+            LocalDate dataAtual = LocalDate.now();
+            String dataFormatada = dataAtual.format(DateTimeFormatter.ofPattern("dd/MM/yyyy"));
+            LocalTime horarioAtual = LocalTime.now();
+            String horarioFormatado = horarioAtual.format(DateTimeFormatter.ofPattern("HH:mm"));
+            atualizacao.setMomento(dataFormatada + " " + horarioFormatado);
+
+            String dados = "Nome:" + nome + "\nRg:" + rg + "\nCpf:" + cpf + "\nNascimento:" + nasc + "\nPis:" + pis + "\nEndereço:" + endereco + "\nFone:" + fone + "\nFunção:"+ "Padrão" + "\nPeríodo:" + periodo;
+            atualizacao.setDados(dados);
+            
+            IManterAtualizacao iAtualizacao = new ManterAtualizacao();
+            iAtualizacao.cadastrar(atualizacao);
             
             jsp = "/telaGerente.jsp";
         } catch (Exception e) {

@@ -56,7 +56,7 @@ public class CartaoDAO implements ICartaoDAO {
     
     @Override
     public boolean inserir(Cartao cartao){
-        String sql = "INSERT INTO refeicao (cpf, numero_cartao,nome_cartao,validade, cardtype) VALUES(?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO cartao_credito (cpf, numero_cartao,nome_cartao,validade, cardtype) VALUES(?, ?, ?, ?, ?)";
         try{
             Class.forName("com.mysql.cj.jdbc.Driver");
             Connection con = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/bdlardeidosos", "root", "admin");

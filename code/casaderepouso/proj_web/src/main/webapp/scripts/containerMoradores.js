@@ -116,7 +116,7 @@ function placeholder(moradorParaAtualizar){
     containerUpdate.children[0].children[4].children[1].value = moradorParaAtualizar.children[1].children[1].children[0].innerHTML;
     containerUpdate.children[0].children[3].children[1].value = moradorParaAtualizar.children[1].children[2].children[0].innerHTML;
     window.console.log(moradorParaAtualizar.parentNode.children[2].children[1].innerHTML);
-    document.querySelector("#updateEstado").value = moradorParaAtualizar.parentNode.children[2].children[1].innerHTML;
+    document.querySelector("#updateEstado2").value = moradorParaAtualizar.parentNode.children[2].children[1].innerHTML;
     
     containerUpdate.children[0].children[1].children[1].placeholder = moradorParaAtualizar.children[0].children[0].innerHTML;
     containerUpdate.children[0].children[5].children[1].placeholder = moradorParaAtualizar.children[1].children[0].children[0].innerHTML;

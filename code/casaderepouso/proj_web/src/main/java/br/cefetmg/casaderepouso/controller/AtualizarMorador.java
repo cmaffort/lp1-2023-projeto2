@@ -38,7 +38,6 @@ public class AtualizarMorador extends HttpServlet {
         String endereco = request.getParameter("endereco");
         String condicoes = request.getParameter("condicoes_especiais");
 
-        System.out.println(estado);
         Morador morador = new Morador();
 
         morador.setNome(nome);
@@ -59,7 +58,7 @@ public class AtualizarMorador extends HttpServlet {
         String horarioFormatado = horarioAtual.format(DateTimeFormatter.ofPattern("HH:mm"));
         atualizacao.setMomento(dataFormatada +" " + horarioFormatado);
         
-        String dados = "Nome:" + nome + "\nNomeMae:" + nomeMae + "\nEstado:" + estado + "\nPlano:" + planoMedico + "\nNascimento:" + dataStr + "\nEndereço:" + endereco + "Condições:" + condicoes;
+        String dados = "Nome:" + nome + "\nNomeMae:" + nomeMae + "\nEstado:" + estado + "\nPlano:" + planoMedico + "\nNascimento:" + dataStr + "\nEndereço:" + endereco + "\nCondições:" + condicoes;
         atualizacao.setDados(dados);
 
         IManterAtualizacao iAtualizacao = new ManterAtualizacao();

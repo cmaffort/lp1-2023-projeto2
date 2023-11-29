@@ -33,7 +33,7 @@ import java.util.logging.Logger;
 public class CadastrarCartao extends HttpServlet {
     
     public static String execute(HttpServletRequest request){
-        String jsp = "/TelaInicalResponsavel.jsp"; 
+        String jsp = "/pagamento.jsp"; 
     
             String numero = request.getParameter("numero");
             String nome = request.getParameter("nome");
