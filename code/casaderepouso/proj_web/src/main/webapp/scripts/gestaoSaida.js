@@ -51,13 +51,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
     var botoesAtualizar = document.querySelectorAll(".botao-atualizar");
 
-    // Itera sobre cada botão e adiciona um ouvinte de evento
+   
     botoesAtualizar.forEach(function (botaoAtualizar) {
         botaoAtualizar.addEventListener("click", function () {
-            // Obtém o índice do botão atual na lista de botões de atualização
+           
             var index = Array.from(botoesAtualizar).indexOf(botaoAtualizar);
 
-            // Seletor do contêiner de atualização correspondente
+           
             var atualizarContainers = document.querySelectorAll(".atualizar-container");
             var atualizarContainer = atualizarContainers[index];
 
@@ -69,10 +69,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
             var cancelarAtualizacoes = document.querySelectorAll(".cancelUpdate");
 
-            // Adiciona um ouvinte de evento para cada elemento "cancelUpdate"
+           
             cancelarAtualizacoes.forEach(function (cancelarUpdate) {
                 cancelarUpdate.addEventListener("click", function () {
-                    // Encontra o contêiner de atualização correspondente
+                    // Pega o conteiner de atualização 
                     var atualizarContainer = cancelarUpdate.closest(".atualizar-container");
 
                     // Esconde a div 'atualizar-container'
@@ -83,8 +83,8 @@ document.addEventListener("DOMContentLoaded", function () {
             });
         });
     });
-    
-   
+
+
     var pesquisaInput = document.getElementById('pesquisa');
 
     pesquisaInput.addEventListener('input', function () {
@@ -104,10 +104,33 @@ document.addEventListener("DOMContentLoaded", function () {
             container.style.display = correspondencia ? 'grid' : 'none';
         });
     });
-    
+
 });
 
+// Função que deixa cinza e tira o botão atualizar das saídas que já ocorreram
+function ajustarAparencia() {
+    var saidaContainers = document.querySelectorAll('.saida-container');
 
+    saidaContainers.forEach(function (saidaContainer) {
+        var dataRetorno = saidaContainer.getAttribute('data-retorno');
+        var dataRetornoObj = new Date(dataRetorno);
+        var dataAtual = new Date();
+
+        if (dataAtual >= dataRetornoObj) {
+            var botaoAtualizar = saidaContainer.querySelector('.botao-atualizar');
+            var containerInfo = saidaContainer.querySelector('.container-info');
+
+            botaoAtualizar.style.display = 'none';
+            containerInfo.style.backgroundColor = '#A9A9A9';
+            saidaContainer.style.backgroundColor = '#A9A9A9';
+        }
+    });
+}
+
+// Chamo a função depois de renderizar a página
+window.onload = function () {
+    ajustarAparencia();
+};
 
 
 

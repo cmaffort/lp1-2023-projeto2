@@ -63,7 +63,7 @@
                             <h2 class="nascimento">Data de retorno: <%=saida.getDataVolta()%></h2>     
                         </div>
                         <div class="info-container">
-                            <p class="info-content" >CPF: <span><%=saida.getMoradorCpf()%></span></p>
+                            <p class="info-content" >Motivo: <span><%=saida.getMotivo()%></span></p>
                             <p class="info-content" >Data de saída: <span><%=saida.getDataSaida()%></span></p>
                             <p class="info-content" >Horário: <span><%=saida.getHorarioSaida()%></span></p>
                             <p class="info-content" >Data de retorno: <span><%=saida.getDataVolta()%></span></p>
@@ -81,6 +81,10 @@
                         <div class="form-group">
                             <input type="hidden" name="idSaida" value="<%=saida.getId()%>">
 
+                        </div>
+                            <div class="form-group">
+                            <label>Motivo:</label>
+                            <input type="text" name="motivo" value="<%=saida.getMotivo()%>" class="texto" placeholder="Digite aqui..." >
                         </div>
                         <div class="form-group">
                             <label>Data de Saída:</label>
@@ -114,32 +118,7 @@
                 %>
 
             </div>
-            <script>
-                // Função que deixa cinza e tira o botão atualizar das saídas que já ocorreram
-                function ajustarAparencia() {
-                    var saidaContainers = document.querySelectorAll('.saida-container');
-
-                    saidaContainers.forEach(function (saidaContainer) {
-                        var dataRetorno = saidaContainer.getAttribute('data-retorno');
-                        var dataRetornoObj = new Date(dataRetorno);
-                        var dataAtual = new Date();
-
-                        if (dataAtual >= dataRetornoObj) {
-                            var botaoAtualizar = saidaContainer.querySelector('.botao-atualizar');
-                            var containerInfo = saidaContainer.querySelector('.container-info');
-
-                            botaoAtualizar.style.display = 'none';
-                            containerInfo.style.backgroundColor = '#A9A9A9';
-                            saidaContainer.style.backgroundColor = '#A9A9A9';
-                        }
-                    });
-                }
-
-                // Chama a função depois de renderizar a página
-                window.onload = function () {
-                    ajustarAparencia();
-                };
-            </script>
+            
         </div>
 
         <script src="scripts/gestaoSaida.js"></script>

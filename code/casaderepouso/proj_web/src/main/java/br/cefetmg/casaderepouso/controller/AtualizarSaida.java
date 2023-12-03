@@ -32,7 +32,7 @@ public class AtualizarSaida extends HttpServlet {
             String horarioS = request.getParameter("horarioSaida");
             String dataV = request.getParameter("dataVolta");
             String horarioV = request.getParameter("horarioVolta");
-            
+            String motivo = request.getParameter("motivo");
             String id = request.getParameter("idSaida");
             
             SaidaTemporaria saida = new SaidaTemporaria();
@@ -41,6 +41,7 @@ public class AtualizarSaida extends HttpServlet {
             saida.setHorarioSaida(horarioS);
             saida.setDataVolta(dataV);
             saida.setHorarioVolta(horarioV);
+            saida.setMotivo(motivo);
             saida.setId(id);
             
             IManterSaida iSaida = new ManterSaida();
