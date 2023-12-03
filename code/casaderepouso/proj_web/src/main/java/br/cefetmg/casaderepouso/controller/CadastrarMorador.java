@@ -54,6 +54,7 @@ public class CadastrarMorador extends HttpServlet {
             morador.setNomeMae(nomeMae);
             morador.setCpf(cpf);
             morador.setPlanoMedico(planoMedico);
+            morador.setResponsaveis(responsavel);
             morador.setDataNasc(dataStr);
             morador.setEndereco(endereco);
             morador.setCondicaoEspecial(condicoes);

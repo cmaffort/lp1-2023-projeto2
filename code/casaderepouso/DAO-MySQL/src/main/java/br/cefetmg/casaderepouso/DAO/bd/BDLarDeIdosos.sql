@@ -35,10 +35,8 @@ CREATE TABLE IF NOT EXISTS responsavel (
     cpf VARCHAR(14) NOT NULL,
     rg VARCHAR(12) NOT NULL,
     telefone VARCHAR(20),
-    datanascimento DATE,
     endereco TEXT,
     morador_responsavel VARCHAR(14),
-    FOREIGN KEY (morador_responsavel) REFERENCES morador(CPF)
 );
 CREATE TABLE IF NOT EXISTS funcionario (
     id VARCHAR(255) PRIMARY KEY,

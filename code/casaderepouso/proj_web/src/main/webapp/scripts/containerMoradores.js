@@ -54,6 +54,7 @@ function atualizarEstado(moradorParaAtualizar){
     document.querySelector('#enviarCpf').value = moradorParaAtualizar.children[1].children[0].children[0].innerHTML;
     document.querySelector('#enviarPlano').value = moradorParaAtualizar.children[1].children[3].children[0].innerHTML;
     document.querySelector('#enviarCondic').value = moradorParaAtualizar.children[1].children[4].children[0].innerHTML;
+    document.querySelector('#enviarResponsavel').value = moradorParaAtualizar.children[1].children[5].children[0].innerHTML;
     document.querySelector('#enviarNasc').value = moradorParaAtualizar.children[0].children[1].innerHTML;
     document.querySelector('#enviarMae').value = moradorParaAtualizar.children[1].children[1].children[0].innerHTML;
     document.querySelector('#enviarEndereco').value = moradorParaAtualizar.children[1].children[2].children[0].innerHTML;
@@ -112,6 +113,7 @@ function placeholder(moradorParaAtualizar){
     containerUpdate.children[0].children[5].children[1].value = moradorParaAtualizar.children[1].children[0].children[0].innerHTML;
     containerUpdate.children[0].children[6].children[1].value = moradorParaAtualizar.children[1].children[3].children[0].innerHTML;
     containerUpdate.children[0].children[7].children[1].value = moradorParaAtualizar.children[1].children[4].children[0].innerHTML;
+    containerUpdate.children[0].children[8].children[1].value = moradorParaAtualizar.children[1].children[5].children[0].innerHTML;
     containerUpdate.children[0].children[2].children[1].value = moradorParaAtualizar.children[0].children[1].innerHTML;
     containerUpdate.children[0].children[4].children[1].value = moradorParaAtualizar.children[1].children[1].children[0].innerHTML;
     containerUpdate.children[0].children[3].children[1].value = moradorParaAtualizar.children[1].children[2].children[0].innerHTML;
@@ -122,6 +124,7 @@ function placeholder(moradorParaAtualizar){
     containerUpdate.children[0].children[5].children[1].placeholder = moradorParaAtualizar.children[1].children[0].children[0].innerHTML;
     containerUpdate.children[0].children[6].children[1].placeholder = moradorParaAtualizar.children[1].children[3].children[0].innerHTML;
     containerUpdate.children[0].children[7].children[1].placeholder = moradorParaAtualizar.children[1].children[4].children[0].innerHTML;
+    containerUpdate.children[0].children[8].children[1].placeholder = moradorParaAtualizar.children[1].children[5].children[0].innerHTML;
     containerUpdate.children[0].children[2].children[1].placeholder = moradorParaAtualizar.children[0].children[1].innerHTML;
     containerUpdate.children[0].children[4].children[1].placeholder = moradorParaAtualizar.children[1].children[1].children[0].innerHTML;
     containerUpdate.children[0].children[3].children[1].placeholder = moradorParaAtualizar.children[1].children[2].children[0].innerHTML;

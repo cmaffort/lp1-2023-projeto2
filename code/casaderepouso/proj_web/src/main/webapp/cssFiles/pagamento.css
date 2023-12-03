@@ -196,8 +196,14 @@ button{
     border-radius: 15px;
     background: #2882EB;
 }
-/* Container pagamento pix */
+/* Container lista cartoes */
 
-#pagamentoPIX{
-    display: none;
+#lista-cartoes{
+    background-color: rgba(164, 203, 249, 0.50);
+}
+#listarCartoes{
+    background-color: #008CBA;
+    color: white;
+    margin-top: 15px;
+    margin-bottom: 15px;
 }

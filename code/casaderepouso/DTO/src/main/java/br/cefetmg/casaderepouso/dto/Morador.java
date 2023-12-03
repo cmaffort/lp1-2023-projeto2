@@ -109,6 +109,11 @@ public class Morador {
         return responsaveis;
     }
 
+    public void setResponsaveis(String responsaveis) {
+        this.responsaveis = responsaveis;
+    }
+    
+
     public String getPlanoMedico() {
         return planoMedico;
     }

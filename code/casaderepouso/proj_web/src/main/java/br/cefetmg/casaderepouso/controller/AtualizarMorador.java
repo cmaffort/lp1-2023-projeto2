@@ -35,6 +35,7 @@ public class AtualizarMorador extends HttpServlet {
         String dataStr = request.getParameter("dataNasc");
         String planoMedico = request.getParameter("plano_medico");
         String nomeMae = request.getParameter("nome_mae");
+        String responsavel = request.getParameter("responsavel");
         String endereco = request.getParameter("endereco");
         String condicoes = request.getParameter("condicoes_especiais");
 
@@ -43,6 +44,7 @@ public class AtualizarMorador extends HttpServlet {
         morador.setNome(nome);
         morador.setNomeMae(nomeMae);
         morador.setCpf(cpf);
+        morador.setResponsaveis(responsavel);
         morador.setEstado(estado);
         morador.setPlanoMedico(planoMedico);
         morador.setDataNasc(dataStr);
@@ -55,10 +57,10 @@ public class AtualizarMorador extends HttpServlet {
         LocalDate dataAtual = LocalDate.now();
         String dataFormatada = dataAtual.format(DateTimeFormatter.ofPattern("dd/MM/yyyy"));
         LocalTime horarioAtual = LocalTime.now();
-        String horarioFormatado = horarioAtual.format(DateTimeFormatter.ofPattern("HH:mm"));
+        String horarioFormatado = horarioAtual.format(DateTimeFormatter.ofPattern("HH:mm:ss"));
         atualizacao.setMomento(dataFormatada +" " + horarioFormatado);
         
-        String dados = "Nome:" + nome + "\nNomeMae:" + nomeMae + "\nEstado:" + estado + "\nPlano:" + planoMedico + "\nNascimento:" + dataStr + "\nEndereço:" + endereco + "\nCondições:" + condicoes;
+        String dados = "Nome: " + nome + "\nNome da Mae: " + nomeMae + "\nEstado: " + estado + "\nPlano-médico: " + planoMedico + "\nNascimento: " + dataStr + "\nEndereço: " + endereco + "\nCondições: " + condicoes + "\nCPF-responsável: " + responsavel;
         atualizacao.setDados(dados);
 
         IManterAtualizacao iAtualizacao = new ManterAtualizacao();

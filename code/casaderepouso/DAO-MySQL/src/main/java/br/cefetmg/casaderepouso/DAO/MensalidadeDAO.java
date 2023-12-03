@@ -25,7 +25,7 @@ public class MensalidadeDAO implements IMensalidadeDAO {
 
     @Override
     public boolean atualizar(Mensalidade mensalidade) throws ClassNotFoundException, SQLException {
-        String sql = "UPDATE mensalidade SET cpfResponsavel = ?, inicio = ?, fim = ? WHERE cpfMorador = ?,";
+        String sql = "UPDATE mensalidade SET cpfResponsavel = ?, inicio = ?, fim = ? WHERE cpfMorador = ?";
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             Connection con = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/bdlardeidosos", "root", "admin");

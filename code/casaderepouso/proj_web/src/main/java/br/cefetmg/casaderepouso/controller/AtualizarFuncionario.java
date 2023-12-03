@@ -72,10 +72,10 @@ public class AtualizarFuncionario extends HttpServlet {
             LocalDate dataAtual = LocalDate.now();
             String dataFormatada = dataAtual.format(DateTimeFormatter.ofPattern("dd/MM/yyyy"));
             LocalTime horarioAtual = LocalTime.now();
-            String horarioFormatado = horarioAtual.format(DateTimeFormatter.ofPattern("HH:mm"));
+            String horarioFormatado = horarioAtual.format(DateTimeFormatter.ofPattern("HH:mm:ss"));
             atualizacao.setMomento(dataFormatada + " " + horarioFormatado);
 
-            String dados = "Nome:" + nome + "\nRg:" + rg + "\nCpf:" + cpf + "\nNascimento:" + nasc + "\nPis:" + pis + "\nEndereço:" + endereco + "\nFone:" + fone + "\nFunção:"+ "Padrão" + "\nPeríodo:" + periodo;
+            String dados = "Nome: " + nome + "\nRg: " + rg + "\nCpf: " + cpf + "\nNascimento: " + nasc + "\nPis: " + pis + "\nEndereço: " + endereco + "\nFone: " + fone + "\nFunção: "+ "Padrão " + "\nPeríodo: " + periodo;
             atualizacao.setDados(dados);
             
             IManterAtualizacao iAtualizacao = new ManterAtualizacao();

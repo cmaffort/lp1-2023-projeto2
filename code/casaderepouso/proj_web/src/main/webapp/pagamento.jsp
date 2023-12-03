@@ -20,7 +20,7 @@
                 <div id="pagamento-descricao">
                     <span id="info-top">
                         <h2>Descrição do pagamento</h2>
-                        <p><span id="meses">1x</span> - Mensalidade Asilo <span id="nome-morador">"Nome"</span>  De xx/xx/xxxx até xx/xx/xxxx</p>
+                        <p><span id="meses">1x</span> - Mensalidade Asilo - <span id="nome-morador">"Nome"</span>  De <span id="data-inicio">xx/xx/</span> até <span id="data-vencimento">xx/xx/xxxx</span></p>
                         <span id="botaoMes">
                             <img id="addMes" src="./imgs/+.png">
                             <img id="subMes" src="./imgs/-.png">
@@ -30,7 +30,7 @@
                 </div>
                 <div id="pagamento-selecionar">
                     <h2>Selecione a forma de pagamento</h2>
-                    <div id="pagamento-formas"><img src="./imgs/visa.png"><img src="./imgs/mastercard.png"><img src="./imgs/PIX.png"></div>
+                    <div id="pagamento-formas"><img src="./imgs/visa.png"><img src="./imgs/mastercard.png"><img src=""></div>
                 </div>
             </div>
         </div>
@@ -60,12 +60,16 @@
                     </div>
                     <input style="display:none;" name="cpf" type="text" value="" id="cpf">
                     <input style="display:none;" name="cardtype" type="text" value="" id="cardtype">
+                    <input style="display:none;" name="inicio" type="text" value="" id="inicioInput">
+                    <input style="display:none;" name="fim" type="text" value="" id="fimInput">
+                    <input style="display:none;" name="cpfMorador" type="text" value="" id="cpfMoradorInput">
+                    <input style="display:none;" name="preco" type="text" value="" id="totalPagarInput">
                     <button name="act" value="CadastrarCartao" id="salvar-cartao" type="submit">Salvar cartão</button>
-                    <button id="efetua-pagamento"type="submit">Efetuar pagamento</button>
+                    <button name="act" value="EfetuarPagamento" id="efetua-pagamento"type="submit">Efetuar pagamento</button>
                 </form>
             </div>
         </div>
-        <div id="lista-cartoes" style="display: none;">
+        <div id="lista-cartoes" style="display:none;">
             <form action="Facade" method="POST">
                 <input id="listarCartoes"type="submit" name="act" value="ListarCartao">   
             </form>
@@ -76,13 +80,17 @@
             %>
             <div class="cartao-salvo">
                 <p style="display:none;"><%=car.getNumero()%></p>
-                <p></p>
+                <p class="numeroEscondido"></p>
                 <p style="display:none;"><%=car.getCardtype()%></p>
+                <img src="" class="mini-img-cardType">
+                <p style="display:none;"><%=car.getNome()%></p>
+                <p style="display:none;"><%=car.getValidade()%></p>
             </div>
             <%                   
                 }}
             %>
         </div>
+        <script src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
         <script src="scripts/pagamento.js"></script>
         <script>
             // formato de mm/aa na validade
@@ -122,6 +130,7 @@
                     e.preventDefault(); 
                 }
             });
+            
         </script>
     </body>
 </html>

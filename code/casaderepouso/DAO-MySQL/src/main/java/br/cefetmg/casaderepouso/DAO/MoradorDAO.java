@@ -185,5 +185,4 @@ public class MoradorDAO implements IMoradorDAO {
             throw new ClassNotFoundException(e.getMessage(), e);       
         }
     }
-    
 }
