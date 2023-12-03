@@ -1,0 +1,93 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : 25 de nov. de 2023, 09:20:31
+    Author     : Júlia
+*/
+
+body {
+    background-color: #76A5DC;
+    width: 40vw;
+    height:100vw;
+    color: white;
+    padding: 2% 2% 2% 2%;
+    font-size: 140%;
+    color: black;
+}
+
+.form-container {
+    display: flex;
+    padding: 2%;
+}
+
+.form-group {
+    margin-bottom: 2%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 230%
+
+}
+
+.form-direita{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 50%;
+    margin-left: 5%;
+}
+
+.form-esquerda{
+    width: 50%;
+}
+.descricao{
+    height: 35vh;
+}
+.texto,
+.escolha{
+    height: 2vh;
+    
+}
+.texto,
+.escolha,
+.descricao{
+    width: 40vw;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    background: #FFF;
+    border-radius: 0%;
+    padding: 1%;
+    font-size: 80%;
+    margin-top: 1%;
+    border: none;
+}
+
+button {
+    width: 20vw;
+    height: 5vh;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    background: #FFF;
+    border-radius: 0%;
+    padding: 1%;
+    font-size: 80%;
+    border: none;
+}
+#botoes{
+    display: flex;
+    justify-content: space-evenly;
+    padding: 2%;
+
+}
+
+form {
+    background-color: #A4CBF9;
+    width: 230%
+}
+
+h1{
+    color: white;
+}
+
+
+    
