@@ -9,6 +9,7 @@ br\cefetmg\casaderepouso\dto\Receita.class
 br\cefetmg\casaderepouso\dto\Responsavel.class
 br\cefetmg\casaderepouso\dto\Medicamento$Tarja.class
 br\cefetmg\casaderepouso\dto\exception\CadastroException.class
+br\cefetmg\casaderepouso\dto\Despesas.class
 br\cefetmg\casaderepouso\dto\Medicamento.class
 br\cefetmg\casaderepouso\dto\EstadoMorador.class
 br\cefetmg\casaderepouso\dto\Medico.class
