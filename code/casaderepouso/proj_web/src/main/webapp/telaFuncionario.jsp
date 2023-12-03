@@ -23,11 +23,10 @@
             <div class="name">Bem vindo</div>
             <a class="button" href="CadastroMorador.jsp">Novo morador</a>
             <a class="button" href="#">Inventário</a>
-            <a class="button" href="#">Cardápio</a>
             <a class="button" href="#">Equipamentos</a>
             <a class="button" href="GestaoVisitantes.jsp">Visitas</a>
             <a class="button" href="CadastroReceita.jsp">Nova Receita</a>
-
+            <a class="button" href="atualizacoes.jsp">Atualizações nos dados</a>
         </div>
         <div class="content">
             <div id="status-container">
@@ -53,7 +52,7 @@
                         <input style="display: none;" name="nome_mae" id="enviarMae"value="">
                         <input style="display: none;" name="endereco" id="enviarEndereco"value="">
                         <input style="display: none;" name="condicoes_especiais" id="enviarCondic"value="">
-
+                        <input style="display: none;" name="condicoes_especiais" id="enviarResponsavel"value="">
                         <button name="act" value="AtualizarEstado"style="background-color: #14FF00;" class="update-status">Atualizar status</button>
                     </form>
                     <a id="cancelar"style="background-color: #FF0000;" class="update-status">Cancelar</a>                 
@@ -61,7 +60,7 @@
             </div>
             <div id="atualizar-container">
                 <form id="atualizarForm" class="form-container" action="Facade" method="POST">
-                    <input style="display: none;" name="estado" id="updateEstado"value="">
+                    <input type="text" style="display: none;" name="estado" id="updateEstado2">
                     <div class="form-group">
                         <label>Seu nome completo:</label>
                         <input type="text" name="nomeMorador" class="texto" placeholder="Digite aqui..." >
@@ -93,6 +92,10 @@
                         <label>Condições especiais:</label>
                         <input type="text" name="condicoes_especiais" class="texto" placeholder="Digite aqui..." >
                     </div>
+                    <div class="form-group">
+                        <label>CPF do résponsavel</label>
+                        <input type="text" name="responsavel" class="texto" placeholder="Digite aqui..." >
+                    </div>
                     <button name="act" value="AtualizarEstado"style="background-color: #14FF00;" class="update-status">Atualizar Morador</button>
                     <a id="cancelarUpdate"style="background-color: #FF0000;" class="update-status">Cancelar</a>
                 </form>
@@ -100,7 +103,7 @@
             <div class="title"><h2>Dados dos Moradores</h2>
                 <input type="text" id="pesquisa" placeholder="Pesquise o nome aqui..."><input type="submit" id="btnPesquisar" value="🔎">
             </div>
-            <div id="containerheader">
+            <div id="containerheader" style="margin: 1vh;">
                 <form action="Facade" method="POST">
                     <input id="listarMoradores"type="submit" name="act" value="ListarMorador">   
                 </form>
@@ -112,7 +115,7 @@
             </div>
             <div id="container-lista-moradores">
                 <%
-                   List<Morador> listaMoradores = (List<Morador>) request.getAttribute("listMor");
+                    List<Morador> listaMoradores = (List<Morador>) request.getAttribute("listMor");
                    
                    if(listaMoradores != null){
                    for (Morador mor: listaMoradores) {
@@ -134,6 +137,7 @@
                             <p class="info-content" class="endereco">Endereço: <span><%=mor.getEndereco()%></span></p>
                             <p class="info-content" class="plano-medico">Plano médico: <span><%=mor.getPlanoMedico()%></span></p>
                             <p class="info-content" class="condicoes">Condições especiais: <span><%=mor.getCondicaoEspecial()%></span></p>
+                            <p class="info-content" class="responsavel">Responsavel <span><%=mor.getVetorResponsaveis()%></span></p>
                         </div>
                         <div class="info-access">     
                             <!-- comment <a class="links-acessos">Acessar documentos</a> -->
@@ -157,7 +161,7 @@
         </div>
         <script>
             document.addEventListener("DOMContentLoaded", function () {
-       
+
                 var campoPesquisa = document.getElementById("pesquisa");
                 var btnPesquisar = document.getElementById("btnPesquisar");
                 var moradores = document.querySelectorAll(".morador-container");
@@ -165,16 +169,15 @@
                     var termoPesquisa = campoPesquisa.value.toLowerCase();
                     moradores.forEach(function (morador) {
                         var nomeMorador = morador.querySelector(".nome-cpf").innerText.toLowerCase();
-                        if(nomeMorador.includes(termoPesquisa) && morador.children[2].children[1].innerHTML === "Falecido" && localStorage.getItem("falecido") === 'nao'){
+                        if (nomeMorador.includes(termoPesquisa) && morador.children[2].children[1].innerHTML === "Falecido" && localStorage.getItem("falecido") === 'nao') {
                             morador.style.display = "none";
-                        }
-                        else{
-                        if (nomeMorador.includes(termoPesquisa)) {
-                            morador.style.display = "grid";
                         } else {
-                            morador.style.display = "none";
+                            if (nomeMorador.includes(termoPesquisa)) {
+                                morador.style.display = "grid";
+                            } else {
+                                morador.style.display = "none";
+                            }
                         }
-                    }
                     });
                 });
             });
@@ -207,6 +210,7 @@
                 transition: border-color 0.3s ease;
             }
         </style>
+        
         <script src="scripts/containerMoradores.js"></script>
     </body>
 </html>

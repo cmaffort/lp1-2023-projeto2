@@ -17,6 +17,12 @@ import br.cefetmg.casaderepouso.dto.exception.CadastroException;
 import br.cefetmg.casaderepouso.service.ICadastrarResponsavel;
 import br.cefetmg.casaderepouso.service.implement.CadastrarResponsavel;
 
+import br.cefetmg.casaderepouso.dto.Mensalidade;
+import br.cefetmg.casaderepouso.service.IManterMensalidade;
+import br.cefetmg.casaderepouso.service.implement.ManterMensalidade;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+
 
 @WebServlet(urlPatterns = {"/CadastraResponsavel"})
 public class CadastraResponsavel extends HttpServlet {
@@ -46,6 +52,13 @@ public class CadastraResponsavel extends HttpServlet {
             iResponsavel.cadastrar(responsavel);
             
             jsp = "/gestaoResponsavel.jsp";
+            
+            IManterMensalidade iMensalidade = new ManterMensalidade();
+            if(iMensalidade.pesquisar(responsavelPor) == null){
+                Mensalidade mensalidade = new Mensalidade(responsavelPor,cpf,null,null);
+                iMensalidade.cadastrar(mensalidade);
+            }
+            
         } catch (Exception e) {
             System.out.println(e);
             jsp = "";
