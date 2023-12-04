@@ -38,10 +38,10 @@
                 var mensagemErro = document.getElementById("rgErro");
 
                 if (rgRegex.test(input.value))
-                    mensagemErro.textContent = ""; 
-                else 
+                    mensagemErro.textContent = "";
+                else
                     mensagemErro.textContent = "Formato de RG inválido. Deve ter 8 números.";
-                
+
             }
         </script>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -64,6 +64,10 @@
                     <div class="form-group">
                         <label>CPF:</label>
                         <input type="text" name="cpf" class="texto" placeholder="Digite aqui..." required>                
+                    </div>
+                    <div class="form-group">
+                        <label>Senha:</label>
+                        <input type="text" name="senha" class="texto" placeholder="Digite aqui..." required>                
                     </div>
                     <div class="form-group">
                         <label>RG:</label>
@@ -89,8 +93,12 @@
                         <input type="text" name="pis" class="texto" placeholder="Digite aqui..." required>                
                     </div>
                     <div class="form-group">
-                        <label> Função:</label>
-                        <input type="text" name="funcao" class="texto" placeholder="Digite aqui..." required>                
+                        <select name="funcao" class="texto">
+                            <option value="funcionarioDaCasa">Funcionario Da Casa</option>
+                            <option value="gerente">Gerente</option>
+                            <option value="medico">Medico</option>
+                            <option value="nutricionista">Nutricionista</option>
+                        </select>                
                     </div>
                     <div class="form-group">
                         <label>Periodo de trabalho:</label>

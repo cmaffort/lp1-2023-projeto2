@@ -30,9 +30,9 @@ public class AtualizarFuncionario extends HttpServlet {
             String nome = request.getParameter("nomeFuncionario");
             String rg = request.getParameter("rg");
             String cpf = request.getParameter("cpf");
-            
+            String senha = request.getParameter("senha");
             String nasc = request.getParameter("dataNasc");
-            
+            String funcao = request.getParameter("funcao");
            
             
             
@@ -52,9 +52,9 @@ public class AtualizarFuncionario extends HttpServlet {
             func.setPis(pis);
             func.setEndereco(endereco);
             func.setFone(fone);
-          
+            func.setSenha(senha);
             func.setPeriodoTrabalho(periodo);
-
+            func.setFuncao(funcao);
             func.setId(id);
             
             IManterFuncionario iFuncionario = new ManterFuncionario();

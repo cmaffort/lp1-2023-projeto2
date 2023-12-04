@@ -29,8 +29,11 @@
             <%
                  IManterSaida iSaida = new ManterSaida();
                  List<SaidaTemporaria> listaSaida = iSaida.pesquisarTodos();
+                
                  if(listaSaida != null){
+                    
                      for(SaidaTemporaria saida: listaSaida){
+                        
                          /*Aqui terá um if(saida.getMoradorCpf == cpf)
                          Esse cpf é o cpf do morador vinculado ao responsável, 
                          que o atributo foi setado no cookie*/                         

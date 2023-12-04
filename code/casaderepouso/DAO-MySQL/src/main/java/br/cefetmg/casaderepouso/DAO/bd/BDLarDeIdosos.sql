@@ -50,7 +50,8 @@ CREATE TABLE IF NOT EXISTS funcionario (
     endereco TEXT,
     pis VARCHAR(255),
     funcao VARCHAR(255),
-    periodoTrabalho VARCHAR(255)
+    periodoTrabalho VARCHAR(255),
+    senha TEXT
 );
 CREATE TABLE IF NOT EXISTS gerente (
     id INT AUTO_INCREMENT PRIMARY KEY,

@@ -54,4 +54,12 @@ public class ManterFuncionario implements IManterFuncionario {
         
         return lista;
     }
+    
+    
+    @Override
+    public Funcionario pesquisar(String cpf) throws Exception {
+        Funcionario func = funcionarioDAO.pesquisar(cpf);
+        
+        return func;
+    }
 }
