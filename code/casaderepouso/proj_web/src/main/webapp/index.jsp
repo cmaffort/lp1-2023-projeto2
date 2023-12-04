@@ -19,7 +19,7 @@
   <div id="branco"></div>
   <form action="Facade" class="form-container" method="POST">
     <h1>Faça login</h1>
-    <div class="form-group">
+    <div class="form-group" class="apertar">
         <label>Usuário:</label>
         <input type="text" id="nomeVisitante" name="cpf" class="texto" placeholder="Digite aqui..." required>
     </div>
@@ -37,7 +37,7 @@
   <script>
       let botao = document.querySelector("#botao");
       botao.addEventListener('click', () =>{
-         localStorage.setItem("cpfResponsavel", document.querySelector(nomeVisitante)); 
+         localStorage.setItem("cpfResponsavel", document.querySelector("#nomeVisitante").value); 
       });
   </script>
 </body>

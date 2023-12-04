@@ -12,21 +12,28 @@ let preco = document.querySelector("#valor-preco");
 
 botaoAddMes.addEventListener("click", () => {
     n = parseInt(nMeses.innerHTML) + 1;
-    nMeses.innerHTML = n.toString() + "x";
+    nMeses.innerHTML = n.toString();
     preco.innerHTML = parseInt(preco.innerHTML) + 120;
     dataVLocal = adicionarUmMes(dataVLocal);
     datavencimento.innerHTML = dataVLocal;
     sessionStorage.setItem("meses", nMeses.innerHTML);
+
+
+    inputInicio.value = dataILocal;
+    inputFim.value = dataVLocal;
 });
 botaoSubMes.addEventListener("click", () => {
     n = parseInt(nMeses.innerHTML);
     if (n === 1) {
     } else {
         n = n - 1;
-        nMeses.innerHTML = n.toString() + "x";
+        nMeses.innerHTML = n.toString();
         preco.innerHTML = parseInt(preco.innerHTML) - 120;
         dataVLocal = diminuirUmMes(dataVLocal);
         datavencimento.innerHTML = dataVLocal;
+
+        inputInicio.value = dataILocal;
+        inputFim.value = dataVLocal;
     }
 });
 // aparecer containers
@@ -48,15 +55,13 @@ containerImg.children[0].addEventListener('click', () => {
 containerImg.children[1].addEventListener('click', () => {
     marca.src = "./imgs/mastercard.png";
     inputCardType.value = "mastercard";
+    console.log(inputCardType.value);
     marcaType = "mastercard";
     sessionStorage.setItem("marca", marcaType);
     containerCartao.style.display = "flex";
     cartoesDoTipo();
 });
 
-containerImg.children[2].addEventListener('click', () => {
-
-});
 
 let botaoLista = document.querySelector("#botao-cartoes-salvos");
 let lista = document.querySelector("#lista-cartoes");
@@ -64,20 +69,24 @@ let cartoesLista = document.querySelectorAll(".cartao-salvo");
 function ocultarCaracteres(string) {
     let numeroSemEspacos = string.replace(/\s/g, '');
     let ultimosQuatroDigitos = numeroSemEspacos.slice(-4);
-    let stringMascarada = numeroSemEspacos.slice(0, -4).replace(/./g, '*')+ ultimosQuatroDigitos;
+    let stringMascarada = numeroSemEspacos.slice(0, -4).replace(/./g, '*') + ultimosQuatroDigitos;
 
     return stringMascarada;
 }
-function cartoesDoTipo(){
+let cpfDoRes = localStorage.getItem("cpfResponsavel");
+function cartoesDoTipo() {
     cartoesLista.forEach(car => {
-            let numero = car.children[0];
-            car.children[1].innerHTML = ocultarCaracteres(numero.innerHTML);
-            if (car.children[2].innerHTML !== marcaType) {
-                car.style.display = "none";
-            } else {
-                car.style.display = "block";
-            }
-        });
+        let numero = car.children[0];
+        car.children[1].innerHTML = ocultarCaracteres(numero.innerHTML);
+        if (car.children[2].innerHTML === marcaType && car.children[6].innerHTML === cpfDoRes) {
+            car.style.display = "block";
+        } else if(car.children[6].innerHTML !== cpfDoRes){
+            car.remove();
+        }
+        else{
+            car.style.display = "none";
+        }
+    });
 }
 function mostrarLista() {
     if (lista.style.display === "none") {
@@ -101,13 +110,13 @@ if (sessionStorage.getItem('lista') === "display") {
     mostrarLista();
 }
 
-function srcMiniImg(){
-    cartoesLista.forEach(car =>{
+function srcMiniImg() {
+    cartoesLista.forEach(car => {
         let type = car.children[2];
-        if(type === 'visa'){
+        if (type === 'visa') {
             car.children[3].src = "imgs/visa.png";
         }
-        if(type === 'mastercard'){
+        if (type === 'mastercard') {
             car.children[3].src = "imgs/mastercard.png";
         }
     });
@@ -177,20 +186,23 @@ cpfMoradorInput.value = localStorage.getItem('cpfMorador');
 totalPagarInput.value = preco.innerHTML;
 
 
-cartoesLista.forEach(car =>{
-   car.addEventListener('click', () =>{
-      car.style.borderColor = 'red';
-      numeroInput.value = car.children[0].innerHTML;
-      nomeInput.value = car.children[4].innerHTML;
-      validadeInput.value = car.children[5].innerHTML;
-   }); 
+cartoesLista.forEach(car => {
+    car.addEventListener('click', () => {
+        car.style.borderColor = 'red';
+        numeroInput.value = car.children[0].innerHTML;
+        numeroInput.type = "password";
+        nomeInput.value = car.children[4].innerHTML;
+        nomeInput.type = "password";
+        validadeInput.value = car.children[5].innerHTML;
+        validadeInput.type="password";
+    });
 });
 
 // botao pagamento 
 
 let botao = document.querySelector("#efetua-pagamento");
-botao.addEventListener('click', () =>{
-   localStorage.setItem('data-inicio', dataILocal);
-   localStorage.setItem('data-vencimento', dataVLocal);
+botao.addEventListener('click', () => {
+    localStorage.setItem('data-inicio', dataILocal);
+    localStorage.setItem('data-vencimento', dataVLocal);
 });
     

@@ -27,7 +27,6 @@ public class EfetuarLogin extends HttpServlet {
     public static String execute(HttpServletRequest request) {
         String jsp = "index.jsp";
         
-        
         try {
             IManterFuncionario iFuncionario = new ManterFuncionario();
             ICadastrarResponsavel iResponsavel = new CadastrarResponsavel();
@@ -52,6 +51,7 @@ public class EfetuarLogin extends HttpServlet {
             }
         } catch (Exception ex) {
             System.out.println("Erro" + ex);
+            System.out.println("erroERRO");
         }
         return jsp;
     }

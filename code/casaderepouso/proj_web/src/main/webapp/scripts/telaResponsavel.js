@@ -25,7 +25,6 @@ function compararDatas(data1, data2) {
         return 3;
     }
 }
-localStorage.setItem('cpfResponsavel', '1234567899');
 let cpfMorador = localStorage.getItem("cpfResponsavel");
 let moradores = document.querySelectorAll(".morador");
 let mensalidade = document.querySelectorAll(".mensalidade");
@@ -55,15 +54,25 @@ datavencimento = mensalidadeRes.children[3].innerHTML;
 localStorage.setItem('data-inicio', datainicio);
 localStorage.setItem('data-vencimento', datavencimento);
 localStorage.setItem('cpfMorador', cpfDoMorador);
+
+let diavencimento = document.querySelector("#diavencimento");
+let mensagem = document.querySelector("#mensagem");
+if(datavencimento === "null"){
+}
+else{
+    diavencimento.innerHTML = datavencimento;
+}
 let dataAtual = moment();
 dataAtual.format("DD/MM/YYYY");
 if (compararDatas(datavencimento, dataAtual) === 3) {
     alert("Mensalidade não foi paga");
     localStorage.setItem('estadoMensalidade', 'naopaga');
+    mensagem.innerHTML = "Mensalidade ainda não foi paga";
 }
 if (compararDatas(datavencimento, dataAtual) === 0) {
     alert("Mensalidade em atrazo");
     localStorage.setItem('estadoMensalidade', 'atrazo');
+    mensagem.innerHTML = "Mensalidade atrazada";
 }
 if (compararDatas(datavencimento, dataAtual) === 1) {
     localStorage.setItem('estadoMensalidade', 'ok');
@@ -72,3 +81,5 @@ if (compararDatas(datavencimento, dataAtual) === 2) {
     alert("Sua mensalidade vence hoje");
     localStorage.setItem('estadoMensalidade', 'hoje');
 }
+let nomeBemvindo = document.querySelector("#nomeMorador");
+nomeBemvindo.innerHTML = moradorRes.children[1].innerHTML;
