@@ -13,6 +13,7 @@ public class Funcionario {
     private String funcao;
     private String periodoTrabalho;
     private String id;
+    private String senha;
     public Funcionario(){
     
     }
@@ -109,5 +110,12 @@ public class Funcionario {
 
     public void setId(String id) {
         this.id = id;
+    }
+
+    public void setSenha(String senha) {
+        this.senha = senha;
+    }
+    public String getSenha(){
+        return senha;
     }
 }

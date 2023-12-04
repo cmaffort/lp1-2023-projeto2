@@ -14,6 +14,9 @@ public class Despesas {
     private String valor;
     private String data;
     private String hora;
+
+    public Despesas() {
+    }
     
     public Despesas(String destinatario, String pagante, String telefone, String identidade, String descricao, String valor, String data, String hora) {
         this.destinatario = destinatario;

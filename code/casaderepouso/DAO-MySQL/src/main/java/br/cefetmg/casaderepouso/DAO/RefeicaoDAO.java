@@ -28,29 +28,6 @@ import java.util.logging.Logger;
 
 public class RefeicaoDAO implements IRefeicaoDAO {
     @Override
-    public boolean atualizar(Refeicao refeicao) throws ClassNotFoundException, SQLException{ /* incompleta */
-         String sqlMorador = "INSERT INTO morador VALUES('" + refeicao.getCpfMorador() + "', '" + refeicao.getHora() + "', '" + refeicao.getCardapio() + "', '" + refeicao.getTipo() + "', '"
-                + refeicao.getDia() + "')";
-         Connection conexao = null;
-
-        Statement comando = null;
-
-        int resultado = 0;
-
-        try {
-            conexao = DAO.conectar();
-
-            comando = conexao.createStatement();
-
-            resultado = comando.executeUpdate(sqlMorador);
-
-        } finally {
-            DAO.fecharConexao(conexao, comando);
-        }
-
-        return resultado > 0;
-    }
-    @Override
     public boolean deletar(Refeicao ref) throws SQLException, ClassNotFoundException {
          try {
             Connection con = DAO.conectar();

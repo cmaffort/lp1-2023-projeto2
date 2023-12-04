@@ -20,6 +20,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 
 
@@ -31,7 +33,7 @@ public class FuncionarioDAO implements IFuncionarioDAO{
         try{
             
             Connection con = DAO.conectar();
-            String sql = "INSERT INTO funcionario (id, nome, cpf, rg, telefone, nascimento, endereco, pis, funcao, periodoTrabalho) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            String sql = "INSERT INTO funcionario (id, nome, cpf, rg, telefone, nascimento, endereco, pis, funcao, periodoTrabalho, senha) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
             
              
             
@@ -48,7 +50,8 @@ public class FuncionarioDAO implements IFuncionarioDAO{
             pstmt.setString(8, func.getPis());
             pstmt.setString(9, func.getFuncao());
             pstmt.setString(10, func.getPeriodoTrabalho());
-
+            pstmt.setString(11, func.getSenha());
+            
             pstmt.executeUpdate();
             pstmt.close();
             con.close();
@@ -79,7 +82,9 @@ public class FuncionarioDAO implements IFuncionarioDAO{
                     + "       endereco = ?, "
                     + "       pis = ?, "
                     
-                    + "       periodoTrabalho = ? "
+                    + "       periodoTrabalho = ?, "
+                    + "       senha = ?, "
+                    + "       funcao = ? "
                     + " WHERE id = ?;";
 
             PreparedStatement pstmt = con.prepareStatement(sql);
@@ -92,7 +97,9 @@ public class FuncionarioDAO implements IFuncionarioDAO{
             pstmt.setString(7, func.getPis());
             
             pstmt.setString(8, func.getPeriodoTrabalho());
-            pstmt.setString(9, func.getId());
+            pstmt.setString(9, func.getSenha());
+            pstmt.setString(10, func.getFuncao());
+            pstmt.setString(11, func.getId());
             
             
             pstmt.executeUpdate();
@@ -167,10 +174,11 @@ public class FuncionarioDAO implements IFuncionarioDAO{
                 String pis = rs.getString(8);
                 String funcao = rs.getString(9);
                 String periodoTrabalho = rs.getString(10);
-
+                String senha = rs.getString(11);
+              
                 Funcionario func = new Funcionario(nome, cpf, rg, dataNasc, endereco,
                      fone,  pis, funcao, periodoTrabalho, id);
-
+                func.setSenha(senha);
                 listAll.add(func);
             }
             rs.close();
@@ -190,6 +198,23 @@ public class FuncionarioDAO implements IFuncionarioDAO{
 
     @Override
     public Funcionario pesquisar(String cpf) {
-        throw new UnsupportedOperationException("Not supported yet."); 
+        try {
+            FuncionarioDAO funcDAO = new FuncionarioDAO(); 
+            List<Funcionario> lista = funcDAO.listarTodos();
+            for(Funcionario func : lista){
+                if(cpf.equals(func.getCpf()))
+                    return func;
+            }
+               
+        } catch (SQLException ex) {
+            System.out.println(ex);
+            Logger.getLogger(FuncionarioDAO.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            System.out.println(ex);
+            Logger.getLogger(FuncionarioDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return null;
     }
 }
+

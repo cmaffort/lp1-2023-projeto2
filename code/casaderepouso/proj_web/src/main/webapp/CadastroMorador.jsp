@@ -44,6 +44,10 @@
             <input type="text" name="cpf" class="texto" placeholder="Digite aqui..." required>
           </div>
             <div class="form-group">
+            <label>CPF do Responsável:</label>
+            <input type="text" name="responsavel" class="texto" placeholder="Digite aqui..." required>
+          </div>
+            <div class="form-group">
             <label>Plano médico:</label>
             <input type="text" name="plano_medico" class="texto" placeholder="Digite aqui..." required>
           </div>

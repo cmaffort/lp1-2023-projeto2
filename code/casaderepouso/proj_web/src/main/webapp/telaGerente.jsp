@@ -122,6 +122,7 @@
                         </div>
                         <div class="info-container">
                             <p class="info-content" >CPF: <span><%=func.getCpf()%></span></p>
+                             <p class="info-content" >Senha: <span><%=func.getSenha()%></span></p>
                             <p class="info-content" >RG: <span><%=func.getRg()%></span></p>
                             <p class="info-content" >PIS: <span><%=func.getPis()%></span></p>
                             <p class="info-content" >Endereço: <span><%=func.getEndereco()%></span></p>
@@ -148,13 +149,18 @@
                         <div class="form-group">
                             <label>CPF:</label>
                             <input type="text" name="cpf" value="<%=func.getCpf()%>" class="texto" placeholder="Digite aqui uma data dd/mm/aa ..." >
+                            <label>Senha:</label>
+                            <input type="text" name="senha" value="<%=func.getSenha()%>" class="texto" placeholder="Digite aqui..." >
                         </div>
 
                         <div class="form-group">
                             <label>RG:</label>
                             <input type="text" name="rg" value="<%=func.getRg()%>" class="texto" placeholder="Digite aqui..." >
                         </div>
-
+                        <div class="form-group">
+                            <label>Função:</label>
+                            <input type="text" name="funcao" value="<%=func.getFuncao()%>" class="texto" placeholder="Digite aqui..." >
+                        </div>
                         <div class="form-group">
                             <label>PIS:</label>
                             <input type="text" name="pis" value="<%=func.getPis()%>" class="texto" placeholder="Digite aqui..." >

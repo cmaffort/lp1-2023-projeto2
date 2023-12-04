@@ -15,5 +15,5 @@ public interface IResponsavel {
 
     public ArrayList<Responsavel> listar() throws SQLException, ClassNotFoundException;
 
-    public Responsavel pesquisar(String nome) throws SQLException, ClassNotFoundException;
+    public Responsavel pesquisar(String cpf) throws SQLException, ClassNotFoundException;
 }
