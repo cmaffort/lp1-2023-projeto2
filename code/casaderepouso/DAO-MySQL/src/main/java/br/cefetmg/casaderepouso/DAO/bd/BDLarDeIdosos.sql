@@ -160,14 +160,14 @@ CREATE TABLE IF NOT EXISTS mensalidade(
     cpfResponsavel VARCHAR(14),
     inicio VARCHAR(20),
     fim VARCHAR(20)
-)
+);
 
 CREATE TABLE IF NOT EXISTS despesas(
 	destinatario VARCHAR(255),
     pagante VARCHAR(255),
     telefone VARCHAR(20),
     identidade VARCHAR(255),
-    data VARCHAR(255),
+    dia VARCHAR(255),
     hora VARCHAR(255),
     descricao VARCHAR(255),
     valor VARCHAR(255)
