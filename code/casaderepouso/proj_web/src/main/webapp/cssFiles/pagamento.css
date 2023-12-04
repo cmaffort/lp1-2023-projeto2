@@ -124,6 +124,7 @@ body {
 #pagamento-container-cartao{
     display: flex;
     width: 50vh;
+    margin-left:2vh;
     height: 40vh;
     align-items: center;
     flex-direction: column;
@@ -202,6 +203,9 @@ button{
     background-color: rgba(164, 203, 249, 0.50);
 }
 #listarCartoes{
+    flex-direction: column;
+    align-items: center;
+    margin-left: 2vh;
     background-color: #008CBA;
     color: white;
     margin-top: 15px;

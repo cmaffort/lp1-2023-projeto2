@@ -126,6 +126,7 @@ let datavencimento = document.querySelector("#data-vencimento");
 let dataILocal = localStorage.getItem('data-inicio');
 let dataVLocal = localStorage.getItem('data-vencimento');
 let estadoMen = localStorage.getItem('estadoMensalidade');
+
 function adicionarUmMes(data) {
     let dataMoment = moment(data, 'DD/MM/YYYY');
     let novaDataMoment = dataMoment.add(1, 'months');
@@ -184,3 +185,12 @@ cartoesLista.forEach(car =>{
       validadeInput.value = car.children[5].innerHTML;
    }); 
 });
+
+// botao pagamento 
+
+let botao = document.querySelector("#efetua-pagamento");
+botao.addEventListener('click', () =>{
+   localStorage.setItem('data-inicio', dataILocal);
+   localStorage.setItem('data-vencimento', dataVLocal);
+});
+    

@@ -21,19 +21,25 @@
     <h1>Faça login</h1>
     <div class="form-group">
         <label>Usuário:</label>
-        <input type="text" id="nomeVisitante" class="texto" placeholder="Digite aqui..." required>
+        <input type="text" id="nomeVisitante" name="cpf" class="texto" placeholder="Digite aqui..." required>
     </div>
     <div class="form-group">
         <label>Senha:</label>
-        <input type="password" for="identidade" class="texto" placeholder="Digite aqui..." required>
+        <input type="password" for="identidade" name="senha" class="texto" placeholder="Digite aqui..." required>
     </div>
     
     <a href="CadastrarVisita.jsp">Sou visitante</a>
     <a>Agendar atividade</a>
     <div id="botao">
-      <button value="Login" name="act">Entrar</button>
+      <button value="EfetuarLogin" name="act">Entrar</button>
     </div>
     </form>
+  <script>
+      let botao = document.querySelector("#botao");
+      botao.addEventListener('click', () =>{
+         localStorage.setItem("cpfResponsavel", document.querySelector(nomeVisitante)); 
+      });
+  </script>
 </body>
 
 </html>
