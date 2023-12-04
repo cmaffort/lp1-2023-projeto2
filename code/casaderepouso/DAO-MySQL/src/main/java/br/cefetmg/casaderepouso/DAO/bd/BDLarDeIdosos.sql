@@ -35,10 +35,9 @@ CREATE TABLE IF NOT EXISTS responsavel (
     cpf VARCHAR(14) NOT NULL,
     rg VARCHAR(12) NOT NULL,
     telefone VARCHAR(20),
-    datanascimento DATE,
     endereco TEXT,
     morador_responsavel VARCHAR(14),
-    FOREIGN KEY (morador_responsavel) REFERENCES morador(CPF)
+    senha TEXT
 );
 CREATE TABLE IF NOT EXISTS funcionario (
     id VARCHAR(255) PRIMARY KEY,
@@ -50,7 +49,8 @@ CREATE TABLE IF NOT EXISTS funcionario (
     endereco TEXT,
     pis VARCHAR(255),
     funcao VARCHAR(255),
-    periodoTrabalho VARCHAR(255)
+    periodoTrabalho VARCHAR(255),
+    senha TEXT
 );
 CREATE TABLE IF NOT EXISTS gerente (
     id INT AUTO_INCREMENT PRIMARY KEY,
@@ -71,6 +71,16 @@ CREATE TABLE IF NOT EXISTS evento (
     horario VARCHAR(255) NOT NULL,
     telefone VARCHAR(255) NOT NULL,
     email VARCHAR(255) NOT NULL
+);
+CREATE TABLE IF NOT EXISTS saida (
+    id VARCHAR(255) PRIMARY KEY,
+    nome VARCHAR(255) NOT NULL,
+    cpf VARCHAR(255) NOT NULL,
+    motivo TEXT,
+    diaSaida VARCHAR(255),
+    horarioSaida VARCHAR(255),
+    diaVolta VARCHAR(255),
+    horarioVolta VARCHAR(255) NOT NULL
 );
 CREATE TABLE IF NOT EXISTS medicamento (
     id INT AUTO_INCREMENT PRIMARY KEY,
@@ -123,7 +133,6 @@ CREATE TABLE IF NOT EXISTS receita_medica (
     FOREIGN KEY (morador) REFERENCES morador(cpf)
 );
 
-
 CREATE TABLE IF NOT EXISTS refeicao (
    cpf VARCHAR(14),
    hora VARCHAR(20),
@@ -131,3 +140,35 @@ CREATE TABLE IF NOT EXISTS refeicao (
    tipo VARCHAR(255),
    dia VARCHAR(20)
 );
+
+CREATE TABLE IF NOT EXISTS cartao_credito (
+    cpf VARCHAR (14),
+    numero_cartao VARCHAR (20),
+    nome_cartao VARCHAR (255),
+    validade VARCHAR (6),
+    cardtype VARCHAR (10)
+);
+
+CREATE TABLE IF NOT EXISTS atualizacao(
+    cpf VARCHAR(14),
+    dados TEXT,
+    momento VARCHAR(20)
+);
+
+CREATE TABLE IF NOT EXISTS mensalidade(
+    cpfMorador VARCHAR(14),
+    cpfResponsavel VARCHAR(14),
+    inicio VARCHAR(20),
+    fim VARCHAR(20)
+)
+
+CREATE TABLE IF NOT EXISTS despesas(
+	destinatario VARCHAR(255),
+    pagante VARCHAR(255),
+    telefone VARCHAR(20),
+    identidade VARCHAR(255),
+    data VARCHAR(255),
+    hora VARCHAR(255),
+    descricao VARCHAR(255),
+    valor VARCHAR(255)
+    );

@@ -21,4 +21,5 @@ public interface IManterFuncionario {
     public String excluir(Funcionario func) throws Exception;
     
     public List<Funcionario> pesquisarTodos() throws Exception;
+    public Funcionario pesquisar(String cpf) throws Exception;
 }

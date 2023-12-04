@@ -94,6 +94,7 @@ body {
     font-size: 24px;
     top: 33%;
     left: 3.5%;
+    width: 25vh;
 }
 #perfil img {
   position: absolute;

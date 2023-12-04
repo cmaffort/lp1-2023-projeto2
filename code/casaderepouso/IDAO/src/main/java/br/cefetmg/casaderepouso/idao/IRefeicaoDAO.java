@@ -15,8 +15,6 @@ public interface IRefeicaoDAO {
     
     public boolean inserir(Refeicao refeicao);
 
-    public boolean atualizar(Refeicao refeicao) throws ClassNotFoundException,SQLException;
-
     public boolean deletar(Refeicao refeicao) throws SQLException, ClassNotFoundException;
 
     public ArrayList<Refeicao> listarTodos() throws SQLException, ClassNotFoundException;
