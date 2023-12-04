@@ -38,6 +38,7 @@ public class CadastraResponsavel extends HttpServlet {
             String endereco = request.getParameter("endereco");
             String telefone = request.getParameter("telefone");
             String responsavelPor = request.getParameter("responsavelPor");
+            String senha = request.getParameter("senha");
             
             Responsavel responsavel = new Responsavel();
             
@@ -47,6 +48,7 @@ public class CadastraResponsavel extends HttpServlet {
             responsavel.setEndereco(endereco);
             responsavel.setTelefone(telefone);
             responsavel.setResponsavelPor(responsavelPor);
+            responsavel.setSenha(senha);
             
             ICadastrarResponsavel iResponsavel = new CadastrarResponsavel();
             iResponsavel.cadastrar(responsavel);

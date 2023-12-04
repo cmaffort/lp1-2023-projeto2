@@ -37,6 +37,7 @@ CREATE TABLE IF NOT EXISTS responsavel (
     telefone VARCHAR(20),
     endereco TEXT,
     morador_responsavel VARCHAR(14),
+    senha TEXT
 );
 CREATE TABLE IF NOT EXISTS funcionario (
     id VARCHAR(255) PRIMARY KEY,

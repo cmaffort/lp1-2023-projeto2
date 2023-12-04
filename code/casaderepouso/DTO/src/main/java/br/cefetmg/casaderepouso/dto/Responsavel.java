@@ -8,6 +8,21 @@ public class Responsavel {
     private String endereco;
     private String responsavelPor;
     private String id;
+    private String senha;
+
+    public Responsavel() {
+    }
+    
+    public Responsavel(String nome, String cpf, String rg, String telefone, String endereco, String responsavelPor, String id, String senha) {
+        this.nome = nome;
+        this.cpf = cpf;
+        this.rg = rg;
+        this.telefone = telefone;
+        this.endereco = endereco;
+        this.responsavelPor = responsavelPor;
+        this.id = id;
+        this.senha = senha;
+    }
     
     public String getNome(){
         return nome;
@@ -57,4 +72,13 @@ public class Responsavel {
     public void setId(String id){
         this.id = id;
     }
+
+    public String getSenha() {
+        return senha;
+    }
+
+    public void setSenha(String senha) {
+        this.senha = senha;
+    }
+    
 }
