@@ -20,7 +20,7 @@ public class ResponsavelDAO implements IResponsavel {
         
         try{
             Connection con = DAO.conectar();
-            String sql = "INSERT INTO responsavel (nome, cpf, rg, telefone, endereco, morador_responsavel) VALUES(?,?,?,?,?,?)";
+            String sql = "INSERT INTO responsavel (nome, cpf, rg, telefone, endereco, morador_responsavel, senha) VALUES(?,?,?,?,?,?,?)";
 
             PreparedStatement pstmt = con.prepareStatement(sql);
             pstmt.setString(1, responsavel.getNome());
@@ -29,7 +29,7 @@ public class ResponsavelDAO implements IResponsavel {
             pstmt.setString(4, responsavel.getTelefone());
             pstmt.setString(5, responsavel.getEndereco());
             pstmt.setString(6, responsavel.getResponsavelPor());
-
+            pstmt.setString(7,responsavel.getSenha());
             pstmt.executeUpdate();
             pstmt.close();
             con.close();
@@ -140,48 +140,41 @@ public class ResponsavelDAO implements IResponsavel {
     }
 
     @Override
-    public Responsavel pesquisar(String nome) throws SQLException, ClassNotFoundException{
-        String sql = "SELECT * FROM responsavel WHERE nome = ?";
-        Responsavel responsavel = new Responsavel();
-                
-        Connection conn = null;
-        PreparedStatement pstm = null;
-
-        ResultSet rset = null;
-
+    public Responsavel pesquisar(String cpf) throws SQLException, ClassNotFoundException{
+        String sql = "SELECT * FROM responsavel WHERE cpf = ?";
         try {
-            conn = DAO.conectar();
-            pstm = conn.prepareStatement(sql);
-                
-            pstm.setString(1, nome);
-            
-            rset = pstm.executeQuery();
-          
-                responsavel.setNome(rset.getString("nome"));
-                responsavel.setCpf(rset.getString("cpf"));
-                responsavel.setRg(rset.getString("rg"));
-                responsavel.setTelefone(rset.getString("telefone"));
-                responsavel.setEndereco(rset.getString("endereco"));
-                responsavel.setResponsavelPor(rset.getString("morador_responsavel"));      
-                
+            Connection con = DAO.conectar();
+            PreparedStatement pst = con.prepareStatement(sql);
+            ResultSet rs = pst.executeQuery();
+            Responsavel pesquisado = null;
+            while (rs.next()) {
+                if(rs.getString(3).equals(cpf)){
+                    String id = rs.getString(1);
+                    String nome = rs.getString(2);
+                    String cpfN = rs.getString(3);
+                    String rg = rs.getString(4);
+                    String telefone = rs.getString(5);
+                    String endereco = rs.getString(6);
+                    String morador = rs.getString(7);
+                    String senha = rs.getString(8);
+                    
+                    pesquisado = new Responsavel(nome,cpfN,rg,telefone,endereco,morador,id,senha);
+                    rs.close();
+                    pst.close();
+                    con.close();
+                    return pesquisado;
+                }
+       }
+            rs.close();
+            pst.close();
+            con.close();
+            return null;
+        } 
+        catch(SQLException e){
+            throw new SQLException(e.getMessage(), e);       
         }
-        catch(Exception e){
-        e.printStackTrace();
-        }finally {
-            try {
-                if (rset != null) {
-                    rset.close();
-                }
-                if (pstm != null) {
-                    pstm.close();
-                }
-                if (conn != null) {
-                    conn.close();
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
+        catch(ClassNotFoundException e){
+            throw new ClassNotFoundException(e.getMessage(), e);       
         }
-            return responsavel;
     }
 }

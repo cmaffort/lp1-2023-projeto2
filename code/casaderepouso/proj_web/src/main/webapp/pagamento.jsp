@@ -34,7 +34,7 @@
                 </div>
             </div>
         </div>
-        <a class="back-button" href="telaFuncionario.jsp""><img src="./imgs/Voltar.png"></a>
+        <a class="back-button" href="TelaInicialResponsavel.jsp""><img src="./imgs/Voltar.png"></a>
         <div id="pagamentoCartao" style="display: none;">
 
             <div id="pagamento-container-cartao">
