@@ -164,6 +164,7 @@ body {
     text-align: left;
     flex-direction: column;
     margin-left: 15%;
+    
 }
 .info-access{
     display: flex;
@@ -235,6 +236,7 @@ body {
     font-family: Arial, sans-serif;
     font-size: 18px;
     font-weight: bold;
+    
 }
 .botao-deletar{
     margin-top: 1vh;

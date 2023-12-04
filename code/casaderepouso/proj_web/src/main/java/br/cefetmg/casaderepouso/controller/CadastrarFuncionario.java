@@ -36,6 +36,8 @@ public class CadastrarFuncionario extends HttpServlet {
             String rg = request.getParameter("rg");
             String cpf = request.getParameter("cpf");
 
+            String senha = request.getParameter("senha");
+
             String nasc = request.getParameter("dataNasc");
 
             String pis = request.getParameter("pis");
@@ -45,6 +47,9 @@ public class CadastrarFuncionario extends HttpServlet {
             String periodo = request.getParameter("periodo");
 
             Funcionario func = new Funcionario();
+
+            
+            func.setSenha(senha);
 
             func.setNome(nome);
             func.setRg(rg);

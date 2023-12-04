@@ -61,6 +61,7 @@ public class SaidaDAO implements ISaidaDAO {
             String sql = "UPDATE saida "
                     + "   SET diaSaida = ?, "
                     + "       horarioSaida = ?, "
+                    + "       motivo = ?, "
                     + "       diaVolta = ?, "
                     + "       horarioVolta = ? "
                     + " WHERE id = ?;";
@@ -68,9 +69,10 @@ public class SaidaDAO implements ISaidaDAO {
             PreparedStatement pstmt = con.prepareStatement(sql);
             pstmt.setString(1, saida.getDataSaida());
             pstmt.setString(2, saida.getHorarioSaida());
-            pstmt.setString(3, saida.getDataVolta());
-            pstmt.setString(4, saida.getHorarioVolta());
-            pstmt.setString(5, saida.getId());
+            pstmt.setString(3, saida.getMotivo());
+            pstmt.setString(4, saida.getDataVolta());
+            pstmt.setString(5, saida.getHorarioVolta());
+            pstmt.setString(6, saida.getId());
             
             
             pstmt.executeUpdate();
