@@ -12,7 +12,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.sql.Statement;
-
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 public class ResponsavelDAO implements IResponsavel {
     
     @Override
@@ -106,22 +108,24 @@ public class ResponsavelDAO implements IResponsavel {
             ResultSet rs = pst.executeQuery();
             ArrayList<Responsavel> lista = new ArrayList<Responsavel>();
             while (rs.next()) {
-
-                String nome = rs.getString(1);
-                String cpf = rs.getString(2);
-                String rg = rs.getString(3);
-                String telefone = rs.getString(4);
-                String endereco = rs.getString(5);
-                String responsavelPor = rs.getString(6);
-
-                Responsavel responsavel = new Responsavel();
+                String id = rs.getString(1);
+                String nome = rs.getString(2);
+                String cpf = rs.getString(3);
+                String rg = rs.getString(4);
+                String telefone = rs.getString(5);
+                String endereco = rs.getString(6);
+                String responsavelPor = rs.getString(7);
+                String senha = rs.getString(8);
                 
+                Responsavel responsavel = new Responsavel();
+                responsavel.setId(id);
                 responsavel.setNome(nome);
                 responsavel.setCpf(cpf);
                 responsavel.setRg(rg);
                 responsavel.setTelefone(telefone);
                 responsavel.setEndereco(endereco);
                 responsavel.setResponsavelPor(responsavelPor);
+                responsavel.setSenha(senha);
                 
                 lista.add(responsavel);
             }
@@ -140,41 +144,23 @@ public class ResponsavelDAO implements IResponsavel {
     }
 
     @Override
-    public Responsavel pesquisar(String cpf) throws SQLException, ClassNotFoundException{
-        String sql = "SELECT * FROM responsavel WHERE cpf = ?";
+    public Responsavel pesquisar(String cpf) {
         try {
-            Connection con = DAO.conectar();
-            PreparedStatement pst = con.prepareStatement(sql);
-            ResultSet rs = pst.executeQuery();
-            Responsavel pesquisado = null;
-            while (rs.next()) {
-                if(rs.getString(3).equals(cpf)){
-                    String id = rs.getString(1);
-                    String nome = rs.getString(2);
-                    String cpfN = rs.getString(3);
-                    String rg = rs.getString(4);
-                    String telefone = rs.getString(5);
-                    String endereco = rs.getString(6);
-                    String morador = rs.getString(7);
-                    String senha = rs.getString(8);
-                    
-                    pesquisado = new Responsavel(nome,cpfN,rg,telefone,endereco,morador,id,senha);
-                    rs.close();
-                    pst.close();
-                    con.close();
-                    return pesquisado;
-                }
-       }
-            rs.close();
-            pst.close();
-            con.close();
-            return null;
-        } 
-        catch(SQLException e){
-            throw new SQLException(e.getMessage(), e);       
+            ResponsavelDAO resDAO = new ResponsavelDAO(); 
+            ArrayList<Responsavel> lista = resDAO.listar();
+            for(Responsavel res : lista){
+                if(cpf.equals(res.getCpf()))
+                    return res;
+            }
+               
+        } catch (SQLException ex) {
+            System.out.println(ex);
+            Logger.getLogger(FuncionarioDAO.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            System.out.println(ex);
+            Logger.getLogger(FuncionarioDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
-        catch(ClassNotFoundException e){
-            throw new ClassNotFoundException(e.getMessage(), e);       
-        }
+        
+        return null;
     }
 }

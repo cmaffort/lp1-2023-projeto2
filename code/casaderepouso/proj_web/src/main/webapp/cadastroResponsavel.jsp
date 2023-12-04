@@ -44,7 +44,7 @@
           </div>
             
           <div class="form-group">
-            <label>Senha do morador:</label>
+            <label>Senha do Responsavel</label>
             <input type="text" name="senha" class="texto" placeholder="Digite aqui..." required>
           </div>
             

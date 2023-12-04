@@ -60,7 +60,8 @@
         </div>
         <header id="perfil">
             <img src="./imgs/perfil.png" class="imagemDoPerfil">
-            <strong><p id="bemvindo">Seja bem vindo, Nome.</p> </strong>
+            <strong><p id="bemvindo">Seja bem vindo, Responsavel por <span id="nomeMorador"></span>.<br><span id="mensagem">A mensalidade do seu morador vence dia <span id="diavencimento"></span></span></p></strong>
+            
         </header>
         <article>
             <div id="container-opcoes">

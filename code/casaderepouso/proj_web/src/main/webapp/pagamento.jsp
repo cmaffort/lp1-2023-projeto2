@@ -20,7 +20,7 @@
                 <div id="pagamento-descricao">
                     <span id="info-top">
                         <h2>Descrição do pagamento</h2>
-                        <p><span id="meses">1x</span> - Mensalidade Asilo - <span id="nome-morador">"Nome"</span>  De <span id="data-inicio">xx/xx/</span> até <span id="data-vencimento">xx/xx/xxxx</span></p>
+                        <p><span id="meses">1</span>x - Mensalidade Asilo - <span id="nome-morador">"Nome"</span>  De <span id="data-inicio">xx/xx/</span> até <span id="data-vencimento">xx/xx/xxxx</span></p>
                         <span id="botaoMes">
                             <img id="addMes" src="./imgs/+.png">
                             <img id="subMes" src="./imgs/-.png">
@@ -85,6 +85,7 @@
                 <img src="" class="mini-img-cardType">
                 <p style="display:none;"><%=car.getNome()%></p>
                 <p style="display:none;"><%=car.getValidade()%></p>
+                <p style="display:none;"><%=car.getCpf()%></p>
             </div>
             <%                   
                 }}
