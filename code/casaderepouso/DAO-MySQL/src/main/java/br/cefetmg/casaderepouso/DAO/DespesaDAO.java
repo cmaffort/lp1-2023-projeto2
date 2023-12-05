@@ -1,5 +1,6 @@
 package br.cefetmg.casaderepouso.DAO;
 
+import br.cefetmg.casaderepouso.DAO.connection.DAO;
 import br.cefetmg.casaderepouso.dto.Despesas;
 import br.cefetmg.casaderepouso.idao.IDespesaDAO;
 import java.sql.Connection;
@@ -21,9 +22,8 @@ public class DespesaDAO implements IDespesaDAO {
         String sqlDespesa = "INSERT INTO despesas(destinatario, pagante, telefone, identidade, data, hora, descricao, valor) VALUES(?,?,?,?,?,?,?,?)";
 
         try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
 
-            Connection con = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/bdlardeidosos", "root", "admin");
+            Connection con = DAO.conectar();
             PreparedStatement pstm = con.prepareStatement(sqlDespesa);
 
             System.out.println("teste");
@@ -57,8 +57,8 @@ public class DespesaDAO implements IDespesaDAO {
         String query = "SELECT * FROM despesas";
         List<Despesas> despesasList = new ArrayList<>();
         try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection connection = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/bdlardeidosos", "root", "admin");
+            
+            Connection connection = DAO.conectar();
             PreparedStatement preparedStatement = connection.prepareStatement(query);
 
             ResultSet rs = preparedStatement.executeQuery();

@@ -29,8 +29,7 @@ public class AtualizacaoDAO implements IAtualizacaoDAO{
     public boolean inserir(Atualizacao atualizacao){
         String sql = "INSERT INTO atualizacao (cpf, dados, momento) VALUES(?, ?, ?)";
         try{
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection con = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/bdlardeidosos", "root", "admin");
+            Connection con = DAO.conectar();
             
             PreparedStatement pstmt = con.prepareStatement(sql);
             pstmt.setString(1, atualizacao.getCpf());

@@ -27,8 +27,8 @@ public class MensalidadeDAO implements IMensalidadeDAO {
     public boolean atualizar(Mensalidade mensalidade) throws ClassNotFoundException, SQLException {
         String sql = "UPDATE mensalidade SET cpfResponsavel = ?, inicio = ?, fim = ? WHERE cpfMorador = ?";
         try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection con = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/bdlardeidosos", "root", "admin");
+            
+            Connection con = DAO.conectar(); 
             
             PreparedStatement pstmt = con.prepareStatement(sql);
             pstmt.setString(4, mensalidade.getCpfMorador());
@@ -74,8 +74,8 @@ public class MensalidadeDAO implements IMensalidadeDAO {
     public boolean inserir(Mensalidade mensalidade){
         String sql = "INSERT INTO mensalidade (cpfMorador,cpfResponsavel,Inicio,Fim) VALUES(?, ?, ?, ?)";
         try{
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection con = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/bdlardeidosos", "root", "admin");
+
+            Connection con = DAO.conectar();
             
             PreparedStatement pstmt = con.prepareStatement(sql);
             pstmt.setString(1, mensalidade.getCpfMorador());

@@ -26,8 +26,7 @@ public class VisitanteDAO implements IVisitanteDAO{
         //System.out.println("Chegou no Conector");
 
         try {   
-                Class.forName("com.mysql.cj.jdbc.Driver");
-                Connection con = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/bdlardeidosos", "root", "admin");
+                Connection con = DAO.conectar();
                 PreparedStatement pstm = con.prepareStatement(sqlVisitante);
                 
                 //Transforma os ? nas variaveis
@@ -59,8 +58,8 @@ public class VisitanteDAO implements IVisitanteDAO{
         String query = "SELECT * FROM visitantes";
         List<Visitante> visitanteList = new ArrayList<>();
         try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection connection = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/bdlardeidosos", "root", "admin");
+
+            Connection connection = DAO.conectar();
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             
             ResultSet rs = preparedStatement.executeQuery();
