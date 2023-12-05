@@ -104,13 +104,7 @@ CREATE TABLE IF NOT EXISTS medicamento (
     condicao ENUM('COMPRADO','SOLICITADO','ESGOTADO'),
     FOREIGN KEY (morador) REFERENCES morador(cpf)
 );
-CREATE TABLE IF NOT EXISTS profissional_de_saude (
-    id INT AUTO_INCREMENT,
-    registro_medico VARCHAR(20) NOT NULL,
-    especializacaoENUM('MEDICO', 'NUTRICIONISTA', 'ENFERMEIRO';) NOT NULL,
-    nome VARCHAR(255) NOT NULL,
-    cpf VARCHAR(14) NOT NULL PRIMARY KEY,
-);
+
 
 CREATE TABLE IF NOT EXISTS prontuario (
     
@@ -126,7 +120,7 @@ CREATE TABLE IF NOT EXISTS prontuario (
     refeicoes TEXT,
     observacao_refeicao TEXT,
     
-    FOREIGN KEY (medico_responsavel) REFERENCES profissional_de_saude(id),
+    FOREIGN KEY (medico_responsavel) REFERENCES funcionario(cpf),
     FOREIGN KEY (morador) REFERENCES morador(cpf)
 );
 

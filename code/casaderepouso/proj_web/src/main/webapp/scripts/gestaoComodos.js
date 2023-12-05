@@ -82,7 +82,7 @@
                 <p>ATUALIZAR COMODO</p>
                 </div>
                 <input type="hidden" name="act" value="atualizarComodo">
-                <input type="hidden" id="ID" name="ID" value="id" >
+                <input type="hidden" id="ID" name="ID" value="${id}" >
                 <div>
                 <p id="nomeCriado"><p>
                 </div>
@@ -122,10 +122,10 @@
             botaoFechar = document.getElementById('fechar');
 
             botaoFechar.addEventListener("click", () => {
-                div = document.getElementById('DivCriada');
-                div.remove();
-
+            minhaDiv = document.getElementById('DivCriada');
+            minhaDiv.remove();
             });
+
 
 
         });

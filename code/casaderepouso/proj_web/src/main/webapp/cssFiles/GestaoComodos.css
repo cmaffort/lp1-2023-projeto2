@@ -18,6 +18,8 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
     align-content: center;
     justify-content: center;
     align-items: flex-end;
+    position: fixed;
+    right: 500px;
 }
 #cabecalho > button{
     display: block;
@@ -56,8 +58,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
     border-radius: 10px;
     position: relative;
     display: block;
-    right: 300px;
-    
+    right: 350px;
 }
 
 .comodoDIV{
@@ -96,7 +97,8 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
     bottom: 65px;
 }
 #listar{
-   background: rgba(164, 203, 249, 0.50);
+    bottom: -50px;
+    background: rgba(164, 203, 249, 0.50);
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -134,4 +136,7 @@ background-color: aliceblue;
 #casa-repouso > p{
     position: relative;
     margin-left: 40px;
+}
+body{
+    overflow: hidden;
 }

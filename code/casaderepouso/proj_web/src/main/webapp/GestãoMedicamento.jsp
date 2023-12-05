@@ -22,13 +22,13 @@
         <%@include file="Padrão/navFuncionario.jsp" %>
 
         <div id="main">
-            
+
             <div id="solicitados">
                 <form action="Facade" method="POST">
                     <input type="hidden" name="act" value="ListarMedicamento">
-                    <input type="hidden" name="moradorCPF" value="12345687910" class = "cpfSolicitado">      
+                    <input type="hidden" name="moradorCPF"  class = "cpf">      
                     <input type="hidden" name="origem" value = "GestaoMedicamento"> 
-                    <input type="submit" name="act" value="ListarMedicamento" id="listaSolicitado">  
+                    <input type="submit" name="act" value="Listar Medicamento" id="listaSolicitado">  
                 </form>
                 <h1>Medicamento solicitados</h1>
                 <div>
@@ -36,17 +36,12 @@
          
                     List<Medicamento> listaSolicitados = (List<Medicamento>)request.getAttribute("solicitado");
    
-                    if(listaSolicitados == null){
+                    if(listaSolicitados == null || listaSolicitados.size() == 0){
                      System.out.println(request.getAttribute("solicitado"));
                      System.out.println("solicitados null");
                     
                     %>
-                    <article class="alerta">
-                        <div>
-                            <p>não há solicitação de medicamentos relacionadas a esse morador</p>
-                        </div>
-                    </article>
-
+ 
                     <%
                     }else{
                     System.out.println("solicitados não null");
@@ -92,7 +87,7 @@
             <div id="estoque">
                 <form action="Facade" method="POST">
                     <input type="hidden" name="act" value="ListarMedicamento">
-                    <input type="hidden" name="moradorCPF" value = "12345687910" id="cpfEstoque">
+                    <input type="hidden" name="moradorCPF" value = "" class="cpf">
                     <input type="hidden" name="origem" value = "GestaoMedicamento"> 
                     <input type="submit" name="act" value="ListarMedicamento" id="listaEstoque">  
                 </form>
@@ -104,11 +99,6 @@
                        if(listaComprado == null || listaComprado.size() == 0){
            
                     %>
-                    <article class="alerta">
-                        <div>
-                            <p>não há medicamentos em estoque relacionadas a esse morador</p>
-                        </div>
-                    </article>
 
                     <%
                     }
@@ -141,10 +131,17 @@
 
         </div>
         <script>
-            //document.getElementById('cpfSolicitado').value = '12345687910';
-            //document.getElementById('cpfEstoque').value = '12345687910';
-            //document.getElementbyId('moradorCPF').value = '12345687910';
-            //localStorage.cpf//
+
+            window.onload = function () {
+                let cpfs = document.querySelectorAll(".cpf");
+
+                cpfs.forEach(function (cpf) {
+                    cpf.value = localStorage.getItem('cpf');
+                });
+            };
+
+
+
 
 
 

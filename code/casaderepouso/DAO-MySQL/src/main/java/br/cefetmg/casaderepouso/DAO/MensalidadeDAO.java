@@ -28,7 +28,7 @@ public class MensalidadeDAO implements IMensalidadeDAO {
         String sql = "UPDATE mensalidade SET cpfResponsavel = ?, inicio = ?, fim = ? WHERE cpfMorador = ?";
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection con = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/bdlardeidosos", "root", "admin");
+            Connection con = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/bdlardeidosos", "root", "F3ll1p3!");
             
             PreparedStatement pstmt = con.prepareStatement(sql);
             pstmt.setString(4, mensalidade.getCpfMorador());
@@ -75,7 +75,7 @@ public class MensalidadeDAO implements IMensalidadeDAO {
         String sql = "INSERT INTO mensalidade (cpfMorador,cpfResponsavel,Inicio,Fim) VALUES(?, ?, ?, ?)";
         try{
             Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection con = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/bdlardeidosos", "root", "admin");
+            Connection con = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/bdlardeidosos", "root", "F3ll1p3!");
             
             PreparedStatement pstmt = con.prepareStatement(sql);
             pstmt.setString(1, mensalidade.getCpfMorador());

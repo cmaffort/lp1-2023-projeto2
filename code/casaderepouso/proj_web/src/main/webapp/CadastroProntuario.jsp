@@ -31,9 +31,6 @@
             <div class="title">Cadastrar Prontuario</div>
             <form action="Facade" method="POST" id="formulario">
                 <input type="hidden" name="act" value="CadastraProntuario">
-                <div id="profissionalSaude">
-                    <input type="hidden" id="ProfSaude" name="ProfSaude" class="input" value="13545447890" required><br>
-                </div>
                 <div id="morador">
                     <input type="hidden" id="morador" name="morador" class="input" value="12345687910" required><br>
                 </div>

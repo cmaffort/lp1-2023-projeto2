@@ -119,10 +119,6 @@ public class FuncionarioDAO implements IFuncionarioDAO{
         }
     }
 
-    
-    
-    
-
     @Override
     public boolean deletar(Funcionario func) throws SQLException, ClassNotFoundException {
          try {

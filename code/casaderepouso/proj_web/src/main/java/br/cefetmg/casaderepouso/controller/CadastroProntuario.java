@@ -13,6 +13,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 import java.sql.Date;
 import java.time.LocalDate;
 
@@ -26,11 +27,15 @@ public class CadastroProntuario extends HttpServlet {
     public static String execute(HttpServletRequest request) {
         String jsp = "";
         try {
-            System.out.println("chegou servlet");
+        
+            HttpSession session = request.getSession();
+            String ProfSaude = (String) session.getAttribute("cpfFuncionario");
+            
+            
             Prontuario pront = new Prontuario();
             CadastraProntuario service = new CadastraProntuario();
 
-            String ProfSaude = request.getParameter("ProfSaude");
+            
             pront.setProfSaudeCPF(ProfSaude);
 
             String morador = request.getParameter("morador");
@@ -47,10 +52,6 @@ public class CadastroProntuario extends HttpServlet {
 
             String temperatura = request.getParameter("temperatura");
             pront.setTemperatura(temperatura);
-
-            //não é usado
-            String refeicao = "almoço";
-            
 
             String Obsrefeicao = request.getParameter("ObsRefeicao");
             pront.setObservacaoRefeicao(Obsrefeicao);

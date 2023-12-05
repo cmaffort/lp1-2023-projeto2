@@ -12,7 +12,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" type="text/css" href="cssFiles/GestaoComodos.css">
-        <script src="scripts/gestaoComodos.js"></script>
+        
         <title>GestaoComodo</title>
     </head>
     <body>
@@ -201,5 +201,6 @@ for(Comodo liv: livre){
 
     </article>
 </div>  
+<script src="scripts/gestaoComodos.js"></script>
 </body>
 </html>

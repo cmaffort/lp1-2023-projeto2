@@ -48,17 +48,22 @@ public class EfetuarLogin extends HttpServlet {
             }
             if(funcionario != null){
                 if(funcionario.getSenha().equals(senha)){
+                    
                     if(funcionario.getFuncao().equals("gerente")){
                         jsp = "telaGerente.jsp";
                     }
                     if(funcionario.getFuncao().equals("funcionarioDaCasa") || funcionario.getFuncao().equals("nutricionista") || funcionario.getFuncao().equals("medico")){
                         jsp = "telaFuncionario.jsp";
+                        HttpSession session = request.getSession();
+                        session.setAttribute("cpfFuncionario", funcionario.getCpf());
+                        
                     }
                     /*Setando o "cpfMorador" como null para evitar problemas com if
                       caso tenha mais de uma sessão ativa
                     */
                     HttpSession session = request.getSession();
                     session.setMaxInactiveInterval(0);
+                    
                     session.setAttribute("cpfMorador", null);
                 }
             }

@@ -47,11 +47,17 @@
         <label>valor<br><input type="text" id="valor" name="valor" required></label>
         </div>
         <div class="dados">
-        <label>morador<br><input type="text" id="morador" name="morador" required></label>
+        <label>morador<br><input type="hidden" iid="morador" name="morador" required></label>
         </div>
         <input type="submit" >
         
     </form>
+         <script>
+             window.onload = function() {
+             let morador = document.getElementById("morador");
+             morador.value = localStorage.getItem('cpf');
+         }
+         </script>
         
 </body>
 </html>

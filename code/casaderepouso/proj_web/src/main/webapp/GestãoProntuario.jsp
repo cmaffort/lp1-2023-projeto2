@@ -33,7 +33,7 @@
             <div id="prontuarios">
                 <form action="Facade" method="POST">
                     <input type="hidden" name="act" value="ListarProntuario">
-                    <input type="hidden" name="moradorCPF" value="12345687910" class = "cpfSolicitado">      
+                    <input type="hidden" name="moradorCPF" value="" class = "cpfSolicitado" id="cpfMorador">      
                     <input type="hidden" name="origem" value = "Morador"> 
                     <input type="submit">  
                 </form>
@@ -52,7 +52,7 @@
                         </article>
                           <%
                     }else{
-                    System.out.println(" não null");
+              
                     for(Prontuario pront: prontuarios){
                     %>
                     <article id="prontuario" class="prontuario">
@@ -77,6 +77,12 @@
                     %>
                 </div>
             </div>
-            
+                <script>
+                    window.onload = function() {
+                    let cpf = document.getElementById("cpfMorador");
+                    cpf.value = localStorage.getItem('cpf');
+                    console.log(cpf.value);
+                };
+                </script>
     </body>
 </html>

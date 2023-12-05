@@ -5,9 +5,11 @@
 package br.cefetmg.casaderepouso.DAO;
 
 import br.cefetmg.casaderepouso.DAO.connection.DAO;
-import br.cefetmg.casaderepouso.dto.ProfissionalSaude;
+import br.cefetmg.casaderepouso.dto.Funcionario;
+
 import br.cefetmg.casaderepouso.dto.Prontuario;
-import br.cefetmg.casaderepouso.idao.IProfissionalSaudeDAO;
+import br.cefetmg.casaderepouso.idao.IFuncionarioDAO;
+
 import br.cefetmg.casaderepouso.idao.IProntuarioDAO;
 import java.sql.Connection;
 import java.sql.Date;
@@ -35,9 +37,9 @@ public class ProntuarioDAO implements IProntuarioDAO {
 
             pstm = conn.prepareStatement(sql);
 
-            IProfissionalSaudeDAO DAOsaude = new ProfissionalSaudeDAO();
+            IFuncionarioDAO DAOsaude = new FuncionarioDAO();
 
-            ProfissionalSaude proSaude = DAOsaude.pesquisar(prontuario.getProfSaudeCPF());
+            Funcionario proSaude = DAOsaude.pesquisar(prontuario.getProfSaudeCPF());
 
             pstm.setString(2, prontuario.getMoradorCPF());
 
@@ -57,8 +59,8 @@ public class ProntuarioDAO implements IProntuarioDAO {
 
             pstm.setDate(10, new Date(prontuario.getData().getTime()));
 
-            pstm.setInt(1, proSaude.getID());
-            System.out.println(proSaude.getID());
+            pstm.setString(1, proSaude.getCpf());
+            
 
             pstm.execute();
 
@@ -97,11 +99,11 @@ public class ProntuarioDAO implements IProntuarioDAO {
             conn = DAO.conectar();
             pstm = conn.prepareStatement(sql);
 
-            IProfissionalSaudeDAO DAOsaude = new ProfissionalSaudeDAO();
+            IFuncionarioDAO DAOsaude = new FuncionarioDAO();
 
-            ProfissionalSaude proSaude = DAOsaude.pesquisar(ProfSaudeCPF);
+            Funcionario proSaude = DAOsaude.pesquisar(ProfSaudeCPF);
 
-            pstm.setInt(1, proSaude.getID());
+            pstm.setString(1, proSaude.getCpf());
             rset = pstm.executeQuery();
             while (rset.next()) {
                 Prontuario pront = new Prontuario();
