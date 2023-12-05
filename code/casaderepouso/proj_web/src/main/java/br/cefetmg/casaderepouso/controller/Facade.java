@@ -131,6 +131,7 @@ public class Facade extends HttpServlet {
         else if(act.equals("atualizarSaidaMorador")){
             jsp = AtualizarSaida.execute(request);
             jsp = "/SaidaMorador.jsp";
+        }
         else if(act.equals("cadastrarEquipamento")){
             jsp = CadastraEquipamento.execute(request);
             jsp = ListarEquipamentos.execute(request);
@@ -163,5 +164,4 @@ public class Facade extends HttpServlet {
     public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
-
 }

@@ -116,17 +116,15 @@ public class ResponsavelDAO implements IResponsavel {
             ResultSet rs = pst.executeQuery();
             ArrayList<Responsavel> lista = new ArrayList<Responsavel>();
             while (rs.next()) {
-                String id = rs.getString(1);
-                String nome = rs.getString(2);
-                String cpf = rs.getString(3);
-                String rg = rs.getString(4);
-                String telefone = rs.getString(5);
-                String endereco = rs.getString(6);
-                String responsavelPor = rs.getString(7);
-                String senha = rs.getString(8);
+                String nome = rs.getString(1);
+                String cpf = rs.getString(2);
+                String rg = rs.getString(3);
+                String telefone = rs.getString(4);
+                String endereco = rs.getString(5);
+                String responsavelPor = rs.getString(6);
+                String senha = rs.getString(7);
                 
                 Responsavel responsavel = new Responsavel();
-                responsavel.setId(id);
                 responsavel.setNome(nome);
                 responsavel.setCpf(cpf);
                 responsavel.setRg(rg);
