@@ -1,14 +1,21 @@
 package br.cefetmg.casaderepouso.dto;
 
+import java.sql.Time;
 import java.util.Date;
+import java.sql.*;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class Medicamento {
     
     public enum Tarja {
         SEM_TARJA, VERMELHA, AMARELA, PRETA;
     }
+    public enum Condicao{
+        SOLICITADO, COMPRADO, ESGOTADO;
+    }
 
-    public Medicamento( String nome, Double valor, Tarja tarja, Date validade, String morador, String dose, Date ultimaAplicacao, Integer intervalo) {
+    public Medicamento( String nome, Double valor, Tarja tarja, Date validade, String morador, String dose, LocalDateTime ultimaAplicacao, Time intervalo, Condicao condicao) {
         this.nome = nome;
         this.valor = valor;
         this.tarja = tarja;
@@ -17,6 +24,7 @@ public class Medicamento {
         this.dose = dose;
         this.ultimaAplicacao = ultimaAplicacao;
         this.intervalo = intervalo;
+        this.condicao = condicao;
     }
     public Medicamento(){}
 
@@ -26,17 +34,45 @@ public class Medicamento {
     private Date validade;
     private String moradorCPF;
     private String dose;
-    private Date ultimaAplicacao;
-    private Integer intervalo;
+    private LocalDateTime ultimaAplicacao;
+    private Time intervalo;
+    private Condicao condicao;
+    private long ID;
+
+    public String UltimaAplicacaoToString(){
+        String hora;
+        if(this.getUltimaAplicacao() == null)
+            hora = "não aplicado ainda";
+                else{
+            DateTimeFormatter formata = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
+                 // Convertendo LocalDateTime para String
+                 hora = this.getUltimaAplicacao().format(formata);
+        }
+        return hora;
+    }
     
+    public long getId() {
+        return ID;
+    }
     
+    public void setId(long ID){
+        this.ID = ID;
+    }
     
-    public Date getUltimaAplicacao() {
+    public Condicao getCondicao() {
+        return condicao;
+    }
+
+    public void setCondicao(Condicao condicao) {
+        this.condicao = condicao;
+    }
+
+    public LocalDateTime getUltimaAplicacao() {
         return ultimaAplicacao;
     }
 
-    //dataHora vai ser usada para poder calcular a hora da proxima aplicação do medicamento, usando como base a variavel intervalomed
-    public void setUltimaAplicacao(Date ultimaAplicacao) {
+    //dataHora vai ser usada para poder calcular a hora da proxima aplicação do medicamento, usando como base a variavel intervalo
+    public void setUltimaAplicacao(LocalDateTime ultimaAplicacao) {
         this.ultimaAplicacao = ultimaAplicacao;
     }
     
@@ -48,11 +84,11 @@ public class Medicamento {
         this.moradorCPF = moradorCPF;
     }
 
-    public Integer getIntervalo() {
+    public Time getIntervalo() {
         return intervalo;
     }
 
-    public void setIntervalo(Integer intervalo) {
+    public void setIntervalo(Time intervalo) {
         this.intervalo = intervalo;
     }
 
