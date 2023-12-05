@@ -32,9 +32,12 @@
                     <select id="moradorSelecionado" class="texto" onchange="atualizarAtributos()">
                         <%
                             IManterMorador iMorador = new ManterMorador();
-                            List<Morador> listaMoradores = iMorador.pesquisarTodos();                   
-                            if(listaMoradores != null){
-                                for (Morador mor: listaMoradores) {
+                            List<Morador> listaMoradores = iMorador.pesquisarTodos(); 
+                            String cpfMor = (String) session.getAttribute("cpfMorador");
+                            if(cpfMor != null){
+                                if(listaMoradores != null){
+                                    for (Morador mor: listaMoradores) {
+                                        if(mor.getCpf().equals(cpfMor)){
                         %>
                         <option nomeMorador="<%=mor.getNome()%>"
                                 cpf="<%=mor.getCpf()%>"
@@ -46,8 +49,28 @@
                                 condicoes_especiais="<%=mor.getCondicaoEspecial()%>"
                                 ><%=mor.getNome()%></option>       
                         <%
+                                        }
+                                    }
                                 }
                             }
+                                else{ 
+                                    if(listaMoradores != null){
+                                       for (Morador mor: listaMoradores) {
+
+                        %>
+                        <option nomeMorador="<%=mor.getNome()%>"
+                                cpf="<%=mor.getCpf()%>"
+                                dataNasc="<%=mor.getDataNasc()%>"
+                                estado="Saída Temporária"
+                                plano_medico="<%=mor.getPlanoMedico()%>"
+                                nome_mae="<%=mor.getNomeMae()%>"
+                                endereco="<%=mor.getEndereco()%>"
+                                condicoes_especiais="<%=mor.getCondicaoEspecial()%>"
+                                ><%=mor.getNome()%></option>
+                        <%
+                                        }
+                                    }
+                                }
                         %>
                     </select>
                     <input type="hidden" id="nomeHidden" name="nomeMorador" value="">
@@ -95,9 +118,9 @@
 
             }
 
-                window.onload = function () {
-                    atualizarAtributos();
-                };
+            window.onload = function () {
+                atualizarAtributos();
+            };
         </script>
     </body> 
 </html>

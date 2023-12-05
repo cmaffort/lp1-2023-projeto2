@@ -22,6 +22,7 @@
             <img class="profile-image" src="imgs/perfil.png">
             <div class="name">Bem vindo</div>
             <a class="button" href="CadastroMorador.jsp">Novo morador</a>
+            <a class="button" href="CadastroSaida.jsp">Nova Saida Temporaria</a>
             <a class="button" href="#">Inventário</a>
             <a class="button" href="#">Equipamentos</a>
             <a class="button" href="GestaoVisitantes.jsp">Visitas</a>

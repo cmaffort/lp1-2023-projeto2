@@ -13,6 +13,7 @@ import br.cefetmg.casaderepouso.service.implement.CadastrarResponsavel;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpSession;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
@@ -36,17 +37,29 @@ public class EfetuarLogin extends HttpServlet {
             Funcionario funcionario = iFuncionario.pesquisar(cpf);
             if(responsavel != null){
                 if(responsavel.getSenha().equals(senha)){
+                    //Criando a sessão 
+                    HttpSession session = request.getSession();
+                    //Setando o tempo dela para quando fechar o navegador a sessão encerrar
+                    session.setMaxInactiveInterval(0);
+                    session.setAttribute("cpfMorador", responsavel.getResponsavelPor());
+                    
                     jsp = "TelaInicialResponsavel.jsp";
                 }
             }
             if(funcionario != null){
                 if(funcionario.getSenha().equals(senha)){
-                    if(funcionario.getFuncao().equals("Gerente")){
+                    if(funcionario.getFuncao().equals("gerente")){
                         jsp = "telaGerente.jsp";
                     }
-                    if(funcionario.getFuncao().equals("Funcionario Da Casa") || funcionario.getFuncao().equals("Nutricionista") || funcionario.getFuncao().equals("Medico")){
+                    if(funcionario.getFuncao().equals("funcionarioDaCasa") || funcionario.getFuncao().equals("nutricionista") || funcionario.getFuncao().equals("medico")){
                         jsp = "telaFuncionario.jsp";
                     }
+                    /*Setando o "cpfMorador" como null para evitar problemas com if
+                      caso tenha mais de uma sessão ativa
+                    */
+                    HttpSession session = request.getSession();
+                    session.setMaxInactiveInterval(0);
+                    session.setAttribute("cpfMorador", null);
                 }
             }
         } catch (Exception ex) {

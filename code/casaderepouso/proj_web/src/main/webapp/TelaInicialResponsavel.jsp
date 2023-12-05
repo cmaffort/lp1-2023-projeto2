@@ -73,7 +73,10 @@
                         <button class="Botao"><a href="" style="text-decoration: none; color:black;">Cancelamento de vinculo</a></button>
                     </div>
                     <div>
-                        <button class="Botao"><a href="" style="text-decoration: none; color:black;">Agendar Saída Temporária</a></button>
+                        <button class="Botao"><a href="CadastroSaida.jsp" style="text-decoration: none; color:black;">Agendar Saída Temporária</a></button>
+                    </div>
+                    <div>
+                        <button class="Botao"><a href="SaidaMorador.jsp" style="text-decoration: none; color:black;">Saídas Agendadas</a></button>
                     </div>
                 </div>
                 <div id="texto">
