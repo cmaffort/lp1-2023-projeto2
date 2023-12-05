@@ -47,7 +47,7 @@ public class CadastraReceita extends HttpServlet {
             ICadastrarReceita iReceita = new CadastrarReceita();
             iReceita.cadastrar(receita);
             
-            jsp = "/telaFuncionario.jsp";
+            jsp = "/ListarReceitas.jsp";
         } catch (Exception e) {
             System.out.println(e);
             jsp = "";

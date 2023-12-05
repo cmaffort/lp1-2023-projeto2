@@ -9,6 +9,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -114,6 +115,11 @@ public class Facade extends HttpServlet {
         else if(act.equals("CadastroSaida")){
             jsp = AtualizarMorador.execute(request);
             jsp = CadastrarSaida.execute(request);
+            //Caso seja o responsável que cadastrou a saída
+            HttpSession session = request.getSession();
+            String cpf = (String) session.getAttribute("cpfMorador");
+            if(cpf != null)
+                jsp = "/SaidaMorador.jsp";
         }
         else if(act.equals("listarSaida")){
             jsp = ListarSaida.execute(request);
@@ -125,11 +131,14 @@ public class Facade extends HttpServlet {
         else if(act.equals("atualizarSaidaMorador")){
             jsp = AtualizarSaida.execute(request);
             jsp = "/SaidaMorador.jsp";
+        else if(act.equals("cadastrarEquipamento")){
+            jsp = CadastraEquipamento.execute(request);
+            jsp = ListarEquipamentos.execute(request);
         }
-
+          
         RequestDispatcher rd = request.getRequestDispatcher(jsp);
         rd.forward(request, response);
-
+    
     }
 
     @Override

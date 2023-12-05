@@ -20,7 +20,8 @@
     </head>
     <body>
         <div class="container">
-        <div class="nav">    
+        <div class="nav">
+            <a class="button" href="TelaInicialResponsavel.jsp">Tela Inicial</a>
             <a class="button" href="pagamento.jsp">Pagar mensalidade</a>
             <a class="button" href="CadastroSaida.jsp">Cadastro de Saída</a>
             <a class="button" href="#">Cancelar Vínculo</a>
@@ -29,11 +30,11 @@
             <%
                  IManterSaida iSaida = new ManterSaida();
                  List<SaidaTemporaria> listaSaida = iSaida.pesquisarTodos();
-                
+                 String cpfMor = (String) session.getAttribute("cpfMorador");
                  if(listaSaida != null){
                     
                      for(SaidaTemporaria saida: listaSaida){
-                        
+                         if(saida.getMoradorCpf().equals(cpfMor)){
                          /*Aqui terá um if(saida.getMoradorCpf == cpf)
                          Esse cpf é o cpf do morador vinculado ao responsável, 
                          que o atributo foi setado no cookie*/                         
@@ -85,7 +86,7 @@
             </div>
 
             <%  
-                
+                }
                 }
              }
             %>
