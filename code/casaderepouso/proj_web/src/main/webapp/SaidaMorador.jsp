@@ -20,7 +20,8 @@
     </head>
     <body>
         <div class="container">
-        <div class="nav">    
+        <div class="nav">
+            <a class="button" href="TelaInicialResponsavel.jsp">Tela Inicial</a>
             <a class="button" href="pagamento.jsp">Pagar mensalidade</a>
             <a class="button" href="CadastroSaida.jsp">Cadastro de Saída</a>
             <a class="button" href="#">Cancelar Vínculo</a>

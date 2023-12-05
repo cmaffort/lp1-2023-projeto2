@@ -40,7 +40,7 @@ public class EfetuarLogin extends HttpServlet {
                 if(responsavel.getSenha().equals(senha)){
                     //Criando a sessão 
                     HttpSession session = request.getSession();
-                    //Setando o tempo dela em 1hr(3600 segundos)
+                    //Setando o tempo dela para quando fechar o navegador a sessão encerrar
                     session.setMaxInactiveInterval(0);
                     session.setAttribute("cpfMorador", responsavel.getResponsavelPor());
                     
@@ -55,6 +55,12 @@ public class EfetuarLogin extends HttpServlet {
                     if(funcionario.getFuncao().equals("funcionarioDaCasa") || funcionario.getFuncao().equals("nutricionista") || funcionario.getFuncao().equals("medico")){
                         jsp = "telaFuncionario.jsp";
                     }
+                    /*Setando o "cpfMorador" como null para evitar problemas com if
+                      caso tenha mais de uma sessão ativa
+                    */
+                    HttpSession session = request.getSession();
+                    session.setMaxInactiveInterval(0);
+                    session.setAttribute("cpfMorador", null);
                 }
             }
         } catch (Exception ex) {

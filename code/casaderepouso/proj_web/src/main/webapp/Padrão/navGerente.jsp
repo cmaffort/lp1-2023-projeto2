@@ -56,6 +56,7 @@
             <a class="button" href="#">Despesas</a>
             <a class="button" href="#">Equipamentos</a>
             <a class="button" href="#">Inventário</a>
+            <a class="button" href="gestaoResponsavel.jsp">Responsáveis</a>
             <a class="button" href="cadastroPagamento.jsp">Pagamentos</a>
         </div>    
     </body>
