@@ -1,9 +1,12 @@
 br\cefetmg\casaderepouso\dto\Refeicao.class
 br\cefetmg\casaderepouso\dto\Equipamento.class
 br\cefetmg\casaderepouso\dto\Evento.class
+br\cefetmg\casaderepouso\dto\Cartao.class
 br\cefetmg\casaderepouso\dto\Visitante.class
 br\cefetmg\casaderepouso\dto\exception\PersistenciaException.class
+br\cefetmg\casaderepouso\dto\Atualizacao.class
 br\cefetmg\casaderepouso\dto\Morador.class
+br\cefetmg\casaderepouso\dto\SaidaTemporaria.class
 br\cefetmg\casaderepouso\dto\Consulta.class
 br\cefetmg\casaderepouso\dto\Funcionario.class
 br\cefetmg\casaderepouso\dto\Receita.class
@@ -14,3 +17,4 @@ br\cefetmg\casaderepouso\dto\Despesas.class
 br\cefetmg\casaderepouso\dto\Medicamento.class
 br\cefetmg\casaderepouso\dto\EstadoMorador.class
 br\cefetmg\casaderepouso\dto\Medico.class
+br\cefetmg\casaderepouso\dto\Mensalidade.class

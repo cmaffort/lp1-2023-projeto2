@@ -22,15 +22,15 @@
                         <h2>Descrição do pagamento</h2>
                         <p><span id="meses">1</span>x - Mensalidade Asilo - <span id="nome-morador">"Nome"</span>  De <span id="data-inicio">xx/xx/</span> até <span id="data-vencimento">xx/xx/xxxx</span></p>
                         <span id="botaoMes">
-                            <img id="addMes" src="./imgs/+.png">
-                            <img id="subMes" src="./imgs/-.png">
+                            <img id="addMes" src="imgs/+.png">
+                            <img id="subMes" src="imgs/-.png">
                         </span>
                     </span>
                     <p>Total a pagar:  <span id="preco-total">R$<span id="valor-preco">120</span>,00</span></p>
                 </div>
                 <div id="pagamento-selecionar">
                     <h2>Selecione a forma de pagamento</h2>
-                    <div id="pagamento-formas"><img src="./imgs/visa.png"><img src="./imgs/mastercard.png"><img src=""></div>
+                    <div id="pagamento-formas"><img src="imgs/visa.png"><img src="imgs/mastercard.png"><img src=""></div>
                 </div>
             </div>
         </div>

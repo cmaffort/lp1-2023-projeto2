@@ -29,7 +29,7 @@
             box-sizing: border-box;
             padding-top: 15%;
         }
-        .button {
+        .button{
             display: block;
             width: 90%;
             padding: 10px;

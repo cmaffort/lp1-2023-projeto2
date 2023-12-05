@@ -18,7 +18,7 @@ public class DespesaDAO implements IDespesaDAO {
 
     @Override
     public boolean cadastrar(Despesas pagamento) {
-        String sqlDespesa = "INSERT INTO despesas(destinatario, pagante, telefone, identidade, data, hora, descricao, valor) VALUES(?,?,?,?,?,?,?,?)";
+        String sqlDespesa = "INSERT INTO despesas(destinatario, pagante, telefone, identidade, dia, hora, descricao, valor) VALUES(?,?,?,?,?,?,?,?)";
 
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
