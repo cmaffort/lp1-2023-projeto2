@@ -178,4 +178,3 @@ CREATE TABLE IF NOT EXISTS equipamento (
    estado VARCHAR (255) NOT NULL,
    fornecedor VARCHAR (255) NOT NULL
 );
-
