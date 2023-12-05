@@ -39,7 +39,7 @@ public class MoradorDAO implements IMoradorDAO {
             pstmt.setString(9, morador.getCpf());
             pstmt.setString(2, morador.getDataNasc());
             pstmt.setString(3, morador.getPlanoMedico());
-            pstmt.setString(4, "teste");
+            pstmt.setString(4, morador.getVetorResponsaveis());
             pstmt.setString(5, morador.getNomeMae());
             pstmt.setString(6, morador.getEndereco());
             pstmt.setString(7, morador.getCondicaoEspecial());
@@ -91,7 +91,7 @@ public class MoradorDAO implements IMoradorDAO {
             pstmt.setString(2, morador.getCpf());
             pstmt.setString(3, morador.getDataNasc());
             pstmt.setString(4, morador.getPlanoMedico());
-            pstmt.setString(5, "teste");
+            pstmt.setString(5, morador.getVetorResponsaveis());
             pstmt.setString(6, morador.getNomeMae());
             pstmt.setString(7, morador.getEndereco());
             pstmt.setString(8, morador.getCondicaoEspecial());
@@ -185,5 +185,4 @@ public class MoradorDAO implements IMoradorDAO {
             throw new ClassNotFoundException(e.getMessage(), e);       
         }
     }
-    
 }

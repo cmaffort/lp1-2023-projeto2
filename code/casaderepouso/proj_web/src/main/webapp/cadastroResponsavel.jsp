@@ -39,10 +39,15 @@
           </div>
            
           <div class="form-group">
-            <label>Responsável por:</label>
+            <label>CPF do morador a qual é responsável por:</label>
             <input type="text" name="responsavelPor" class="texto" placeholder="Digite aqui..." required>
           </div>
-          
+            
+          <div class="form-group">
+            <label>Senha do Responsavel</label>
+            <input type="text" name="senha" class="texto" placeholder="Digite aqui..." required>
+          </div>
+            
           <div>
             <label>Telefone de contato:</label>
             <input type="text" name="telefone" class="texto" placeholder="Digite aqui..." required required

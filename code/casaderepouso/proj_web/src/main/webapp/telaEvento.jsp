@@ -84,7 +84,7 @@
             <a class="button" href="#">Relatórios</a>
             <a class="button" href="#">Equipamentos</a>
             <a class="button" href="#">Inventário</a>
-            <a class="button" href="#">Pagamentos</a>
+            <a class="button" href="pagamento.jsp">Pagamentos</a>
 
         </div>
         <div class="content">
@@ -118,7 +118,7 @@
                             <p class="info-content" >Descrição do evento: <%=ev.getDescricao()%></p>
                         </div>
                         <div class="info-access">
-                            <button class="botao-atualizar" style="cursor: progress;">Atualizar</button>
+                            <button class="botao-atualizar" style="cursor: pointer;">Atualizar</button>
                             <a class="excluir" onclick="window.location = '/proj_web/Facade?act=deleteEvento&eventoDelete=<%=ev.getId()%>'">Deletar</a>
                         </div>
                     </div>
@@ -162,7 +162,7 @@
 
                         </div>
                         <div>
-                            <button name="act" value="AtualizarEvento" style="width: 100%;" class="update-status">Atualizar funcionário</button>
+                            <button name="act" value="AtualizarEvento" style="width: 100%;" class="update-status">Atualizar evento</button>
                             <a class="cancelUpdate" style="width: 100%; background-color: #FF0000; cursor: pointer;">Cancelar</a>
                         </div>
 

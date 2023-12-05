@@ -50,4 +50,9 @@ public class CadastrarResponsavel implements ICadastrarResponsavel{
         
         return lista;
     }
+    @Override
+    public Responsavel pesquisar(String cpf) throws Exception{
+        Responsavel pesquisado = responsavelDAO.pesquisar(cpf);
+        return pesquisado;
+    }
 }
