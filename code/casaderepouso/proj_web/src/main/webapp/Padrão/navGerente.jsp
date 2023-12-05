@@ -54,6 +54,7 @@
             <a class="button" href="CadastroFuncionario.jsp">Novo funcionário</a>
             <a class="button" href="telaEvento.jsp">Eventos Solicitados</a>
             <a class="button" href="#">Despesas</a>
+            <a class="button" href="equipamentos.jsp">Relatórios</a>
             <a class="button" href="#">Equipamentos</a>
             <a class="button" href="#">Inventário</a>
             <a class="button" href="cadastroPagamento.jsp">Pagamentos</a>

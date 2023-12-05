@@ -38,7 +38,8 @@
                             <p class="info-content">CPF: <%=responsavel.getCpf()%></p>
                             <p class="info-content">Vínculo com o morador: <%=responsavel.getResponsavelPor()%></p>
                             <p class="info-content">Endereço: <%=responsavel.getEndereco()%></p>
-                            <div class="info-access">     
+                            <div class="info-access">  
+                                <button class="botao-atualizar">Atualizar</button>
                                 <a class="excluir" onclick="window.location = '/proj_web/Facade?act=deleteResponsavel&responsavelDelete=<%=responsavel.getNome()%>'">Deletar</a>
                             </div>
                         </div>
@@ -50,7 +51,6 @@
                 %>
             </div>
         </div>
-    </div> 
     <script src="scripts/responsavel.js"></script>
 </body>
 </html>

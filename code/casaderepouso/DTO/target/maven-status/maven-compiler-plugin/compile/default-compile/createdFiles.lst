@@ -1,4 +1,5 @@
 br\cefetmg\casaderepouso\dto\Refeicao.class
+br\cefetmg\casaderepouso\dto\Equipamento.class
 br\cefetmg\casaderepouso\dto\Evento.class
 br\cefetmg\casaderepouso\dto\Visitante.class
 br\cefetmg\casaderepouso\dto\exception\PersistenciaException.class
