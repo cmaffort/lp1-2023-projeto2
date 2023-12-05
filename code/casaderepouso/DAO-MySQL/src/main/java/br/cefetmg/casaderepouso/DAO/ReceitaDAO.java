@@ -120,4 +120,37 @@ public class ReceitaDAO implements IReceita {
             throw new ClassNotFoundException(e.getMessage(), e);       
         }
     }
+    @Override
+    public boolean atualizar(Receita receita) throws SQLException, ClassNotFoundException{
+         try {
+            Connection con = DAO.conectar();
+
+            String sql = "UPDATE receita_medica SET profissional_de_saude = ?, morador = ?, medicamentos = ?, data = ?, hora = ?, quantidade = ?, validade = ?" + "WHERE id = ?";
+
+            PreparedStatement pstmt = con.prepareStatement(sql);
+            pstmt.setString(1, receita.getProfissionalSaude());
+            pstmt.setString(2, receita.getMorador());
+            pstmt.setString(3, receita.getMedicamentos());
+            pstmt.setString(4, receita.getData());
+            pstmt.setString(5, receita.getHora());
+            pstmt.setString(6, receita.getQuantidade());
+            pstmt.setString(7, receita.getValidade());
+            pstmt.setString(8, receita.getId());
+            
+            pstmt.executeUpdate();
+
+            pstmt.close();
+            con.close();
+
+            return true;
+        }
+        catch(SQLException e){
+            System.out.println(e);
+            throw new SQLException(e.getMessage(), e);       
+        }
+        catch(ClassNotFoundException e){
+            System.out.println(e);
+            throw new ClassNotFoundException(e.getMessage(), e);       
+        }
+    }
 }

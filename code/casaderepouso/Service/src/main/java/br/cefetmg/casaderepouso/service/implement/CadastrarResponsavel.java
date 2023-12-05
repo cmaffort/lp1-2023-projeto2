@@ -38,7 +38,8 @@ public class CadastrarResponsavel implements ICadastrarResponsavel{
 
     @Override
     public String atualizar(Responsavel responsavel) throws SQLException, ClassNotFoundException{
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+       responsavelDAO.atualizar(responsavel);
+       return "true";
     }
     
     

@@ -128,8 +128,11 @@ CREATE TABLE IF NOT EXISTS refeicao (
 );
 
 CREATE TABLE IF NOT EXISTS equipamento (
+   id INT AUTO_INCREMENT PRIMARY KEY,
    tipo VARCHAR (255) NOT NULL,
    preco VARCHAR (255) NOT NULL,
    quantidade INT NOT NULL,
-   estado VARCHAR (255) NOT NULL
+   estado VARCHAR (255) NOT NULL,
+   fornecedor VARCHAR (255) NOT NULL
 );
+

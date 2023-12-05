@@ -47,27 +47,35 @@ public class ResponsavelDAO implements IResponsavel {
 
     @Override
     public boolean atualizar(Responsavel responsavel) throws SQLException, ClassNotFoundException{
-         String sqlResponsavel = "INSERT INTO produtos VALUES('" + responsavel.getNome() + "', '" + responsavel.getRg() + "', '"
-                + responsavel.getTelefone() + "', '" + responsavel.getEndereco() + "')";
-         Connection conexao = null;
-        
-        Statement comando = null;
-        
-        int resultado = 0;
-        
-        try {
-            conexao = DAO.conectar();
+         try {
+            Connection con = DAO.conectar();
+
+            String sql = "UPDATE responsavel SET nome = ?, cpf = ?, rg = ?, telefone = ?, endereco = ?, morador_responsavel = ?" + "WHERE cpf = ?";
+
+            PreparedStatement pstmt = con.prepareStatement(sql);
+            pstmt.setString(1, responsavel.getNome());
+            pstmt.setString(2, responsavel.getCpf());
+            pstmt.setString(3, responsavel.getRg());
+            pstmt.setString(4, responsavel.getTelefone());
+            pstmt.setString(5, responsavel.getEndereco());
+            pstmt.setString(6, responsavel.getResponsavelPor());
+            pstmt.setString(7, responsavel.getCpf());
             
-            comando = conexao.createStatement();
+            pstmt.executeUpdate();
 
-            resultado = comando.executeUpdate(sqlResponsavel);
-        
-        }
-        finally {
-            DAO.fecharConexao(conexao, comando);
-        }
+            pstmt.close();
+            con.close();
 
-        return resultado > 0;
+            return true;
+        }
+        catch(SQLException e){
+            System.out.println(e);
+            throw new SQLException(e.getMessage(), e);       
+        }
+        catch(ClassNotFoundException e){
+            System.out.println(e);
+            throw new ClassNotFoundException(e.getMessage(), e);       
+        }
     }
  
     @Override

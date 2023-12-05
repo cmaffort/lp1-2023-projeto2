@@ -8,14 +8,9 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import br.cefetmg.casaderepouso.dto.Responsavel;
 import br.cefetmg.casaderepouso.service.implement.CadastrarResponsavel;
 import br.cefetmg.casaderepouso.service.ICadastrarResponsavel;
-import java.util.ArrayList;
-import java.util.List;;
 
 /**
  *
@@ -37,19 +32,31 @@ public class AtualizarResponsavel extends HttpServlet {
         String jsp = "";
      
         try {
-            String id = request.getParameter("id");
-            CadastrarResponsavel iResponsavel =  new CadastrarResponsavel();
+
+            String nome = request.getParameter("nomeResponsavel");
+            String cpf = request.getParameter("cpf");
+            String rg = request.getParameter("rg");
+            String telefone = request.getParameter("telefone");
+            String endereco = request.getParameter("endereco");
+            String responsavelPor = request.getParameter("responsavelPor");
+            
             Responsavel responsavel = new Responsavel();
-            responsavel.setId(id);
-            String str = iResponsavel.atualizar(responsavel);
-            if (str.equals("true")) {
-                jsp = "/telaGerente.jsp";
-            }
+            
+            responsavel.setNome(nome);
+            responsavel.setRg(rg);
+            responsavel.setCpf(cpf);
+            responsavel.setTelefone(telefone);
+            responsavel.setEndereco(endereco);
+            responsavel.setResponsavelPor(responsavelPor);
+                    
+            ICadastrarResponsavel iResponsavel = new CadastrarResponsavel();
+            iResponsavel.atualizar(responsavel);
+            
+            jsp = "/gestaoResponsavel.jsp";
         } catch (Exception e) {
-            e.printStackTrace();
+            System.out.println(e);
             jsp = "";
         }
-        
         
         return jsp;
     }

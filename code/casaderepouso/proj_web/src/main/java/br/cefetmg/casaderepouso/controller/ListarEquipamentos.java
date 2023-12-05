@@ -30,7 +30,7 @@ public class ListarEquipamentos extends HttpServlet {
             List<Equipamento> equipamentos = iEquipamento.listar();
             if (equipamentos != null) {
                 request.setAttribute("listEquipamentos", equipamentos);
-                jsp = "/equipamentos.jsp";
+                jsp = "/inventario.jsp";
             }
         } catch (Exception e) {
             e.printStackTrace();

@@ -37,7 +37,8 @@ public class CadastrarEquipamento implements ICadastrarEquipamento{
 
     @Override
     public String atualizar(Equipamento equipamento) throws SQLException, ClassNotFoundException{
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+       equipamentoDAO.atualizar(equipamento);
+       return "true";
     }
     
     
