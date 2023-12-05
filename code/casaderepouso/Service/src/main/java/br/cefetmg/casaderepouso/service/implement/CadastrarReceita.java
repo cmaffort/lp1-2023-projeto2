@@ -41,4 +41,9 @@ public class CadastrarReceita implements ICadastrarReceita{
         
         return lista;
     }
+    @Override
+    public String atualizar(Receita receita) throws SQLException, ClassNotFoundException{
+       receitaDAO.atualizar(receita);
+       return "true";
+    }
 }

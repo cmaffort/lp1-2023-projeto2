@@ -19,40 +19,41 @@ import java.util.Date;
 import br.cefetmg.casaderepouso.dto.Equipamento;
 import br.cefetmg.casaderepouso.dto.exception.CadastroException;
 import br.cefetmg.casaderepouso.service.ICadastrarEquipamento;
-import br.cefetmg.casaderepouso.service.implement.CadastrarEquipamento;
+import br.cefetmg.casaderepouso.service.implement.CadastrarEquipamento;;
+
 /**
  *
  * @author Particular
  */
-@WebServlet(name = "CadastraEquipamento", urlPatterns = {"/CadastraEquipamento"})
-public class CadastraEquipamento extends HttpServlet {
+@WebServlet(name = "ExcluirEquipamento", urlPatterns = {"/ExcluirEquipamento"})
+public class ExcluirEquipamento extends HttpServlet {
 
+    /**
+     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
+     * methods.
+     *
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
     public static String execute(HttpServletRequest request) {
         String jsp = "";
-        
-        try{
-            String tipo = request.getParameter("tipoEquipamento");
-            String preco = request.getParameter("preco");
-            int quantidade = Integer.parseInt(request.getParameter("quantidade"));         
-            String estado = request.getParameter("estado");
-            String fornecedor = request.getParameter("fornecedor");
-            
+     
+        try {
+            String id = request.getParameter("equipamentoDelete");
+            CadastrarEquipamento iEquipamento =  new CadastrarEquipamento();
             Equipamento equipamento = new Equipamento();
-            
-            equipamento.setTipo(tipo);
-            equipamento.setPreco(preco);
-            equipamento.setQuantidade(quantidade);
-            equipamento.setEstado(estado);
-            equipamento.setFornecedor(fornecedor);
-            
-            ICadastrarEquipamento iEquipamento = new CadastrarEquipamento();
-            iEquipamento.cadastrar(equipamento);
-            
-            jsp = "/equipamentos.jsp";
+            equipamento.setId(id);
+            String str = iEquipamento.excluir(equipamento);
+            if (str.equals("true")) {
+                jsp = "/inventario.jsp";
+            }
         } catch (Exception e) {
             System.out.println(e);
             jsp = "";
         }
+        
         
         return jsp;
     }

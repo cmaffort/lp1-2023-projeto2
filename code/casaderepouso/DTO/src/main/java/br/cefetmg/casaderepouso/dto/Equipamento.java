@@ -5,6 +5,8 @@ public class Equipamento {
     private String preco;
     private int quantidade;
     private String estado;
+    private String fornecedor;
+    private String id;
     
     public String getTipo(){
         return tipo;
@@ -32,5 +34,19 @@ public class Equipamento {
     }
     public void setEstado(String estado){
         this.estado = estado;
+    }
+    
+    public String getFornecedor(){
+        return fornecedor;
+    }
+    public void setFornecedor(String fornecedor){
+        this.fornecedor = fornecedor;
+    }
+    
+    public String getId(){
+        return id;
+    }
+    public void setId(String id){
+        this.id = id;
     }
 }

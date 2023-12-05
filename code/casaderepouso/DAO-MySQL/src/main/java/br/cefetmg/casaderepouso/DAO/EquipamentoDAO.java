@@ -20,13 +20,14 @@ public class EquipamentoDAO implements IEquipamento {
         
         try{
             Connection con = DAO.conectar();
-            String sql = "INSERT INTO equipamento (tipo, preco, quantidade, estado) VALUES(?,?,?,?)";
+            String sql = "INSERT INTO equipamento (tipo, preco, quantidade, estado, fornecedor) VALUES(?,?,?,?,?)";
 
             PreparedStatement pstmt = con.prepareStatement(sql);
             pstmt.setString(1, equipamento.getTipo());
             pstmt.setString(2, equipamento.getPreco());
             pstmt.setInt(3, equipamento.getQuantidade());
             pstmt.setString(4, equipamento.getEstado());
+            pstmt.setString(5, equipamento.getFornecedor());
 
             pstmt.executeUpdate();
             pstmt.close();
@@ -45,37 +46,47 @@ public class EquipamentoDAO implements IEquipamento {
 
     @Override
     public boolean atualizar(Equipamento equipamento) throws SQLException, ClassNotFoundException{
-         String sqlEquipamento = "";
-         Connection conexao = null;
-        
-        Statement comando = null;
-        
-        int resultado = 0;
-        
         try {
-            conexao = DAO.conectar();
+             Connection con = DAO.conectar();
+
+            String sql = "UPDATE equipamento SET tipo = ?, preco = ?, quantidade = ?, estado = ?, fornecedor = ? WHERE id = ?";
+
+            PreparedStatement pstmt = con.prepareStatement(sql);
+            pstmt.setString(1, equipamento.getTipo());
+            pstmt.setString(2, equipamento.getPreco());
+            pstmt.setInt(3, equipamento.getQuantidade());
+            pstmt.setString(4, equipamento.getEstado());
+            pstmt.setString(5, equipamento.getFornecedor());
+            pstmt.setString(6, equipamento.getId());
+
             
-            comando = conexao.createStatement();
+            pstmt.executeUpdate();
 
-            resultado = comando.executeUpdate(sqlEquipamento);
-        
-        }
-        finally {
-            DAO.fecharConexao(conexao, comando);
-        }
+            pstmt.close();
+            con.close();
 
-        return resultado > 0;
+            return true;
+        }
+        catch(SQLException e){
+            System.out.println(e);
+            throw new SQLException(e.getMessage(), e);       
+        }
+        catch(ClassNotFoundException e){
+            System.out.println(e);
+            throw new ClassNotFoundException(e.getMessage(), e);       
+        }
     }
+
  
     @Override
     public boolean deletar(Equipamento equipamento) throws SQLException, ClassNotFoundException{
         try {
             Connection con = DAO.conectar();
 
-            String sql = "DELETE FROM equipamento WHERE nome = ?";
+            String sql = "DELETE FROM equipamento WHERE id = ?";
 
             PreparedStatement pstmt = con.prepareStatement(sql);
-            pstmt.setString(1, equipamento.getTipo());
+            pstmt.setString(1, equipamento.getId());
             pstmt.executeUpdate();
 
             pstmt.close();
@@ -103,18 +114,22 @@ public class EquipamentoDAO implements IEquipamento {
             ResultSet rs = pst.executeQuery();
             ArrayList<Equipamento> lista = new ArrayList<Equipamento>();
             while (rs.next()) {
-
-                String tipo = rs.getString(1);
-                String preco = rs.getString(2);
-                int quantidade = rs.getInt(3);
-                String estado = rs.getString(4);
+                
+                String id = rs.getString(1);
+                String tipo = rs.getString(2);
+                String preco = rs.getString(3);
+                int quantidade = rs.getInt(4);
+                String estado = rs.getString(5);
+                String fornecedor = rs.getString(6);
 
                 Equipamento equipamento = new Equipamento();
                 
+                equipamento.setId(id);
                 equipamento.setTipo(tipo);
                 equipamento.setPreco(preco);
                 equipamento.setQuantidade(quantidade);
                 equipamento.setEstado(estado);
+                equipamento.setFornecedor(fornecedor);
                 
                 lista.add(equipamento);
             }
