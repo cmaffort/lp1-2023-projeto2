@@ -23,7 +23,7 @@ public class DespesaDAO implements IDespesaDAO {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
 
-            Connection con = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/bdlardeidosos", "root", "admin");
+            Connection con = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/bdlardeidosos", "root", "F3ll1p3!");
             PreparedStatement pstm = con.prepareStatement(sqlDespesa);
 
             System.out.println("teste");
@@ -58,7 +58,7 @@ public class DespesaDAO implements IDespesaDAO {
         List<Despesas> despesasList = new ArrayList<>();
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection connection = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/bdlardeidosos", "root", "admin");
+            Connection connection = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/bdlardeidosos", "root", "F3ll1p3!");
             PreparedStatement preparedStatement = connection.prepareStatement(query);
 
             ResultSet rs = preparedStatement.executeQuery();

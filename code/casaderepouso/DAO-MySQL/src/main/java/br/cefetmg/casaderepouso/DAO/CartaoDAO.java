@@ -59,7 +59,7 @@ public class CartaoDAO implements ICartaoDAO {
         String sql = "INSERT INTO cartao_credito (cpf, numero_cartao,nome_cartao,validade, cardtype) VALUES(?, ?, ?, ?, ?)";
         try{
             Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection con = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/bdlardeidosos", "root", "admin");
+            Connection con = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/bdlardeidosos", "root", "F3ll1p3!");
             
             PreparedStatement pstmt = con.prepareStatement(sql);
             pstmt.setString(1, cartao.getCpf());

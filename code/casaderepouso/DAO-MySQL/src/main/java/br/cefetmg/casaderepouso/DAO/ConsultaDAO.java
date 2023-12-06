@@ -32,7 +32,7 @@ public class ConsultaDAO implements IConsultaDAO{
 
         try {   
                 Class.forName("com.mysql.cj.jdbc.Driver");
-                Connection con = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/bdlardeidosos", "root", "admin");
+                Connection con = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/bdlardeidosos", "root", "F3ll1p3!");
                 PreparedStatement pstm = con.prepareStatement(sqlConsulta);
                 
                 //Transforma os ? nas variaveis
