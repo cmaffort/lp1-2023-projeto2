@@ -36,21 +36,61 @@
                         <div class="dados">
                             <p class="info-content">Número de contato: <%=responsavel.getTelefone()%></p>
                             <p class="info-content">CPF: <%=responsavel.getCpf()%></p>
+                            <p class="info-content">RG: <%=responsavel.getRg()%></p>
                             <p class="info-content">Vínculo com o morador: <%=responsavel.getResponsavelPor()%></p>
                             <p class="info-content">Endereço: <%=responsavel.getEndereco()%></p>
-                            <div class="info-access">     
+                            <div class="info-access">  
+                                <button class="botao-atualizar">Atualizar</button>
                                 <a class="excluir" onclick="window.location = '/proj_web/Facade?act=deleteResponsavel&responsavelDelete=<%=responsavel.getNome()%>'">Deletar</a>
                             </div>
                         </div>
                     </div>
                 </div>
-                <%
-                    }
+                <div class="atualizar-container">
+                    <form class="form-container"  action="Facade" method="POST">
+                        <div class="form-group">
+                            <label>Nome completo:</label>
+                            <input type="text" name="nomeResponsavel" value="<%=responsavel.getNome()%>" class="texto" placeholder="Digite aqui..." required>
+                        </div>
+
+                        <div class="form-group">
+                            <label>CPF:</label>
+                            <input type="text" name="cpf" class="texto" value="<%=responsavel.getCpf()%>" placeholder="Digite aqui..." required>
+                        </div>
+
+                        <div class="form-group">
+                            <label>RG:</label>
+                            <input type="text" name="rg" value="<%=responsavel.getRg()%>" class="texto" placeholder="Digite aqui..." required>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Endereço completo:</label>
+                            <input type="text" name="endereco" value="<%=responsavel.getEndereco()%>" class="texto" placeholder="Digite aqui..." required>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Responsável por:</label>
+                            <input type="text" name="responsavelPor" value="<%=responsavel.getResponsavelPor()%>" class="texto" placeholder="Digite aqui..." required>
+                        </div>
+
+                        <div>
+                            <label>Telefone de contato:</label>
+                            <input type="text" name="telefone" class="texto" value="<%=responsavel.getTelefone()%>" placeholder="Digite aqui..." required required
+                                   onblur="verificarTelefone()">
+                        </div>
+                        <p id="resultado"></p>
+
+                        <button name="act" value="AtualizarResponsavel" style="width: 100%;" class="update-status">Atualizar responsavel</button>
+                        <a class="cancelUpdate" style="width: 100%; background-color: #FF0000; cursor: pointer;">Cancelar</a>
+                    </form>
+                </div>
+            </div>     
+            <%
                 }
-                %>
-            </div>
+            }
+            %>
         </div>
-    </div> 
+    </div>
     <script src="scripts/responsavel.js"></script>
 </body>
 </html>

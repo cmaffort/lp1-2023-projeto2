@@ -14,9 +14,10 @@ body {
     padding: 0;
 }
 
-form>h1 {
+
+form>h1{
     color: aliceblue;
-    font-size: larger;
+    font-size: 30px;
     font-family: 'Gabarito', sans-serif;
     margin: 0px;
     display: inline;
@@ -24,13 +25,21 @@ form>h1 {
     bottom: 40px;
 }
 
-input {
-    border: none;
-    padding: 4px;
-    height: 20px;
-    width: 200px;
-    align-items: center;
+input{
+        /* padding: 4px; */
+    height: 30px;
+    width: 500px;
+    /* align-items: center; */
+    display: block;
+    /* border-radius: 20px; */
+    border-color: #FFF;
+    margin: 4px;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    border: 0px;
+    padding: 1%;
 }
+
+
 header {
     display: inline-block;
     flex-direction: column;
@@ -41,7 +50,7 @@ header {
     border-radius: 15px;
 }
 
-#formulario {
+#formulario{
     display: flex;
     width: 30%;
     margin: 0px;
@@ -49,16 +58,21 @@ header {
     height: 100%;
     position: relative;
     left: 400px;
-    bottom: 100vh;
     flex-wrap: wrap;
     flex-direction: column;
-    align-content: center;
     justify-content: center;
     align-items: flex-start;
+    align-content: center;
 }
+formulario > .inputs{
+    margin-bottom: 5px;
+    margin-top: 5px;
+}
+
+
 #formulario label {
-    display: block;
-    margin-top: 10px;
+display: block;
+    margin-top: 5px;
     font-family: 'Gabarito', sans-serif;
 }
 
@@ -75,8 +89,11 @@ button {
 h1 {
     text-align: center;
     font-size: medium;
+    color: black;
 }
-
+.dados{
+    margin: 0px;
+}
 
 /*css menu lateral*/
 

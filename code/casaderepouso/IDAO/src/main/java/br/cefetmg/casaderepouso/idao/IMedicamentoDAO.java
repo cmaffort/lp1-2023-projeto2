@@ -5,7 +5,7 @@
 package br.cefetmg.casaderepouso.idao;
 
 import br.cefetmg.casaderepouso.dto.Medicamento;
-import br.cefetmg.casaderepouso.dto.Morador;
+import java.time.LocalDateTime;
 import java.util.List;
 
 /**
@@ -16,13 +16,16 @@ public interface IMedicamentoDAO {
     
     public Boolean inserir(Medicamento medicamento);
 
-    public void atualizar(Medicamento medicamento);
+    public void atualizarCondicao(Medicamento medicamento);
+    
+    public void atualizarHorario(Medicamento medicamento, LocalDateTime horario);
 
-    public Boolean deletar(Medicamento med);
+    public Boolean deletar(int id);
 
     public List<Medicamento> listarTodos();
 
-    public Medicamento pesquisar(String morador, String medicamento);
+    public Medicamento pesquisar(int id);
     
-    public List<Medicamento> MedicamentoMorador(String MoradorCPF);
+    public List<Medicamento> listarMedicamento(String MoradorCPF, String condicao);
+    
 }

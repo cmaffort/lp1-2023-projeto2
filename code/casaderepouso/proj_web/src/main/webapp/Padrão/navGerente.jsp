@@ -29,7 +29,7 @@
             box-sizing: border-box;
             padding-top: 15%;
         }
-        .button {
+        .button{
             display: block;
             width: 90%;
             padding: 10px;
@@ -53,9 +53,11 @@
         <div class="nav">    
             <a class="button" href="CadastroFuncionario.jsp">Novo funcionário</a>
             <a class="button" href="telaEvento.jsp">Eventos Solicitados</a>
-            <a class="button" href="#">Despesas</a>
+            <a class="button" href="ExibirDespesas.jsp">Despesas</a>
+            <a class="button" href="equipamentos.jsp">Relatórios</a>
             <a class="button" href="#">Equipamentos</a>
-            <a class="button" href="#">Inventário</a>
+            <a class="button" href="inventario.jsp">Inventário</a>
+            <a class="button" href="gestaoResponsavel.jsp">Responsáveis</a>
             <a class="button" href="cadastroPagamento.jsp">Pagamentos</a>
         </div>    
     </body>

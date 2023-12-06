@@ -21,24 +21,30 @@ div{
     position: relative;
 }
 #medicamentoEstoque{
-    right: 20px;
-    width: 180px;
-    height: 70px;
+    right: -50px;
+    width: 200px;
+    height: 90px;
     background: #2882EB;
     border-radius: 20px;
     align-items: center;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-
 }
 #medicamentoEstoque > p{
-    margin: 20px;
+   margin: 20px;
     display: flex;
     font-size: 10px;
+    align-items: center;
+    justify-content: center;
 }
 label{
     position: relative;
+}
+#atualizar{
+    position: relative;
+    bottom: 60px;
+    left: 120px;
 }
 
 #medicamentoEstoque > .nome{
@@ -50,33 +56,43 @@ label{
     width: 100px;
     margin-left: 10px;
     position: relative;
+    font-size: medium;
 }
 #medicamentoEstoque > .quant{
-    display: inline-flex;
-    height: 30px;
-    width: 50px;
+    display: flex;
+    margin-bottom: 15px;
+    margin-top: 2px;
+    bottom: 2px;
+    height: 15px;
+    width: 100px;
     margin-left: 10px;
     position: relative;
-    right: 70%;
-    top: 20%;
+    font-size: medium;
 }
 #medicamentoEstoque > .fornecedor{
-    display: inline-block;
-    height: 30px;
+    display: flex;
+    height: 20px;
     width: 50px;
     position: relative;
-    bottom: 15px;
-    right: 90%;
-    top: 20%;
+    right: 60%;
+    top: 35px;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
 }
 #medicamentoEstoque > .dataCompra{
-    display: inline;
+    display: flex;
     position: relative;
     top: 20%;
     font-size: small;
-    right: 110%;
+    right: 120px;
     height: 40px;
+    align-items: center;
+    justify-content: center;
 
+}
+#medicamentoEstoque > #excluir{
+    font-size: 20px;
 }
 
 #titulo{
@@ -88,15 +104,16 @@ label{
 }
 
 #solicitados, #estoque{
-    width: 40%;
-    height: 550px;
-    border-radius: 15px;
-    background: rgba(164, 203, 249, 0.50);
-    display: inline-block;
-    vertical-align: top;
-    box-sizing: border-box;
-    left: 200px;
-
+  width: 500px;
+  height: 90vh;
+  border-radius: 15px;
+  background: rgba(164, 203, 249, 0.50);
+  display: inline-block;
+  box-sizing: border-box;
+  left: 100px;
+  margin-left: 40px;
+  margin-right: 0px;
+  top: 40px;
 }
 
 h1{
@@ -108,24 +125,28 @@ h1{
 
 #solicitados > div {
     width: 80%;
-    height: 80%;
+    height: 70vh;
     background: #76A5DC;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 25px;
     margin: 0 auto;
+    overflow-y: auto;
+    overflow-x: hidden;
 
 }
 #estoque > div{
     width: 80%;
-    height: 80%;
+    height: 70vh;
     background: #76A5DC;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 25px;
     margin: 0 auto;
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 #medicamento{
     right: 20px;
-    width: 150px;
+    width: 160px;
     height: 70px;
     background: #2882EB;
     border-radius: 20px;
@@ -133,6 +154,8 @@ h1{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    justify-content: flex-start;
+    align-content: flex-start;
 }
 #medicamento *{
     font-size: 10px;
@@ -143,29 +166,51 @@ div > p{
     padding-top: 3px;
 }
 #medicamento > .nome{
-    display: flex;
+     display: flex;
     margin-bottom: 15px;
     margin-top: 2px;
     top: 5px;
-    height:15px;
+    height: 15px;
     width: 100px;
     margin-left: 10px;
     position: relative;
+    align-items: center;
+    justify-content: center;
+    font-size: medium;
 }
 #medicamento > .quant{
     display: inline-flex;
     height: 30px;
-    width: 50px;
+    width: 60px;
     margin-left: 10px;
     position: relative;
     bottom: 15px;
+    align-items: center;
+  
 }
+.formExcluirUnico{
+    position: relative;
+    display: inline;
+    left: -180px;
+    bottom: -10px;
+}
+#medicamentoEstoque > #excluir{
+    position: relative;
+    left: 5px;
+    
+}
+#medicamento > #excluir{
+    font-size: 20px;
+}
+
 #medicamento > .fornecedor{
-    display: inline-block;
+    display: flex;
     height: 30px;
     width: 50px;
     position: relative;
     bottom: 15px;
+    align-items: center;
+    justify-content: center;
 }
 #medicamento > .bot{
     background-color: #FF0000;
@@ -199,8 +244,7 @@ article{
 }
 
 #main{
-    left: 5%;
-    bottom: 95vh;
+  display: flex;
 }
 
 
@@ -262,4 +306,8 @@ article{
 
 .title {
     font-size: 150%;
+}
+
+.alerta{
+    padding: 3px;
 }

@@ -9,6 +9,7 @@ import java.util.List;
 import br.cefetmg.casaderepouso.idao.IMedicamentoDAO;
 import br.cefetmg.casaderepouso.DAO.MedicamentoDAO;
 import br.cefetmg.casaderepouso.service.ICadastrarMedicamento;
+import java.time.LocalDateTime;
 
 /**
  *
@@ -16,14 +17,12 @@ import br.cefetmg.casaderepouso.service.ICadastrarMedicamento;
  */
 public class CadastrarMedicamento implements ICadastrarMedicamento {
 
-    private IMedicamentoDAO DAO;
-    
-    public CadastrarMedicamento() {
-        DAO = new MedicamentoDAO();
-    }
+    private IMedicamentoDAO DAO = new MedicamentoDAO();
 
     @Override
     public Boolean cadastrar(Medicamento med) {
+        
+        System.out.println("chegou no cadastrar service");
         if (!med.getDose().equals("")) {
             if (med.getIntervalo() != null) {
                 if (med.getMoradorCPF() != null) {
@@ -31,63 +30,78 @@ public class CadastrarMedicamento implements ICadastrarMedicamento {
                         if (med.getTarja() != null) {
                             if (med.getValidade() != null) {
                                 if (med.getValor() != null) {
-                                    Boolean ret = DAO.inserir(med);
-                                    return ret;
+                                    try {
+                                        Boolean ret = DAO.inserir(med);
+                                        if(ret == true){System.out.println("sucesso no cadastrar service");
+                                        }else{
+                                            System.out.println("erro no cadastrar service");
+                                        }
+                                        return ret;
+                                    } catch (Exception e) {
+                                        System.out.println("erro no cadastrar service");
+                                    }
                                 } else {
-                                    return null;
+                                    return false;
                                 }
                             } else {
-                                return null;
+                                return false;
                             }
                         } else {
-                            return null;
+                            return false;
                         }
                     } else {
-                        return null;
+                        return false;
                     }
                 } else {
-                    return null;
+                    return false;
                 }
             } else {
-                return null;
+                return false;
             }
         }
+
         return null;
     }
 
     @Override
     public void atualizar(Medicamento med) {
-        DAO.atualizar(med);
+        DAO.atualizarCondicao(med);
     }
-
+    
+    public void atualizar(Medicamento medicamento, LocalDateTime horario){
+        if(medicamento != null && horario != null){
+        DAO.atualizarHorario(medicamento, horario);
+        }else{
+            System.out.println("deu null");
+        }
+        
+        }
+    
     @Override
-    public Boolean excluir(Medicamento med) {
-        boolean ret = DAO.deletar(med);
+    public Boolean excluir(Integer id) {
+        boolean ret = DAO.deletar(id);
         return ret;
     }
 
     @Override
-    public Medicamento pesquisar(String morador, String med) {
+    public Medicamento pesquisar(int id) {
         Medicamento medicamento;
-        if (!morador.equals("") || morador != null) {
-            if (!med.equals("") || med != null) {
-                medicamento = DAO.pesquisar(morador, med);
-                return medicamento;
-            }else{
+            medicamento = DAO.pesquisar(id);
+            return medicamento;
+    }
+
+    @Override
+    public List<Medicamento> listarMedicamento(String moradorCPF, String condicao) {
+        if (!moradorCPF.equals("") && !condicao.equals("")) {
+            System.out.println(condicao);
+          
+            return DAO.listarMedicamento(moradorCPF, condicao);
+        } else {
+       
             return null;
-            }
-        }else{
-        return null;
         }
     }
     
-    @Override
-    public List<Medicamento> MedicamentoMorador(String moradorCPF) {
-      if(!moradorCPF.equals("") || moradorCPF != null){
-          return DAO.MedicamentoMorador(moradorCPF);
-    }else
-        return null;
-        }
 
     @Override
     public List<Medicamento> listarTodos() {

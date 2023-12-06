@@ -82,7 +82,6 @@ public class MoradorDAO implements IMoradorDAO {
     public boolean inserir(Morador morador){
         String sql = "INSERT INTO morador (nome, cpf, datanascimento, planomedico, responsavel, nome_mae, endereco, condicoes, estado) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)";
         try{
-           
             Connection con = DAO.conectar();
             
             PreparedStatement pstmt = con.prepareStatement(sql);

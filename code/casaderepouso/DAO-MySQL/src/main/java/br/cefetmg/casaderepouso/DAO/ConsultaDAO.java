@@ -34,6 +34,7 @@ public class ConsultaDAO implements IConsultaDAO{
         try {   
 
                 Connection con = DAO.conectar();
+          
                 PreparedStatement pstm = con.prepareStatement(sqlConsulta);
                 
                 //Transforma os ? nas variaveis

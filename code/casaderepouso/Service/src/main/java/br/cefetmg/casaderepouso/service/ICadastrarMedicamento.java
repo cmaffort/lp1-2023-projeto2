@@ -5,6 +5,7 @@
 package br.cefetmg.casaderepouso.service;
 import br.cefetmg.casaderepouso.dto.exception.CadastroException;
 import br.cefetmg.casaderepouso.dto.Medicamento;
+import java.time.LocalDateTime;
 import java.util.List;
 /**
  *
@@ -13,9 +14,10 @@ import java.util.List;
 public interface ICadastrarMedicamento {
     public Boolean cadastrar(Medicamento med);
     public void atualizar(Medicamento med);
-    public Boolean excluir(Medicamento med);
-    public Medicamento pesquisar(String morador, String med);
-    public List<Medicamento> MedicamentoMorador(String moradorCPF);
+    public void atualizar(Medicamento medicamento, LocalDateTime horario);
+    public Boolean excluir(Integer id);
+    public Medicamento pesquisar(int Id);
+    public List<Medicamento> listarMedicamento(String moradorCPF, String condicao);
     public List<Medicamento> listarTodos();
     
 }

@@ -9,6 +9,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -114,6 +115,11 @@ public class Facade extends HttpServlet {
         else if(act.equals("CadastroSaida")){
             jsp = AtualizarMorador.execute(request);
             jsp = CadastrarSaida.execute(request);
+            //Caso seja o responsável que cadastrou a saída
+            HttpSession session = request.getSession();
+            String cpf = (String) session.getAttribute("cpfMorador");
+            if(cpf != null)
+                jsp = "/SaidaMorador.jsp";
         }
         else if(act.equals("listarSaida")){
             jsp = ListarSaida.execute(request);
@@ -126,15 +132,56 @@ public class Facade extends HttpServlet {
             jsp = AtualizarSaida.execute(request);
             jsp = "/SaidaMorador.jsp";
         }
-
+        else if(act.equals("cadastrarEquipamento")){
+            jsp = CadastraEquipamento.execute(request);
+            jsp = ListarEquipamentos.execute(request);
+        }
+        else if(act.equals("listarEquipamentos")){
+            jsp = ListarEquipamentos.execute(request);
+        }
+        else if(act.equals("deleteEquipamento")){
+            jsp = ExcluirEquipamento.execute(request);
+            jsp = ListarEquipamentos.execute(request);
+        }
+        else if(act.equals("AtualizarEquipamento")){
+            jsp = AtualizarEquipamento.execute(request);
+            jsp = ListarEquipamentos.execute(request);
+        }
+        else if(act.equals("AtualizarResponsavel")){
+            jsp = AtualizarResponsavel.execute(request);
+            jsp = ListarResponsavel.execute(request);
+        }
+        else if(act.equals("AtualizarReceita")){
+            jsp = AtualizarReceita.execute(request);
+            jsp = ListarReceita.execute(request);
+        }else if(act.equals("ListarMedicamento")){
+            jsp = ListarMedicamento.execute(request);
+        }else if(act.equals("ExcluirMedicamento")){
+            jsp = ExcluirMedicamento.execute(request);
+            jsp = ListarMedicamento.execute(request);
+        }else if(act.equals("AtualizaHorarioMedicamento")){
+            jsp = AtualizarMedicamento.execute(request);
+        }else if(act.equals("CadastraProntuario")){
+            jsp = CadastroProntuario.execute(request);
+        }else if(act.equals("ListarProntuario")){
+            jsp = ListarProntuario.execute(request);
+        }else if(act.equals("CadastrarComodo")){
+            jsp = CadastrarComodo.execute(request);
+            jsp = ListarComodos.execute(request);
+        }else if(act.equals("deleteComodo")){
+            jsp = ExcluirComodo.execute(request);
+            jsp = ListarComodos.execute(request);
+        }else if(act.equals("ListarComodos")){
+            jsp = ListarComodos.execute(request);
+        }
+        
         RequestDispatcher rd = request.getRequestDispatcher(jsp);
         rd.forward(request, response);
-
+    
     }
 
     @Override
     public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
-
 }

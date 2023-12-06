@@ -19,11 +19,13 @@ public class DespesaDAO implements IDespesaDAO {
 
     @Override
     public boolean cadastrar(Despesas pagamento) {
-        String sqlDespesa = "INSERT INTO despesas(destinatario, pagante, telefone, identidade, data, hora, descricao, valor) VALUES(?,?,?,?,?,?,?,?)";
+        String sqlDespesa = "INSERT INTO despesas(destinatario, pagante, telefone, identidade, dia, hora, descricao, valor) VALUES(?,?,?,?,?,?,?,?)";
 
         try {
 
+
             Connection con = DAO.conectar();
+
             PreparedStatement pstm = con.prepareStatement(sqlDespesa);
 
             System.out.println("teste");
@@ -59,6 +61,7 @@ public class DespesaDAO implements IDespesaDAO {
         try {
             
             Connection connection = DAO.conectar();
+
             PreparedStatement preparedStatement = connection.prepareStatement(query);
 
             ResultSet rs = preparedStatement.executeQuery();

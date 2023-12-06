@@ -58,6 +58,7 @@ public class CartaoDAO implements ICartaoDAO {
     public boolean inserir(Cartao cartao){
         String sql = "INSERT INTO cartao_credito (cpf, numero_cartao,nome_cartao,validade, cardtype) VALUES(?, ?, ?, ?, ?)";
         try{
+
             Connection con = DAO.conectar();
             
             PreparedStatement pstmt = con.prepareStatement(sql);

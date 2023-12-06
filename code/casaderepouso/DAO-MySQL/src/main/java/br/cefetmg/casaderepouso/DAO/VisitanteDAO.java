@@ -26,6 +26,7 @@ public class VisitanteDAO implements IVisitanteDAO{
         //System.out.println("Chegou no Conector");
 
         try {   
+
                 Connection con = DAO.conectar();
                 PreparedStatement pstm = con.prepareStatement(sqlVisitante);
                 

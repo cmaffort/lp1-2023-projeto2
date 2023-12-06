@@ -22,6 +22,7 @@
             <img class="profile-image" src="imgs/perfil.png">
             <div class="name">Bem vindo</div>
             <a class="button" href="CadastroMorador.jsp">Novo morador</a>
+            <a class="button" href="CadastroSaida.jsp">Nova Saida Temporaria</a>
             <a class="button" href="#">Inventário</a>
             <a class="button" href="#">Equipamentos</a>
             <a class="button" href="GestaoVisitantes.jsp">Visitas</a>
@@ -143,10 +144,11 @@
                             <!-- comment <a class="links-acessos">Acessar documentos</a> -->
                             <a class="links-acessos" href="ListarReceitas.jsp">Acessar receitas médicas</a>
                             <a class="links-acessos">Acessar resultados de exames</a>
-                            <a class="links-acessos">Acessar histórico médico</a>
-                            <a style="z-index: 998"class="links-acessos" href="dieta.jsp">Acessar dieta</a>
+                            <a class="links-acessos" href="GestãoProntuario.jsp">Acessar histórico médico</a>
+                            <a style="z-index: 998"  class="links-acessos" href="dieta.jsp">Acessar dieta</a>
                             <a class="links-acessos" href="gestaoResponsavel.jsp">Acessar responsáveis</a>
                             <a class="links-acessos" href="consultas.jsp">Visualizar consultas</a>
+                            <a class="links-acessos" href="GestãoMedicamento.jsp">Medicamentos</a>
                             <a class="links-acessos" href="AgendarConsulta.jsp">Solicitar consulta</a>
                             <a class="links-acessos" href="cadastroResponsavel.jsp">Novo responsável</a>
                             <button class="botao-atualizar">Atualizar</button>
