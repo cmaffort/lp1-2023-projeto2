@@ -14,7 +14,7 @@ public class DAO {
     private static String driver="com.mysql.cj.jdbc.Driver";
     private static String url = "jdbc:mysql://127.0.0.1:3306/bdlardeidosos";
     private static String user = "root";
-    private static String password = "F3ll1p3!";
+    private static String password = "admin";
     //conexão
 
     
