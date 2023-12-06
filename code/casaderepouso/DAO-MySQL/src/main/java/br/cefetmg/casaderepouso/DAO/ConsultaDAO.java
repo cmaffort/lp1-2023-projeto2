@@ -4,6 +4,7 @@
  */
 package br.cefetmg.casaderepouso.DAO;
 
+import br.cefetmg.casaderepouso.DAO.connection.DAO;
 import br.cefetmg.casaderepouso.dto.Consulta;
 import br.cefetmg.casaderepouso.idao.IConsultaDAO;
 import java.sql.Connection;
@@ -31,8 +32,9 @@ public class ConsultaDAO implements IConsultaDAO{
         System.out.println("Chegou no Conector");
 
         try {   
-                Class.forName("com.mysql.cj.jdbc.Driver");
-                Connection con = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/bdlardeidosos", "root", "F3ll1p3!");
+
+                Connection con = DAO.conectar();
+          
                 PreparedStatement pstm = con.prepareStatement(sqlConsulta);
                 
                 //Transforma os ? nas variaveis
@@ -62,8 +64,8 @@ public class ConsultaDAO implements IConsultaDAO{
          String query = "SELECT * FROM consulta";
         List<Consulta> consultaList = new ArrayList<>();
         try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection connection = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/bdlardeidosos", "root", "admin");
+            
+            Connection connection = DAO.conectar();
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             
             ResultSet rs = preparedStatement.executeQuery();

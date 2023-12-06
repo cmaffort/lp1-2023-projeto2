@@ -31,8 +31,7 @@ public class MoradorDAO implements IMoradorDAO {
     public boolean atualizar(Morador morador) throws ClassNotFoundException, SQLException {
         String sql = "UPDATE morador SET nome = ?,datanascimento = ?, planomedico = ?, responsavel = ?, nome_mae = ?, endereco = ?, condicoes = ?, estado = ? WHERE cpf = ?";
         try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection con = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/bdlardeidosos", "root", "F3ll1p3!");
+            Connection con = DAO.conectar();
             
             PreparedStatement pstmt = con.prepareStatement(sql);
             pstmt.setString(1, morador.getNome());
@@ -83,8 +82,7 @@ public class MoradorDAO implements IMoradorDAO {
     public boolean inserir(Morador morador){
         String sql = "INSERT INTO morador (nome, cpf, datanascimento, planomedico, responsavel, nome_mae, endereco, condicoes, estado) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)";
         try{
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection con = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/bdlardeidosos", "root", "F3ll1p3!");
+            Connection con = DAO.conectar();
             
             PreparedStatement pstmt = con.prepareStatement(sql);
             pstmt.setString(1, morador.getNome());
